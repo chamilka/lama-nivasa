@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="information" namespace="/information" extends="pgis-default">
+	
+		<action name="home-view" class="pdn.sci.cs.action.InformationAction" method="homeView">
+			<result name="success">/WEB-INF/content/home/view.jsp</result>
+		</action>
+		
+		<action name="event-view" class="pdn.sci.cs.action.UserAction" method="eventView">
+			<result name="success">/WEB-INF/content/event/view.jsp</result>
+		</action>
+		
+		<action name="search-view" class="pdn.sci.cs.action.SearchInformationAction" method="searchLamaNivasa">
+			<result name="success">/WEB-INF/content/search/view.jsp</result>
+		</action>
+		
+		<action name="search-monthly-report" class="pdn.sci.cs.action.SearchInformationAction" method="searchLamaNivasaReport">
+			<result name="success">/WEB-INF/content/monthly/report-search.jsp</result>
+		</action>
+
+		<action name="primary-add" class="pdn.sci.cs.action.PrimaryInformationAction" method="primaryInformationAdd">
+			<result name="success">/WEB-INF/content/primary/add.jsp</result>
+		</action>
+		
+		<action name="primary-view" class="pdn.sci.cs.action.PrimaryInformationAction" method="primaryInfoView">
+			<result name="success">/WEB-INF/content/primary/view.jsp</result>
+		</action>
+		
+		<action name="monthly-add" class="pdn.sci.cs.action.MonthlyInformationAction" method="monthlyInformationAdd">
+			<result name="success">/WEB-INF/content/monthly/add.jsp</result>
+		</action>
+		
+		<action name="monthly-view" class="pdn.sci.cs.action.MonthlyInformationAction" method="monthlyInfoView">
+			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
+		</action>
+		
+		<action name="account-view" class="pdn.sci.cs.action.InformationAction" method="accountView">
+			<result name="success">/WEB-INF/content/account/view.jsp</result>
+		</action>
+		
+		<action name="contactus-view" class="pdn.sci.cs.action.InformationAction" method="contactUsView">
+			<result name="success">/WEB-INF/content/contactus/view.jsp</result>
+		</action>
+	
+	</package>
+</struts>

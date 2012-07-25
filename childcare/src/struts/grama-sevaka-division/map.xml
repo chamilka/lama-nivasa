@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="gramaSevakaDivision" namespace="/gramaSevakaDivision" extends="pgis-default">
+	
+		<action name="list" class="pdn.sci.cs.action.GramaSevakaDivisionAction" method="list">
+			<result name="success">/WEB-INF/content/grama-sevaka-division/list.jsp</result>
+		</action>
+
+	</package>
+</struts>
