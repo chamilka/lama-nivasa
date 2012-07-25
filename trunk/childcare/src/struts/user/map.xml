@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="pgis-default">
+	
+		<action name="signin" class="pdn.sci.cs.action.UserAction" method="signIn">
+			<result name="success">/WEB-INF/content/home.jsp</result>
+			<result name="input">/WEB-INF/content/signin.jsp</result>
+		</action>
+		
+		<action name="password-change" class="pdn.sci.cs.action.UserAction" method="passwordChange">
+			<result name="success">/WEB-INF/content/account/view.jsp</result>
+			<result name="input">/WEB-INF/content/account/view.jsp</result>
+		</action>
+		
+
+	</package>
+</struts>
