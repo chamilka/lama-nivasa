@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -35,7 +36,7 @@
   <s:url var="monthlyViewUrl" action="monthly-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="accountViewUrl" action="account-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="contactusViewUrl" action="contactus-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="districtFrameUrl" action="frame" namespace="/district" includeParams="none"></s:url>
+  <s:url var="settignsFrameUrl" action="frame" namespace="/settings" includeParams="none"></s:url>
   <s:url var="lamaNivasaFrameUrl" action="frame" namespace="/lamaNivasa" includeParams="none"></s:url>
   <s:url var="probationUnitFrameUrl" action="frame" namespace="/probationUnit" includeParams="none"></s:url>
   <s:url var="childFrameUrl" action="frame" namespace="/child" includeParams="none"></s:url>
@@ -47,7 +48,7 @@
 			<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link">CHILD</sj:a></td>
 			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link">MONTHLY DATA</sj:a></td>
             <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link">MY ACCOUNT</sj:a></td>
-            <td class="td6"><sj:a id="districtLink" href="%{#districtFrameUrl}" targets="content" cssClass="menu-link">CONFIGURATION</sj:a></td>
+            <td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTIGNS</sj:a></td>
           </tr>
      </table>
   </div>

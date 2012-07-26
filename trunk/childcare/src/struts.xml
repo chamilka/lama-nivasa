@@ -77,7 +77,7 @@
     
 	<include file="./struts/user/map.xml"/>
 	<include file="./struts/information/map.xml"/>
-	<include file="./struts/district/map.xml"/>
+	<include file="./struts/settings/map.xml"/>
 	<include file="./struts/divisional-secretariat/map.xml"/>
 	<include file="./struts/grama-sevaka-division/map.xml"/>
 	<include file="./struts/lama-nivasa/map.xml"/>
@@ -85,4 +85,7 @@
     <include file="./struts/child/map.xml"/>
     <include file="./struts/child/picture/map.xml"/>
     <include file="./struts/child/guardian/map.xml"/>
+    
+    <include file="./struts/generic/generic-category.xml"/>
+	<include file="./struts/generic/generic-list.xml"/>
 </struts>
