@@ -26,7 +26,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	private String address;
 	private String comment;
 
-	private Set<SystemUser> systemUsers = new HashSet<SystemUser>(0);
+	//private Set<SystemUser> systemUsers = new HashSet<SystemUser>(0);
 	private Set<LamaNivasa> lamaNivasas = new HashSet<LamaNivasa>(0);
 
 	public ProbationUnit() {
@@ -40,7 +40,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	public ProbationUnit(String id, String name, String email,
 			String telephone, String address, Integer sortOrder,
 			String insertUserId, String updateUserId, Calendar insertDatetime,
-			Calendar updateDatetime, Set<SystemUser> systemUsers, Set<LamaNivasa> lamaNivasas) {
+			Calendar updateDatetime, /*Set<SystemUser> systemUsers, */ Set<LamaNivasa> lamaNivasas) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -51,7 +51,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 		this.updateUserId = updateUserId;
 		this.insertDateTime = insertDatetime;
 		this.updateDateTime = updateDatetime;
-		this.systemUsers = systemUsers;
+		//this.systemUsers = systemUsers;
 		this.lamaNivasas = lamaNivasas;
 	}
 
@@ -102,14 +102,14 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit")
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit")
 	public Set<SystemUser> getSystemUsers() {
 		return this.systemUsers;
 	}
 
 	public void setSystemUsers(Set<SystemUser> systemUsers) {
 		this.systemUsers = systemUsers;
-	}
+	}*/
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit")
 	public Set<LamaNivasa> getLamaNivasas() {

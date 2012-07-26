@@ -3,11 +3,8 @@ package pdn.sci.cs.entity;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -27,7 +24,7 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 	protected String id;
 	private String username;
 	private String userRole;
-	private ProbationUnit probationUnit;
+	private String referenceId;
 	private String userPassword;
 	private String email;
 	private String telephone;
@@ -77,16 +74,16 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 		this.updateDateTime = updateDatetime;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROBATION_UNIT_ID")
-	public ProbationUnit getProbationUnit() {
-		return this.probationUnit;
+	
+	@Column(name = "REFERENCE_ID", length = 32)
+	public String getReferenceId() {
+		return referenceId;
 	}
 
-	public void setProbationUnit(ProbationUnit probationUnit) {
-		this.probationUnit = probationUnit;
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
 	}
-	
+
 	@Column(name = "USERNAME", unique = true, nullable = false, length = 32)
 	public String getUsername() {
 		return this.username;
