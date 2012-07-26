@@ -24,6 +24,8 @@ public class UserAction extends BaseAction {
 	
 	private List<SystemUser> list;	
 	
+	private SystemUser user;
+	
 	@Autowired private SystemUserService systemUserService;
 	
 	public String signIn() {
@@ -91,6 +93,19 @@ public class UserAction extends BaseAction {
 		list=systemUserService.findAll();
 	}
 
+public String view() {
+		
+		if(id == null || id.isEmpty()) {
+			addActionError("Invalid Access");
+			return INPUT;
+		} else {
+			user = systemUserService.findById(id);
+			if(user == null) {
+				addActionError("Item that your are searching could not be found");
+			}
+		}
+		return SUCCESS;
+	}
 	
 	public String profileEdit() {
 		search = "Vajira";
