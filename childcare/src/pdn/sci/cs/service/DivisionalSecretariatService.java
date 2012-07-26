@@ -29,4 +29,7 @@ public class DivisionalSecretariatService {
 		divisionalSecretariatDao.update(d);
 	}
 
+	public List<DivisionalSecretariat> findByDistrictId(String districtId) {
+		return divisionalSecretariatDao.findByDistrictId(districtId);
+	}
 }

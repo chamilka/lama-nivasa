@@ -84,6 +84,19 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String frame() {
+		return SUCCESS;
+	}
+	
+	public String add() {
+		return SUCCESS;
+	}
+	
+	public String edit() {
+		editMode();
+		return view();
+	}
+	
 	public String list(){
 		populateList();
 		return SUCCESS;
@@ -93,7 +106,7 @@ public class UserAction extends BaseAction {
 		list=systemUserService.findAll();
 	}
 
-public String view() {
+	public String view() {
 		
 		if(id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
@@ -192,9 +205,12 @@ public String view() {
 		this.list = list;
 	}
 
+	public SystemUser getUser() {
+		return user;
+	}
 
-	
-	
-	
+	public void setUser(SystemUser user) {
+		this.user = user;
+	}
 
 }

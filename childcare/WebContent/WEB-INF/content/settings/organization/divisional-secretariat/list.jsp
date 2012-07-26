@@ -1,17 +1,13 @@
-@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 	<div>	  	
-			
-			<%-- <s:iterator value="dsList">
-				<ul>
-					<s:property value="name"/>
-				</ul>
-			</s:iterator> --%>		
-			<s:property value="name"/>
-				<s:iterator value="devisionalSecretariats" status="divisionalSecretariatRowIndex">
+			<s:if test="list.size > 0">
+				<div class="sub-title"><s:property value="list[0].district.name"/></div>
+			</s:if>
+				<s:iterator value="list" status="divisionalSecretariatRowIndex">
 					<li><s:property value="name"/> </li>
-				</s:iterator>
+			</s:iterator>
 	
 	</div>

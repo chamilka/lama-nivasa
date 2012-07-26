@@ -17,6 +17,7 @@ import javax.persistence.Transient;
 @Table(name = "divisional_secretariat")
 public class DivisionalSecretariat extends BaseEntity implements java.io.Serializable {
 
+	public static final String DISTRICT_ID = "district.id";
 	private static final long serialVersionUID = 1L;
 	private District district;
 	private String id_widget;

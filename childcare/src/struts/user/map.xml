@@ -23,6 +23,18 @@
 			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
 		</action>
 		
+		<action name="frame" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name="success">/WEB-INF/content/settings/user/frame.jsp</result>
+		</action>
+		
+		<action name="add" class="pdn.sci.cs.action.UserAction" method="add">
+			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
+		</action>
+		
+		<action name="edit" class="pdn.sci.cs.action.UserAction" method="edit">
+			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
+		</action>
+		
 
 	</package>
 </struts>

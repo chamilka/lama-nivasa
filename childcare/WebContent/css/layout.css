@@ -3,7 +3,7 @@
 
 
 body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	font: 80%/1.2 Verdana, Arial, Helvetica, sans-serif;
 	background:url(../images/bg_pattern.png) 0 0 repeat;
 	margin: 0;
 	padding: 0;
@@ -180,6 +180,14 @@ a.blue-link:link, a.blue-link:visited, a.blue-link:hover, a.blue-link:active{
 	font-size:14px;
 	font-weight:bold;
 	color:#0000bb;
+}
+
+.sub-title {
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+	color: black;
+	font-family:Segoe UI;
 }
 
 .label {

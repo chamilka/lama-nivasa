@@ -6,17 +6,13 @@
 			<s:iterator value="list" status="districtRowIndex">
 			<ul>
 			
-				<s:url var="dsURL" action="divisional-secretariat-list" namespace="/divisional-secretariat">
-				<s:param name="id" value="id"></s:param>
+				<s:url var="dsURL" action="divitional-secretariat-list" namespace="/divisional-secretariat">
+					<s:param name="districtId" value="id"></s:param>
 				</s:url>
-					<sj:a href="%{#dsURL}" targets="districtLIstDiv">
+					<sj:a href="%{#dsURL}" targets="districtListDiv">
 					<s:property value="name"/>
 					
 					</sj:a>
-				<%--<s:property value="name"/>
-				<s:iterator value="devisionalSecretariats" status="divisionalSecretariatRowIndex">
-					<li><s:property value="name"/> </li>
-				</s:iterator>--%>
 			</ul>
 			</s:iterator>							
 	</div>

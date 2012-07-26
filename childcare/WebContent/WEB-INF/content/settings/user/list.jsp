@@ -32,7 +32,7 @@
 				<td><s:url var="userViewUrl" action="view" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{#userViewUrl}" targets="childResultDiv">
+					</s:url> <sj:a href="%{#userViewUrl}" targets="userDiv">
 						<s:property value="username" />
 					</sj:a></td>
 				<td><s:property value="userRole" /></td>
@@ -40,14 +40,17 @@
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
 				<td><s:property value="address" /></td>
-				<td><s:url var="childEditUrl" action="edit" namespace="/child"
+				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{childEditUrl}" targets="childResultDiv">Edit</sj:a>
-					| <s:url var="childDeleteUrl" action="delete" namespace="/child"
+					</s:url> <sj:a href="%{userEditUrl}" targets="userDiv">Edit</sj:a>
+					
+					| 
+					
+					<s:url var="userDeleteUrl" action="delete" namespace="/user"
 						escapeAmp="false" includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{childDeleteUrl}" targets="lamaNivasaResultDiv">Delete</sj:a>
+					</s:url> <sj:a href="%{userDeleteUrl}" targets="userDiv">Delete</sj:a>
 				</td>
 			</tr>
 		</s:iterator>

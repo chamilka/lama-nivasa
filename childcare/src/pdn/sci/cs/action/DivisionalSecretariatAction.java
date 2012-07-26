@@ -16,12 +16,44 @@ public class DivisionalSecretariatAction extends BaseAction {
 	@Autowired private DivisionalSecretariatService divisionalSecretariatService;
 	private List<DivisionalSecretariat> list;
 	private DivisionalSecretariat divisionalSecretariat;
+	private String districtId;
 	
 	public String list() {
 		list = divisionalSecretariatService.findAll();
 		return SUCCESS;
 	}
-
 	
+	public String viewByDistrictId() {
+		if(districtId != null && !districtId.isEmpty()) {
+			list = divisionalSecretariatService.findByDistrictId(districtId);
+			return SUCCESS;
+		} else {
+			return INPUT;
+		}
+	}
+
+	public List<DivisionalSecretariat> getList() {
+		return list;
+	}
+
+	public void setList(List<DivisionalSecretariat> list) {
+		this.list = list;
+	}
+
+	public DivisionalSecretariat getDivisionalSecretariat() {
+		return divisionalSecretariat;
+	}
+
+	public void setDivisionalSecretariat(DivisionalSecretariat divisionalSecretariat) {
+		this.divisionalSecretariat = divisionalSecretariat;
+	}
+
+	public String getDistrictId() {
+		return districtId;
+	}
+
+	public void setDistrictId(String districtId) {
+		this.districtId = districtId;
+	}
 
 }
