@@ -88,4 +88,8 @@
     
     <include file="./struts/generic/generic-category.xml"/>
 	<include file="./struts/generic/generic-list.xml"/>
+	
+	<include file="./struts/settings/district.xml" />
+	
+	
 </struts>
