@@ -15,6 +15,10 @@
 			<result name="input">/WEB-INF/content/account/view.jsp</result>
 		</action>
 		
+		<action name="list" class="pdn.sci.cs.action.UserAction" method="list">
+			<result name ="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
+		
 
 	</package>
 </struts>
