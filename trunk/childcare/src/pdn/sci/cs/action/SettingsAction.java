@@ -10,5 +10,8 @@ public class SettingsAction extends BaseAction {
 	public String frame() {
 		return SUCCESS;
 	}
+	public String list(){
+		return SUCCESS;
+	}
 
 }
