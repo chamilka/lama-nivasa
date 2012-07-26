@@ -15,7 +15,7 @@
 	<s:url var="userListUrl" action="list" 
 		namespace="/user" includeParams="none"></s:url>
 	
-	<s:url var="districtListUrl" action="list" 
+	<s:url var="districtListUrl" action="frame" 
 		namespace="/district" includeParams="none"></s:url>
 		
 	<s:url var="configurationUrl" action="frame" 
