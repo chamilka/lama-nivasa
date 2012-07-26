@@ -32,6 +32,7 @@
       </tr>
       <tr>
         <td>PASSWORD</td>
+  <td>pas</td>
         <td><table><s:password name="password" cssStyle="width:150px" showPassword="true" /></table></td>
       </tr>
      <tr>
