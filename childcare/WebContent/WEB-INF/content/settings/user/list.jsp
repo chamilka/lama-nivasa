@@ -14,11 +14,12 @@
 <hr />
 
 <div>
-	<table style="margin-top: 10px" width="100%" id="commonTable" class="greenTbl" cellpadding="2px">
+	<table style="margin-top: 10px" width="100%" id="commonTable"
+		class="greenTbl" cellpadding="2px">
 		<tr>
 			<th></th>
-			<th>USer Type</th>
-			<th>USer Name</th>
+			<th>User Name</th>
+			<th>User Type</th>
 			<th>Sex Type</th>
 			<th>Telephone Number</th>
 			<th>Mobile Type</th>
@@ -31,10 +32,10 @@
 				<td><s:url var="userViewUrl" action="view" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{#chViewUrl}" targets="childResultDiv">
-						<s:property value="fullName" />
+					</s:url> <sj:a href="%{#userViewUrl}" targets="childResultDiv">
+						<s:property value="username" />
 					</sj:a></td>
-				<td><s:property value="username" /></td>
+				<td><s:property value="userRole" /></td>
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
