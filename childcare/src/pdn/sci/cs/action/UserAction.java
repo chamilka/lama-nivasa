@@ -1,5 +1,7 @@
 package pdn.sci.cs.action;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
@@ -15,10 +17,12 @@ public class UserAction extends BaseAction {
 	private String username;
 	private String password;
 	private String search;
-
+	
 	private String oldUserPassword;
 	private String newUserPassword;
 	private String newUserPasswordConfirm;
+	
+	private List<SystemUser> list;	
 	
 	@Autowired private SystemUserService systemUserService;
 	
@@ -77,6 +81,16 @@ public class UserAction extends BaseAction {
 		
 		return SUCCESS;
 	}
+	
+	public String list(){
+		populateList();
+		return SUCCESS;
+	}
+	
+	private void populateList() {
+		list=systemUserService.findAll();
+	}
+
 	
 	public String profileEdit() {
 		search = "Vajira";
@@ -154,6 +168,17 @@ public class UserAction extends BaseAction {
 	public void setNewUserPasswordConfirm(String newUserPasswordConfirm) {
 		this.newUserPasswordConfirm = newUserPasswordConfirm;
 	}
+
+	public List<SystemUser> getList() {
+		return list;
+	}
+
+	public void setList(List<SystemUser> list) {
+		this.list = list;
+	}
+
+
+	
 	
 	
 
