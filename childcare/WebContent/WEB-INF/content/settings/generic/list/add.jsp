@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:10px">&nbsp;</td><td>Add New Category</td>
+	   		<td class="td6" style="width:10px">&nbsp;</td><td>Add New Category</td>
 	   </tr>
 	  </table>
 	</div>
