@@ -25,7 +25,7 @@
 <body>
 
 <div class="container">
-  <div class="header"><!-- end .header --></div>
+  <div class="header"></div>
   <div class="menu_bar">
   
   <s:url var="homeViewUrl" action="home-view" namespace="/information" includeParams="none"></s:url>
