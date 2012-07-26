@@ -55,26 +55,18 @@
 
 
 		<tr>
-			<td><s:url var="childPictureFrameUrl" action="frame"
-					namespace="/childPicture" includeParams="none">
-					<s:param name="childId" value="%{child.id}"></s:param>
-				</s:url> <sj:a href="%{#childPictureFrameUrl}" targets="childDetailViewDiv"
-					cssClass="blue-link">Pictures</sj:a> | <s:url
-					var="childGuardianFrameUrl" action="frame"
-					namespace="/childGuardian" includeParams="none">
-					<s:param name="childId" value="%{child.id}"></s:param>
-				</s:url> <sj:a href="%{#childGuardianFrameUrl}" targets="childDetailViewDiv"
-					cssClass="blue-link">Guardians</sj:a></td>
-			<td colspan="4">&nbsp;</td>
-			<td><s:url var="childEditUrl" action="edit" namespace="/child"
+			
+			<td><s:url var="userEditUrl" action="edit" namespace="/user"
 					includeParams="none">
-					<s:param name="id" value="%{child.id}"></s:param>
-				</s:url> <sj:a href="%{childEditUrl}" targets="childResultDiv"
-					cssClass="blue-link">Edit</sj:a> | <s:url var="childDeleteUrl"
-					action="delete" namespace="/child" escapeAmp="false"
+					<s:param name="id" value="%{user.id}"></s:param>
+				</s:url> <sj:a href="%{userEditUrl}" targets="userDiv"
+					cssClass="blue-link">Edit</sj:a> | 
+					
+					<s:url var="userDeleteUrl"
+					action="delete" namespace="/user" escapeAmp="false"
 					includeParams="none">
-					<s:param name="id" value="%{child.id}"></s:param>
-				</s:url> <sj:a href="%{childDeleteUrl}" targets="lamaNivasaResultDiv"
+					<s:param name="id" value="%{user.id}"></s:param>
+				</s:url> <sj:a href="%{userDeleteUrl}" targets="userDiv"
 					cssClass="blue-link">Delete</sj:a></td>
 
 		</tr>

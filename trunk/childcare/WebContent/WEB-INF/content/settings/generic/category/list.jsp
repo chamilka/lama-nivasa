@@ -11,7 +11,7 @@
 			<s:url var="configurationRefreshUrl" action="frame" 
 				namespace="/genericCategory" includeParams="none"></s:url>
 				
-	   		<td class="td3" style="width:10px">&nbsp;</td><td>Category List</td>
+	   		<td class="td3" style="width:10px">&nbsp;</td><td class="sub-title">Category List</td>
 	   			<td><sj:a href="%{#categoryAddUrl}" targets="categoryDiv"><input type="button" value="Add New" style="height: 22px"/></sj:a></td>
 	   			<td><sj:a href="%{#configurationRefreshUrl}" targets="content"><input type="button" value="Refresh" style="height: 22px"/></sj:a></td>
 	   </tr>
