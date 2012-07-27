@@ -28,13 +28,9 @@
   <div class="header"></div>
   <div class="menu_bar">
   
-  <s:url var="homeViewUrl" action="home-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="eventViewUrl" action="event-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="searchViewUrl" action="search-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="searchMonthlyReportUrl" action="search-monthly-report" namespace="/information" includeParams="none"></s:url>
-  <s:url var="primaryViewUrl" action="primary-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="monthlyViewUrl" action="monthly-view" namespace="/information" includeParams="none"></s:url>
-  <s:url var="accountViewUrl" action="account-view" namespace="/information" includeParams="none"></s:url>
+  <s:url var="homeViewUrl" action="home-view" namespace="/user" includeParams="none"></s:url>
+  <s:url var="monthlyViewUrl" action="monthly-report-add" namespace="/report" includeParams="none"></s:url>
+  <s:url var="accountViewUrl" action="account-frame" namespace="/user" includeParams="none"></s:url>
   <s:url var="contactusViewUrl" action="contactus-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="settignsFrameUrl" action="frame" namespace="/settings" includeParams="none"></s:url>
   <s:url var="lamaNivasaFrameUrl" action="frame" namespace="/lamaNivasa" includeParams="none"></s:url>
