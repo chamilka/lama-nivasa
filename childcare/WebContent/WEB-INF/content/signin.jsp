@@ -35,6 +35,15 @@
 		  	  	</td>
 		  	  </tr>
 		      <tr>
+		      	<td colspan="2"><s:actionerror /> </td>
+		      </tr>
+		     
+		  	  <tr>
+		  	  	<td colspan="2">
+		  	  		<s:actionerror />
+		  	  	</td>
+		  	  </tr>
+		      <tr>
 		        <td style="height:25px;color: #000">USERNAME</td>
 		        <td><table cellpadding="0" cellspacing="0">
 		        	<s:textfield name="username" cssStyle="width:150px; height:25px"  /></table></td>
