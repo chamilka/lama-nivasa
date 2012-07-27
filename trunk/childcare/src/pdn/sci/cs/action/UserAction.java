@@ -127,7 +127,7 @@ public class UserAction extends BaseAction {
 	
 	
 	private void searchPopulate() {
-		user=systemUserService.findById(id);
+		//user = systemUserService.findById(id);
 	}
 
 	public String profileEdit() {
