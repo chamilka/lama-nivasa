@@ -39,7 +39,7 @@ public class UserAction extends BaseAction {
 		} else {
 			user = systemUserService.signIn(username, password);
 			if(user == null) {
-				addActionError("Invalid username / password");
+				addActionError("Invalid username and/or password");
 				return INPUT;
 			} else {
 				if(session != null) {
