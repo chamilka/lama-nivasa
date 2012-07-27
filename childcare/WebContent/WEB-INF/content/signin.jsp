@@ -34,15 +34,7 @@
 		  	  		<s:actionerror />
 		  	  	</td>
 		  	  </tr>
-		      <tr>
-		      	<td colspan="2"><s:actionerror /> </td>
-		      </tr>
 		     
-		  	  <tr>
-		  	  	<td colspan="2">
-		  	  		<s:actionerror />
-		  	  	</td>
-		  	  </tr>
 		      <tr>
 		        <td style="height:25px;color: #000">USERNAME</td>
 		        <td><table cellpadding="0" cellspacing="0">
