@@ -12,19 +12,21 @@
 
 	<hr />
 	
+	
+		
+		
+	<div id="userDiv" style="margin: 20px 0 0 0">
+	
+	<s:url var="userSearchUrl" action="search-form" 
+		namespace="/user" includeParams="none"></s:url>
+		
 	<s:url var="userListUrl" action="list" 
 		namespace="/user" includeParams="none"></s:url>
 	
-	<s:url var="userAddUrl" action="add" 
-		namespace="/user" includeParams="none"></s:url>
+		<sj:div href="%{#userSearchUrl}">
 		
-	<div align="right" style="margin-right: 5px">
-		<sj:a href="%{userListUrl}" targets="userDiv">All</sj:a> | 
-		<sj:a href="%{#userAddUrl}" targets="userDiv">Add</sj:a>
-	</div>
-	
+		</sj:div>
 		
-	<div id="userDiv" style="margin: 20px 0 0 0">
 		<sj:div href="%{#userListUrl}" cssStyle="margin: 10px 0 0 0">
 		    
 		</sj:div>
