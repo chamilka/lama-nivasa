@@ -120,6 +120,16 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String searchForm() {
+		searchPopulate();
+		return SUCCESS;
+	}
+	
+	
+	private void searchPopulate() {
+		user=systemUserService.findById(id);
+	}
+
 	public String profileEdit() {
 		search = "Vajira";
 		return SUCCESS;
