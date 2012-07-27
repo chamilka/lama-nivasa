@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
-import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.SystemUserService;
@@ -50,10 +49,8 @@ public class UserAction extends BaseAction {
 					addActionError("Session has been expired");
 					return INPUT;
 				}
-				
 			}
 		}
-				
 	}
 	
 	public String signOut() {
@@ -71,7 +68,7 @@ public class UserAction extends BaseAction {
 	
 	public String passwordChangeSave() {
 		
-		SystemUser user = getUser();
+		SystemUser user = super.getUser();
 		
 		if(!newUserPassword.equals(newUserPasswordConfirm)) {
 			addActionError("New passwords are not matched");
@@ -82,11 +79,11 @@ public class UserAction extends BaseAction {
 		}
 		
 		user = systemUserService.findById(user.getId());
-		
 		user.setUserPassword(newUserPassword);
 		
 		systemUserService.save(user);
 		session.put(SessionKey.SESSION_USER, user);
+		addActionError("Password changed");
 		return SUCCESS;
 	}
 	
@@ -101,13 +98,20 @@ public class UserAction extends BaseAction {
 					setAddSettings(user);
 					user = systemUserService.save(user);
 				} else if (operationMode == OPERATION_MODE.EDIT && !user.getId().isEmpty() ) {
+					SystemUser existingUser = systemUserService.findById(user.getId());
+					user.setUserPassword(existingUser.getUserPassword());  //set password
 					setUpdateSettings(user);
-					systemUserService.update(user);
+					try{
+						systemUserService.update(user);
+					} catch (Exception e) {
+						e.printStackTrace();
+						addActionError("Profile was not updated, try again");
+						return INPUT;
+					}
 				} else {
 					addActionError("Error");
 					return INPUT;
 				}
-				
 			}
 		} else {
 			addActionError("Invalid Access");
