@@ -3,37 +3,40 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <div>	
-	<s:form action="search" namespace="/child" method="post">
+	<s:form action="search" namespace="/user" method="post">
 	 
-	 <table id="commonTable" class="darkBlueTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
+	 <table id="commonTable" class="greenTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
 	   <tr>
-	   	<th colspan="4">Search</th>
+	   	<th colspan="6">Search</th>
 	   </tr>
 	   
 	   <tr>
-	   	<td style="width: 350px">
+	   	 <td style="width: 200px">
 	   	 <table>
-		   <sj:autocompleter 
-		  		id="child.lamaNivasa.id"
-	     		name="child.lamaNivasa.id"
-	     		list="%{lamaNivasaList}"
-	     		listKey="id" listValue="name"
-	     		label="Lama Nivasa"
-	     		cssStyle="width:450px"
-	     	/>
+		   <s:textfield name="user.username" label="Name" />
      	 </table>
      	 </td>
-     	 <td style="width: 250px">
+     	 <td style="width: 100px">
 	   	  <table>
-	   		<s:textfield name="child.fullName" label="Name" />
+	   		<s:select name="user.userrole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}"/>
+	 	  </table>
+     	 </td>
+     	 <td style="width: 100px">
+	   	  <table>
+	   		<s:textfield name="user.email" label="Email" />
+	 	  </table>
+     	 </td>
+     	 <td style="width: 100px">
+	   	  <table>
+	   		<s:textfield name="user.mobile" label="Mobile" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="childResultDiv"/>
+	  			<sj:submit value="SEARCH" targets="userDiv"/>
 	  		</table>
      	 </td>
-     	 <td style="text-align: right; padding-right: 10px">
+     	 <td style="text-align: right; padding-right: 10px;white-space: nowrap;">
 	   	 	
 			<s:url var="userListUrl" action="list" 
 			namespace="/user" includeParams="none"></s:url>
