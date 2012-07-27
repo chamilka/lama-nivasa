@@ -35,12 +35,21 @@
 			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
 		</action>
 		
+		<action name="save" class="pdn.sci.cs.action.UserAction" method="save">
+			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
+			<result name="input">/WEB-INF/content/settings/user/view.jsp</result>
+		</action>
+		
 		<action name="search-form" class="pdn.sci.cs.action.UserAction" method="searchForm">
 			<result name="success">/WEB-INF/content/settings/user/search.jsp</result>
 		</action>
 		
 		<action name="change-password" class="pdn.sci.cs.action.UserAction" method="changePasswordForm">
 			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
+		</action>
+		
+		<action name="password-change-save" class="pdn.sci.cs.action.UserAction" method="passwordChangeSave">
+			<result name="success">/WEB-INF/content/account/profile-change.jsp</result>
 		</action>
 		
 		<action name="change-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">

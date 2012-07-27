@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.SystemUserService;
@@ -89,6 +90,32 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String save() {
+		
+		if(user != null) {
+			validateUser();
+			if(hasErrors()) {
+				return INPUT;
+			} else {
+				if(operationMode == OPERATION_MODE.ADD && user.getId().isEmpty()) {
+					setAddSettings(user);
+					user = systemUserService.save(user);
+				} else if (operationMode == OPERATION_MODE.EDIT && !user.getId().isEmpty() ) {
+					setUpdateSettings(user);
+					systemUserService.update(user);
+				} else {
+					addActionError("Error");
+					return INPUT;
+				}
+				
+			}
+		} else {
+			addActionError("Invalid Access");
+			return INPUT;
+		}
+		return SUCCESS;
+	}
+	
 	public String passwordForgot() {
 		System.out.println("Search Key : " + search);
 		
@@ -124,6 +151,18 @@ public class UserAction extends BaseAction {
 		
 		if(password == null || password.isEmpty()) {
 			addFieldError("password", "Password cannot be empty");
+		}
+	}
+	
+	private void validateUser() {
+		if(user.getUsername().isEmpty()) {
+			addFieldError("user.username", "Username cannot be empty");
+		}
+		
+		if(operationMode != OPERATION_MODE.EDIT) {
+			if(user.getUserPassword().isEmpty()) {
+				addFieldError("user.userPassword", "Password cannot be empty");
+			}
 		}
 	}
 	
