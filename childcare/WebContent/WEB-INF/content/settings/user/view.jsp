@@ -60,14 +60,14 @@
 					includeParams="none">
 					<s:param name="id" value="%{user.id}"></s:param>
 				</s:url> <sj:a href="%{userEditUrl}" targets="userDiv"
-					cssClass="blue-link">Edit</sj:a> | 
+					cssClass="greenTbl">Edit</sj:a> | 
 					
 					<s:url var="userDeleteUrl"
 					action="delete" namespace="/user" escapeAmp="false"
 					includeParams="none">
 					<s:param name="id" value="%{user.id}"></s:param>
 				</s:url> <sj:a href="%{userDeleteUrl}" targets="userDiv"
-					cssClass="blue-link">Delete</sj:a></td>
+					cssClass="greenTbl">Delete</sj:a></td>
 
 		</tr>
 	</table>
