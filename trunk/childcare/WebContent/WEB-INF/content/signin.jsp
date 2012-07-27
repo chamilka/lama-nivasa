@@ -29,6 +29,11 @@
     <div align="center" style="padding-top:220px;">
         <s:form action="signin" namespace="/user" method="post">
 		  	<table border="0" cellspacing="0" cellpadding="5" id="tbl_login" align="center">
+		  	  <tr>
+		  	  	<td colspan="2">
+		  	  		<s:actionerror />
+		  	  	</td>
+		  	  </tr>
 		      <tr>
 		        <td style="height:25px;color: #000">USERNAME</td>
 		        <td><table cellpadding="0" cellspacing="0">
