@@ -12,14 +12,14 @@
 
 	<hr />
 	
-	<s:url var="changeProfileUrl" action="change-profile" 
+	<s:url var="changeProfileUrl" action="view-profile" 
 		namespace="/user" includeParams="none"></s:url>
 	
 	<s:url var="changePasswordUrl" action="change-password" 
 		namespace="/user" includeParams="none"></s:url>
 		
 	<div>
-		<sj:a href="%{changeProfileUrl}" targets="accountDiv"><input type="button" value="Profile Change" /></sj:a>
+		<sj:a href="%{changeProfileUrl}" targets="accountDiv"><input type="button" value="Profile View" /></sj:a>
 		<sj:a href="%{#changePasswordUrl}" targets="accountDiv"><input type="button" value="Password Change" /></sj:a>
 	</div>
 	

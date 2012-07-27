@@ -14,7 +14,6 @@
 			<result name ="success">/WEB-INF/content/home/view.jsp</result>
 		</action>
 		
-		
 		<action name="list" class="pdn.sci.cs.action.UserAction" method="list">
 			<result name ="success">/WEB-INF/content/settings/user/list.jsp</result>
 		</action>
@@ -35,6 +34,11 @@
 			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
 		</action>
 		
+		<action name="profile-save" class="pdn.sci.cs.action.UserAction" method="save">
+			<result name="success">/WEB-INF/content/account/profile-view.jsp</result>
+			<result name="input">/WEB-INF/content/account/profile-change.jsp</result>
+		</action>
+		
 		<action name="save" class="pdn.sci.cs.action.UserAction" method="save">
 			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
 			<result name="input">/WEB-INF/content/settings/user/view.jsp</result>
@@ -48,8 +52,13 @@
 			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
 		</action>
 		
+		<action name="view-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">
+			<result name="success">/WEB-INF/content/account/profile-view.jsp</result>
+		</action>
+		
 		<action name="password-change-save" class="pdn.sci.cs.action.UserAction" method="passwordChangeSave">
-			<result name="success">/WEB-INF/content/account/profile-change.jsp</result>
+			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
+			<result name="input">/WEB-INF/content/account/password-change.jsp</result>
 		</action>
 		
 		<action name="change-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">
@@ -60,6 +69,5 @@
 			<result name="success">/WEB-INF/content/account/frame.jsp</result>
 		</action>
 		
-
 	</package>
 </struts>
