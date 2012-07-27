@@ -10,10 +10,10 @@
 			<result name="input">/WEB-INF/content/signin.jsp</result>
 		</action>
 		
-		<action name="password-change" class="pdn.sci.cs.action.UserAction" method="passwordChange">
-			<result name="success">/WEB-INF/content/account/view.jsp</result>
-			<result name="input">/WEB-INF/content/account/view.jsp</result>
+		<action name="home-view" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name ="success">/WEB-INF/content/home/view.jsp</result>
 		</action>
+		
 		
 		<action name="list" class="pdn.sci.cs.action.UserAction" method="list">
 			<result name ="success">/WEB-INF/content/settings/user/list.jsp</result>
@@ -37,6 +37,18 @@
 		
 		<action name="search-form" class="pdn.sci.cs.action.UserAction" method="searchForm">
 			<result name="success">/WEB-INF/content/settings/user/search.jsp</result>
+		</action>
+		
+		<action name="change-password" class="pdn.sci.cs.action.UserAction" method="changePasswordForm">
+			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
+		</action>
+		
+		<action name="change-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">
+			<result name="success">/WEB-INF/content/account/profile-change.jsp</result>
+		</action>
+		
+		<action name="account-frame" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name="success">/WEB-INF/content/account/frame.jsp</result>
 		</action>
 		
 

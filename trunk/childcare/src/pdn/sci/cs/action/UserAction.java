@@ -32,18 +32,25 @@ public class UserAction extends BaseAction {
 		
 		System.out.println("Username " + username);
 		System.out.println("Password " + password);
-		
-		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")){
-			if(session != null) {
-				session.put(SessionKey.USER_TYPE, "ADMIN");
-			} else {
-				System.out.println("SESSION IS NULL");
-			}
-			return SUCCESS;
-			
+		validateSignIn();
+		if(hasErrors()) {
+			return INPUT;
 		} else {
-			session.put(SessionKey.USER_TYPE, "POWER");
-			return SUCCESS;
+			user = systemUserService.signIn(username, password);
+			if(user == null) {
+				addActionError("Invalid username / password");
+				return INPUT;
+			} else {
+				if(session != null) {
+					session.put(SessionKey.USER_TYPE, user.getUserRole());
+					session.put(SessionKey.SESSION_USER, user);
+					return SUCCESS;
+				} else {
+					addActionError("Session has been expired");
+					return INPUT;
+				}
+				
+			}
 		}
 				
 	}
@@ -57,7 +64,11 @@ public class UserAction extends BaseAction {
 			
 	}
 	
-	public String passwordChange() {
+	public String changePasswordForm() {
+		return changeProfileForm();
+	}
+	
+	public String passwordChangeSave() {
 		
 		SystemUser user = getUser();
 		
@@ -106,6 +117,16 @@ public class UserAction extends BaseAction {
 		list=systemUserService.findAll();
 	}
 
+	private void validateSignIn() {
+		if(username == null || username.isEmpty()) {
+			addFieldError("username", "Username cannot be empty");
+		}
+		
+		if(password == null || password.isEmpty()) {
+			addFieldError("password", "Password cannot be empty");
+		}
+	}
+	
 	public String view() {
 		
 		if(id == null || id.isEmpty()) {
@@ -130,8 +151,12 @@ public class UserAction extends BaseAction {
 		//user = systemUserService.findById(id);
 	}
 
-	public String profileEdit() {
-		search = "Vajira";
+	public String changeProfileForm() {
+		editMode();
+		System.out.println(super.getUser().getId());
+		
+		user = systemUserService.findById(super.getUser().getId());
+		System.out.println(user.getEmail());
 		return SUCCESS;
 	}
 	
