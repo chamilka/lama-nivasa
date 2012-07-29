@@ -30,6 +30,10 @@ public class MonthlyInformationAction extends BaseAction {
 		viewInit();
 		return SUCCESS;
 	}
+	public String save(){
+		
+		return SUCCESS;
+	}
 	
 	public List<GenericList> getYearList() {
 		return yearList;
@@ -46,5 +50,6 @@ public class MonthlyInformationAction extends BaseAction {
 	public void setMonthList(List<GenericList> monthList) {
 		this.monthList = monthList;
 	}
+	
 
 }

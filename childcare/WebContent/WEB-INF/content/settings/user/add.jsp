@@ -4,7 +4,7 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <div>
-	<!-- fro awa -->
+	
     <div class="sub-title">Add User</div><br />
     
 	<table id="commonTable" class="greenTbl" width="100%">
