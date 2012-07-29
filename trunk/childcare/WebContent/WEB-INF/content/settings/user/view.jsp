@@ -11,7 +11,7 @@
 		</tr>
 
 		<tr>
-			<th>User Name</th>
+			<th width="150px">User Name</th>
 			<td colspan="5"><s:property value="user.username" />
 			</td>
 		</tr>
