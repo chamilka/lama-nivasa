@@ -13,7 +13,7 @@
 
 <div>
  
-  <table id="commonTable" class="purpleTbl" width="100%">
+  <table id="commonTable" class="redTbl" width="100%">
   	<tr>
   		<th width="150px">Username</th>
   		<td><table><s:label name="user.username" /></table>	</td>
@@ -53,7 +53,7 @@
 	 		<s:url var="changeProfileUrl" action="change-profile" 
 				namespace="/user" includeParams="none"></s:url>
 	 	
-	 		<sj:a href="%{#changeProfileUrl}" targets="accountDiv">Edit Profile</sj:a> 
+	 		<table><sj:a href="%{#changeProfileUrl}" targets="accountDiv" cssStyle="margin-left:10px">Edit Profile</sj:a></table> 
 	 	</td>
 	 </tr>
 	 
