@@ -14,7 +14,7 @@
 	<s:url var="categoryListUrl" action="list" 
 		namespace="/genericCategory" includeParams="none"></s:url>
 		
-	<div id="categoryListDive" style="margin: 20px 0 0 0">
+	<div id="categoryListDive" style="margin: 10px 0 0 0">
 		<sj:div href="%{#categoryListUrl}" cssStyle="margin: 10px 0 0 0" listenTopics="refreshCategoryList">
 		    
 		</sj:div>

@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td6" style="width: 5px">&nbsp;</td>
-			<td>Users</td>
+			<td class="sub-title">Users</td>
 		</tr>
 	</table>
 </div>

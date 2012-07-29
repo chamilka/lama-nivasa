@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td>Add Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Add Lama Nivasa</td>
 	   </tr>
 	  </table>
 	</div>
@@ -78,7 +78,8 @@
      				name="lamaNivasa.registrationDate" 
      				changeMonth="true" 
      				changeYear="true"
-     				displayFormat="dd/MM/yy"
+     				yearRange="1980:2012"
+     				value="lamaNivasa.registrationDate.time"
      				/></table></td>
 	 	</tr>
 	 	

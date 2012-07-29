@@ -5,7 +5,7 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td>Add Child</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Add/Edit Child</td>
 	   </tr>
 	  </table>
 </div>
@@ -20,10 +20,10 @@
 	  
     <table class="darkBlueTbl" width="100%" >
       <tr>
-        <td class="tdLabel">Child</td>
+        <td class="tdLabel">Lama-Nivasa</td>
         <td> 
      		<table>
-     		  <%-- 	<s:select name="child.lamaNivasa.id" list="lamaNivasaList" listKey="id" listValue="name" />  --%>
+     		  
      		   <sj:autocompleter 
 			  		id="child.lamaNivasa.id"
 		     		name="child.lamaNivasa.id"
@@ -35,7 +35,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Code</td>
+        <td class="tdLabel">Child Code</td>
         <td> 
      		<table>
 				<s:textfield name="child.code" cssStyle="width:100px"/>
@@ -59,7 +59,8 @@
      				name="child.dateOfBirth" 
      				changeMonth="true" 
      				changeYear="true"
-     				yearRange="2008:2012"
+     				yearRange="1994:2012"
+     				value="child.dateOfBirth.time"
      				/>
      		</table>
     	</td>

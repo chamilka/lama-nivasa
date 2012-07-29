@@ -33,7 +33,7 @@
 			<result name="success">/WEB-INF/content/child/view.jsp</result>
 		</action>
 		
-		<action name="delete" class="pdn.sci.cs.action.LamaNivasaAction" method="delete">
+		<action name="delete" class="pdn.sci.cs.action.ChildAction" method="delete">
 			<result name="success">/WEB-INF/content/child/list.jsp</result>
 		</action>
 		

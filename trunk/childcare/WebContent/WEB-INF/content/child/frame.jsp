@@ -20,7 +20,7 @@
 	    
 	</sj:div>
 	  
-	<div id="childResultDiv">
+	<div id="childResultDiv" style="margin-top: 10px">
 		<sj:div href="%{#childListUrl}">
 		    
 		</sj:div>
