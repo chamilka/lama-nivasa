@@ -13,7 +13,7 @@
 	
 	<hr />
 	
-	<s:form>
+	<s:form action="save" method="post" namespace="/report" >
 	 
 	 <table width="100%">
 	   	<tr>
@@ -55,7 +55,7 @@
 		     </td>
 		     <td>
 		     	 <table>
-		     	 	 <sj:spinner 
+		     	 	<sj:spinner 
 				    	name="numberOfVacantOfficers" 
 				    	id="numberOfVacantOfficers" 
 				    	min="0" 
@@ -398,7 +398,7 @@
 	 	<tr>
 		      <td colspan="2" class="monthly-td">
 		     	 <table>
-		     	      <sj:submit />
+		     	      <sj:submit targets="childResultDiv"/>
 		     	 	 
 		     	 </table>
 		     </td>
