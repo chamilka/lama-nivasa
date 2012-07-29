@@ -5,16 +5,13 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">User</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">User Management</td>
 	   </tr>
 	  </table>
 	</div>
 
 	<hr />
 	
-	
-		
-		
 	<div id="userDiv" style="margin: 20px 0 0 0">
 	
 	<s:url var="userSearchUrl" action="search-form" 

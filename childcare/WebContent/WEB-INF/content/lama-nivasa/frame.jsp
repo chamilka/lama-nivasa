@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td>Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Lama Nivasa</td>
 	   </tr>
 	  </table>
 	</div>
@@ -21,7 +21,7 @@
 	</sj:div>
 	
 	
-	<div id="lamaNivasaResultDiv">
+	<div id="lamaNivasaResultDiv" style="margin-top: 10px">
 		<sj:div href="%{#lamaNivasaListUrl}">
 		    
 		</sj:div>

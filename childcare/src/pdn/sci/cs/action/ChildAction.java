@@ -126,7 +126,12 @@ public class ChildAction extends BaseAction {
 			addActionError("Could not delete the entry, id is missing");
 			return INPUT;
 		} else {
-			childService.delete(id);
+			System.out.println("delete called " + this.id);
+			try {
+				childService.delete(id);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			return list();
 		}
 		
@@ -161,6 +166,8 @@ public class ChildAction extends BaseAction {
 		if(child.getSexType().isEmpty()) {
 			addFieldError("child.sexType", "Sex type cannot be empty");
 		}
+		
+		
 	}
 
 	public Child getChild() {

@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td>Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Lama Nivasa</td>
 	   </tr>
 	  </table>
 	</div>
@@ -49,6 +49,20 @@
 	 		<th>Department Funding</th><td><s:property value="lamaNivasa.departmentFunding"/></td>
 	 		<th>Number of Officers</th><td><s:property value="lamaNivasa.numberOfOfficers"/></td>
 	 	</tr>
+	 	
+	 	 <tr>
+		 	<td colspan="6"><table cellpadding="0" cellspacing="0">
+		 		<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
+			 		<s:param name="id" value="lamaNivasa.id"></s:param>
+			 	</s:url>
+			 	<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">Edit</sj:a>
+				 | 
+			 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
+			 		<s:param name="id" value="lamaNivasa.id"></s:param>
+			 	</s:url>
+			 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv">Delete</sj:a>
+			 </td>
+		</tr>
 	 
 	 
 	 </table>

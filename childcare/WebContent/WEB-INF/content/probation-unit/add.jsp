@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td>Add Probation Unit</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Add Probation Unit</td>
 	   </tr>
 	  </table>
 	</div>

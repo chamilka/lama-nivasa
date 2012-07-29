@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td>Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Lama Nivasa</td>
 	   </tr>
 	  </table>
 	</div>
@@ -14,7 +14,7 @@
 	<div>
 	  <table  style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Name</th><th>Telephone</th><th>Email</th><th>Fax</th><th>&nbsp;</th>
+	  		<th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th><th>Current Orphans</th><th>&nbsp;</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
@@ -24,9 +24,12 @@
 			 	</s:url>
 			 	<sj:a href="%{#lamaNivasaViewUrl}" targets="lamaNivasaResultDiv"><s:property value="name"/></sj:a>
 			 </td>
+			 <td><s:property value="divisionalSecretariat.name"/></td>
+			 <td><s:property value="probationUnit.name"/></td>
 			 <td><s:property value="telephone"/></td>
-			 <td><s:property value="email"/></td>
-			  <td><s:property value="fax"/></td>
+			 <td><s:property value="numberOfOfficers"/></td>
+			 <td><s:property value="numberOfChildren"/></td>
+			 <td>21</td>
 			 <td>
 			 	<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
