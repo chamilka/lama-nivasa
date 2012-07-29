@@ -20,8 +20,8 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 	private String childId;
 	private ChildPicture childPicture;
 	private List<ChildPicture> list;
+	private byte[] imageInByte = null;
 
-	
 	public String list() {
 		search();
 		return SUCCESS;
@@ -58,9 +58,6 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 	}
 	
 	public String save() {
-		System.out.println(getFileUploadFileName());
-		System.out.println(getFileUploadContentType());
-		System.out.println(childPicture.getComment());
 		
 		if(childPicture != null) {
 			validateChildPicture();
@@ -75,6 +72,9 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 					setFileProperties();
 					setUpdateSettings(childPicture);
 					childPictureService.update(childPicture);
+					
+					childId = childPicture.getChild().getId();
+					return list();
 				} else {
 					addActionError("Error");
 					return INPUT;
@@ -105,11 +105,14 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 			return INPUT;
 		} else {
 			childPicture = childPictureService.findById(id);
-			childId = childPicture.getChild().getId();
+			
 			if(childPicture == null) {
 				addActionError("Item that your are searching could not be found");
+			} else {
+				childId = childPicture.getChild().getId();
 			}
 		}
+		
 		return SUCCESS;
 	}
 	
@@ -119,6 +122,7 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 			return INPUT;
 		} else {
 			childPictureService.delete(id);
+			childId = childPicture.getChild().getId();
 			return list();
 		}
 		
@@ -169,6 +173,43 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 	public void setList(List<ChildPicture> list) {
 		this.list = list;
 	}
+
+	public byte[] getImageInByte() {
+		if(id != null) {
+			view();
+			if(childPicture != null) {
+				try{
+				 imageInByte = childPicture.getFileContent();
+				 System.out.println(imageInByte.length);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				return null;
+			}
+		}
+		return imageInByte;
+	}
+
+	public void setImageInByte(byte[] imageInByte) {
+		this.imageInByte = imageInByte;
+	}
 	
+	public String getCustomContentType() {
+		if(childPicture != null) {
+			return childPicture.getFileType();
+		} 
+		
+		return null;
+	}
+ 
+	public String getCustomContentDisposition() {
+		if(childPicture != null) {
+			return childPicture.getFileName();
+		}
+		
+		return null;
+	}
+ 
 	
 }

@@ -5,6 +5,10 @@
 <struts>
 	<package name="childPicture" namespace="/childPicture" extends="pgis-default">
 	
+		<result-types>
+			<result-type name="imageResult"	class="pdn.sci.cs.util.ImageResult" />
+		</result-types>
+		
 		<action name="list" class="pdn.sci.cs.action.ChildPictureAction" method="list">
 			<result name="success">/WEB-INF/content/child/picture/list.jsp</result>
 		</action>
@@ -38,8 +42,16 @@
 		</action>
 		
 		<action name="save" class="pdn.sci.cs.action.ChildPictureAction" method="save">
-			<result name="success">/WEB-INF/content/child/picture/view.jsp</result>
+			<result name="success">/WEB-INF/content/child/picture/list.jsp</result>
 			<result name="input">/WEB-INF/content/child/picture/add.jsp</result>
+		</action>
+		
+		<action name="image-view" class="pdn.sci.cs.action.ChildPictureAction">
+			<result name="success" type="imageResult"></result>
+		</action>
+		
+		<action name="image-view-page" class="pdn.sci.cs.action.ChildPictureAction" method="frame">
+			<result name="success">/WEB-INF/content/child/picture/view-large-image.jsp</result>
 		</action>
 
 	</package>

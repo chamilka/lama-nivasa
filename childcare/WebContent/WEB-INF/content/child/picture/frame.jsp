@@ -4,15 +4,14 @@
 
 <div style="border: 2px dotted #ddd">
 
-    <s:label name="child.id"/>
 	<s:url var="childPictureListUrl" action="list" 
 		namespace="/childPicture" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
+			<s:param name="childId" value="childId"></s:param>
 		</s:url>
 		
 	<s:url var="childPictureAddUrl" action="add" 
 		namespace="/childPicture" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
+			<s:param name="childId" value="childId"></s:param>
 		</s:url>
   
     <div style="text-align:center">
