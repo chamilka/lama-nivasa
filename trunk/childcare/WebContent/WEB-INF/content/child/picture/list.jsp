@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:10px">&nbsp;</td><td>Children</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Children</td>
 	   </tr>
 	  </table>
 	</div>
@@ -14,30 +14,39 @@
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Comment</th><th>File</th><th>&nbsp;</th>
+	  		<th style="width:120px">Thumbnail</th><th>Comment</th><th>File</th><th>&nbsp;</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
-			 <td>
-			 	<s:url var="childViewUrl" action="view" namespace="/child" includeParams="none">
+			<td>
+				<s:url var="imageShowUrl" action="image-view" namespace="/childPicture" includeParams="none">
+					<s:param name="id" value="id"></s:param>
+				</s:url>
+				
+				<s:url var="imageLargeViewUrl" action="image-view-page" namespace="/childPicture" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{#childViewUrl}" targets="childResultDiv"><s:property value="comment"/></sj:a>
+				<sj:a href="%{#imageLargeViewUrl}" targets="imageDiv">
+					<img src="<s:property value="#imageShowUrl" />" style="width:120px;height:90px"/>
+				</sj:a>
+			</td>
+			 <td>
+			 	
+			 	<s:property value="comment"/>
 			 </td>
 			 <td><s:property value="fileName"/></td>
 			 <td>
-			 	<s:url var="childEditUrl" action="edit" namespace="/child" includeParams="none">
+			 	<s:url var="childPictureDeleteUrl" action="delete" namespace="/childPicture" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{childEditUrl}" targets="childResultDiv">Edit</sj:a>
-				 | 
-			 	<s:url var="childDeleteUrl" action="delete" namespace="/child" escapeAmp="false" includeParams="none">
-			 		<s:param name="id" value="id"></s:param>
-			 	</s:url>
-			 	<sj:a href="%{childDeleteUrl}" targets="lamaNivasaResultDiv">Delete</sj:a>
+			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv">Delete</sj:a>
 			 </td>
 			</tr>
 		</s:iterator>
 	</table>
+	</div>
+	
+	<div id="imageDiv" align="center" style="margin-top: 10px;border: 1px solid #ddd">
+	
 	</div>
 	

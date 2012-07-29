@@ -24,6 +24,7 @@ public class ChildGuardian extends BaseEntity implements java.io.Serializable {
 	private String telephone;
 	private String relationship;
 	private String pathToHome;
+	private String guardianStatus;
 
 	public ChildGuardian() {
 	}
@@ -116,6 +117,15 @@ public class ChildGuardian extends BaseEntity implements java.io.Serializable {
 
 	public void setPathToHome(String pathToHome) {
 		this.pathToHome = pathToHome;
+	}
+
+	@Column(name = "GUARDIAN_STATUS")
+	public String getGuardianStatus() {
+		return guardianStatus;
+	}
+
+	public void setGuardianStatus(String guardianStatus) {
+		this.guardianStatus = guardianStatus;
 	}
 
 }

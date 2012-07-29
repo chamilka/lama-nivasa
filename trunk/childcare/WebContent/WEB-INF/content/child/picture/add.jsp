@@ -5,13 +5,12 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:10px">&nbsp;</td><td>Add Child</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td>Add Child</td>
 	   </tr>
 	  </table>
 </div>
 
 <hr />
-
 <div>
   <s:form action="save" method="post" namespace="/childPicture" id="childPictureForm" enctype="multipart/form-data">
     <s:actionerror/>

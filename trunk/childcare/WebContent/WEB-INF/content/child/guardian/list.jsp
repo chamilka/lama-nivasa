@@ -5,16 +5,16 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:10px">&nbsp;</td><td>Children</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Guardian</td>
 	   </tr>
 	  </table>
 	</div>
 	<hr />
 	
 	<div>
-	  <table style="margin-top: 10px" width="90%">
+	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Name</th><th>Telephone</th><th>Relationship</th><th>Address</th><th>&nbsp;</th>
+	  		<th>Name</th><th>Telephone</th><th>Status</th><th>Relationship</th><th>Address</th>
 	  	</tr>
 			<s:iterator value="list" status="rowIndex">
 				<tr>
@@ -25,6 +25,7 @@
 				 	<sj:a href="%{#childGuardianEditUrl}" targets="childGuardianResultDiv"><s:property value="name"/></sj:a>
 				 </td>
 				 <td><s:property value="telephone" /> </td>
+				  <td><s:property value="guardianStatus" /> </td>
 				 <td><s:property value="relationship" /> </td>
 				 <td><s:property value="address" /> </td>
 			</s:iterator>

@@ -6,7 +6,7 @@
   
     <table id="commonTable" class="blueTbl" width="100%">
      <tr>
-       <th colspan="7">
+       <th colspan="7" >
         	Child Detail
        </th>
       </tr>
@@ -94,13 +94,13 @@
       <tr>
         <td>
         	<s:url var="childPictureFrameUrl" action="frame" namespace="/childPicture" includeParams="none">
-				<s:param name="childId" value="%{child.id}"></s:param>
+				<s:param name="childId" value="child.id"></s:param>
 			</s:url>
         
         	<sj:a href="%{#childPictureFrameUrl}" targets="childDetailViewDiv" cssClass="blue-link">Pictures</sj:a>
 			| 
 			<s:url var="childGuardianFrameUrl" action="frame" namespace="/childGuardian" includeParams="none">
-				<s:param name="childId" value="%{child.id}"></s:param>
+				<s:param name="childId" value="child.id"></s:param>
 			</s:url>
 			
 			<sj:a href="%{#childGuardianFrameUrl}" targets="childDetailViewDiv" cssClass="blue-link">Guardians</sj:a>
