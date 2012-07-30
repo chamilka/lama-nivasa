@@ -30,6 +30,7 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 	private DivisionalSecretariat divisionalSecretariat;
 	private String name;
 	private String id_widget;
+	private Calendar dateOfEstablishment;
 	private String address;
 	private String category;
 	private String telephone;
@@ -281,5 +282,16 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 	public void setId_widget(String id_widget) {
 		this.id = id_widget;
 	}
+
+	@Column(name = "DATE_OF_ESTABLISHMENT")
+	public Calendar getDateOfEstablishment() {
+		return dateOfEstablishment;
+	}
+
+	public void setDateOfEstablishment(Calendar dateOfEstablishment) {
+		this.dateOfEstablishment = dateOfEstablishment;
+	}
+	
+	
 
 }

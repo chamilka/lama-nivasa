@@ -29,6 +29,13 @@ public class Child extends BaseEntity implements java.io.Serializable {
 	private String code;
 	private String fullName;
 	private Calendar dateOfBirth;
+	private Calendar dateOfRegistration;
+	private String category;
+	private String birthCertificate;
+	private String proforma;
+	private String vaccinationCard;
+	private String parentsAvailability;
+	private String history;
 	private String sexType;
 	private String race;
 	private String religion;
@@ -216,5 +223,70 @@ public class Child extends BaseEntity implements java.io.Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
+	@Column(name = "DATE_OF_REGISTRATION")
+	public Calendar getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setDateOfRegistration(Calendar dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
+
+	@Column(name = "CATEGORY")
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Column(name = "BIRTH_CERTIFICATE")
+	public String getBirthCertificate() {
+		return birthCertificate;
+	}
+
+	public void setBirthCertificate(String birthCertificate) {
+		this.birthCertificate = birthCertificate;
+	}
+
+	@Column(name = "PROFORMA")
+	public String getProforma() {
+		return proforma;
+	}
+
+	public void setProforma(String proforma) {
+		this.proforma = proforma;
+	}
+
+	@Column(name = "VACCINATION_CARD")
+	public String getVaccinationCard() {
+		return vaccinationCard;
+	}
+
+	public void setVaccinationCard(String vaccinationCard) {
+		this.vaccinationCard = vaccinationCard;
+	}
+
+	@Column(name = "PARENTS_AVAILABILITY")
+	public String getParentsAvailability() {
+		return parentsAvailability;
+	}
+
+	public void setParentsAvailability(String parentsAvailability) {
+		this.parentsAvailability = parentsAvailability;
+	}
+
+	@Column(name = "HISTORY")
+	public String getHistory() {
+		return history;
+	}
+
+	public void setHistory(String history) {
+		this.history = history;
+	}
+	
+	
 
 }

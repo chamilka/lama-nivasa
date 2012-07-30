@@ -23,6 +23,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	private String name;
 	private String email;
 	private String telephone;
+	private String fax;
 	private String address;
 	private String comment;
 
@@ -128,7 +129,14 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
-	
+
+	@Column(name = "FAX")
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
 
 }
