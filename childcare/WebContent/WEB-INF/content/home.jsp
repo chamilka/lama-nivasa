@@ -36,6 +36,8 @@
   <s:url var="lamaNivasaFrameUrl" action="frame" namespace="/lamaNivasa" includeParams="none"></s:url>
   <s:url var="probationUnitFrameUrl" action="frame" namespace="/probationUnit" includeParams="none"></s:url>
   <s:url var="childFrameUrl" action="frame" namespace="/child" includeParams="none"></s:url>
+  <s:url var="contactusUrl" action="contact-view" namespace="/settings" includeParams="none"></s:url>
+  
   
   	<table border="0" cellspacing="0" cellpadding="0" id="tblMenu">
           <tr>
@@ -48,7 +50,7 @@
             	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTIGNS</sj:a></td>
          	</s:if>
          	<s:else>
-         		<td class="td6"></td>
+            	 <td class="td6"><sj:a id="contactusLink" href="%{#contactusUrl}" targets="content" cssClass="menu-link">CONTACT US</sj:a></td>
          	</s:else>
           </tr>
      </table>
