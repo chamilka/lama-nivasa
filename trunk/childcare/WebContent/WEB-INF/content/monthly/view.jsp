@@ -81,7 +81,7 @@
 				    	max="100" 
 				    	step="1" 
 				    	value="0"
-				    	label="Female Societals"
+				    	label="Female Reunification"
 				    	cssStyle="width:60px"
 				    	required="true"
 				    	mouseWheel="true"/>
@@ -97,7 +97,7 @@
 				    	max="100" 
 				    	step="1" 
 				    	value="0"
-				    	label="Male Societals"
+				    	label="Male Reunification"
 				    	cssStyle="width:60px"
 				    	required="true"
 				    	mouseWheel="true"/>
