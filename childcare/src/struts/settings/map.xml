@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="settings" namespace="/settings" extends="pgis-default">
+	<package name="settings" namespace="/settings" extends="web-default">
 	
 		<action name="frame" class="pdn.sci.cs.action.SettingsAction" method="frame">
 			<result name="success">/WEB-INF/content/settings/frame.jsp</result>

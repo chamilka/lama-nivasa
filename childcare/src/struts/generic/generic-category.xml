@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="genericCategory" namespace="/genericCategory" extends="pgis-default">
+	<package name="genericCategory" namespace="/genericCategory" extends="web-default">
 	
 		<action name="frame" class="pdn.sci.cs.action.GenericCategoryAction" method="viewFrame">
 			<result name="success">/WEB-INF/content/settings/generic/category/frame.jsp</result>

@@ -48,6 +48,11 @@
    		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   	</listener>
   	
+  	<error-page>
+    	<error-code>404</error-code>
+    	<location>/WEB-INF/content/common/invalid-resource.jsp</location>
+ 	</error-page>
+  	
   	<welcome-file-list>
    		<welcome-file>/WEB-INF/content/signin.jsp</welcome-file>
   	</welcome-file-list>

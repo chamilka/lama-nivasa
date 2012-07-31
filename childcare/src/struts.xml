@@ -33,15 +33,6 @@
 	
 	<package name="public" namespace="/" extends="pgis-default">
 		
-		<!-- 		<action name="index" class="com.axiohelix.pfs.action.login.LoginAction" method="index">
-			<result name="web">/WEB-INF/content/index.jsp</result>
-			<result name="mobile" type="redirectAction">
-				<param name="actionName">m</param>
-            	<param name="namespace">/</param>
-			</result>
-		</action> -->
-		
-		
 		<action name="invalid-url" class="">
 			<result>/WEB-INF/content/common/invalid-url.jsp</result>
 		</action>

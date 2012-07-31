@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="genericList" namespace="/genericList" extends="pgis-default">
+	<package name="genericList" namespace="/genericList" extends="web-default">
 	
 		<action name="view" class="pdn.sci.cs.action.GenericListAction" method="view">
 			<result name="success">/WEB-INF/content/settings/generic/list/view.jsp</result>

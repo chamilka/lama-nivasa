@@ -54,10 +54,12 @@ public class UserAction extends BaseAction {
 	}
 	
 	public String signOut() {
+		if(session != null) {
+			session.remove(SessionKey.SESSION_USER);
+			session.remove(SessionKey.USER_TYPE);
+			session.remove(SessionKey.SYSTEM_ADMIN);
+		} 
 		
-		session.remove(SessionKey.SESSION_USER);
-		session.remove(SessionKey.USER_TYPE);
-		session.remove(SessionKey.SYSTEM_ADMIN);
 		return SUCCESS;
 			
 	}
