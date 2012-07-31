@@ -11,7 +11,9 @@
 	</div>
 	<hr />
 	
+	
 	<div>
+	 <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
 	  		<th style="width:120px">Thumbnail</th><th>Comment</th><th>File</th><th>&nbsp;</th>
@@ -43,7 +45,11 @@
 			 </td>
 			</tr>
 		</s:iterator>
-	</table>
+		</table>
+	 </s:if>
+	  <s:else>
+	  	No pictures uploaded. Click "Add New Picture" 
+	  </s:else>
 	</div>
 	
 	<div id="imageDiv" align="center" style="margin-top: 10px;border: 1px solid #ddd">

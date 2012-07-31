@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="report" namespace="/report" extends="pgis-default">
+	<package name="report" namespace="/report" extends="web-default">
 	
 		<action name="monthly-report-add" class="pdn.sci.cs.action.SettingsAction" method="frame">
 			<result name="success">/WEB-INF/content/monthly/view.jsp</result>

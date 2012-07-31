@@ -17,8 +17,8 @@
 		</s:url>
   
     <div style="text-align:center">
-		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv"><input type="button" value="Guardians" style="width:200px" /></sj:a>
-		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv"><input type="button" value="Add New Guardian" style="width:200px"/> </sj:a>
+		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv">Guardians</sj:a> | 
+		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv">Add Guardian</sj:a>
 	</div> 
 
 	<div id="childGuardianResultDiv">

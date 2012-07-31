@@ -12,6 +12,7 @@
 	<hr />
 	
 	<div>
+	  <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
 	  		<th>Name</th><th>Telephone</th><th>Status</th><th>Relationship</th><th>Address</th>
@@ -30,5 +31,9 @@
 				 <td><s:property value="address" /> </td>
 			</s:iterator>
 		</table>
+	  </s:if>
+	  <s:else>
+	  	No guardian information yet. Click "Add Guardian" 
+	  </s:else>
 	</div>
 	

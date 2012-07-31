@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="gramaSevaka" namespace="/gramaSevaka" extends="pgis-default">
+	<package name="gramaSevaka" namespace="/gramaSevaka" extends="web-default">
 	
 		<action name="list" class="pdn.sci.cs.action.GramaSevakaAction" method="list">
 			<result name="success">/WEB-INF/content/grama-sevaka/list.jsp</result>

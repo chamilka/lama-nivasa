@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="lamaNivasa" namespace="/lamaNivasa" extends="pgis-default">
+	<package name="lamaNivasa" namespace="/lamaNivasa" extends="web-default">
 	
 		<action name="list" class="pdn.sci.cs.action.LamaNivasaAction" method="list">
 			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>

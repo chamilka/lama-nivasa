@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="childPicture" namespace="/childPicture" extends="pgis-default">
+	<package name="childPicture" namespace="/childPicture" extends="web-default">
 	
 		<result-types>
 			<result-type name="imageResult"	class="pdn.sci.cs.util.ImageResult" />

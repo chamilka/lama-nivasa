@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="childGuardian" namespace="/childGuardian" extends="pgis-default">
+	<package name="childGuardian" namespace="/childGuardian" extends="web-default">
 	
 		<action name="list" class="pdn.sci.cs.action.ChildGuardianAction" method="list">
 			<result name="success">/WEB-INF/content/child/guardian/list.jsp</result>

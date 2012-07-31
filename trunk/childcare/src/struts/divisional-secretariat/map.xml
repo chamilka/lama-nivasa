@@ -3,7 +3,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="divisionalSecretariat" namespace="/divisionalSecretariat" extends="pgis-default">
+	<package name="divisionalSecretariat" namespace="/divisionalSecretariat" extends="web-default">
 	
 		<action name="list" class="pdn.sci.cs.action.DivisionalSecretariat.Action" method="list">
 			<result name="success">/WEB-INF/content/divisional-secretariat/list.jsp</result>

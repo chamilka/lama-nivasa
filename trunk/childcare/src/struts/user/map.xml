@@ -3,11 +3,17 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="user" namespace="/user" extends="pgis-default">
+	<package name="user" namespace="/user" extends="web-default">
 	
 		<action name="signin" class="pdn.sci.cs.action.UserAction" method="signIn">
+		    <interceptor-ref name="guest"/>
 			<result name="success">/WEB-INF/content/home.jsp</result>
 			<result name="input">/WEB-INF/content/signin.jsp</result>
+		</action>
+		
+		<action name="signout" class="pdn.sci.cs.action.UserAction" method="signOut">
+		    <interceptor-ref name="guest"/>
+			<result name="success">/WEB-INF/content/signin.jsp</result>
 		</action>
 		
 		<action name="home-view" class="pdn.sci.cs.action.UserAction" method="frame">
