@@ -51,10 +51,18 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Full Name</td>
+        <td class="tdLabel">Category</td>
         <td> 
      		<table>
-     			<s:select name="child.category" list="%{'NEEDY':'NEEDY'}" />
+     			<s:select name="child.category" list="childCategoryList" listKey="listKey" listValue="listValue" />
+     		</table>
+    	</td>
+      </tr>
+      <tr>
+        <td class="tdLabel">Parent Availability</td>
+        <td> 
+     		<table>
+     			<s:select name="child.parentsAvailability" list="parentAvailabilityList" listKey="listKey" listValue="listValue" />
      		</table>
     	</td>
       </tr>
@@ -97,11 +105,27 @@
      		</table>
     	</td>
       </tr>
-       <tr>
+      <tr>
         <td class="tdLabel">Birth Certificate</td>
         <td> 
      		<table>
-     			<s:select name="child.birthCertificate" list="religionList" listKey="listKey" listValue="listValue" />
+     			<s:select name="child.birthCertificate" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
+     		</table>
+    	</td>
+      </tr>
+      <tr>
+        <td class="tdLabel">Proforma</td>
+        <td> 
+     		<table>
+     			<s:select name="child.proforma" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
+     		</table>
+    	</td>
+      </tr>
+      <tr>
+        <td class="tdLabel">Vaccination Card</td>
+        <td> 
+     		<table>
+     			<s:select name="child.vaccinationCard" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
      		</table>
     	</td>
       </tr>

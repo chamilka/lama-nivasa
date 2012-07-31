@@ -31,6 +31,9 @@ public class ChildAction extends BaseAction {
 	private List<GenericList> raceList;
 	private List<GenericList> religionList;
 	private List<GenericList> intakeMethodList;
+	private List<GenericList> parentAvailabilityList;
+	private List<GenericList> hasDoNotHaveProcessingList;
+	private List<GenericList> childCategoryList;
 	
 	public String list() {
 		list = childService.findAll();
@@ -148,6 +151,9 @@ public class ChildAction extends BaseAction {
 		raceList = genericListService.findListByCategoryId("C013");
 		religionList = genericListService.findListByCategoryId("C040");
 		intakeMethodList = genericListService.findListByCategoryId("C014");
+		parentAvailabilityList = genericListService.findListByCategoryId("C017");
+		hasDoNotHaveProcessingList = genericListService.findListByCategoryId("C015");
+		childCategoryList = genericListService.findListByCategoryId("C016");
 	}
 	
 	private void validateChild() {
@@ -233,5 +239,30 @@ public class ChildAction extends BaseAction {
 	public void setIntakeMethodList(List<GenericList> intakeMethodList) {
 		this.intakeMethodList = intakeMethodList;
 	}
-	
+
+	public List<GenericList> getParentAvailabilityList() {
+		return parentAvailabilityList;
+	}
+
+	public void setParentAvailabilityList(List<GenericList> parentAvailabilityList) {
+		this.parentAvailabilityList = parentAvailabilityList;
+	}
+
+	public List<GenericList> getHasDoNotHaveProcessingList() {
+		return hasDoNotHaveProcessingList;
+	}
+
+	public void setHasDoNotHaveProcessingList(
+			List<GenericList> hasDoNotHaveProcessingList) {
+		this.hasDoNotHaveProcessingList = hasDoNotHaveProcessingList;
+	}
+
+	public List<GenericList> getChildCategoryList() {
+		return childCategoryList;
+	}
+
+	public void setChildCategoryList(List<GenericList> childCategoryList) {
+		this.childCategoryList = childCategoryList;
+	}
+
 }
