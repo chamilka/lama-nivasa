@@ -31,9 +31,16 @@
 				</table>
 	       </td>
 	       <th>Date Of Birth</th>
-	       <td colspan="3"> 
+	       <td> 
 	     			<s:date 
 	     				name="child.dateOfBirth" 
+	     				format="yyyy/MM/dd"
+	     				/>
+	    	</td>
+	    	<th>Date Of Registration</th>
+	       <td> 
+	     			<s:date 
+	     				name="child.dateOfRegistration" 
 	     				format="yyyy/MM/dd"
 	     				/>
 	    	</td>
@@ -54,6 +61,24 @@
     	<th>Religion</th>
         <td> 
    			<s:property value="child.religion" />
+    	</td>
+      </tr>
+      <tr>
+        <th>Birth Certificate</th>
+        <td> 
+     		<table>
+     			<s:property value="child.birthCertificate" />
+     		</table>
+    	</td>
+    	<th>Proforma</th>
+        <td> 
+     		<table>
+     			<s:property value="child.proforma"  />
+     		</table>
+    	</td>
+    	<th>Vaccination Card</th>
+        <td> 
+   			<s:property value="child.vaccinationCard" />
     	</td>
       </tr>
       <tr>
@@ -88,6 +113,13 @@
         <th>Comment</th>
         <td colspan="5"> 
 			<s:property value="child.comment"/>
+    	</td>
+      </tr>
+      
+      <tr>
+        <th>History</th>
+        <td colspan="5"> 
+			<s:property value="child.history"/>
     	</td>
       </tr>
       
