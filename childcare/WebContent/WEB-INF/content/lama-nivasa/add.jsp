@@ -26,6 +26,19 @@
 	 		<th>Name</th><td  colspan="5"><table><s:textfield name="lamaNivasa.name" cssStyle="width:350px" required="true" /></table></td>
 	 	</tr>
 	 	<tr>
+	 		<th>Date of Establishment</th><td  colspan="5"><table>
+	 		<sj:datepicker 
+     				id="dateOfEstablished" 
+     				name="lamaNivasa.dateOfEstablishment" 
+     				changeMonth="true" 
+     				changeYear="true"
+     				yearRange="1984:2012"
+     				value="lamaNivasa.dateOfEstablishment.time"
+     				/>
+	 		
+	 		</table></td>
+	 	</tr>
+	 	<tr>
 	 		<th>Category</th><td><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
 	 		<th>Unit</th><td colspan="3"><table><s:select name="lamaNivasa.probationUnit.id" list="probationUnitList" listKey="id" listValue="name"/></table></td>
 	 	</tr>

@@ -22,30 +22,33 @@
 		  <s:hidden name="operationMode"/> 
 		  <tr>
 	 		<th>Name</th>
-	 		<td  colspan="3">
+	 		<td  colspan="5">
 		 		 <table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.name" cssStyle="width:350px" required="true" /></table>
 		 	</td>
 		  </tr>
 		  <tr>
 	 		<th>Telephone</th>
-	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.telephone" cssStyle="width:200px"  /></table></td>
+	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.telephone" cssStyle="width:150px"  /></table></td>
+		    
+		    <th>Fax</th>
+	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.fax" cssStyle="width:150px"  /></table></td>
 		  
 		    <th>Email</th>
 	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.email" cssStyle="width:250px"  /></table></td>
 		  </tr>
 		  <tr>
 	 		<th>Address</th>
-	 		<td colspan="3"><table cellpadding="0" cellspacing="0">
+	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 		  		<s:textfield name="probationUnit.address" cssStyle="width:600px" /></table></td>
 		  </tr>
 		   <tr>
 	 		<th>Comment</th>
-	 		<td colspan="3"><table cellpadding="0" cellspacing="0">
+	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 		  		<s:textfield name="probationUnit.comment" cssStyle="width:600px"  /></table></td>
 		  </tr>
 		  <tr>
-	 		<td colspan="3"></td>	
-		 	<td><table cellpadding="0" cellspacing="0"><sj:submit value="SUBMIT" targets="probationUnitResultDiv"/></table></td>
+	 		<td></td>	
+		 	<td  colspan="5"><table><sj:submit value="SUBMIT" targets="probationUnitResultDiv"/></table></td>
 		  </tr>
 	  </table>
 	</s:form>

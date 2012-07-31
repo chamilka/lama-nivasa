@@ -35,7 +35,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Child Code</td>
+        <td class="tdLabel">Child's Code</td>
         <td> 
      		<table>
 				<s:textfield name="child.code" cssStyle="width:100px"/>
@@ -48,6 +48,14 @@
      		<table>
      			<s:textfield name="child.fullName" cssStyle="width:300px"/>
      			</table>
+    	</td>
+      </tr>
+      <tr>
+        <td class="tdLabel">Full Name</td>
+        <td> 
+     		<table>
+     			<s:select name="child.category" list="%{'NEEDY':'NEEDY'}" />
+     		</table>
     	</td>
       </tr>
       <tr>
@@ -89,6 +97,29 @@
      		</table>
     	</td>
       </tr>
+       <tr>
+        <td class="tdLabel">Birth Certificate</td>
+        <td> 
+     		<table>
+     			<s:select name="child.birthCertificate" list="religionList" listKey="listKey" listValue="listValue" />
+     		</table>
+    	</td>
+      </tr>
+       <tr>
+        <td class="tdLabel">Date Of Registration</td>
+        <td> 
+     		<table>
+     			<sj:datepicker 
+     				id="dateOfRegistration" 
+     				name="child.dateOfRegistration" 
+     				changeMonth="true" 
+     				changeYear="true"
+     				yearRange="1994:2012"
+     				value="child.dateOfRegistration.time"
+     				/>
+     		</table>
+    	</td>
+      </tr>
       <tr>
         <td class="tdLabel">Disable</td>
         <td> 
@@ -114,7 +145,7 @@
     	</td>
        </tr>
        <tr>
-        <td class="tdLabel">Grade</td>
+       <td class="tdLabel">Grade</td>
         <td> 
      		<table>
      			<s:textfield name="child.grade" cssStyle="width:50px"/>
@@ -130,10 +161,17 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Comment</td>
+      <td class="tdLabel">Comment</td>
         <td> 
      		<table>
-				<s:textarea name="child.comment" cssStyle="width:300px;height:60px"/>
+				<s:textarea name="child.comment" cssStyle="width:500px;height:60px"/>
+			</table>
+    	</td>
+      </tr>
+      <td class="tdLabel">History</td>
+        <td> 
+     		<table>
+				<s:textarea name="child.history" cssStyle="width:500px;height:60px"/>
 			</table>
     	</td>
       </tr>
