@@ -55,6 +55,10 @@
 			<result name="success">/WEB-INF/content/settings/user/search.jsp</result>
 		</action>
 		
+		<action name="search" class="pdn.sci.cs.action.UserAction" method="search">
+			<result name="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
+		
 		<action name="change-password" class="pdn.sci.cs.action.UserAction" method="changePasswordForm">
 			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
 		</action>
