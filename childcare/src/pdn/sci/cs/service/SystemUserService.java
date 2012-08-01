@@ -32,4 +32,8 @@ public class SystemUserService {
 	public List<SystemUser> findAll() {
 		return systemUserDao.findAll();
 	}
+	
+	public List<SystemUser> search(String userId,String userRole,String email,String mobile) {
+		return systemUserDao.search(userId,userRole,email,mobile);
+	}
 }
