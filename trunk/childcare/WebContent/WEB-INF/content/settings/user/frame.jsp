@@ -14,11 +14,9 @@
 	
 	<div id="userDiv" style="margin: 20px 0 0 0">
 	
-	<s:url var="userSearchUrl" action="search-form" 
-		namespace="/user" includeParams="none"></s:url>
+	<s:url var="userSearchUrl" action="search-form" namespace="/user" includeParams="none"></s:url>
 		
-	<s:url var="userListUrl" action="list" 
-		namespace="/user" includeParams="none"></s:url>
+	<s:url var="userListUrl" action="list" namespace="/user" includeParams="none"></s:url>
 	
 		<sj:div href="%{#userSearchUrl}">
 		
