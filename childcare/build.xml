@@ -32,6 +32,7 @@
 			<transaction src="${db.dir}/create/grama_sevaka_division.sql"/>
 			<transaction src="${db.dir}/create/generic_category.sql"/>
 			<transaction src="${db.dir}/create/generic_list.sql"/>
+			<transaction src="${db.dir}/create/monthly_data.sql"/>
 			
 			<transaction src="${db.dir}/data/probation_unit.sql"/>
 			<transaction src="${db.dir}/data/system_user.sql"/>
