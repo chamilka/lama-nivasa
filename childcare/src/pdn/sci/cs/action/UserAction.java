@@ -1,6 +1,7 @@
 package pdn.sci.cs.action;
 
 import java.util.List;
+import java.util.regex.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -179,9 +180,32 @@ public class UserAction extends BaseAction {
 	
 	public void validateEmail(String email) {
 		
+		private Pattern pattern;
+		private Matcher matcher;
+		boolean check;
+		private static final String emailPattern= "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		
+		pattern=Pattern.compile(emailPattern);
+		matcher = pattern.matcher(email);
+		check= matcher.matches();
+		
+		if(check==false)
+			addFieldError("user.email", "Invalid email adress");		
 	}
 	
 	public void validateMobile(String mobile){
+		
+		private Pattern pattern;
+		private Matcher matcher;
+		boolean check;
+		private static final String mobilePattern= "\\d{3}";
+		
+		pattern=Pattern.compile(mobilePattern);
+		matcher = pattern.matcher(mobile);
+		check= matcher.matches();
+		
+		if(check==false)
+			addFieldError("user.mobile", "Number must have 10 digit numbers");	
 		
 	}
 
