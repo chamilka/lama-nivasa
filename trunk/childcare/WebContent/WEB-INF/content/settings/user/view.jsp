@@ -11,11 +11,14 @@
 		</tr>
 
 		<tr>
-			<th width="150px">User Name</th>
-			<td colspan="5"><s:property value="user.username" />
+			<th width="150px">Login Name</th>
+			<td><s:property value="user.username" />
+			</td>
+			<th width="150px">Name</th>
+			<td colspan="3"><s:property value="user.name" />
 			</td>
 		</tr>
-
+		
 		<tr>
 			<th>User Role</th>
 			<td colspan="5"><s:property value="user.userRole" /></td>

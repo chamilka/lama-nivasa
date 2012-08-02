@@ -180,10 +180,10 @@ public class UserAction extends BaseAction {
 	
 	public void validateEmail(String email) {
 		
-		private Pattern pattern;
-		private Matcher matcher;
+		Pattern pattern;
+		Matcher matcher;
 		boolean check;
-		private static final String emailPattern= "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		final String emailPattern= "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 		
 		pattern=Pattern.compile(emailPattern);
 		matcher = pattern.matcher(email);
@@ -195,10 +195,10 @@ public class UserAction extends BaseAction {
 	
 	public void validateMobile(String mobile){
 		
-		private Pattern pattern;
-		private Matcher matcher;
+		Pattern pattern;
+		Matcher matcher;
 		boolean check;
-		private static final String mobilePattern= "\\d{3}";
+		final String mobilePattern= "\\d{3}";
 		
 		pattern=Pattern.compile(mobilePattern);
 		matcher = pattern.matcher(mobile);
@@ -228,42 +228,19 @@ public class UserAction extends BaseAction {
 	}
 
 	public String search() {
+		
 		if (user != null) {
-			String userId = "", userRole = "", email = "", mobile = "";
 
-			if (user.getUsername() == null || user.getUsername().getID().isEmpty()) {
-				userId = "";
-			} else {
-				userId = user.getuserRole();
+			/*validateMobile(user.getMobile());
+			if (hasErrors()) {
+				return INPUT;
+			}*/
+
+			try {
+				list = systemUserService.search(user.getName(), user.getUserRole(), user.getEmail(), user.getMobile());
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
-
-			if (user.getUserRole() == null || user.getUserRole().isEmpty()) {
-				userRole = "";
-			} else {
-				userRole = user.getuserRole();
-			}
-
-			if (user.getEmail() == null || user.getEmail().isEmpty()) {
-				email = "";
-			} else {
-				validateEmail(user.getEmail());
-				if (hasErrors())
-					return INPUT;
-				else
-					email = user.getEmail();
-			}
-
-			if (user.getMobile() == null || user.getMobile().isEmpty()) {
-				mobile = "";
-			} else {
-				validateMobile(user.getMobile());
-				if (hasErrors())
-					return INPUT;
-				else
-					mobile = user.getMobile();
-			}
-
-			list = systemUserService.search(userId, userRole, email, mobile);
 		} else {
 			addActionError("Please give a criteria about user");
 		}

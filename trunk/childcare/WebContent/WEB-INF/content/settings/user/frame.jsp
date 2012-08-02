@@ -18,13 +18,16 @@
 		
 	<s:url var="userListUrl" action="list" namespace="/user" includeParams="none"></s:url>
 	
-		<sj:div href="%{#userSearchUrl}">
+	<sj:div href="%{#userSearchUrl}">
+	
+	</sj:div>
 		
-		</sj:div>
 		
+	<div id="userList">
 		<sj:div href="%{#userListUrl}" cssStyle="margin: 10px 0 0 0">
 		    
 		</sj:div>
+	</div>
 	</div>
 	  
 	  

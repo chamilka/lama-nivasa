@@ -13,12 +13,12 @@
 	   <tr>
 	   	 <td style="width: 200px">
 	   	 <table>
-		   <s:textfield name="user.username" label="Name" />
+		   <s:textfield name="user.name" label="Name" />
      	 </table>
      	 </td>
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select name="user.userrole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}"/>
+	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}"/>
 	 	  </table>
      	 </td>
      	 <td style="width: 100px">
@@ -33,7 +33,7 @@
      	 </td>
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="userDiv"/>
+	  			<sj:submit value="SEARCH" targets="userList"/>
 	  		</table>
      	 </td>
      	 <td style="text-align: right; padding-right: 10px;white-space: nowrap;">
@@ -44,8 +44,8 @@
 			<s:url var="userAddUrl" action="add" 
 			namespace="/user" includeParams="none"></s:url>
      	
-     		<sj:a href="%{userListUrl}" targets="userDiv">All</sj:a> | 
-			<sj:a href="%{#userAddUrl}" targets="userDiv">Add</sj:a>
+     		<sj:a href="%{userListUrl}" targets="userList">All</sj:a> | 
+			<sj:a href="%{#userAddUrl}" targets="userList">Add</sj:a>
 		</td>
 	  </table>
 	</s:form>

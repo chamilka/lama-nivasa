@@ -10,8 +10,14 @@
 	<table id="commonTable" class="greenTbl" width="100%">
 		
 		<tr>
-			<th>User Name</th>
+			<th>Login Name</th>
 			<td colspan="5"><table><s:textfield name="user.username" /></table>
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Name</th>
+			<td colspan="5"><table><s:textfield name="user.name" /></table>
 			</td>
 		</tr>
 
@@ -33,7 +39,7 @@
 
 		<tr>
 			<th>Mobile Number</th>
-			<td colspan="5"><table><s:textfield name="user.username" /></table>
+			<td colspan="5"><table><s:textfield name="user.mobile" /></table>
 			</td>
 		</tr>
 
