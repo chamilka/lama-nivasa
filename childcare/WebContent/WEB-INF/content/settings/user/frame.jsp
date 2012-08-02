@@ -23,8 +23,8 @@
 	</sj:div>
 		
 		
-	<div id="userList">
-		<sj:div href="%{#userListUrl}" cssStyle="margin: 10px 0 0 0">
+	<div id="userList" style="margin: 10px 0 0 0">
+		<sj:div href="%{#userListUrl}" >
 		    
 		</sj:div>
 	</div>
