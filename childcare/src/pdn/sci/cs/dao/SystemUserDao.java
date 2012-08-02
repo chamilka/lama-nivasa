@@ -1,11 +1,12 @@
 package pdn.sci.cs.dao;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.SystemUser;
-import pdn.sci.cs.service.String;
 
 @Repository
 public class SystemUserDao extends GenericDao<SystemUser> {
@@ -22,25 +23,26 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
 	}
 
-	public List<Systemuser> search(String userId, String userRole, String email, String mobile) {
+	public List<SystemUser> search(String name, String userRole, String email, String mobile) {
 
 		DetachedCriteria criteria = createCriteria(clazz);
 
-		if (userId != null && !userId.isEmpty()) {
-			criteria.add(Restrictions.eq(user.id, userId));
+		if (name != null && !name.isEmpty()) {
+			criteria.add(Restrictions.like(SystemUser.NAME, "%" +name + "%"));
 		}
 
 		if (userRole != null && !userRole.isEmpty()) {
-			criteria.add(Restrictions.eq(user.userRole, userRole));
+			criteria.add(Restrictions.eq(SystemUser.SYSTEM_USER_ROLE, userRole));
 		}
 
 		if (email != null && !email.isEmpty()) {
-			criteria.add(Restrictions.eq(user.email, email));
+			criteria.add(Restrictions.eq(SystemUser.EMAIL, email));
 		}
 
 		if (mobile != null && !mobile.isEmpty()) {
-			criteria.add(Restrictions.eq(user.mobile, mobile));
+			criteria.add(Restrictions.eq(SystemUser.MOBILE, mobile));
 		}
+		
 		return findByCriteria(criteria);
 
 	}

@@ -19,10 +19,14 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 	public static final String USERNAME = "username";
 	public static final String USERPASSWORD = "userPassword";
 	public static final String EMAIL = "email";
+	public static final String NAME = "name";
+	public static final String SYSTEM_USER_ROLE = "userRole";
+	public static final String MOBILE = "mobile";
 	
 	private static final long serialVersionUID = 1L;
 	protected String id;
 	private String username;
+	private String name;
 	private String userRole;
 	private String referenceId;
 	private String userPassword;
@@ -74,7 +78,15 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 		this.updateDateTime = updateDatetime;
 	}
 
-	
+	@Column(name = "NAME")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Column(name = "REFERENCE_ID", length = 32)
 	public String getReferenceId() {
 		return referenceId;

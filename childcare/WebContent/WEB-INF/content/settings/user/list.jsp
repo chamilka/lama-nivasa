@@ -14,6 +14,7 @@
 <hr />
 
 <div>
+  <s:if test="list.size > 0">
 	<table style="margin-top: 10px" width="100%" id="commonTable"
 		class="greenTbl" cellpadding="2px">
 		<tr>
@@ -55,5 +56,9 @@
 			</tr>
 		</s:iterator>
 	</table>
+  </s:if>
+  <s:else>
+  	No user found for your criteria, search again with a different criteria
+  </s:else>
 </div>
 
