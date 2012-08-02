@@ -176,6 +176,14 @@ public class UserAction extends BaseAction {
 			}
 		}
 	}
+	
+	public void validateEmail(String email) {
+		
+	}
+	
+	public void validateMobile(String mobile){
+		
+	}
 
 	public String view() {
 
@@ -214,13 +222,21 @@ public class UserAction extends BaseAction {
 			if (user.getEmail() == null || user.getEmail().isEmpty()) {
 				email = "";
 			} else {
-				email = user.getEmail();
+				validateEmail(user.getEmail());
+				if (hasErrors())
+					return INPUT;
+				else
+					email = user.getEmail();
 			}
 
 			if (user.getMobile() == null || user.getMobile().isEmpty()) {
 				mobile = "";
 			} else {
-				mobile = user.getMobile();
+				validateMobile(user.getMobile());
+				if (hasErrors())
+					return INPUT;
+				else
+					mobile = user.getMobile();
 			}
 
 			list = systemUserService.search(userId, userRole, email, mobile);
