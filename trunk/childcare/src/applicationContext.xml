@@ -51,6 +51,7 @@
 				<value>pdn.sci.cs.entity.LamaNivasa</value>
 				<value>pdn.sci.cs.entity.ProbationUnit</value>
 				<value>pdn.sci.cs.entity.SystemUser</value>
+				<value>pdn.sci.cs.entity.MonthlyData</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
