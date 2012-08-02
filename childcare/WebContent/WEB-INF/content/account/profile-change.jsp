@@ -16,7 +16,8 @@
    <s:form action="profile-save" namespace="/user" method="post">
 	 <s:hidden name="user.id" />
 	 <s:hidden name="operationMode"/>
-	 <s:textfield name="user.username"  label="Username" cssStyle="width:300px" ></s:textfield>
+	 <s:textfield name="user.username"  label="Login Name" cssStyle="width:300px" ></s:textfield>
+	 <s:textfield name="user.name"  label="Name" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="user.email"  label="Email" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="user.mobile"  label="Mobile" cssStyle="width:200px" ></s:textfield>
 	 <s:textfield name="user.telephone"  label="Telephone" cssStyle="width:200px" ></s:textfield>
