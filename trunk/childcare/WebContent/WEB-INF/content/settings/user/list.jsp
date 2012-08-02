@@ -44,14 +44,14 @@
 				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{userEditUrl}" targets="userDiv">Edit</sj:a>
+					</s:url> <sj:a href="%{userEditUrl}" targets="userList">Edit</sj:a>
 					
 					| 
 					
 					<s:url var="userDeleteUrl" action="delete" namespace="/user"
 						escapeAmp="false" includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{userDeleteUrl}" targets="userDiv">Delete</sj:a>
+					</s:url> <sj:a href="%{userDeleteUrl}" targets="userList">Delete</sj:a>
 				</td>
 			</tr>
 		</s:iterator>
