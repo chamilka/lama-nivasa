@@ -204,8 +204,9 @@ public class UserAction extends BaseAction {
 		matcher = pattern.matcher(mobile);
 		check= matcher.matches();
 		
-		if(check==false)
-			addFieldError("user.mobile", "Number must have 10 digit numbers");	
+		if(check == false) {
+			addFieldError("user.mobile", "Number must have 10 digit numbers");
+		}
 		
 	}
 
@@ -250,10 +251,7 @@ public class UserAction extends BaseAction {
 
 	public String changeProfileForm() {
 		editMode();
-		System.out.println(super.getUser().getId());
-
 		user = systemUserService.findById(super.getUser().getId());
-		System.out.println(user.getEmail());
 		return SUCCESS;
 	}
 
