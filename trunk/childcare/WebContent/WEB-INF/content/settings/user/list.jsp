@@ -19,12 +19,13 @@
 		class="greenTbl" cellpadding="2px">
 		<tr>
 			<th></th>
-			<th>User Name</th>
+			<th>Login Name</th>
+			<th>Name</th>
 			<th>User Type</th>
 			<th>Sex Type</th>
-			<th>Telephone Number</th>
-			<th>Mobile Type</th>
-			<th>Address</th>
+			<th>Telephone</th>
+			<th>Mobile</th>
+		
 			<th>&nbsp;</th>
 		</tr>
 		<s:iterator value="list" status="rowIndex">
@@ -36,11 +37,12 @@
 					</s:url> <sj:a href="%{#userViewUrl}" targets="userDiv">
 						<s:property value="username" />
 					</sj:a></td>
+				<td><s:property value="name" /></td>	
 				<td><s:property value="userRole" /></td>
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
-				<td><s:property value="address" /></td>
+				
 				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>

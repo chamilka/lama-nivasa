@@ -15,8 +15,13 @@
  
   <table id="commonTable" class="redTbl" width="100%">
   	<tr>
-  		<th width="150px">Username</th>
+  		<th width="150px">Login Name</th>
   		<td><table><s:label name="user.username" /></table>	</td>
+  	</tr>
+  	
+  	<tr>
+  		<th>Name</th>
+  		<td><table><s:label name="user.name" /></table>	</td>
   	</tr>
   	
   	<tr>
