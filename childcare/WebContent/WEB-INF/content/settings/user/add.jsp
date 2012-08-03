@@ -43,6 +43,11 @@
 				<td colspan="5"><table><s:textfield name="user.mobile" /></table>
 				</td>
 			</tr>
+			<tr>
+				<th>Email</th>
+				<td colspan="5"><table><s:textfield name="user.email" cssStyle="width:200px"/></table>
+				</td>
+			</tr>
 	
 			<tr>
 				<th valign="top">Tempory Address</th>

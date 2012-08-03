@@ -4,6 +4,16 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <div>
+	<table>
+		<tr>
+			<td class="td6" style="width: 5px">&nbsp;</td>
+			<td class="sub-title">User: <s:property value="user.name" /></td>
+		</tr>
+	</table>
+</div>
+<hr />
+
+<div>
 
 	<table id="commonTable" class="greenTbl" width="100%">
 		<tr>
@@ -62,14 +72,14 @@
 			<td><s:url var="userEditUrl" action="edit" namespace="/user"
 					includeParams="none">
 					<s:param name="id" value="%{user.id}"></s:param>
-				</s:url> <sj:a href="%{userEditUrl}" targets="userDiv"
+				</s:url> <sj:a href="%{userEditUrl}" targets="userList"
 					cssClass="greenTbl">Edit</sj:a> | 
 					
 					<s:url var="userDeleteUrl"
 					action="delete" namespace="/user" escapeAmp="false"
 					includeParams="none">
 					<s:param name="id" value="%{user.id}"></s:param>
-				</s:url> <sj:a href="%{userDeleteUrl}" targets="userDiv"
+				</s:url> <sj:a href="%{userDeleteUrl}" targets="userList"
 					cssClass="greenTbl">Delete</sj:a></td>
 
 		</tr>

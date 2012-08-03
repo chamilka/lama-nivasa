@@ -25,6 +25,7 @@
 			<th>Sex Type</th>
 			<th>Telephone</th>
 			<th>Mobile</th>
+			<th>Email</th>
 		
 			<th>&nbsp;</th>
 		</tr>
@@ -34,7 +35,7 @@
 				<td><s:url var="userViewUrl" action="view" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
-					</s:url> <sj:a href="%{#userViewUrl}" targets="userDiv">
+					</s:url> <sj:a href="%{#userViewUrl}" targets="userList">
 						<s:property value="username" />
 					</sj:a></td>
 				<td><s:property value="name" /></td>	
@@ -42,6 +43,7 @@
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
+				<td><s:property value="email" /></td>
 				
 				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
