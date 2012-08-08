@@ -22,10 +22,11 @@
 			<th>Login Name</th>
 			<th>Name</th>
 			<th>User Type</th>
+			<th>Unit/Lama-nivasa</th>
 			<th>Sex Type</th>
 			<th>Telephone</th>
 			<th>Mobile</th>
-			<th>Email</th>
+			
 		
 			<th>&nbsp;</th>
 		</tr>
@@ -40,18 +41,24 @@
 					</sj:a></td>
 				<td><s:property value="name" /></td>	
 				<td><s:property value="userRole" /></td>
+			<%-- 	 <td>
+			 	<s:url var="probationUnitViewUrl" action="view" namespace="/probationUnit" includeParams="none">
+			 		<s:param name="id" value="id"></s:param>
+			 	</s:url>
+			 	<sj:a href="%{#probationUnitViewUrl}" targets="probationUnitResultDiv">
+			 	<s:property value="referenceId"/></sj:a>
+			 </td> --%>
+				<td><s:property value="referenceId" /></td>
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
-				<td><s:property value="email" /></td>
 				
 				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
 					</s:url> <sj:a href="%{userEditUrl}" targets="userList">Edit</sj:a>
 					
-					| 
-					
+					| 					
 					<s:url var="userDeleteUrl" action="delete" namespace="/user"
 						escapeAmp="false" includeParams="none">
 						<s:param name="id" value="id"></s:param>
@@ -65,4 +72,8 @@
   	No user found for your criteria, search again with a different criteria
   </s:else>
 </div>
+
+<div id="referenceDiv">
+	
+</div> 
 
