@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import pdn.sci.cs.entity.GenericList;
+import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.service.GenericListService;
+import pdn.sci.cs.service.MonthlyDataService;
 
 @Scope(value = "prototype")
 public class MonthlyInformationAction extends BaseAction {
@@ -14,22 +16,47 @@ public class MonthlyInformationAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired private GenericListService gerGenericListService;
+	@Autowired private MonthlyDataService monthlyDataService;
+	private String lamaNivasaId;
+	private MonthlyData monthlyData;
+	private List<MonthlyData> list;
 	
 	private List<GenericList> yearList;
 	private List<GenericList> monthList;
 	
 	
 	private void viewInit() {
-
 		yearList = gerGenericListService.findListByCategoryId("C050");
 		monthList = gerGenericListService.findListByCategoryId("C060");
-
 	}
 	
-	public String monthlyInfoView() {
+	private void findById() {
+		if(id != null) {
+			monthlyData = monthlyDataService.findById(id);
+		} else {
+			addActionError("Id is missing");
+		}
+	}
+	
+	public String add() {
+		addMode();
 		viewInit();
 		return SUCCESS;
 	}
+	
+	public String edit() {
+		edit();
+		findById();
+		viewInit();
+		return SUCCESS;
+	}
+	
+	public String view() {
+		viewInit();
+		findById();
+		return SUCCESS;
+	}
+	
 	public String save(){
 		
 		return SUCCESS;
@@ -50,6 +77,29 @@ public class MonthlyInformationAction extends BaseAction {
 	public void setMonthList(List<GenericList> monthList) {
 		this.monthList = monthList;
 	}
-	
+
+	public String getLamaNivasaId() {
+		return lamaNivasaId;
+	}
+
+	public void setLamaNivasaId(String lamaNivasaId) {
+		this.lamaNivasaId = lamaNivasaId;
+	}
+
+	public MonthlyData getMonthlyData() {
+		return monthlyData;
+	}
+
+	public void setMonthlyData(MonthlyData monthlyData) {
+		this.monthlyData = monthlyData;
+	}
+
+	public List<MonthlyData> getList() {
+		return list;
+	}
+
+	public void setList(List<MonthlyData> list) {
+		this.list = list;
+	}
 
 }

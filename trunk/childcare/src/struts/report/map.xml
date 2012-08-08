@@ -9,8 +9,8 @@
 			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
 		</action>
 		
-		<action name="monthly-report-add" class="pdn.sci.cs.action.MonthlyInformationAction" method="save">
-			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
+		<action name="add" class="pdn.sci.cs.action.MonthlyInformationAction" method="add">
+			<result name="success">/WEB-INF/content/monthly/add.jsp</result>
 		</action>
 	
 	</package>
