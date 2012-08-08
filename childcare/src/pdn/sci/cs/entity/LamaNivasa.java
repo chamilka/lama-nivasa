@@ -47,6 +47,7 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 	private Integer numberOfOfficers;
 
 	private Set<Child> childs = new HashSet<Child>(0);
+	private Set<MonthlyData> monthlyData = new HashSet<MonthlyData>(0);
 
 	public LamaNivasa() {
 	}
@@ -291,7 +292,15 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 	public void setDateOfEstablishment(Calendar dateOfEstablishment) {
 		this.dateOfEstablishment = dateOfEstablishment;
 	}
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "lamaNivasa")
+	public Set<MonthlyData> getMonthlyData() {
+		return monthlyData;
+	}
+
+	public void setMonthlyData(Set<MonthlyData> monthlyData) {
+		this.monthlyData = monthlyData;
+	}
 	
 
 }

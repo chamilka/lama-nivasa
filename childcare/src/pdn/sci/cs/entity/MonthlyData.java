@@ -4,8 +4,11 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -15,11 +18,16 @@ import org.hibernate.annotations.GenericGenerator;
 @GenericGenerator(name = "uuid-strategy", strategy = "uuid.hex")
 public class MonthlyData extends BaseEntity implements java.io.Serializable {
 
+	public static final String ID = "id";
+	public static final String YEAR = "year";
+	public static final String MONTH = "month";
+	public static final String LAMA_NIVASA_ID = "lamaNivasa.id";
+	
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private Integer year;
 	private String month;
-	private String lamaNivasaId;
+	private LamaNivasa lamaNivasa;
 	private Integer numOfChildren;
 	private Integer numOfOfficers;
 	private Integer numOfVacantOfficers;
@@ -48,7 +56,6 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 
 	public MonthlyData(String id,  String lamaNivasaId) {
 		this.id = id;
-		this.lamaNivasaId = lamaNivasaId;
 	}
 
 	public MonthlyData(String id, Integer year, String month,
@@ -71,7 +78,6 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 		this.id = id;
 		this.year = year;
 		this.month = month;
-		this.lamaNivasaId = lamaNivasaId;
 		this.numOfChildren = numOfChildren;
 		this.numOfOfficers = numOfOfficers;
 		this.numOfVacantOfficers = numOfVacantOfficers;
@@ -128,13 +134,14 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 		this.month = month;
 	}
 
-	@Column(name = "LAMA_NIVASA_ID", nullable = false, length = 32)
-	public String getLamaNivasaId() {
-		return this.lamaNivasaId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "LAMA_NIVASA_ID", nullable = false)
+	public LamaNivasa getLamaNivasa() {
+		return lamaNivasa;
 	}
 
-	public void setLamaNivasaId(String lamaNivasaId) {
-		this.lamaNivasaId = lamaNivasaId;
+	public void setLamaNivasa(LamaNivasa lamaNivasa) {
+		this.lamaNivasa = lamaNivasa;
 	}
 
 	@Column(name = "NUM_OF_CHILDREN")

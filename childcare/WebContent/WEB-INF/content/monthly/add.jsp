@@ -13,6 +13,8 @@
 	
 	<hr />
 	
+	<s:form action="save" method="post" namespace="/report" cssStyle="margin-left:50px" >
+	 
 	 <table width="100%">
 	   <tr>
 	     <td>
@@ -22,19 +24,35 @@
 	   	<tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 <s:label 
+		     	 <sj:spinner 
 				    	name="numberOfFemaleChildren" 
+				    	id="numberOfFemaleChildren" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"
+				    	tooltip="Max 35"/>
 		     	 	
 		     	 </table>
 		     </td>
 		     <td>
 		     	 <table>
-		     	 <s:label
+		     	 <sj:spinner 
 				    	name="numberOfMaleChildren" 
+				    	id="numberOfMaleChildren" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"
+				    	tooltip="Max 35"/>
 		     	 	
 		     	 </table>
 		     </td>
@@ -50,19 +68,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	<s:lable
+		     	 	<sj:spinner 
 				    	name="numberOfOfficers" 
-						label="Number of Officers"
-				    	/>
+				    	id="numberOfOfficers" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Number of Officers"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	
 		     	 </table>
 		     </td>
 		     <td>
 		     	 <table>
-		     	 	<s:lable
+		     	 	<sj:spinner 
 				    	name="numberOfVacantOfficers" 
+				    	id="numberOfVacantOfficers" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Number of Vacant Officers"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	
 		     	 </table>
 		     </td>
@@ -75,19 +107,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable
+		     	     <sj:spinner 
 				    	name="numberOfFemaleSocietals" 
+				    	id="numberOfFemaleSocietals" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable
+		     	     <sj:spinner 
 				    	name="numberOfMaleSocietals" 
+				    	id="numberOfMaleSocietals" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -101,19 +147,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:spinner 
 				    	name="numberOfFemaleTransfered" 
+				    	id="numberOfFemaleTransfered" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable
+		     	     <sj:spinner 
 				    	name="numberOfMaleTransferred" 
+				    	id="numberOfMaleTransferred" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -126,19 +186,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable
+		     	      <sj:spinner 
 				    	name="numberOfFemaleProforma" 
+				    	id="numberOfFemaleProforma" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
+		     	     <sj:spinner 
 				    	name="numberOfMaleProforma" 
+				    	id="numberOfMaleProforma" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -151,19 +225,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable
+		     	     <sj:spinner 
 				    	name="numberOfFemaleNoGuardian" 
+				    	id="numberOfFemaleNoGuardian" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	 	  <s:lable
+		     	 	  <sj:spinner 
 				    	name="numberOfMaleNoGuardian" 
+				    	id="numberOfMaleNoGuardian" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -177,19 +265,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable 
+		     	     <sj:spinner 
 				    	name="numberOfTerminatedFemale" 
+				    	id="numberOfTerminatedFemale" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:spinner 
 				    	name="numberOfTerminatedMale" 
+				    	id="numberOfTerminatedMale" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -202,19 +304,33 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	 <s:lable
+		     	 	 <sj:spinner 
 				    	name="numberOfRequirementFemale" 
+				    	id="numberOfRequirementFemale" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Female"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	 <s:lable 
+		     	 <sj:spinner 
 				    	name="numberOfRequirementMale" 
+				    	id="numberOfRequirementMale" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Male"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -228,22 +344,28 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
-	     				 
+		     	      <sj:datepicker 
+	     				id="probationOfficerObserved" 
 	     				name="probationOfficerObserved" 
 	     				label="Probation Officer" 
-	     				
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
-	     				
+		     	     <sj:datepicker 
+	     				id="counsellingOfficerObserved" 
 	     				name="counsellingOfficerObserved" 
 	     				label="Counsellor" 
-	     				
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
@@ -253,18 +375,28 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:datepicker 
+	     				id="commisionerDepartmentObserved" 
 	     				name="commisionerDepartmentObserved" 
 	     				label="Department Commissioner" 
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:datepicker 
+	     				id="officerDepartmentObserved" 
 	     				name="officerDepartmentObserved" 
 	     				label="Department Probation Officer" 
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
@@ -274,9 +406,14 @@
 	 	<tr>
 		      <td colspan="2" style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:datepicker 
+	     				id="officerDepartmentChildDevelopmentObserved" 
 	     				name="officerDepartmentChildDevelopmentObserved" 
 	     				label="Department Child Development Officer" 
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
@@ -290,19 +427,31 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable
+		     	      <sj:datepicker 
+	     				id="lastMeetingHeld" 
 	     				name="lastMeetingHeld" 
 	     				label="The last meeting" 
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
+		     	     <sj:spinner 
 				    	name="numberOfMeetings" 
+				    	id="numberOfMeetings" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
 				    	label="Number of meetings upto now"
-				    	/>
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
 		     	 	 
 		     	 </table>
 		     </td>
@@ -310,9 +459,14 @@
 	    <tr>
 		      <td colspan="2" style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <sj:datepicker 
+	     				id="placementCommittee" 
 	     				name="officerDepartmentChildDevelopmentObserved" 
 	     				label="Placement Committee" 
+	     				changeMonth="true" 
+	     				changeYear="true"
+	     				cssStyle="width:80px"
+	     				displayFormat="yy/mm/dd"
 	     				/>
 		     	 	 
 		     	 </table>
