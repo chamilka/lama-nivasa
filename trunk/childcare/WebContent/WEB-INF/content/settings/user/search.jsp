@@ -18,14 +18,19 @@
      	 </td>
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}"/>
+	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onchange=userSearch() />
 	 	  </table>
      	 </td>
-     	 <td style="width: 100px">
+     	 <td style="width: 100px; display: none" id="unitTd">
 	   	  <table>
-	   		<s:textfield name="user.email" label="Email" />
+	   		<s:textfield name="user.referenceId" label="Unit Name" />
 	 	  </table>
      	 </td>
+      	 <td style="width: 100px; display: none" id="lamaNivasaTd">
+	   	  <table>
+	   		<s:textfield name="user.referenceId" label="Lama-Nivasa Name" />
+	 	  </table>
+     	 </td> 
      	 <td style="width: 100px">
 	   	  <table>
 	   		<s:textfield name="user.mobile" label="Mobile" />
