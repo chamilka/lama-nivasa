@@ -98,14 +98,11 @@ public class UserAction extends BaseAction {
 			if (hasErrors()) {
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD
-						&& user.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD	&& user.getId().isEmpty()) {
 					setAddSettings(user);
 					user = systemUserService.save(user);
-				} else if (operationMode == OPERATION_MODE.EDIT
-						&& !user.getId().isEmpty()) {
-					SystemUser existingUser = systemUserService.findById(user
-							.getId());
+				} else if (operationMode == OPERATION_MODE.EDIT	&& !user.getId().isEmpty()) {
+					SystemUser existingUser = systemUserService.findById(user.getId());
 					user.setUserPassword(existingUser.getUserPassword()); // set
 																			// password
 					setUpdateSettings(user);
