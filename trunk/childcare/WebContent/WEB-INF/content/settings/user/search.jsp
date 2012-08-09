@@ -18,7 +18,7 @@
      	 </td>
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onchange=userSearch() />
+	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onchange="javascript:userSearch()" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; display: none" id="unitTd">

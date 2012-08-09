@@ -50,7 +50,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	<s:lable
+		     	 	<s:label
 				    	name="numberOfOfficers" 
 						label="Number of Officers"
 				    	/>
@@ -59,7 +59,7 @@
 		     </td>
 		     <td>
 		     	 <table>
-		     	 	<s:lable
+		     	 	<s:label
 				    	name="numberOfVacantOfficers" 
 				    	label="Number of Vacant Officers"
 				    	/>
@@ -75,7 +75,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable
+		     	     <s:label
 				    	name="numberOfFemaleSocietals" 
 				    	label="Female"
 				    	/>
@@ -84,7 +84,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable
+		     	     <s:label
 				    	name="numberOfMaleSocietals" 
 				    	label="Male"
 				    	/>
@@ -101,7 +101,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 				    	name="numberOfFemaleTransfered" 
 				    	label="Female"
 				    	/>
@@ -110,7 +110,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable
+		     	     <s:label
 				    	name="numberOfMaleTransferred" 
 				    	label="Male"
 				    	/>
@@ -126,7 +126,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable
+		     	      <s:label
 				    	name="numberOfFemaleProforma" 
 				    	label="Female"
 				    	/>
@@ -135,7 +135,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
+		     	     <s:label 
 				    	name="numberOfMaleProforma" 
 				    	label="Male"
 				    	/>
@@ -151,7 +151,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable
+		     	     <s:label
 				    	name="numberOfFemaleNoGuardian" 
 				    	label="Female"
 				    	/>
@@ -160,7 +160,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	 	  <s:lable
+		     	 	  <s:label
 				    	name="numberOfMaleNoGuardian" 
 				    	label="Male"
 				    	/>
@@ -177,7 +177,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:lable 
+		     	     <s:label 
 				    	name="numberOfTerminatedFemale" 
 				    	label="Female"
 				    	/>
@@ -186,7 +186,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 				    	name="numberOfTerminatedMale" 
 				    	label="Male"
 				    	/>
@@ -202,7 +202,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	 <s:lable
+		     	 	 <s:label
 				    	name="numberOfRequirementFemale" 
 				    	label="Female"
 				    	/>
@@ -211,7 +211,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	 <s:lable 
+		     	 <s:label 
 				    	name="numberOfRequirementMale" 
 				    	label="Male"
 				    	/>
@@ -228,7 +228,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 	     				 
 	     				name="probationOfficerObserved" 
 	     				label="Probation Officer" 
@@ -239,7 +239,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
+		     	     <s:label 
 	     				
 	     				name="counsellingOfficerObserved" 
 	     				label="Counsellor" 
@@ -253,7 +253,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 	     				name="commisionerDepartmentObserved" 
 	     				label="Department Commissioner" 
 	     				/>
@@ -262,7 +262,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 	     				name="officerDepartmentObserved" 
 	     				label="Department Probation Officer" 
 	     				/>
@@ -274,7 +274,7 @@
 	 	<tr>
 		      <td colspan="2" style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 	     				name="officerDepartmentChildDevelopmentObserved" 
 	     				label="Department Child Development Officer" 
 	     				/>
@@ -290,7 +290,7 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable
+		     	      <s:label
 	     				name="lastMeetingHeld" 
 	     				label="The last meeting" 
 	     				/>
@@ -299,7 +299,7 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:lable 
+		     	     <s:label 
 				    	name="numberOfMeetings" 
 				    	label="Number of meetings upto now"
 				    	/>
@@ -310,7 +310,7 @@
 	    <tr>
 		      <td colspan="2" style="padding-left: 25px">
 		     	 <table>
-		     	      <s:lable 
+		     	      <s:label 
 	     				name="officerDepartmentChildDevelopmentObserved" 
 	     				label="Placement Committee" 
 	     				/>
@@ -329,4 +329,3 @@
 	    </tr> 	
 	
 	  </table>
-	</s:form>
