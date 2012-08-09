@@ -28,6 +28,6 @@
 	    	mouseWheel="true"
 	    	tooltip="Range [0, 50]"/>
 		 
-		  <sj:submit value="Save" targets="categoryDiv" cssStyle="margin-left:240px" onSuccessTopics="refreshCategoryList"/>
+		  <sj:submit value="Save" targets="categoryDiv" cssStyle="margin-left:100px" onSuccessTopics="refreshCategoryList"/>
 		</s:form>
 	</div>
