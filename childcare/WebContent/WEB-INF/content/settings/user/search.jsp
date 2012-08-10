@@ -16,9 +16,9 @@
 		   <s:textfield name="user.name" label="Name" />
      	 </table>
      	 </td>
-     	 <td style="width: 100px">
+     	 <td style="width: 100px;">
 	   	  <table>
-	   		<s:select name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onchange="javascript:userSearch()" />
+	   		<s:select id="userRole" name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onChange="javascript:userSearch()" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; display: none" id="unitTd">
@@ -28,7 +28,7 @@
      	 </td>
       	 <td style="width: 100px; display: none" id="lamaNivasaTd">
 	   	  <table>
-	   		<s:textfield name="user.referenceId" label="Lama-Nivasa Name" />
+	   		<s:textfield name="user.referenceId" label="Lama-Nivasa" cssStyle="white-space: nowrap;"/>
 	 	  </table>
      	 </td> 
      	 <td style="width: 100px">
