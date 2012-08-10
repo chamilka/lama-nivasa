@@ -18,13 +18,36 @@
 			
 			<tr>
 				<th>Name</th>
-				<td colspan="5"><table><s:textfield name="user.name" cssStyle="width:350px"/></table>
-				</td>
+				<td colspan="5"><table><s:textfield name="user.name" cssStyle="width:350px"/></table></td>
 			</tr>
 	
 			<tr>
 				<th>User Role</th>
-				<td colspan="5"><table><s:select name="user.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}"/></table></td>
+				<td colspan="1"><table><s:select id="addUserRole" name="user.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/></table></td>
+				
+				<!-- <th style="width: 120px" id="lamaNivasa">Lama-Nivasa Name</th> -->
+				
+				<td colspan="2" style="width: 200px" id="lamaNivasaSelect"><table> 
+					<sj:autocompleter 
+				  		id="user.referenceId"
+			     		name="user.lamaNivasa.id"
+			     		list="%{lamaNivasaList}"
+			     		listKey="id" listValue="name"
+			     		label="Lama-Nivasa Name"
+			     		cssStyle="width:350px"
+	     			/> </table></td>		
+				
+				<!-- <th style="width: 90px; display: none" id="unit">Unit Name</th> -->
+				
+				<td colspan="2" style="width: 200px; display: none" id="unitSelect"><table>
+				<sj:autocompleter 
+				  		id="user.referenceId"
+			     		name="user.lamaNivasa.id"
+			     		list="%{lprobationUnitList}"
+			     		listKey="id" listValue="name"
+			     		label="Unit Name"
+			     		cssStyle="width:350px"
+	     			/> </table></td>	 		
 			</tr>
 	
 			<tr>
