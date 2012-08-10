@@ -57,6 +57,9 @@ public class MonthlyInformationAction extends BaseAction {
 		findById();
 		return SUCCESS;
 	}
+	public String search(){
+		return SUCCESS;
+	}
 	
 	public String save(){
 		
@@ -141,5 +144,6 @@ public class MonthlyInformationAction extends BaseAction {
 			addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
 		}*/
 	}
+	
 
 }

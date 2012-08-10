@@ -9,21 +9,29 @@
 	   <tr>
 	   	<th colspan="6">Search</th>
 	   </tr>
-	   
 	   <tr>
 	   	 <td style="width: 200px">
 	   	 <table>
-		   <s:textfield name="lamaNivasa.name" label="Lama Nivasa Name" />
+		  <%--  <s:textfield name="lamaNivasa.name" label="Lama Nivasa Name" /> --%>
+		   <s:textfield label="Lama Nivasa Index Number" name="lamaNivsaIndex"/>
      	 </table>
      	 </td>
+     	 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select name="monthlyData.year" label="Year" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}"/>
+	   		<s:textfield label="Lama Nivasa Name" name="lamaNivasaName" cssStyle="width:200px"/>
 	 	  </table>
      	 </td>
+    	
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:textfield name="monthlyData.month" label="Month" />
+	   		<s:select name="year"  label="Year" list="#{'2010':'2010', '2011':'2011', '2012':'2012'}" required="true"/>
+	 	  </table>
+     	 </td>
+     	 
+     	 <td style="width: 400px">
+	   	  <table>
+	   		<s:select name="monthlyData.month" label="Month" list="# {'':'','January':'JANUARY','February':'FEBRUARY','March':'MARCH','April':'APRIL','May':'MAY','June':'JUNE','July':'JULY','August':'AUGUST','September':'SEPTEMBER','	October':'OCTOBER','November':'NOVEMBER','December':'DECEMBER'}"/>
 	 	  </table>
      	 </td>
      	 
@@ -32,17 +40,19 @@
 	  			<sj:submit value="SEARCH" targets="userList"/>
 	  		</table>
      	 </td>
+     	
      	 <td style="text-align: right; padding-right: 10px;white-space: nowrap;">
 	   	 	
-			<s:url var="userListUrl" action="list" 
-			namespace="/monthlyData" includeParams="none"></s:url>
+			
 	
-			<s:url var="userAddUrl" action="add" 
-			namespace="/monthlyData" includeParams="none"></s:url>
+			<s:url var="addReport" action="search" 
+			namespace="/report" includeParams="none"></s:url>
      	
-     		<sj:a href="%{userListUrl}" targets="userList">All</sj:a> | 
-			<sj:a href="%{#userAddUrl}" targets="userList">Add</sj:a>
+     		
+			<sj:a href="%{#addReport}" targets="userList">AddReport</sj:a>
 		</td>
+		</tr>
+		
 	  </table>
 	</s:form>
 

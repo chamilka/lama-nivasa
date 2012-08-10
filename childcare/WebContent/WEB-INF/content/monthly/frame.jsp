@@ -11,7 +11,7 @@
 	  </table>
 	</div>
 
-	<hr />
+	<hr/>
 	
 	<div id="monthlyDataDiv" style="margin: 20px 0 0 0">
 	
