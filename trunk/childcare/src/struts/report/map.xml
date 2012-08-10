@@ -10,7 +10,8 @@
 		</action>
 		
 		<action name="add" class="pdn.sci.cs.action.MonthlyInformationAction" method="add">
-			<result name="success">/WEB-INF/content/monthly/add.jsp</result>
+			<result name="success">/WEB-INF/content/monthly/search.jsp</result>
+			 
 		</action>
 	
 	</package>
