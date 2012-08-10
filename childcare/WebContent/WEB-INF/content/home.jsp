@@ -18,7 +18,7 @@
 	<link href="<s:url value="/css/layout.css" includeParams="none"/>" rel="stylesheet" type="text/css" />
 	<link href="<s:url value="/css/table_style.css" includeParams="none"/>" rel="stylesheet" type="text/css" />
 	
-	<script type="text/javascript" src="/javaScript/user.js"> </script>
+	<script type="text/javascript" src="<s:url value="/javaScript/user.js" includeParams="none"/>"> </script>
 	
 	<sj:head jqueryui="true" jquerytheme="redmond" defaultIndicator="defaultIndicator"/>
 
@@ -31,7 +31,7 @@
   <div class="menu_bar">
   
   <s:url var="homeViewUrl" action="home-view" namespace="/user" includeParams="none"></s:url>
-  <s:url var="monthlyViewUrl" action="add" namespace="/report" includeParams="none"></s:url>
+  <s:url var="monthlyViewUrl" action="monthly-report-add" namespace="/report" includeParams="none"></s:url>
   <s:url var="accountViewUrl" action="account-frame" namespace="/user" includeParams="none"></s:url>
   <s:url var="contactusViewUrl" action="contactus-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="settignsFrameUrl" action="frame" namespace="/settings" includeParams="none"></s:url>
