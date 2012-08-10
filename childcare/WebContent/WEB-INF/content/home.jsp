@@ -31,7 +31,7 @@
   <div class="menu_bar">
   
   <s:url var="homeViewUrl" action="home-view" namespace="/user" includeParams="none"></s:url>
-  <s:url var="monthlyViewUrl" action="monthly-report-add" namespace="/report" includeParams="none"></s:url>
+  <s:url var="monthlyViewUrl" action="add" namespace="/report" includeParams="none"></s:url>
   <s:url var="accountViewUrl" action="account-frame" namespace="/user" includeParams="none"></s:url>
   <s:url var="contactusViewUrl" action="contactus-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="settignsFrameUrl" action="frame" namespace="/settings" includeParams="none"></s:url>
