@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.service.GenericListService;
@@ -59,8 +60,33 @@ public class MonthlyInformationAction extends BaseAction {
 	
 	public String save(){
 		
+		if(monthlyData != null) {
+			validateMonthlyData();
+			if(hasErrors()) {
+				viewInit();
+				return INPUT;
+			} else {
+				if(operationMode == OPERATION_MODE.ADD && monthlyData.getId().isEmpty()) {
+					setAddSettings(monthlyData);
+					monthlyData = monthlyDataService.save(monthlyData);
+				} else if (operationMode == OPERATION_MODE.EDIT && !monthlyData.getId().isEmpty() ) {
+					setUpdateSettings(monthlyData);
+					monthlyDataService.update(monthlyData);
+				} else {
+					addActionError("Error");
+					viewInit();
+					return INPUT;
+				}
+				
+			}
+		} else {
+			addActionError("Invalid Access");
+			viewInit();
+			return INPUT;
+		}
 		return SUCCESS;
 	}
+	
 	
 	public List<GenericList> getYearList() {
 		return yearList;
@@ -100,6 +126,20 @@ public class MonthlyInformationAction extends BaseAction {
 
 	public void setList(List<MonthlyData> list) {
 		this.list = list;
+	}
+	
+	private void validateMonthlyData() {
+		/*if(monthlyData.get().isEmpty()) {
+			addFieldError("lamaNivasa.name", "Name cannot be empty");
+		}
+		
+		if(lamaNivasa.getAddress().isEmpty()) {
+			addFieldError("lamaNivasa.address", "Address cannot be empty");
+		}
+		
+		if(lamaNivasa.getTelephone().isEmpty()) {
+			addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
+		}*/
 	}
 
 }
