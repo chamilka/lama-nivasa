@@ -17,6 +17,24 @@
 	<s:form action="save" method="post" namespace="/report" cssStyle="margin-left:50px" >
 	 
 	 <table width="100%">
+	  <tr>
+	    <td style="width: 100px">
+	   	  <table>
+	   		<s:select label="Year" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
+	 	  </table>
+     	 </td>
+     	 
+     	 <td style="width: 100px">
+	   	  <table>
+	   		<s:select label="Month" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
+	 	  </table>
+     	 </td>
+       </tr>	
+       <tr>
+       	<td colspan="2">
+       		<hr />
+       	</td>
+       </tr> 
 	   <tr>
 	     <td>
 	       <b>1. Number Of Children</b>
@@ -26,7 +44,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	 <sj:spinner 
-				    	name="numberOfFemaleChildren" 
+				    	name="monthlyData.numberOfFemaleChildren" 
 				    	id="numberOfFemaleChildren" 
 				    	min="0" 
 				    	max="100" 
@@ -43,7 +61,7 @@
 		     <td>
 		     	 <table>
 		     	 <sj:spinner 
-				    	name="numberOfMaleChildren" 
+				    	name="monthlyData.numberOfMaleChildren" 
 				    	id="numberOfMaleChildren" 
 				    	min="0" 
 				    	max="100" 
@@ -70,7 +88,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	 	<sj:spinner 
-				    	name="numberOfOfficers" 
+				    	name="monthlyData.numberOfOfficers" 
 				    	id="numberOfOfficers" 
 				    	min="0" 
 				    	max="100" 
@@ -86,7 +104,7 @@
 		     <td>
 		     	 <table>
 		     	 	<sj:spinner 
-				    	name="numberOfVacantOfficers" 
+				    	name="monthlyData.numberOfVacantOfficers" 
 				    	id="numberOfVacantOfficers" 
 				    	min="0" 
 				    	max="100" 
@@ -109,7 +127,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfFemaleSocietals" 
+				    	name="monthlyData.numberOfFemaleReunification" 
 				    	id="numberOfFemaleSocietals" 
 				    	min="0" 
 				    	max="100" 
@@ -125,7 +143,7 @@
 		      <td>
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfMaleSocietals" 
+				    	name="monthlyData.numberOfMaleReunification" 
 				    	id="numberOfMaleSocietals" 
 				    	min="0" 
 				    	max="100" 
@@ -149,7 +167,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	      <sj:spinner 
-				    	name="numberOfFemaleTransfered" 
+				    	name="monthlyData.numberOfFemaleTransfered" 
 				    	id="numberOfFemaleTransfered" 
 				    	min="0" 
 				    	max="100" 
@@ -165,7 +183,7 @@
 		      <td>
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfMaleTransferred" 
+				    	name="monthlyData.numberOfMaleTransferred" 
 				    	id="numberOfMaleTransferred" 
 				    	min="0" 
 				    	max="100" 
@@ -188,7 +206,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	      <sj:spinner 
-				    	name="numberOfFemaleProforma" 
+				    	name="monthlyData.numberOfFemaleProforma" 
 				    	id="numberOfFemaleProforma" 
 				    	min="0" 
 				    	max="100" 
@@ -204,7 +222,7 @@
 		      <td>
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfMaleProforma" 
+				    	name="monthlyData.numberOfMaleProforma" 
 				    	id="numberOfMaleProforma" 
 				    	min="0" 
 				    	max="100" 
@@ -227,7 +245,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfFemaleNoGuardian" 
+				    	name="monthlyData.numberOfFemaleNoGuardian" 
 				    	id="numberOfFemaleNoGuardian" 
 				    	min="0" 
 				    	max="100" 
@@ -243,7 +261,7 @@
 		      <td>
 		     	 <table>
 		     	 	  <sj:spinner 
-				    	name="numberOfMaleNoGuardian" 
+				    	name="monthlyData.numberOfMaleNoGuardian" 
 				    	id="numberOfMaleNoGuardian" 
 				    	min="0" 
 				    	max="100" 
@@ -267,7 +285,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfTerminatedFemale" 
+				    	name="monthlyData.numberOfTerminatedFemale" 
 				    	id="numberOfTerminatedFemale" 
 				    	min="0" 
 				    	max="100" 
@@ -283,7 +301,7 @@
 		      <td>
 		     	 <table>
 		     	      <sj:spinner 
-				    	name="numberOfTerminatedMale" 
+				    	name="monthlyData.numberOfTerminatedMale" 
 				    	id="numberOfTerminatedMale" 
 				    	min="0" 
 				    	max="100" 
@@ -306,7 +324,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	 	 <sj:spinner 
-				    	name="numberOfRequirementFemale" 
+				    	name="monthlyData.numberOfRequirementFemale" 
 				    	id="numberOfRequirementFemale" 
 				    	min="0" 
 				    	max="100" 
@@ -322,7 +340,7 @@
 		      <td>
 		     	 <table>
 		     	 <sj:spinner 
-				    	name="numberOfRequirementMale" 
+				    	name="monthlyData.numberOfRequirementMale" 
 				    	id="numberOfRequirementMale" 
 				    	min="0" 
 				    	max="100" 
@@ -347,7 +365,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="probationOfficerObserved" 
-	     				name="probationOfficerObserved" 
+	     				name="monthlyData.probationOfficerObserved" 
 	     				label="Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -361,7 +379,7 @@
 		     	 <table>
 		     	     <sj:datepicker 
 	     				id="counsellingOfficerObserved" 
-	     				name="counsellingOfficerObserved" 
+	     				name="monthlyData.counsellingOfficerObserved" 
 	     				label="Counsellor" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -378,7 +396,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="commisionerDepartmentObserved" 
-	     				name="commisionerDepartmentObserved" 
+	     				name="monthlyData.commisionerDepartmentObserved" 
 	     				label="Department Commissioner" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -392,7 +410,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="officerDepartmentObserved" 
-	     				name="officerDepartmentObserved" 
+	     				name="monthlyData.officerDepartmentObserved" 
 	     				label="Department Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -409,7 +427,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="officerDepartmentChildDevelopmentObserved" 
-	     				name="officerDepartmentChildDevelopmentObserved" 
+	     				name="monthlyData.officerDepartmentChildDevelopmentObserved" 
 	     				label="Department Child Development Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -430,7 +448,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="lastMeetingHeld" 
-	     				name="lastMeetingHeld" 
+	     				name="monthlyData.lastMeetingHeld" 
 	     				label="The last meeting" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -443,7 +461,7 @@
 		      <td>
 		     	 <table>
 		     	     <sj:spinner 
-				    	name="numberOfMeetings" 
+				    	name="monthlyData.numberOfMeetings" 
 				    	id="numberOfMeetings" 
 				    	min="0" 
 				    	max="100" 
@@ -462,7 +480,7 @@
 		     	 <table>
 		     	      <sj:datepicker 
 	     				id="placementCommittee" 
-	     				name="officerDepartmentChildDevelopmentObserved" 
+	     				name="monthlyData.officerDepartmentChildDevelopmentObserved" 
 	     				label="Placement Committee" 
 	     				changeMonth="true" 
 	     				changeYear="true"

@@ -22,7 +22,7 @@
 		</sj:div>
 		
 		
-		<div id="monthlyDataList" style="margin: 10px 0 0 0; min-height:100px">
+		<div id="childResultDiv" style="margin: 10px 0 0 0; min-height:100px">
 		   <s:if test="isUser()">
 			    <s:url var="reportAddUrl" action="add" namespace="/report" includeParams="none"></s:url>
 				<sj:div href="%{#reportAddUrl}" >
