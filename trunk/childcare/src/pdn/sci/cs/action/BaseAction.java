@@ -149,4 +149,8 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 		return getUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name());
 	}
 	
+	public boolean isUser() {
+		return getUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name());
+	}
+	
 }

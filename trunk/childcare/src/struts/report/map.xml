@@ -5,18 +5,24 @@
 <struts>
 	<package name="report" namespace="/report" extends="web-default">
 	
-		<action name="monthly-report-add" class="pdn.sci.cs.action.SettingsAction" method="frame">
+		<action name="frame" class="pdn.sci.cs.action.MonthlyInformationAction" method="frame">
+			<result name="success">/WEB-INF/content/monthly/frame.jsp</result>
+		</action>
+		
+		<action name="view" class="pdn.sci.cs.action.MonthlyInformationAction" method="view">
+			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
+		</action>
+		
+		<action name="search" class="pdn.sci.cs.action.MonthlyInformationAction" method="search">
 			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
 		</action>
 		
 		<action name="add" class="pdn.sci.cs.action.MonthlyInformationAction" method="add">
 			<result name="success">/WEB-INF/content/monthly/add.jsp</result>
-			 
 		</action>
 		
-		<action name="search" class="pdn.sci.cs.action.MonthlyInformationAction" method="add">
+		<action name="search-form" class="pdn.sci.cs.action.MonthlyInformationAction" method="searchForm">
 			<result name="success">/WEB-INF/content/monthly/search.jsp</result>
-			 
 		</action>
 	
 	</package>
