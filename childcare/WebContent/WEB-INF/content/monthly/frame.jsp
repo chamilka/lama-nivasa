@@ -6,7 +6,7 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Monthly Data</td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title">Monthly Data</td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,18 +15,19 @@
 	
 	<div id="monthlyDataDiv" style="margin: 20px 0 0 0">
 	
-	<s:url var="userSearchUrl" action="search-form" namespace="/report" includeParams="none"></s:url>
-		
-	<s:url var="userListUrl" action="add" namespace="/report" includeParams="none"></s:url>
+		<s:url var="reportSearchUrl" action="search-form" namespace="/report" includeParams="none"></s:url>
 	
-	<sj:div href="%{#monthlyDataSearchUrl}">
-	
-	</sj:div>
+		<sj:div href="%{#reportSearchUrl}">
 		
-		
-	<div id="monthlyDataList" style="margin: 10px 0 0 0">
-		<sj:div href="%{#montlyDataListUrl}" >
-		    
 		</sj:div>
-	</div>
+		
+		
+		<div id="monthlyDataList" style="margin: 10px 0 0 0; min-height:100px">
+		   <s:if test="isUser()">
+			    <s:url var="reportAddUrl" action="add" namespace="/report" includeParams="none"></s:url>
+				<sj:div href="%{#reportAddUrl}" >
+				    
+				</sj:div>
+		   </s:if>
+		</div>
 	</div>

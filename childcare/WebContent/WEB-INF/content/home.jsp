@@ -27,11 +27,18 @@
 <body>
 
 <div class="container">
-  <div class="header"></div>
+  <div class="header">
+  	<div style="padding:30px 0 0 870px">
+  	    <s:url var="signOutUrl" namespace="/user" action="signout" includeParams="none" />
+  	    <s:a href="%{#signOutUrl}" title="%{#session.SESSION_USER.name}" cssStyle="text-decoration:none">Sign Out [<s:property value="%{#session.SESSION_USER.userRole}"/>]</s:a>
+  	</div>
+  </div>
   <div class="menu_bar">
   
   <s:url var="homeViewUrl" action="home-view" namespace="/user" includeParams="none"></s:url>
-  <s:url var="monthlyViewUrl" action="add" namespace="/report" includeParams="none"></s:url>
+  
+  <s:url var="monthlyViewUrl" action="frame" namespace="/report" includeParams="none"></s:url>
+  
   <s:url var="accountViewUrl" action="account-frame" namespace="/user" includeParams="none"></s:url>
   <s:url var="contactusViewUrl" action="contactus-view" namespace="/information" includeParams="none"></s:url>
   <s:url var="settignsFrameUrl" action="frame" namespace="/settings" includeParams="none"></s:url>

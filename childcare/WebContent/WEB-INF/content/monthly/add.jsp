@@ -6,17 +6,6 @@
 	  <table>
 	   <tr>
 	   		<td class="td4" style="width:5px">&nbsp;</td><td>Monthly Information</td>
-	   		<td style="text-align: right; padding-right: 10px;white-space: nowrap">
-	   	 	
-			
-	
-			<s:url var="addReport" action="search" 
-			namespace="/report" includeParams="none"></s:url>
-     	
-     		
-			<sj:a href="%{#addReport}" targets="userList">Search Report</sj:a>
-		</td>
-		
 	   </tr>
 	   
 	  </table>

@@ -7,8 +7,10 @@ import org.springframework.context.annotation.Scope;
 
 import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.GenericList;
+import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.service.GenericListService;
+import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.MonthlyDataService;
 
 @Scope(value = "prototype")
@@ -18,17 +20,26 @@ public class MonthlyInformationAction extends BaseAction {
 	
 	@Autowired private GenericListService gerGenericListService;
 	@Autowired private MonthlyDataService monthlyDataService;
+	@Autowired private LamaNivasaService lamaNivasaService;
 	private String lamaNivasaId;
 	private MonthlyData monthlyData;
 	private List<MonthlyData> list;
 	
 	private List<GenericList> yearList;
 	private List<GenericList> monthList;
+	private List<LamaNivasa> lamaNivasaList;
 	
+	private int year;
+	private String month;
+	
+	public String frame() {
+		return SUCCESS;
+	}
 	
 	private void viewInit() {
 		yearList = gerGenericListService.findListByCategoryId("C050");
 		monthList = gerGenericListService.findListByCategoryId("C060");
+		lamaNivasaList = lamaNivasaService.findAll();
 	}
 	
 	private void findById() {
@@ -57,7 +68,9 @@ public class MonthlyInformationAction extends BaseAction {
 		findById();
 		return SUCCESS;
 	}
-	public String search(){
+	
+	public String searchForm(){
+		viewInit();
 		return SUCCESS;
 	}
 	
@@ -131,6 +144,15 @@ public class MonthlyInformationAction extends BaseAction {
 		this.list = list;
 	}
 	
+	
+	public List<LamaNivasa> getLamaNivasaList() {
+		return lamaNivasaList;
+	}
+
+	public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
+		this.lamaNivasaList = lamaNivasaList;
+	}
+
 	private void validateMonthlyData() {
 		/*if(monthlyData.get().isEmpty()) {
 			addFieldError("lamaNivasa.name", "Name cannot be empty");
@@ -144,6 +166,24 @@ public class MonthlyInformationAction extends BaseAction {
 			addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
 		}*/
 	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	
+	
 	
 
 }
