@@ -9,7 +9,9 @@
     
     <s:form action="save" namespace="/user" method="post">
 		<table id="commonTable" class="greenTbl" width="100%">
-		
+		<s:actionerror/>
+		<s:hidden name="user.id" />
+		<s:hidden name="operationMode"/>
 			<tr>
 				<th>Login Name</th>
 				<td colspan="5"><table><s:textfield name="user.username" /></table>
@@ -23,30 +25,26 @@
 	
 			<tr>
 				<th>User Role</th>
-				<td colspan="1"><table><s:select id="addUserRole" name="user.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/></table></td>
+				<td style="width: 100px"><table><s:select id="addUserRole" name="user.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/></table></td>
 				
-				<!-- <th style="width: 120px" id="lamaNivasa">Lama-Nivasa Name</th> -->
-				
-				<td colspan="2" style="width: 200px" id="lamaNivasaSelect"><table> 
+				<td colspan="2" id="lamaNivasaSelect"><table> 
 					<sj:autocompleter 
-				  		id="user.referenceId"
-			     		name="user.lamaNivasa.id"
+				  		
+			     		name="user.referenceId"
 			     		list="%{lamaNivasaList}"
 			     		listKey="id" listValue="name"
 			     		label="Lama-Nivasa Name"
-			     		cssStyle="width:350px"
+			     		cssStyle="width:600px"
 	     			/> </table></td>		
 				
-				<!-- <th style="width: 90px; display: none" id="unit">Unit Name</th> -->
-				
-				<td colspan="2" style="width: 200px; display: none" id="unitSelect"><table>
+				<td colspan="2" style="display: none" id="unitSelect"><table>
 				<sj:autocompleter 
-				  		id="user.referenceId"
-			     		name="user.lamaNivasa.id"
-			     		list="%{lprobationUnitList}"
+				  		
+			     		name="user.ProbationUnit.id"
+			     		list="%{probationUnitList}"
 			     		listKey="id" listValue="name"
 			     		label="Unit Name"
-			     		cssStyle="width:350px"
+			     		cssStyle="width:600px"
 	     			/> </table></td>	 		
 			</tr>
 	
