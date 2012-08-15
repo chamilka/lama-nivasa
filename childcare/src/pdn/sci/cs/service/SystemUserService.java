@@ -33,7 +33,7 @@ public class SystemUserService {
 		return systemUserDao.findAll();
 	}
 	
-	public List<SystemUser> search(String userId, String userRole, String email, String mobile) {
-		return systemUserDao.search(userId, userRole, email, mobile);
+	public List<SystemUser> search(String userId, String userRole, String referenceId, String mobile) {
+		return systemUserDao.search(userId, userRole, referenceId, mobile);
 	}
 }
