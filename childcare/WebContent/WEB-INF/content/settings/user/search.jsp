@@ -23,12 +23,24 @@
      	 </td>
      	 <td style="width: 100px; display: none" id="unitTd">
 	   	  <table>
-	   		<s:textfield name="user.referenceId" label="Unit Name" />
+	   	  	<sj:autocompleter 
+	     		name="user.referenceId"
+	     		list="%{probationUnitList}"
+	     		listKey="id" listValue="name"
+	     		label="Unit Name"
+	     		cssStyle="width:150px"
+	     	/>
 	 	  </table>
      	 </td>
       	 <td style="width: 100px; display: none" id="lamaNivasaTd">
 	   	  <table>
-	   		<s:textfield name="user.referenceId" label="Lama-Nivasa" cssStyle="white-space: nowrap;"/>
+	   	  	<sj:autocompleter 
+	     		name="user.referenceId"
+	     		list="%{lamaNivasaList}"
+	     		listKey="id" listValue="name"
+	     		label="Lama-Nivasa"
+	     		cssStyle="width:150px"
+	     	/>
 	 	  </table>
      	 </td> 
      	 <td style="width: 100px">
