@@ -22,6 +22,7 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 	public static final String NAME = "name";
 	public static final String SYSTEM_USER_ROLE = "userRole";
 	public static final String MOBILE = "mobile";
+	public static final String REFERENCE_ID = "referenceId";
 	
 	private static final long serialVersionUID = 1L;
 	protected String id;
