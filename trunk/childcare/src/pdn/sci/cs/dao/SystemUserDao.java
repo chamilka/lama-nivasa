@@ -23,7 +23,7 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
 	}
 
-	public List<SystemUser> search(String name, String userRole, String email, String mobile) {
+	public List<SystemUser> search(String name, String userRole, String referenceId, String mobile) {
 
 		DetachedCriteria criteria = createCriteria(clazz);
 
@@ -35,8 +35,8 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 			criteria.add(Restrictions.eq(SystemUser.SYSTEM_USER_ROLE, userRole));
 		}
 
-		if (email != null && !email.isEmpty()) {
-			criteria.add(Restrictions.eq(SystemUser.EMAIL, email));
+		if (referenceId != null && !referenceId.isEmpty()) {
+			criteria.add(Restrictions.eq(SystemUser.REFERENCE_ID, referenceId));
 		}
 
 		if (mobile != null && !mobile.isEmpty()) {
