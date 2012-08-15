@@ -6,9 +6,14 @@ import java.util.regex.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.entity.ProbationUnit;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.service.LamaNivasaService;
+import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.SystemUserService;
+import sun.rmi.transport.LiveRef;
 
 @Scope(value = "prototype")
 public class UserAction extends BaseAction {
@@ -24,11 +29,17 @@ public class UserAction extends BaseAction {
 	private String newUserPasswordConfirm;
 
 	private List<SystemUser> list;
+	private List<ProbationUnit> probationUnitList;
+	private List<LamaNivasa> lamaNivasaList;
 
 	private SystemUser user;
 
-	@Autowired
-	private SystemUserService systemUserService;
+	@Autowired private SystemUserService systemUserService;
+	@Autowired private LamaNivasaService lamaNivasaService;
+	@Autowired private ProbationUnitService probationUnitService;
+	
+
+	
 
 	public String signIn() {
 
@@ -98,11 +109,14 @@ public class UserAction extends BaseAction {
 			if (hasErrors()) {
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD	&& user.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD
+						&& user.getId().isEmpty()) {
 					setAddSettings(user);
 					user = systemUserService.save(user);
-				} else if (operationMode == OPERATION_MODE.EDIT	&& !user.getId().isEmpty()) {
-					SystemUser existingUser = systemUserService.findById(user.getId());
+				} else if (operationMode == OPERATION_MODE.EDIT
+						&& !user.getId().isEmpty()) {
+					SystemUser existingUser = systemUserService.findById(user
+							.getId());
 					user.setUserPassword(existingUser.getUserPassword()); // set
 																			// password
 					setUpdateSettings(user);
@@ -111,10 +125,12 @@ public class UserAction extends BaseAction {
 					} catch (Exception e) {
 						e.printStackTrace();
 						addActionError("Profile was not updated, try again");
+						populateAddList();
 						return INPUT;
 					}
 				} else {
 					addActionError("Error");
+					populateAddList();
 					return INPUT;
 				}
 			}
@@ -136,9 +152,16 @@ public class UserAction extends BaseAction {
 	}
 
 	public String add() {
+		addMode();
+		populateAddList();
 		return SUCCESS;
 	}
-
+	
+	private void populateAddList(){
+		lamaNivasaList= lamaNivasaService.findAll();
+		probationUnitList= probationUnitService.findAll();
+	}
+	
 	public String edit() {
 		editMode();
 		return view();
@@ -174,37 +197,37 @@ public class UserAction extends BaseAction {
 			}
 		}
 	}
-	
+
 	public void validateEmail(String email) {
-		
+
 		Pattern pattern;
 		Matcher matcher;
 		boolean check;
-		final String emailPattern= "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-		
-		pattern=Pattern.compile(emailPattern);
+		final String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+		pattern = Pattern.compile(emailPattern);
 		matcher = pattern.matcher(email);
-		check= matcher.matches();
-		
-		if(check==false)
-			addFieldError("user.email", "Invalid email adress");		
+		check = matcher.matches();
+
+		if (check == false)
+			addFieldError("user.email", "Invalid email adress");
 	}
-	
-	public void validateMobile(String mobile){
-		
+
+	public void validateMobile(String mobile) {
+
 		Pattern pattern;
 		Matcher matcher;
 		boolean check;
-		final String mobilePattern= "\\d{3}";
-		
-		pattern=Pattern.compile(mobilePattern);
+		final String mobilePattern = "\\d{3}";
+
+		pattern = Pattern.compile(mobilePattern);
 		matcher = pattern.matcher(mobile);
-		check= matcher.matches();
-		
-		if(check == false) {
+		check = matcher.matches();
+
+		if (check == false) {
 			addFieldError("user.mobile", "Number must have 10 digit numbers");
 		}
-		
+
 	}
 
 	public String view() {
@@ -222,24 +245,28 @@ public class UserAction extends BaseAction {
 	}
 
 	public String searchForm() {
+		populateAddList();
 		return SUCCESS;
 	}
 
 	public String search() {
-		
+
 		if (user != null) {
 
-			/*validateMobile(user.getMobile());
-			if (hasErrors()) {
-				return INPUT;
-			}*/
+			/*
+			 * validateMobile(user.getMobile()); if (hasErrors()) { return
+			 * INPUT; }
+			 */
 
 			try {
-				list = systemUserService.search(user.getName(), user.getUserRole(), user.getEmail(), user.getMobile());
-			} catch(Exception e) {
+				list = systemUserService.search(user.getName(),
+						user.getUserRole(), user.getReferenceId(),
+						user.getMobile());
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
+			populateAddList();
 			addActionError("Please give a criteria about user");
 		}
 
@@ -338,6 +365,22 @@ public class UserAction extends BaseAction {
 
 	public void setUser(SystemUser user) {
 		this.user = user;
+	}
+	
+	public List<ProbationUnit> getProbationUnitList() {
+		return probationUnitList;
+	}
+
+	public void setProbationUnitList(List<ProbationUnit> probationUnitList) {
+		this.probationUnitList = probationUnitList;
+	}
+
+	public List<LamaNivasa> getLamaNivasaList() {
+		return lamaNivasaList;
+	}
+
+	public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
+		this.lamaNivasaList = lamaNivasaList;
 	}
 
 }
