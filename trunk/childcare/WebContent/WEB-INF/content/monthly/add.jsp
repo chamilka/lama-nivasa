@@ -15,6 +15,7 @@
 	<hr />
 	
 	<s:form action="save" method="post" namespace="/report" cssStyle="margin-left:50px" >
+	 <hidden name="monthlyData.lamaNivasa.id" value=" SET " />
 	 
 	 <table width="100%">
 	  <tr>
