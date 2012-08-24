@@ -13,18 +13,19 @@
 	   <tr>
 	   	 <td style="width: 200px">
 	   	 <table>
-		   <s:textfield name="user.name" label="Name" />
+		   <s:textfield name="systemUser.name" label="Name" />
      	 </table>
      	 </td>
      	 <td style="width: 100px;">
 	   	  <table>
-	   		<s:select id="userRole" name="user.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onChange="javascript:userSearch()" />
+	   		<s:select name="systemUser.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" />
 	 	  </table>
      	 </td>
-     	 <td style="width: 100px; display: none" id="unitTd">
+     	 <td style="width: 100px; display: none">
 	   	  <table>
 	   	  	<sj:autocompleter 
-	     		name="user.referenceId"
+	   	  	    id="referenceId"
+	     		name="systemUser.referenceId"
 	     		list="%{probationUnitList}"
 	     		listKey="id" listValue="name"
 	     		label="Unit Name"
@@ -32,20 +33,20 @@
 	     	/>
 	 	  </table>
      	 </td>
-      	 <td style="width: 100px; display: none" id="lamaNivasaTd">
+      	 <td style="width: 100px; display: none" >
 	   	  <table>
-	   	  	<sj:autocompleter 
+	   	  	<%-- sj:autocompleter 
 	     		name="user.referenceId"
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
 	     		label="Lama-Nivasa"
 	     		cssStyle="width:150px"
-	     	/>
+	     	/ --%>
 	 	  </table>
      	 </td> 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:textfield name="user.mobile" label="Mobile" />
+	   		<s:textfield name="systemUser.mobile" label="Mobile" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; text-align: left" >
