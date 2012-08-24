@@ -33,6 +33,7 @@ public class UserAction extends BaseAction {
 	private List<LamaNivasa> lamaNivasaList;
 
 	private SystemUser user;
+	private SystemUser systemUser;
 
 	@Autowired private SystemUserService systemUserService;
 	@Autowired private LamaNivasaService lamaNivasaService;
@@ -83,7 +84,7 @@ public class UserAction extends BaseAction {
 
 	public String passwordChangeSave() {
 
-		SystemUser user = super.getUser();
+		SystemUser user = super.getSessionUser();
 
 		if (!newUserPassword.equals(newUserPasswordConfirm)) {
 			addActionError("New passwords are not matched");
@@ -251,7 +252,7 @@ public class UserAction extends BaseAction {
 
 	public String search() {
 
-		if (user != null) {
+		if (systemUser != null) {
 
 			/*
 			 * validateMobile(user.getMobile()); if (hasErrors()) { return
@@ -259,11 +260,13 @@ public class UserAction extends BaseAction {
 			 */
 
 			try {
-				list = systemUserService.search(user.getName(),
-						user.getUserRole(), user.getReferenceId(),
-						user.getMobile());
+				list = systemUserService.search(systemUser.getName(),
+						systemUser.getUserRole(), systemUser.getReferenceId(),
+						systemUser.getMobile());
 			} catch (Exception e) {
 				e.printStackTrace();
+				populateAddList();
+				addActionError("Please give a criteria about user");
 			}
 		} else {
 			populateAddList();
@@ -275,7 +278,7 @@ public class UserAction extends BaseAction {
 
 	public String changeProfileForm() {
 		editMode();
-		user = systemUserService.findById(super.getUser().getId());
+		user = systemUserService.findById(super.getSessionUser().getId());
 		return SUCCESS;
 	}
 
@@ -382,5 +385,15 @@ public class UserAction extends BaseAction {
 	public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
 		this.lamaNivasaList = lamaNivasaList;
 	}
+
+	public SystemUser getSystemUser() {
+		return systemUser;
+	}
+
+	public void setSystemUser(SystemUser systemUser) {
+		this.systemUser = systemUser;
+	}
+	
+	
 
 }

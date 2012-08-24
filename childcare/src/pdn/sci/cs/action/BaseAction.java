@@ -112,7 +112,7 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 		}
 	}
 	
-	public SystemUser getUser(){
+	public SystemUser getSessionUser(){
 		if(session.get(SessionKey.SESSION_USER) != null) {
 			return (SystemUser)session.get(SessionKey.SESSION_USER);
 		} else {
@@ -146,11 +146,11 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	}
 	
 	public boolean isAdmin() {
-		return getUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name());
+		return getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name());
 	}
 	
 	public boolean isUser() {
-		return getUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name());
+		return getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name());
 	}
 	
 }
