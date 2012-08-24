@@ -38,9 +38,6 @@ public class UserAction extends BaseAction {
 	@Autowired private SystemUserService systemUserService;
 	@Autowired private LamaNivasaService lamaNivasaService;
 	@Autowired private ProbationUnitService probationUnitService;
-	
-
-	
 
 	public String signIn() {
 
@@ -105,24 +102,24 @@ public class UserAction extends BaseAction {
 
 	public String save() {
 
-		if (user != null) {
-			validateUser();
+		if (systemUser != null) {
+			//validateUser();
 			if (hasErrors()) {
 				return INPUT;
 			} else {
 				if (operationMode == OPERATION_MODE.ADD
-						&& user.getId().isEmpty()) {
-					setAddSettings(user);
-					user = systemUserService.save(user);
+						&& systemUser.getId().isEmpty()) {
+					setAddSettings(systemUser);
+					systemUser = systemUserService.save(systemUser);
 				} else if (operationMode == OPERATION_MODE.EDIT
-						&& !user.getId().isEmpty()) {
-					SystemUser existingUser = systemUserService.findById(user
+						&& !systemUser.getId().isEmpty()) {
+					SystemUser existingUser = systemUserService.findById(systemUser
 							.getId());
-					user.setUserPassword(existingUser.getUserPassword()); // set
+					systemUser.setUserPassword(existingUser.getUserPassword()); // set
 																			// password
-					setUpdateSettings(user);
+					setUpdateSettings(systemUser);
 					try {
-						systemUserService.update(user);
+						systemUserService.update(systemUser);
 					} catch (Exception e) {
 						e.printStackTrace();
 						addActionError("Profile was not updated, try again");
@@ -188,13 +185,13 @@ public class UserAction extends BaseAction {
 	}
 
 	private void validateUser() {
-		if (user.getUsername().isEmpty()) {
-			addFieldError("user.username", "Username cannot be empty");
+		if (systemUser.getUsername().isEmpty()) {
+			addFieldError("systemUser.username", "Username cannot be empty");
 		}
 
 		if (operationMode != OPERATION_MODE.EDIT) {
-			if (user.getUserPassword().isEmpty()) {
-				addFieldError("user.userPassword", "Password cannot be empty");
+			if (systemUser.getUserPassword().isEmpty()) {
+				addFieldError("systemUser.userPassword", "Password cannot be empty");
 			}
 		}
 	}
