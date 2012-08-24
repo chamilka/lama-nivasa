@@ -13,10 +13,17 @@
 		<s:hidden name="systemUser.id" />
 		<s:hidden name="operationMode"/>
 			<tr>
-				<th>Login Name</th>
+				<th style="width: 200px">Login Name</th>
 				<td colspan="5"><table><s:textfield name="systemUser.username" /></table>
 				</td>
 			</tr>
+			
+			<tr>
+				<th style="width: 200px">Login Password</th>
+				<td colspan="5"><table><s:password name="systemUser.userPassword" showPassword="true" /></table>
+				</td>
+			</tr>
+			
 			
 			<tr>
 				<th>Name</th>
@@ -40,7 +47,7 @@
 				<td colspan="2" style="display: none" id="unitSelect"><table>
 				<sj:autocompleter 
 				  		
-			     		name="systemUser.ProbationUnit.id"
+			     		name="systemUser.referenceId"
 			     		list="%{probationUnitList}"
 			     		listKey="id" listValue="name"
 			     		label="Unit Name"
@@ -50,7 +57,7 @@
 	
 			<tr>
 				<th>Gender</th>
-				<td colspan="5"><table><s:select name="systemUser.gender" list="#{'MALE': 'Male', 'FEMALE': 'Female'}"/></table></td>
+				<td colspan="5"><table><s:select name="systemUser.sex" list="#{'MALE': 'Male', 'FEMALE': 'Female'}"/></table></td>
 			</tr>
 	
 			<tr>
