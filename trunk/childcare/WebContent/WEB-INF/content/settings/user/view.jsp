@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-
+<s:include value="common/record-delete.jsp"></s:include>
 <div>
 	<table>
 		<tr>
@@ -80,7 +80,7 @@
 					includeParams="none">
 					<s:param name="id" value="%{user.id}"></s:param>
 				</s:url> <sj:a href="%{userDeleteUrl}" targets="userList"
-					cssClass="greenTbl">Delete</sj:a></td>
+					cssClass="greenTbl" onClickTopics="/confirmDelete">Delete</sj:a></td>
 
 		</tr>
 	</table>

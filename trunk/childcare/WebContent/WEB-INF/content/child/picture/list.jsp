@@ -2,6 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+<s:include value="common/record-delete.jsp"></s:include>
+
 	<div>
 	  <table>
 	   <tr>
@@ -41,7 +43,7 @@
 			 	<s:url var="childPictureDeleteUrl" action="delete" namespace="/childPicture" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv">Delete</sj:a>
+			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>
 			</tr>
 		</s:iterator>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
-
+<s:include value="common/record-delete.jsp"></s:include>
 	<div>
 	  <table>
 	   <tr>
@@ -48,7 +48,7 @@
 		 		<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"><s:property value="id"/></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv">Delete</sj:a>
+			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>
 		    </tr>
 		    
