@@ -2,6 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+<s:include value="common/record-delete.jsp"></s:include>
+
 	<div>
 	  <table>
 	   <tr>
@@ -60,7 +62,7 @@
 			 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="lamaNivasa.id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv">Delete</sj:a>
+			 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>
 		</tr>
 	 

@@ -2,6 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+<s:include value="common/record-delete.jsp"></s:include>
+
 	<div>
   
     <table id="commonTable" class="blueTbl" width="100%">
