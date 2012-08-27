@@ -14,7 +14,7 @@
      	 <s:if test="!isUser()">
      	 <td style="width: 300px">
 	   	  <table>
-	   		<s:select label="Lama Nivasa" name="lamaNivasaId"  list="lamaNivasaList" listKey="id" listValue="name"/>
+	   		<s:select label="Lama Nivasa" name="monthlyData.lamaNivasa.id"  list="lamaNivasaList" listKey="id" listValue="name"/>
 	 	  </table>
      	 </td>
     	 </s:if>
@@ -22,19 +22,19 @@
     	 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Year" name="year"  list="yearList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="Year" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
      	 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Month" name="month"  list="monthList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="Month" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
      	 
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="userList"/>
+	  			<sj:submit value="SEARCH" targets="monthlyResultDiv"/>
 	  		</table>
      	 </td>
      	 

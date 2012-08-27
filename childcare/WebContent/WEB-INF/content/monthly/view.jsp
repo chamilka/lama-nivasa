@@ -5,15 +5,44 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td>Monthly Information</td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title">Monthly Information View</td>
 	   </tr>
+	   
 	  </table>
 	</div>
 
 	
 	<hr />
-	
-	 <table width="100%">
+     <div style="margin-left:50px"> <s:actionerror/></div>
+     
+     <s:if test="!hasErrors()" > 		 
+	 <table width="100%" style="margin-left:50px">
+	  
+	  <tr>
+	    <td style="width: 100px" colspan="2">
+	   	  <table>
+	   		<s:label label="Lama Nivasa" name="monthlyData.lamaNivasa.name" />
+	 	  </table>
+     	 </td>
+       </tr>
+	  <tr>
+	    <td style="width: 100px">
+	   	  <table>
+	   		<s:label label="Year" name="monthlyData.year" />
+	 	  </table>
+     	 </td>
+     	 
+     	 <td style="width: 100px">
+	   	  <table>
+	   		<s:label label="Month" name="monthlyData.month" />
+	 	  </table>
+     	 </td>
+       </tr>	
+       <tr>
+       	<td colspan="2">
+       		<hr />
+       	</td>
+       </tr> 
 	   <tr>
 	     <td>
 	       <b>1. Number Of Children</b>
@@ -23,16 +52,15 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	 <s:label 
-				    	name="numberOfFemaleChildren" 
+				    	name="monthlyData.numOfMaleChildren" 
 				    	label="Female"
-				    	/>
-		     	 	
+ 		    	 />
 		     	 </table>
 		     </td>
 		     <td>
 		     	 <table>
-		     	 <s:label
-				    	name="numberOfMaleChildren" 
+		     	 <s:label 
+				    	name="monthlyData.numOfFemaleChildren" 
 				    	label="Male"
 				    	/>
 		     	 	
@@ -50,17 +78,17 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	<s:label
-				    	name="numberOfOfficers" 
-						label="Number of Officers"
+		     	 	<s:label 
+				    	name="monthlyData.numOfOfficers" 
+				    	label="Number of Officers"
 				    	/>
 		     	 	
 		     	 </table>
 		     </td>
 		     <td>
 		     	 <table>
-		     	 	<s:label
-				    	name="numberOfVacantOfficers" 
+		     	 	<s:label 
+				    	name="monthlyData.numOfVacantOfficers" 
 				    	label="Number of Vacant Officers"
 				    	/>
 		     	 	
@@ -75,20 +103,18 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:label
-				    	name="numberOfFemaleSocietals" 
+		     	     <s:label 
+				    	name="monthlyData.numOfFemaleReunification" 
 				    	label="Female"
 				    	/>
-		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:label
-				    	name="numberOfMaleSocietals" 
+		     	     <s:label 
+				    	name="monthlyData.numOfMaleReunification" 
 				    	label="Male"
 				    	/>
-		     	 	 
 		     	 </table>
 		     </td>
 	    </tr> 	
@@ -102,7 +128,7 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	      <s:label 
-				    	name="numberOfFemaleTransfered" 
+				    	name="monthlyData.numOfFemaleTransfers" 
 				    	label="Female"
 				    	/>
 		     	 	 
@@ -110,8 +136,8 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	     <s:label
-				    	name="numberOfMaleTransferred" 
+		     	     <s:label 
+				    	name="monthlyData.numOfMaleTransfers" 
 				    	label="Male"
 				    	/>
 		     	 	 
@@ -126,8 +152,8 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:label
-				    	name="numberOfFemaleProforma" 
+		     	      <s:label 
+				    	name="monthlyData.numOfProformaFemale" 
 				    	label="Female"
 				    	/>
 		     	 	 
@@ -136,7 +162,7 @@
 		      <td>
 		     	 <table>
 		     	     <s:label 
-				    	name="numberOfMaleProforma" 
+				    	name="monthlyData.numOfProformaMale" 
 				    	label="Male"
 				    	/>
 		     	 	 
@@ -151,8 +177,8 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	     <s:label
-				    	name="numberOfFemaleNoGuardian" 
+		     	     <s:label 
+				    	name="monthlyData.numOfFemaleNoGuardians" 
 				    	label="Female"
 				    	/>
 		     	 	 
@@ -160,8 +186,8 @@
 		     </td>
 		      <td>
 		     	 <table>
-		     	 	  <s:label
-				    	name="numberOfMaleNoGuardian" 
+		     	 	  <s:label 
+				    	name="monthlyData.numOfMaleNoGuardians" 
 				    	label="Male"
 				    	/>
 		     	 	 
@@ -178,16 +204,15 @@
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	     <s:label 
-				    	name="numberOfTerminatedFemale" 
+				    	name="monthlyData.numOfFemaleTerminates" 
 				    	label="Female"
 				    	/>
-		     	 	 
 		     	 </table>
 		     </td>
 		      <td>
 		     	 <table>
 		     	      <s:label 
-				    	name="numberOfTerminatedMale" 
+				    	name="monthlyData.numOfMaleTerminates" 
 				    	label="Male"
 				    	/>
 		     	 	 
@@ -202,8 +227,8 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	 	 <s:label
-				    	name="numberOfRequirementFemale" 
+		     	 	 <s:label 
+				    	name="monthlyData.numOfFemaleHavingSpecialRequirements" 
 				    	label="Female"
 				    	/>
 		     	 	 
@@ -212,7 +237,7 @@
 		      <td>
 		     	 <table>
 		     	 <s:label 
-				    	name="numberOfRequirementMale" 
+				    	name="monthlyData.munOfMaleHavingSpecialRequirements" 
 				    	label="Male"
 				    	/>
 		     	 	 
@@ -228,58 +253,86 @@
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
-		     	      <s:label 
-	     				 
-	     				name="probationOfficerObserved" 
-	     				label="Probation Officer" 
-	     				
-	     				/>
-		     	 	 
+		     	    <tr>
+		     	      <td>
+		     	         Probation Officer :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.probationOfficerVisitedDate" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
 		     </td>
-		      <td>
-		     	 <table>
-		     	     <s:label 
-	     				
-	     				name="counsellingOfficerObserved" 
-	     				label="Counsellor" 
-	     				
-	     				/>
-		     	 	 
+		     <td>
+		      	 <table>
+		     	    <tr>
+		     	      <td>
+		     	         Counsellor :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.counsellorVisitedDate" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
 		     </td>
 	    </tr> 		
 	    
 	    <tr>
 		     <td style="padding-left: 25px">
-		     	 <table>
-		     	      <s:label 
-	     				name="commisionerDepartmentObserved" 
-	     				label="Department Commissioner" 
-	     				/>
-		     	 	 
+		     	<table>
+		     	    <tr>
+		     	      <td>
+		     	         Department Commissioner :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.departmentCommissionerVisitedDate" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
 		     </td>
 		      <td>
-		     	 <table>
-		     	      <s:label 
-	     				name="officerDepartmentObserved" 
-	     				label="Department Probation Officer" 
-	     				/>
-		     	 	 
+		         <table>
+		     	    <tr>
+		     	      <td>
+		     	         Department Probation Officer :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.departmentProbationOfficerVisitedDate" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
+		     	 
 		     </td>
 	    </tr> 					
 	 
 	 	<tr>
 		      <td colspan="2" style="padding-left: 25px">
-		     	 <table>
-		     	      <s:label 
-	     				name="officerDepartmentChildDevelopmentObserved" 
-	     				label="Department Child Development Officer" 
-	     				/>
-		     	 	 
+		      	 <table>
+		     	    <tr>
+		     	      <td>
+		     	         Department Child Development Officer :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.departmentOfChildDevelopmentOfficerVisitedDate" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
+		     	 
 		     </td>
 	    </tr> 	
 	     <tr>
@@ -289,18 +342,25 @@
 	    </tr>
 	    <tr>
 		     <td style="padding-left: 25px">
-		     	 <table>
-		     	      <s:label
-	     				name="lastMeetingHeld" 
-	     				label="The last meeting" 
-	     				/>
-		     	 	 
+		         <table>
+		     	    <tr>
+		     	      <td>
+		     	         The last meeting :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.theLastMeetingHeldOn" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
+		     	 
 		     </td>
 		      <td>
 		     	 <table>
 		     	     <s:label 
-				    	name="numberOfMeetings" 
+				    	name="monthlyData.numOfMeetingsUptoNow" 
 				    	label="Number of meetings upto now"
 				    	/>
 		     	 	 
@@ -309,23 +369,21 @@
 	    </tr> 								
 	    <tr>
 		      <td colspan="2" style="padding-left: 25px">
-		     	 <table>
-		     	      <s:label 
-	     				name="officerDepartmentChildDevelopmentObserved" 
-	     				label="Placement Committee" 
-	     				/>
-		     	 	 
-		     	 </table>
-		     </td>
-	    </tr> 	
-	 
-	 	<tr>
-		      <td colspan="2">
-		     	 <table>
-		     	      <sj:submit targets="childResultDiv"/>
-		     	 	 
+		         <table>
+		     	    <tr>
+		     	      <td>
+		     	         Placement Committee :
+		     	      </td>
+		     	      <td>
+			     	      <s:date 
+		     				name="monthlyData.placementCommittee" 
+		     				format="yyyy/MM/dd"
+		     				/>
+	     			  </td>
+	     			</tr>
 		     	 </table>
 		     </td>
 	    </tr> 	
 	
 	  </table>
+  </s:if>

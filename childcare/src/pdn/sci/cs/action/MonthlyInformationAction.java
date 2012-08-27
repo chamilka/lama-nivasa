@@ -1,14 +1,17 @@
 package pdn.sci.cs.action;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
-import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
+import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.MonthlyDataService;
@@ -51,8 +54,11 @@ public class MonthlyInformationAction extends BaseAction {
 	}
 	
 	public String add() {
-		addMode();
 		viewInit();
+		assignCurrentYearMonth();
+		addMode();
+		
+		assignLamaNivasaId();
 		return SUCCESS;
 	}
 	
@@ -60,6 +66,7 @@ public class MonthlyInformationAction extends BaseAction {
 		edit();
 		findById();
 		viewInit();
+		assignLamaNivasaId();
 		return SUCCESS;
 	}
 	
@@ -71,6 +78,35 @@ public class MonthlyInformationAction extends BaseAction {
 	
 	public String searchForm(){
 		viewInit();
+		assignCurrentYearMonth();
+		return SUCCESS;
+	}
+	
+	public String search() {
+		if(monthlyData == null) {
+			addActionError("Invalid Access");
+			return SUCCESS;
+		} else {
+			if(monthlyData.getLamaNivasa() == null || 
+					monthlyData.getLamaNivasa().getId() == null) {
+				assignLamaNivasaId();
+				if(lamaNivasaId == null) {
+					addActionError("Please select a Lama Nivasa");
+					return SUCCESS;
+				}
+				monthlyData.setLamaNivasa(new LamaNivasa());
+				monthlyData.getLamaNivasa().setId(lamaNivasaId);
+			} 
+			
+			list = monthlyDataService.search(monthlyData);
+			if(list == null || list.size() == 0) {
+				addActionError("No records found");
+			} else if(list.size() == 1) {
+				monthlyData = list.get(0);
+			} else {
+				return "more";
+			}
+		}
 		return SUCCESS;
 	}
 	
@@ -82,14 +118,20 @@ public class MonthlyInformationAction extends BaseAction {
 				viewInit();
 				return INPUT;
 			} else {
-				if(operationMode == OPERATION_MODE.ADD && monthlyData.getId().isEmpty()) {
-					setAddSettings(monthlyData);
-					monthlyData = monthlyDataService.save(monthlyData);
-				} else if (operationMode == OPERATION_MODE.EDIT && !monthlyData.getId().isEmpty() ) {
-					setUpdateSettings(monthlyData);
-					monthlyDataService.update(monthlyData);
-				} else {
-					addActionError("Error");
+				try {
+					if(operationMode == OPERATION_MODE.ADD && monthlyData.getId().isEmpty()) {
+						setAddSettings(monthlyData);
+						monthlyData = monthlyDataService.save(monthlyData);
+					} else if (operationMode == OPERATION_MODE.EDIT && !monthlyData.getId().isEmpty() ) {
+						setUpdateSettings(monthlyData);
+						monthlyDataService.update(monthlyData);
+					} else {
+						addActionError("Error");
+						viewInit();
+						return INPUT;
+					}
+				} catch(Exception e) {
+					addActionError("Error while saving data");
 					viewInit();
 					return INPUT;
 				}
@@ -103,6 +145,22 @@ public class MonthlyInformationAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	private void assignCurrentYearMonth() {
+		monthlyData = new MonthlyData();
+		Calendar calendar = new GregorianCalendar();
+
+		monthlyData.setYear(calendar.get(Calendar.YEAR));
+		monthlyData.setMonth(monthList.get(calendar.get(Calendar.MONTH)).getListKey());
+	}
+	
+	private void assignLamaNivasaId() {
+		SystemUser user = getSessionUser();
+		if( user != null) {
+			if(user.getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+				lamaNivasaId = user.getReferenceId();
+			}
+		}
+	}
 	
 	public List<GenericList> getYearList() {
 		return yearList;
