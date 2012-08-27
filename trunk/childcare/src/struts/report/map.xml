@@ -15,6 +15,7 @@
 		
 		<action name="search" class="pdn.sci.cs.action.MonthlyInformationAction" method="search">
 			<result name="success">/WEB-INF/content/monthly/view.jsp</result>
+			<result name="more">/WEB-INF/content/monthly/view.jsp</result>
 		</action>
 		
 		<action name="add" class="pdn.sci.cs.action.MonthlyInformationAction" method="add">

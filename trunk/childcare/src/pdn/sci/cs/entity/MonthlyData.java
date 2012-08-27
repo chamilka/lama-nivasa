@@ -28,7 +28,8 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 	private Integer year;
 	private String month;
 	private LamaNivasa lamaNivasa;
-	private Integer numOfChildren;
+	private Integer numOfMaleChildren;
+	private Integer numOfFemaleChildren;
 	private Integer numOfOfficers;
 	private Integer numOfVacantOfficers;
 	private Integer numOfFemaleReunification;
@@ -37,7 +38,8 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 	private Integer numOfMaleTransfers;
 	private Integer numOfProformaFemale;
 	private Integer numOfProformaMale;
-	private Integer numOfGuardians;
+	private Integer numOfFemaleNoGuardians;
+	private Integer numOfMaleNoGuardians;
 	private Integer numOfFemaleTerminates;
 	private Integer numOfMaleTerminates;
 	private Integer numOfFemaleHavingSpecialRequirements;
@@ -78,7 +80,7 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 		this.id = id;
 		this.year = year;
 		this.month = month;
-		this.numOfChildren = numOfChildren;
+		this.numOfMaleChildren = numOfChildren;
 		this.numOfOfficers = numOfOfficers;
 		this.numOfVacantOfficers = numOfVacantOfficers;
 		this.numOfFemaleReunification = numOfFemaleReunification;
@@ -87,7 +89,6 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 		this.numOfMaleTransfers = numOfMaleTransfers;
 		this.numOfProformaFemale = numOfProformaFemale;
 		this.numOfProformaMale = numOfProformaMale;
-		this.numOfGuardians = numOfGuardians;
 		this.numOfFemaleTerminates = numOfFemaleTerminates;
 		this.numOfMaleTerminates = numOfMaleTerminates;
 		this.numOfFemaleHavingSpecialRequirements = numOfFemaleHavingSpecialRequirements;
@@ -144,13 +145,23 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 		this.lamaNivasa = lamaNivasa;
 	}
 
-	@Column(name = "NUM_OF_CHILDREN")
-	public Integer getNumOfChildren() {
-		return this.numOfChildren;
+	@Column(name = "NUM_OF_MALE_CHILDREN")
+	public Integer getNumOfMaleChildren() {
+		return this.numOfMaleChildren;
 	}
 
-	public void setNumOfChildren(Integer numOfChildren) {
-		this.numOfChildren = numOfChildren;
+	public void setNumOfMaleChildren(Integer numOfMaleChildren) {
+		this.numOfMaleChildren = numOfMaleChildren;
+	}
+	
+	
+	@Column(name = "NUM_OF_FEMALE_CHILDREN")
+	public Integer getNumOfFemaleChildren() {
+		return numOfFemaleChildren;
+	}
+
+	public void setNumOfFemaleChildren(Integer numOfFemaleChildren) {
+		this.numOfFemaleChildren = numOfFemaleChildren;
 	}
 
 	@Column(name = "NUM_OF_OFFICERS")
@@ -224,14 +235,23 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 	public void setNumOfProformaMale(Integer numOfProformaMale) {
 		this.numOfProformaMale = numOfProformaMale;
 	}
-
-	@Column(name = "NUM_OF_GUARDIANS")
-	public Integer getNumOfGuardians() {
-		return this.numOfGuardians;
+	
+	@Column(name = "NUM_OF_FEMALE_NO_GUARDIANS")
+	public Integer getNumOfFemaleNoGuardians() {
+		return numOfFemaleNoGuardians;
 	}
 
-	public void setNumOfGuardians(Integer numOfGuardians) {
-		this.numOfGuardians = numOfGuardians;
+	public void setNumOfFemaleNoGuardians(Integer numOfFemaleNoGuardians) {
+		this.numOfFemaleNoGuardians = numOfFemaleNoGuardians;
+	}
+
+	@Column(name = "NUM_OF_MALE_NO_GUARDIANS")
+	public Integer getNumOfMaleNoGuardians() {
+		return numOfMaleNoGuardians;
+	}
+
+	public void setNumOfMaleNoGuardians(Integer numOfMaleNoGuardians) {
+		this.numOfMaleNoGuardians = numOfMaleNoGuardians;
 	}
 
 	@Column(name = "NUM_OF_FEMALE_TERMINATES")

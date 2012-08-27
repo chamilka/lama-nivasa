@@ -16,24 +16,24 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
 	public List<MonthlyData> search(MonthlyData monthlyData) {
 
 		DetachedCriteria criteria = createCriteria(clazz);
-		if (!monthlyData.getId().isEmpty()) {
+		if (monthlyData.getId() != null && !monthlyData.getId().isEmpty()) {
 			criteria.add(Restrictions.eq(MonthlyData.ID, monthlyData.getId()));
 		}
 
-		if (!monthlyData.getLamaNivasa().getId().isEmpty()) {
+		if (monthlyData.getLamaNivasa() != null && 
+				!monthlyData.getLamaNivasa().getId().isEmpty()) {
 			criteria.add(Restrictions.eq(MonthlyData.LAMA_NIVASA_ID,
 					monthlyData.getLamaNivasa().getId()));
 		}
 
 		if (monthlyData.getYear() != null) {
-			criteria.add(Restrictions.eq(MonthlyData.YEAR,
-					monthlyData.getYear()));
+			criteria.add(Restrictions.eq(MonthlyData.YEAR, monthlyData.getYear()));
 		}
 
 		if (!monthlyData.getMonth().isEmpty()) {
-			criteria.add(Restrictions.eq(MonthlyData.MONTH,
-					monthlyData.getMonth()));
+			criteria.add(Restrictions.eq(MonthlyData.MONTH,	monthlyData.getMonth()));
 		}
+		
 		return findByCriteria(criteria);
 	}
 }
