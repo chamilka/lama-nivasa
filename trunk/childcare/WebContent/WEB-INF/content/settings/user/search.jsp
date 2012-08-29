@@ -18,10 +18,10 @@
      	 </td>
      	 <td style="width: 100px;">
 	   	  <table>
-	   		<s:select name="systemUser.userRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" />
+	   		<s:select name="systemUser.userRole" id="searchUserRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onChange="javascript:userSearch()"/>
 	 	  </table>
      	 </td>
-     	 <td style="width: 100px; display: none">
+     	 <td id="unitTd" style="width: 100px; display: none">
 	   	  <table>
 	   	  	<sj:autocompleter 
 	   	  	    id="referenceId"
@@ -33,15 +33,15 @@
 	     	/>
 	 	  </table>
      	 </td>
-      	 <td style="width: 100px; display: none" >
+      	 <td id="lamaNivasaTd" style="width: 100px; display: none" >
 	   	  <table>
-	   	  	<%-- sj:autocompleter 
+	   	  	<sj:autocompleter 
 	     		name="user.referenceId"
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
 	     		label="Lama-Nivasa"
 	     		cssStyle="width:150px"
-	     	/ --%>
+	     	/>
 	 	  </table>
      	 </td> 
      	 <td style="width: 100px">
