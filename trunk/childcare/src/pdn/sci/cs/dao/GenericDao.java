@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
@@ -12,8 +13,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateOptimisticLockingFailureException;
 import org.springframework.stereotype.Repository;
 
+import pdn.sci.cs.entity.BaseEntity;
+import pdn.sci.cs.util.Pager;
+
+
 @Repository("genericDao")
-public abstract class GenericDao<T> extends BaseDao {
+public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 	
 	public static final int MIN_INDEX = 0;
 	private static Logger logger = Logger.getLogger(GenericDao.class);
@@ -39,6 +44,50 @@ public abstract class GenericDao<T> extends BaseDao {
 		
 		return findByCriteria(criteria);
 	}
+	
+	protected Integer findByCritiriaUniqueLongResult(DetachedCriteria criteria) {
+		try {
+			@SuppressWarnings("unchecked")
+			List<Integer> results = getHibernateTemplate().findByCriteria(criteria);
+
+			if(results != null && results.size() != 0) {
+				return results.get(0);
+			} else {
+				return null;
+			}
+			
+		} catch (DataAccessException e) {
+			logger.error("Criteria query execution error for unique result");
+			return null;
+		}
+    }
+	
+	public Pager find(DetachedCriteria criteria, Integer start, Integer size) {
+		
+		Pager pager = new Pager();
+		
+		start = (start == null) ? 0 : start; 
+		pager.setStart(start);
+		
+		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size; 
+		pager.setSize(size);
+		pager.setTotal(getCount(criteria)); //getCount(criteria)
+		
+		criteria.setProjection(null);
+		criteria.setResultTransformer(Criteria.ROOT_ENTITY);
+		pager.setList(findByCriteria(criteria, start, size));
+		
+		return pager;
+	}
+	
+	private Integer getCount(DetachedCriteria criteria) {
+
+		criteria.setProjection(Projections.rowCount());
+		int total = findByCritiriaUniqueLongResult(criteria);
+		
+		return total;
+	}
+
 	
 	public T findById(String id) {
 		try{

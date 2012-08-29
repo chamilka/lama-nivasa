@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pdn.sci.cs.dao.ChildDao;
 import pdn.sci.cs.entity.Child;
+import pdn.sci.cs.util.Pager;
 
 @Service
 public class ChildService {
@@ -15,6 +16,10 @@ public class ChildService {
 	
 	public List<Child> findAll() {
 		return childDao.findAll();
+	}
+	
+	public Pager findAll(Integer start, Integer size) {
+		return childDao.findAll(start, size);
 	}
 	
 	public Child findById(String id) {

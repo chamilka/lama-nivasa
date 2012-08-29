@@ -36,7 +36,9 @@ public class ChildAction extends BaseAction {
 	private List<GenericList> childCategoryList;
 	
 	public String list() {
-		list = childService.findAll();
+		//list = childService.findAll();
+		pager = childService.findAll(pageStart, pageSize);
+		setActionContext(pager);
 		return SUCCESS;
 	}
 	

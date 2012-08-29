@@ -2,23 +2,22 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:include value="common/record-delete.jsp"></s:include>
-
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Children</td>
+	   		<td><div class="td3" style="width:7px;height:20px">&nbsp;</div></td><td class="sub-title">Children</td>
+	   		<td align="right" style="width: 100%">
+	   			<s:include value="../common/pager.jsp"></s:include>
+	   		</td>
 	   </tr>
 	  </table>
 	</div>
-	<hr />
-	
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="darkBlueTbl">
 	  	<tr>
 	  		<th></th><th>Name</th><th>Sex Type</th><th>Date Of Birth</th><th>Grade</th><th>&nbsp;</th>
 	  	</tr>
-		<s:iterator value="list" status="rowIndex">
+		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
 			 <td><s:property value="%{#rowIndex.index + 1}"/>
 			 <td>

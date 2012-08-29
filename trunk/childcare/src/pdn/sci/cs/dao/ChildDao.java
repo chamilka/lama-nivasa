@@ -3,10 +3,12 @@ package pdn.sci.cs.dao;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.Child;
+import pdn.sci.cs.util.Pager;
 
 @Repository
 public class ChildDao extends GenericDao<Child> {
@@ -23,6 +25,14 @@ public class ChildDao extends GenericDao<Child> {
 			criteria.add(Restrictions.like(Child.FULL_NAME, "%" + name + "%"));
 		}
 		return findByCriteria(criteria);
+		
+	}
+	
+	public Pager findAll(Integer start, Integer size) {
+		
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.addOrder(Order.asc("id"));
+		return super.find(criteria, start, size);
 		
 	}
 

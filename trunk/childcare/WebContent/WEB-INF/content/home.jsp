@@ -21,6 +21,22 @@
 	<script type="text/javascript" src="<s:url value="/javaScript/user.js" includeParams="none"/>"> </script>
 	
 	<sj:head jqueryui="true" jquerytheme="redmond" defaultIndicator="defaultIndicator"/>
+	<script type="text/javascript">
+	var count = 0;
+	(function($) {
+		$.subscribe("/confirmDelete",function(event,data) {
+			if(count == 0){
+		        if ( confirm('<s:text name="Are you sure deleting record/s?" />') ) {
+		        	count = count + 1;
+		            return true;
+		         }
+		         else {
+		            return exit;
+		         }
+			}
+	    },null);
+	})(jQuery);
+	</script>
 
 </head>
 
