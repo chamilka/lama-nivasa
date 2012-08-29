@@ -3,10 +3,12 @@ package pdn.sci.cs.dao;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.util.Pager;
 
 @Repository
 public class SystemUserDao extends GenericDao<SystemUser> {
@@ -21,6 +23,14 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
 		return findByCriteriaForUniqueResult(criteria);
 
+	}
+	
+	public Pager findAll(Integer start, Integer size) {
+		
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.addOrder(Order.asc("id"));
+		return super.find(criteria, start, size);
+		
 	}
 
 	public List<SystemUser> search(String name, String userRole, String referenceId, String mobile) {

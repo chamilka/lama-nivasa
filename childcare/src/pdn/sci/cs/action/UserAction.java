@@ -41,8 +41,6 @@ public class UserAction extends BaseAction {
 
 	public String signIn() {
 
-		System.out.println("Username " + username);
-		System.out.println("Password " + password);
 		validateSignIn();
 		if (hasErrors()) {
 			return INPUT;
@@ -170,9 +168,16 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	private void populateList() {
+/*	private void populateList() {
 		list = systemUserService.findAll();
 	}
+*/	
+	private void populateList() {
+		pager = systemUserService.findAll(pageStart, pageSize);
+		setActionContext(pager);
+	}
+	
+	
 
 	private void validateSignIn() {
 		if (username == null || username.isEmpty()) {

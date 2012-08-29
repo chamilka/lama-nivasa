@@ -13,7 +13,7 @@
 <hr />
 
 <div>
-  <s:form action="save" method="post" namespace="/child" >
+  <s:form action="save" method="post" namespace="/child" theme="xhtml">
     <s:actionerror/>
 	<s:hidden name="child.id" />
 	<s:hidden name="operationMode"/>
@@ -76,7 +76,7 @@
      				changeMonth="true" 
      				changeYear="true"
      				yearRange="1994:2012"
-     				value="child.dateOfBirth.time"
+     				value="%{child.dateOfBirth.time}"
      				/>
      		</table>
     	</td>
@@ -134,12 +134,11 @@
         <td> 
      		<table>
      			<sj:datepicker 
-     				id="dateOfRegistration" 
      				name="child.dateOfRegistration" 
      				changeMonth="true" 
      				changeYear="true"
      				yearRange="1994:2012"
-     				value="child.dateOfRegistration.time"
+     				value="%{child.dateOfRegistration.time}"
      				/>
      		</table>
     	</td>

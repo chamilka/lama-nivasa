@@ -2,19 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<s:include value="common/record-delete.jsp"></s:include>
 <div>
 	<table>
 		<tr>
-			<td class="td6" style="width: 5px">&nbsp;</td>
+			<td><div class="td6" style="width:7px;height:20px">&nbsp;</div></td>
 			<td class="sub-title">Users</td>
+			<td align="right" style="width: 100%">
+	   			<s:include value="../../common/pager.jsp"></s:include>
+	   		</td>
 		</tr>
 	</table>
 </div>
 <hr />
 
 <div>
-  <s:if test="list.size > 0">
+  <s:if test="pager.list.size > 0">
 	<table style="margin-top: 10px" width="100%" id="commonTable"
 		class="greenTbl" cellpadding="2px">
 		<tr>
@@ -30,7 +32,7 @@
 		
 			<th>&nbsp;</th>
 		</tr>
-		<s:iterator value="list" status="rowIndex">
+		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
 				<td><s:property value="%{#rowIndex.index + 1}" />
 				<td><s:url var="userViewUrl" action="view" namespace="/user"

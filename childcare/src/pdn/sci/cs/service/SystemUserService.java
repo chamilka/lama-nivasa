@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pdn.sci.cs.dao.SystemUserDao;
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.util.Pager;
 
 @Service
 public class SystemUserService {
@@ -31,6 +32,10 @@ public class SystemUserService {
 	
 	public List<SystemUser> findAll() {
 		return systemUserDao.findAll();
+	}
+	
+	public Pager findAll(Integer start, Integer size) {
+		return systemUserDao.findAll(start, size);
 	}
 	
 	public List<SystemUser> search(String userId, String userRole, String referenceId, String mobile) {
