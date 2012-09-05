@@ -7,7 +7,7 @@ import pdn.sci.cs.entity.BaseEntity;
 
 public class Pager {
 
-	public static final int DEFAULT_PAGE_SIZE = 10;
+	public static final int DEFAULT_PAGE_SIZE = 20;
 	private Integer start = 0; //default
 	private Integer size = DEFAULT_PAGE_SIZE; //default
 	private Integer total;

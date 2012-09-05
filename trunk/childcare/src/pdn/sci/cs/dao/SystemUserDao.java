@@ -1,7 +1,5 @@
 package pdn.sci.cs.dao;
 
-import java.util.List;
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -33,7 +31,8 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 		
 	}
 
-	public List<SystemUser> search(String name, String userRole, String referenceId, String mobile) {
+	public Pager search(String name, String userRole, 
+			String referenceId, String mobile, Integer pageStart, Integer pageSize) {
 
 		DetachedCriteria criteria = createCriteria(clazz);
 
@@ -53,7 +52,7 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 			criteria.add(Restrictions.eq(SystemUser.MOBILE, mobile));
 		}
 		
-		return findByCriteria(criteria);
+		return super.find(criteria, pageStart, pageSize);
 
 	}
 

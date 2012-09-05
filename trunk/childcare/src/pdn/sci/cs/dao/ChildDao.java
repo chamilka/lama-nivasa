@@ -15,7 +15,7 @@ public class ChildDao extends GenericDao<Child> {
 	
 	private static final Class<Child> clazz = Child.class;
 	
-	public List<Child> search(String name, String lamaNivasaId) {
+	public Pager search(String name, String lamaNivasaId, Integer start, Integer size) {
 		DetachedCriteria criteria = createCriteria(clazz);
 		if(lamaNivasaId != null && !lamaNivasaId.isEmpty()) {
 			criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
@@ -24,7 +24,9 @@ public class ChildDao extends GenericDao<Child> {
 		if(name != null && !name.isEmpty()) {
 			criteria.add(Restrictions.like(Child.FULL_NAME, "%" + name + "%"));
 		}
-		return findByCriteria(criteria);
+		
+		return super.find(criteria, start, size);
+		//return findByCriteria(criteria);
 		
 	}
 	

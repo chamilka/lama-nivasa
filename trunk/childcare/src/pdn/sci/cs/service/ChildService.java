@@ -38,8 +38,8 @@ public class ChildService {
 		childDao.deleteById(id);
 	}
 	
-	public List<Child> search(String name, String lamaNivasaId) {
-		return childDao.search(name, lamaNivasaId);
+	public Pager search(String name, String lamaNivasaId, Integer start, Integer size) {
+		return childDao.search(name, lamaNivasaId, start, size);
 	}
 
 }
