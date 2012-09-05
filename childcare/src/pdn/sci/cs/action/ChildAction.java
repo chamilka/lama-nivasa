@@ -72,7 +72,8 @@ public class ChildAction extends BaseAction {
 			} else {
 				name = child.getFullName();
 			}
-			list = childService.search(name, lamaNivasaId);
+			pager = childService.search(name, lamaNivasaId, pageStart, pageSize);
+			setActionContext(pager);
 		} else {
 			addActionError("Please give a criteria");
 		}

@@ -13,7 +13,6 @@ import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.SystemUserService;
-import sun.rmi.transport.LiveRef;
 
 @Scope(value = "prototype")
 public class UserAction extends BaseAction {
@@ -253,18 +252,21 @@ public class UserAction extends BaseAction {
 	}
 
 	public String search() {
-
+		System.out.println("\n\n\n\n called");
 		if (systemUser != null) {
-
+			System.out.println("\n\n\n\n called 2");
 			/*
 			 * validateMobile(user.getMobile()); if (hasErrors()) { return
 			 * INPUT; }
 			 */
 
 			try {
-				list = systemUserService.search(systemUser.getName(),
-						systemUser.getUserRole(), systemUser.getReferenceId(),
-						systemUser.getMobile());
+				if(systemUserService != null) {
+					System.out.println("\n\n\n\n called 2");
+				}
+				
+				pager = systemUserService.search(systemUser.getName(), systemUser.getUserRole(), 
+						systemUser.getReferenceId(), systemUser.getMobile(), pageStart, pageSize);
 			} catch (Exception e) {
 				e.printStackTrace();
 				populateAddList();

@@ -13,6 +13,7 @@
 	   <tr>
 	   	<td style="width: 350px">
 	   	 <table>
+	   	 	
 		   <sj:autocompleter 
 		  		id="child.lamaNivasa.id"
 	     		name="child.lamaNivasa.id"
@@ -20,6 +21,7 @@
 	     		listKey="id" listValue="name"
 	     		label="Lama Nivasa"
 	     		cssStyle="width:450px"
+	     		forceValidOption="true"
 	     	/>
      	 </table>
      	 </td>

@@ -38,7 +38,8 @@ public class SystemUserService {
 		return systemUserDao.findAll(start, size);
 	}
 	
-	public List<SystemUser> search(String userId, String userRole, String referenceId, String mobile) {
-		return systemUserDao.search(userId, userRole, referenceId, mobile);
+	public Pager search(String userId, String userRole, String referenceId, 
+			String mobile, Integer pageStart, Integer pageSize) {
+		return systemUserDao.search(userId, userRole, referenceId, mobile, pageStart, pageSize);
 	}
 }
