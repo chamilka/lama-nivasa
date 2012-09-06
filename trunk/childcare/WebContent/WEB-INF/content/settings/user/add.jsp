@@ -12,6 +12,8 @@
 		<s:actionerror/>
 		<s:hidden name="systemUser.id" />
 		<s:hidden name="operationMode"/>
+		<s:hidden name="systemUser.userRole" value="%{addType}"/>
+		
 			<tr>
 				<th style="width: 200px">Login Name</th>
 				<td colspan="5"><table><s:textfield name="systemUser.username" /></table>
@@ -29,30 +31,47 @@
 				<th>Name</th>
 				<td colspan="5"><table><s:textfield name="systemUser.name" cssStyle="width:350px"/></table></td>
 			</tr>
+			
+			<tr>
+				<th>Post</th>
+				<td colspan="5"><table><s:select name="systemUser.post" list="postCategoryList" listKey="listKey" listValue="listValue" /></table></td>
+			</tr>
 	
 			<tr>
 				<th>User Role</th>
-				<td style="width: 100px"><table><s:select id="addUserRole" name="systemUser.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/></table></td>
-				
+				<td style="width: 100px;padding-left: 20px"> <s:property value="addType" />
+				<%-- <table>
+						 s:select id="addUserRole" name="systemUser.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/> 
+				</table> 
+				--%>
+				</td> 
+				<s:if test="addType == 'User'" >
 				<td colspan="2" id="lamaNivasaSelect"><table> 
 					<sj:autocompleter 
-				  		
+				  		id="lamaNivwasaUnit"
 			     		name="systemUser.referenceId"
 			     		list="%{lamaNivasaList}"
 			     		listKey="id" listValue="name"
-			     		label="Lama-Nivasa Name"
+			     		label="Chidren's Home"
 			     		cssStyle="width:600px"
 	     			/> </table></td>		
-				
-				<td colspan="2" style="display: none" id="unitSelect"><table>
-				<sj:autocompleter 
-				  		
-			     		name="systemUser.referenceId"
-			     		list="%{probationUnitList}"
-			     		listKey="id" listValue="name"
-			     		label="Unit Name"
-			     		cssStyle="width:600px"
-	     			/> </table></td>	 		
+				</s:if>
+				<s:elseif test="addType == 'Officer'" >
+					<td colspan="2" id="unitSelect"><table>
+						<sj:autocompleter 
+							id="probationUnit"
+				     		name="systemUser.referenceId"
+				     		list="%{probationUnitList}"
+				     		listKey="id" listValue="name"
+				     		label="Unit Name"
+				     		cssStyle="width:600px"
+		     			/></table></td>	 
+	     		</s:elseif>		
+	     		<s:else>
+	     			<td colspan="2">
+						&nbsp;	     			
+	     			</td>
+	     		</s:else>
 			</tr>
 	
 			<tr>
@@ -79,12 +98,12 @@
 	
 			<tr>
 				<th valign="top">Tempory Address</th>
-				<td colspan="5"><table><s:textarea name="systemUser.addressTemporary" cssStyle="width:400px;height:60px"/></table></td>
+				<td colspan="5"><table><s:textarea name="systemUser.addressTemporary" cssStyle="width:600px;height:30px"/></table></td>
 			</tr>
 	
 			<tr>
 				<th valign="top">Address</th>
-				<td colspan="5"><table><s:textarea name="systemUser.address" cssStyle="width:400px;height:60px" /></table>
+				<td colspan="5"><table><s:textarea name="systemUser.address" cssStyle="width:600px;height:30px" /></table>
 				</td>
 			</tr>
 			

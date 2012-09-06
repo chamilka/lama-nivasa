@@ -21,10 +21,11 @@
 		class="greenTbl" cellpadding="2px">
 		<tr>
 			<th></th>
-			<th>Login Name</th>
+			
 			<th>Name</th>
+			<th>Post</th>
 			<th>User Type</th>
-			<th>Unit/Lama-nivasa</th>
+			<%-- th>Unit/Lama-nivasa</th>  --%>
 			<th>Sex Type</th>
 			<th>Telephone</th>
 			<th>Mobile</th>
@@ -39,9 +40,9 @@
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
 					</s:url> <sj:a href="%{#userViewUrl}" targets="userList">
-						<s:property value="username" />
+						<s:property value="name" />
 					</sj:a></td>
-				<td><s:property value="name" /></td>	
+				<td><s:property value="post" /></td>	
 				<td><s:property value="userRole" /></td>
 			<%-- 	 <td>
 			 	<s:url var="probationUnitViewUrl" action="view" namespace="/probationUnit" includeParams="none">
@@ -50,7 +51,7 @@
 			 	<sj:a href="%{#probationUnitViewUrl}" targets="probationUnitResultDiv">
 			 	<s:property value="referenceId"/></sj:a>
 			 </td> --%>
-				<td><s:property value="referenceId" /></td>
+				<%-- td><s:property value="referenceId" /></td> --%>
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>

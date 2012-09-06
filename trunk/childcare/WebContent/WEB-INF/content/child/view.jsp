@@ -131,13 +131,13 @@
 				<s:param name="childId" value="child.id"></s:param>
 			</s:url>
         
-        	<sj:a href="%{#childPictureFrameUrl}" targets="childDetailViewDiv">Pictures</sj:a>
+        	<sj:a href="%{#childPictureFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Pictures" /></sj:a>
 			| 
 			<s:url var="childGuardianFrameUrl" action="frame" namespace="/childGuardian" includeParams="none">
 				<s:param name="childId" value="child.id"></s:param>
 			</s:url>
 			
-			<sj:a href="%{#childGuardianFrameUrl}" targets="childDetailViewDiv">Guardians</sj:a>
+			<sj:a href="%{#childGuardianFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Guardians" /></sj:a>
     	</td>
     	<td colspan="4">&nbsp;
     	</td>
@@ -145,12 +145,12 @@
 			 	<s:url var="childEditUrl" action="edit" namespace="/child" includeParams="none">
 			 		<s:param name="id" value="%{child.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{childEditUrl}" targets="childResultDiv">Edit</sj:a>
+			 	<sj:a href="%{childEditUrl}" targets="childResultDiv"><input type="button" value="Edit" /></sj:a>
 				 | 
 			 	<s:url var="childDeleteUrl" action="delete" namespace="/child" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{child.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
 		</td>
     	
       </tr>

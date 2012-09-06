@@ -7,7 +7,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Chidren's Home</td>
 	   </tr>
 	  </table>
 	</div>
@@ -19,7 +19,7 @@
 	 <table id="commonTable" class="blueTbl" width="100%">
 	  
 	 	<tr>
-	 		<th>Name</th><td  colspan="5"><s:property value="lamaNivasa.name"/></td>
+	 		<th style="width:130px">Name</th><td  colspan="5"><s:property value="lamaNivasa.name"/></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Category</th><td><s:property value="lamaNivasa.category"/></td>
@@ -53,16 +53,17 @@
 	 	</tr>
 	 	
 	 	 <tr>
-		 	<td colspan="6"><table cellpadding="0" cellspacing="0">
+		 	<td colspan="6" style="padding-left:150px"><table cellpadding="0" cellspacing="0">
 		 		<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="lamaNivasa.id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">Edit</sj:a>
-				 | 
-			 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
-			 		<s:param name="id" value="lamaNivasa.id"></s:param>
-			 	</s:url>
-			 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv"><input type="button" value="Edit" /></sj:a>
+				<s:if test="admin"> | 
+				 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
+				 		<s:param name="id" value="lamaNivasa.id"></s:param>
+				 	</s:url>
+				 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
+			 	</s:if>
 			 </td>
 		</tr>
 	 

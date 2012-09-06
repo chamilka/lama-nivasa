@@ -14,7 +14,7 @@
      	 <s:if test="!isUser()">
      	 <td style="width: 300px">
 	   	  <table>
-	   		<s:select label="Lama Nivasa" name="monthlyData.lamaNivasa.id"  list="lamaNivasaList" listKey="id" listValue="name"/>
+	   		<s:select label="Chidren's Home" name="monthlyData.lamaNivasa.id"  list="lamaNivasaList" listKey="id" listValue="name"/>
 	 	  </table>
      	 </td>
     	 </s:if>

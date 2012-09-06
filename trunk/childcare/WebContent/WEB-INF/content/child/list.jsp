@@ -2,6 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+
+<s:if test="pager.list.size != 0" >
 	<div>
 	  <table>
 	   <tr>
@@ -15,7 +17,11 @@
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="darkBlueTbl">
 	  	<tr>
-	  		<th></th><th>Name</th><th>Sex Type</th><th>Date Of Birth</th><th>Grade</th><th>&nbsp;</th>
+	  		<th style="width:20px"></th><th>Name</th>
+	  		<th style="width:70px">Sex Type</th>
+	  		<th>Date Of Birth</th>
+	  		<th style="width:50px">Grade</th>
+	  		<th>Children's Home</th>
 	  	</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
@@ -24,11 +30,13 @@
 			 	<s:url var="childViewUrl" action="view" namespace="/child" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{#childViewUrl}" targets="childResultDiv"><s:property value="fullName"/></sj:a>
+			 	<sj:a href="%{#childViewUrl}" targets="childResultDiv" title="Code: %{code}"><s:property value="fullName"/></sj:a>
 			 </td>
 			 <td><s:property value="sexType"/></td>
 			 <td><s:date name="dateOfBirth.time" format="yyyy/MM/dd"/></td>
-			  <td><s:property value="grade"/></td>
+			 <td><s:property value="grade"/></td>
+			 <td><s:property value="lamaNivasa.name" /></td>
+			 <%--
 			 <td>
 			 	<s:url var="childEditUrl" action="edit" namespace="/child" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
@@ -40,8 +48,12 @@
 			 	</s:url>
 			 	<sj:a href="%{#childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>
+			 --%>
 			</tr>
 		</s:iterator>
 	</table>
 	</div>
-	
+</s:if>
+<s:else>
+  <div class="error"> Items not found to your search input</div>
+</s:else>	

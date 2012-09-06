@@ -5,7 +5,7 @@
 <div>
   <table>
    <tr>
-   		<td class="td3" style="width:10px">&nbsp;</td><td>Search Lama Nivasa</td>
+   		<td class="td3" style="width:10px">&nbsp;</td><td>Search Chidren's Home</td>
    </tr>
   </table>
 </div>
@@ -15,8 +15,8 @@
 <div>
 	
 	<s:form>
-		<s:textfield label="Lama Nivasa Index Number" name="lamaNivsaIndex" cssStyle="width:150px"/>
-		<s:textfield label="Lama Nivasa Name" name="lamaNivasaName" cssStyle="width:200px"/>
+		<s:textfield label="Chidren's Home Index Number" name="lamaNivsaIndex" cssStyle="width:150px"/>
+		<s:textfield label="Chidren's Home Name" name="lamaNivasaName" cssStyle="width:200px"/>
 		
 		<sj:submit value="Search"/>
 	</s:form>
