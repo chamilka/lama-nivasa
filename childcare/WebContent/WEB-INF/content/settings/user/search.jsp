@@ -18,10 +18,10 @@
      	 </td>
      	 <td style="width: 100px;">
 	   	  <table>
-	   		<s:select name="systemUser.userRole" id="searchUserRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" onChange="javascript:userSearch()"/>
+	   		<s:select name="systemUser.userRole" id="searchUserRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" /> <%-- onChange="javascript:userSearch()" --%>
 	 	  </table>
      	 </td>
-     	 <td id="unitTd" style="width: 100px; display: none">
+     	 <%-- td id="unitTd" style="width: 100px; display: none">
 	   	  <table>
 	   	  	<sj:autocompleter 
 	   	  	    id="referenceId"
@@ -32,18 +32,21 @@
 	     		cssStyle="width:150px"
 	     	/>
 	 	  </table>
-     	 </td>
+     	 </td> --%>
+     	 
+     	 <%-- 
       	 <td id="lamaNivasaTd" style="width: 100px; display: none" >
 	   	  <table>
 	   	  	<sj:autocompleter 
 	     		name="user.referenceId"
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
-	     		label="Lama-Nivasa"
+	     		label="Chidren's Home"
 	     		cssStyle="width:150px"
 	     	/>
 	 	  </table>
      	 </td> 
+     	 --%>
      	 <td style="width: 100px">
 	   	  <table>
 	   		<s:textfield name="systemUser.mobile" label="Mobile" />
@@ -59,11 +62,20 @@
 			<s:url var="userListUrl" action="list" 
 			namespace="/user" includeParams="none"></s:url>
 	
-			<s:url var="userAddUrl" action="add" 
-			namespace="/user" includeParams="none"></s:url>
+			<s:url var="userAddAdminUrl" action="add" namespace="/user" includeParams="none" >
+				<s:param name="addType">ADMIN</s:param>
+			</s:url>
+			<s:url var="userAddOfficerUrl" action="add" namespace="/user" includeParams="none">
+				<s:param name="addType">Officer</s:param>
+			</s:url>
+			<s:url var="userAddUserUrl" action="add" namespace="/user" includeParams="none">
+				<s:param name="addType">User</s:param>
+			</s:url>
      	
      		<sj:a href="%{userListUrl}" targets="userList">All</sj:a> | 
-			<sj:a href="%{#userAddUrl}" targets="userList">Add</sj:a>
+			<sj:a href="%{#userAddAdminUrl}" targets="userList">Add-Admin</sj:a> |
+			<sj:a href="%{#userAddOfficerUrl}" targets="userList">Add-Officer</sj:a> |
+			<sj:a href="%{#userAddUserUrl}" targets="userList">Add-User</sj:a>
 		</td>
 	  </table>
 	</s:form>

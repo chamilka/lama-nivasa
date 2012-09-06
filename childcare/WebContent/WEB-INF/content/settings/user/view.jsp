@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td6" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">User: <s:property value="user.name" /></td>
+			<td class="sub-title">User: <s:property value="systemUser.name" /></td>
 		</tr>
 	</table>
 </div>
@@ -21,66 +21,63 @@
 		</tr>
 
 		<tr>
-			<th width="150px">Login Name</th>
-			<td><s:property value="user.username" />
+			<th width="130px">Login Name</th>
+			<td><s:property value="systemUser.username" />
 			</td>
 			<th width="150px">Name</th>
-			<td colspan="3"><s:property value="user.name" />
-			</td>
+			<td colspan="3"><s:property value="systemUser.name" /></td>
 		</tr>
 		
 		<tr>
 			<th>User Role</th>
-			<td colspan="5"><s:property value="user.userRole" /></td>
+			<td ><s:property value="systemUser.userRole" /></td>
+			<th width="150px">Post</th>
+			<td colspan="3"><s:property value="systemUser.post" /></td>
 		</tr>
 
 		<tr>
 			<th>Gender</th>
-			<td colspan="5"><s:property value="user.sex" /></td>
+			<td colspan="5"><s:property value="systemUser.sex" /></td>
 		</tr>
 
 		<tr>
 			<th>Telephone Number</th>
-			<td colspan="5"><s:property value="user.telephone" />
+			<td colspan="5"><s:property value="systemUser.telephone" />
 			</td>
 		</tr>
 
 		<tr>
 			<th>Mobile Number</th>
-			<td colspan="5"><s:property value="user.username" />
+			<td colspan="5"><s:property value="systemUser.username" />
 			</td>
 		</tr>
 
 		<tr>
 			<th>Tempory Address</th>
 			<td colspan="5"><s:property
-					value="user.addressTemporary" /></td>
+					value="systemUser.addressTemporary" /></td>
 		</tr>
 
 		<tr>
 			<th>Address</th>
-			<td colspan="5"><s:property value="user.address" />
+			<td colspan="5"><s:property value="systemUser.address" />
 			</td>
 		</tr>
 
-
-
-
-
 		<tr>
 			
-			<td><s:url var="userEditUrl" action="edit" namespace="/user"
+			<td colspan="6" style="padding-left:150px"><s:url var="userEditUrl" action="edit" namespace="/user"
 					includeParams="none">
-					<s:param name="id" value="%{user.id}"></s:param>
+					<s:param name="id" value="%{systemUser.id}"></s:param>
 				</s:url> <sj:a href="%{userEditUrl}" targets="userList"
-					cssClass="greenTbl">Edit</sj:a> | 
+					cssClass="greenTbl"><input type="button" value="Edit" /></sj:a> | 
 					
 					<s:url var="userDeleteUrl"
 					action="delete" namespace="/user" escapeAmp="false"
 					includeParams="none">
-					<s:param name="id" value="%{user.id}"></s:param>
+					<s:param name="id" value="%{systemUser.id}"></s:param>
 				</s:url> <sj:a href="%{userDeleteUrl}" targets="userList"
-					cssClass="greenTbl" onClickTopics="/confirmDelete">Delete</sj:a></td>
+					cssClass="greenTbl" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a></td>
 
 		</tr>
 	</table>

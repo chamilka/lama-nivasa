@@ -21,7 +21,7 @@
 	  <tr>
 	    <td style="width: 100px" colspan="2">
 	   	  <table>
-	   		<s:label label="Lama Nivasa" name="monthlyData.lamaNivasa.name" />
+	   		<s:label label="Chidren's Home" name="monthlyData.lamaNivasa.name" />
 	 	  </table>
      	 </td>
        </tr>

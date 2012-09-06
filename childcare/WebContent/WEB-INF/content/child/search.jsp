@@ -19,7 +19,7 @@
 	     		name="child.lamaNivasa.id"
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
-	     		label="Lama Nivasa"
+	     		label="Chidren's Home"
 	     		cssStyle="width:450px"
 	     		forceValidOption="true"
 	     	/>

@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Add Lama Nivasa</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Add Chidren's Home</td>
 	   </tr>
 	  </table>
 	</div>
@@ -32,8 +32,8 @@
      				name="lamaNivasa.dateOfEstablishment" 
      				changeMonth="true" 
      				changeYear="true"
-     				yearRange="1984:2012"
-     				value="lamaNivasa.dateOfEstablishment.time"
+     				yearRange="1972:2012"
+     				value="%{lamaNivasa.dateOfEstablishment.time}"
      				/>
 	 		
 	 		</table></td>
@@ -91,8 +91,8 @@
      				name="lamaNivasa.registrationDate" 
      				changeMonth="true" 
      				changeYear="true"
-     				yearRange="1980:2012"
-     				value="lamaNivasa.registrationDate.time"
+     				yearRange="1972:2012"
+     				value="%{lamaNivasa.registrationDate.time}"
      				/></table></td>
 	 	</tr>
 	 	

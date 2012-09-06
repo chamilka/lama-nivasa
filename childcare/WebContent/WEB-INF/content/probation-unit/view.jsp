@@ -16,9 +16,11 @@
 	  <table id="commonTable" class="orangeTbl" width="100%">
 		  <tr>
 	 		<th style="width:150px">Name</th>
-	 		<td  colspan="5">
+	 		<td  colspan="3">
 		 		 <s:property value="probationUnit.name"/>
 		 	</td>
+		 	<th>Officers</th>
+	 		<td><s:property value="probationUnit.numberOfOfficers"/></td>
 		  </tr>
 		  <tr>
 	 		<th>Telephone</th>
@@ -43,12 +45,13 @@
 		 		<s:url var="probationUnitEditUrl" action="edit" namespace="/probationUnit" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv">Edit</sj:a>
+			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv"><input type="button" value="Edit" /></sj:a>
 		 		|
 		 		<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"><s:property value="id"/></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">
+			 		<input type="button" value="Delete" /></sj:a>
 			 </td>
 		    </tr>
 		    

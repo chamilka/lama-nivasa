@@ -20,7 +20,7 @@
 	  
     <table class="darkBlueTbl" width="100%" >
       <tr>
-        <td class="tdLabel">Lama-Nivasa</td>
+        <td class="tdLabel">Chidren's Home</td>
         <td> 
      		<table>
      		  
