@@ -25,6 +25,16 @@
   	</tr>
   	
   	<tr>
+  		<th>Post</th>
+  		<td><table><s:label name="systemUser.post" /></table>	</td>
+  	</tr>
+  	
+  	<tr>
+  		<th>System Role</th>
+  		<td><table><s:label name="systemUser.userRole" /></table>	</td>
+  	</tr>
+  	
+  	<tr>
   		<th>Mobile</th>
   		<td><table><s:label name="systemUser.mobile" /></table></td>
   	</tr>

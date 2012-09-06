@@ -19,6 +19,7 @@
 	 <table id="commonTable" class="orangeTbl" width="100%">
 	 	  <s:actionerror />
 		  <s:hidden name="probationUnit.id" />
+		  <s:hidden name="probationUnit.sortOrder" />
 		  <s:hidden name="operationMode"/> 
 		  <tr>
 	 		<th>Name</th>
