@@ -40,7 +40,7 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 	
 	public List<T> findAll() {
 		DetachedCriteria criteria = createCriteria(persistentClass);
-		criteria.addOrder(Order.asc("sortOrder"));
+		criteria.addOrder(Order.asc(BaseEntity.SORT_ORDER));
 		
 		return findByCriteria(criteria);
 	}
