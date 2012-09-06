@@ -22,18 +22,15 @@
 	
 	<sj:head jqueryui="true" jquerytheme="redmond" defaultIndicator="defaultIndicator"/>
 	<script type="text/javascript">
-	var count = 0;
+	//var count = 0;
 	(function($) {
 		$.subscribe("/confirmDelete",function(event,data) {
-			if(count == 0){
-		        if ( confirm('<s:text name="Are you sure deleting record/s?" />') ) {
-		        	count = count + 1;
-		            return true;
-		         }
-		         else {
-		            return exit;
-		         }
-			}
+	        if ( confirm('<s:text name="Are you sure deleting record/s?" />') ) {
+	            return true;
+	         }
+	         else {
+	            return exit;
+	         }
 	    },null);
 	})(jQuery);
 	</script>
@@ -66,8 +63,13 @@
   
   	<table border="0" cellspacing="0" cellpadding="0" id="tblMenu">
           <tr>
-            <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link">LAMA-NIVASA</sj:a> </td>
-            <td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link">UNITS</sj:a></td>
+            <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link">CHILDREN'S HOME</sj:a> </td>
+            <s:if test="!user">
+            	<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link">UNITS</sj:a></td>
+            </s:if>
+            <s:else>
+            	<td class="td2"></td>
+            </s:else>
 			<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link">CHILD</sj:a></td>
 			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link">MONTHLY DATA</sj:a></td>
             <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link">MY ACCOUNT</sj:a></td>
@@ -75,13 +77,13 @@
             	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTIGNS</sj:a></td>
          	</s:if>
          	<s:else>
-            	 <td class="td6"><sj:a id="contactusLink" href="%{#contactusUrl}" targets="content" cssClass="menu-link">CONTACT US</sj:a></td>
+            	 <td class="td6">&nbsp;</td>
          	</s:else>
           </tr>
      </table>
   </div>
   <div id="content" class="content">
-	  <sj:div href="%{#homeViewUrl}">
+	  <sj:div href="%{#lamaNivasaFrameUrl}">
 	    
 	  </sj:div>
   </div>

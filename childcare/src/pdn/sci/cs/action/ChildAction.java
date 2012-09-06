@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
@@ -37,6 +38,23 @@ public class ChildAction extends BaseAction {
 	
 	public String list() {
 		//list = childService.findAll();
+		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) { 
+			//if user only own children home 
+			String referenceId = getSessionUser().getReferenceId();
+			if(referenceId == null) {
+				return INPUT;
+			} else {
+				try {
+					pageSize = 1000;
+					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
+					setActionContext(pager);
+					return SUCCESS;
+				} catch(Exception e) {
+					e.printStackTrace();
+					return INPUT;
+				}
+			}
+		}
 		pager = childService.findAll(pageStart, pageSize);
 		setActionContext(pager);
 		return SUCCESS;

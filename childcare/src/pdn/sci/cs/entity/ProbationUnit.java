@@ -22,6 +22,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String email;
+	private Integer numberOfOfficers;
 	private String telephone;
 	private String fax;
 	private String address;
@@ -79,6 +80,16 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 	@Column(name = "EMAIL", length = 64)
 	public String getEmail() {
 		return this.email;
+	}
+	
+	
+	@Column(name = "NUMBER_OF_OFFICERS")
+	public Integer getNumberOfOfficers() {
+		return numberOfOfficers;
+	}
+
+	public void setNumberOfOfficers(Integer numberOfOfficers) {
+		this.numberOfOfficers = numberOfOfficers;
 	}
 
 	public void setEmail(String email) {
