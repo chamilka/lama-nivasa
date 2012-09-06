@@ -29,6 +29,7 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 	private String username;
 	private String name;
 	private String userRole;
+	private String post;
 	private String referenceId;
 	private String userPassword;
 	private String email;
@@ -177,5 +178,16 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+
+	@Column(name = "POST", length = 64)
+	public String getPost() {
+		return post;
+	}
+
+	public void setPost(String post) {
+		this.post = post;
+	}
+	
+	
 
 }

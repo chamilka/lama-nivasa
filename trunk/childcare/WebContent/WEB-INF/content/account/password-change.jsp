@@ -15,7 +15,7 @@
 		
    <s:form action="password-change-save" namespace="/user" method="post"  >
    	 <s:actionerror cssStyle="margin-left:100px"/>
-   	 <s:hidden name="user.id" />
+   	 <s:hidden name="systemUser.id" />
 	 <s:hidden name="operationMode"/>
 	 <s:password name="oldUserPassword"  label="Old Password" required="true"></s:password>
 	 <s:password name="newUserPassword"  label="New Password" required="true"></s:password>

@@ -37,5 +37,14 @@ public class ChildDao extends GenericDao<Child> {
 		return super.find(criteria, start, size);
 		
 	}
+	
+	public Pager findAllByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
+		
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
+		return super.find(criteria, start, size);
+		
+	}
 
 }

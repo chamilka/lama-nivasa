@@ -92,4 +92,12 @@ INSERT INTO `generic_list` VALUES ('L172','C017', 'MOTHER ONLY','Mother Only', 2
 INSERT INTO `generic_list` VALUES ('L173','C017', 'FATHER ONLY', 'Father Only', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L174','C017', 'NONE', 'None', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
+INSERT INTO `generic_list` VALUES ('L181','C018', 'Director', 'Director', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L182','C018', 'Child Service Officer', 'Child Service Officer', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L183','C018', 'Principal','Principal', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+
+INSERT INTO `generic_list` VALUES ('L191','C019', 'Probation Officer In Charge', 'Probation Officer In Charge', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L192','C019', 'Probation Officer', 'Probation Officer', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+
+INSERT INTO `generic_list` VALUES ('L211','C021', 'System Admin', 'System Admin', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 

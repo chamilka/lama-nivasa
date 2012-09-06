@@ -1,5 +1,6 @@
 package pdn.sci.cs.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import pdn.sci.cs.entity.DivisionalSecretariat;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
+import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.DivisionalSecretariatService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
@@ -37,7 +39,25 @@ public class LamaNivasaAction extends BaseAction {
 	private LamaNivasa lamaNivasa;
 	
 	public String list() {
-		list = lamaNivasaService.findAll();
+		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) { 
+			//if user only own children home 
+			String referenceId = getSessionUser().getReferenceId();
+			if(referenceId == null) {
+				return INPUT;
+			} else {
+				try {
+					lamaNivasa = lamaNivasaService.findById(referenceId);
+					list = new ArrayList<LamaNivasa>();
+					list.add(lamaNivasa);
+				} catch(Exception e) {
+					e.printStackTrace();
+					addActionError("You have not assigned to a children\'s home");
+					return INPUT;
+				}
+			}
+		} else {
+			list = lamaNivasaService.findAll();
+		}
 		return SUCCESS;
 	}
 	

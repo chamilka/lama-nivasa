@@ -22,6 +22,12 @@ public class ChildService {
 		return childDao.findAll(start, size);
 	}
 	
+	public Pager findAllByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
+		return childDao.findAllByLamaNivasaId(lamaNivasaId, start, size);
+	}
+	
+	
+	
 	public Child findById(String id) {
 		return childDao.findById(id);
 	}
