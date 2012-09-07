@@ -37,7 +37,6 @@ public class ChildAction extends BaseAction {
 	private List<GenericList> childCategoryList;
 	
 	public String list() {
-		//list = childService.findAll();
 		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) { 
 			//if user only own children home 
 			String referenceId = getSessionUser().getReferenceId();
@@ -110,6 +109,7 @@ public class ChildAction extends BaseAction {
 		if(child != null) {
 			validateChild();
 			if(hasErrors()) {
+				addPopulate();
 				return INPUT;
 			} else {
 				if(operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
@@ -186,14 +186,13 @@ public class ChildAction extends BaseAction {
 			addFieldError("child.fullName", "Full Name cannot be empty");
 		}
 		
-		if(child.getLamaNivasa() == null) {
+		if(child.getLamaNivasa() == null || child.getLamaNivasa().getId() == null) {
 			addFieldError("child.lamaNivasa.id", "Select the lama nivasa");
 		}
 		
 		if(child.getSexType().isEmpty()) {
 			addFieldError("child.sexType", "Sex type cannot be empty");
 		}
-		
 		
 	}
 

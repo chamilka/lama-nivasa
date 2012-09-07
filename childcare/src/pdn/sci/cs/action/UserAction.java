@@ -1,6 +1,5 @@
 package pdn.sci.cs.action;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.*;
 
@@ -12,7 +11,6 @@ import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.entity.SystemUser;
-import pdn.sci.cs.service.GenericCategoryService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
@@ -38,7 +36,7 @@ public class UserAction extends BaseAction {
 
 	//private SystemUser user;
 	private SystemUser systemUser;
-	private String addType = "User";  //Admin, Officer
+	private String addType = "USER";  //ADMIN, OFFICER
 
 	@Autowired private SystemUserService systemUserService;
 	@Autowired private LamaNivasaService lamaNivasaService;
@@ -109,10 +107,10 @@ public class UserAction extends BaseAction {
 		if (systemUser != null) {
 			validateUser();
 			if (hasErrors()) {
+				populateAddList();
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD
-						&& systemUser.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD	&& systemUser.getId().isEmpty()) {
 					setAddSettings(systemUser);
 					systemUser = systemUserService.save(systemUser);
 				} else if (operationMode == OPERATION_MODE.EDIT
@@ -143,8 +141,6 @@ public class UserAction extends BaseAction {
 	}
 
 	public String passwordForgot() {
-		System.out.println("Search Key : " + search);
-
 		return SUCCESS;
 	}
 
@@ -203,11 +199,25 @@ public class UserAction extends BaseAction {
 	}
 
 	private void validateUser() {
-		if (systemUser.getUsername().isEmpty()) {
+		if (systemUser.getUsername().isEmpty() || systemUser.getUsername().trim().length() == 0) {
 			addFieldError("systemUser.username", "Username cannot be empty");
+		}
+		
+		if (systemUser.getName().isEmpty() || systemUser.getName().trim().length() == 0) {
+			addFieldError("systemUser.name", "Name cannot be empty");
+		}
+		
+		if(!systemUser.getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
+			if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty() || 
+					systemUser.getReferenceId().trim().length() == 0) {
+				addFieldError("systemUser.referenceId", "Please select your work location");
+			}
 		}
 
 		if (operationMode != OPERATION_MODE.EDIT) {
+			if(systemUserService.searchByUsername(systemUser.getUsername()) != null) {
+				addFieldError("systemUser.username", "Username not available");
+			}
 			if (systemUser.getUserPassword().isEmpty()) {
 				addFieldError("systemUser.userPassword", "Password cannot be empty");
 			}
