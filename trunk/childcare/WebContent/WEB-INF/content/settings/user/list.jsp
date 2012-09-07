@@ -24,14 +24,12 @@
 			
 			<th>Name</th>
 			<th>Post</th>
-			<th>User Type</th>
+			<th>User Role</th>
 			<%-- th>Unit/Lama-nivasa</th>  --%>
 			<th>Sex Type</th>
 			<th>Telephone</th>
 			<th>Mobile</th>
 			
-		
-			<th>&nbsp;</th>
 		</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
@@ -55,7 +53,7 @@
 				<td><s:property value="sex" /></td>
 				<td><s:property value="telephone" /></td>
 				<td><s:property value="mobile" /></td>
-				
+				<%--
 				<td><s:url var="userEditUrl" action="edit" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
@@ -66,7 +64,7 @@
 						escapeAmp="false" includeParams="none">
 						<s:param name="id" value="id"></s:param>
 					</s:url> <sj:a href="%{userDeleteUrl}" targets="userList" onClickTopics="/confirmDelete">Delete</sj:a>
-				</td>
+				</td> --%>
 			</tr>
 		</s:iterator>
 	</table>

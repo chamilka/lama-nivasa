@@ -22,6 +22,12 @@ public class SystemUserService {
 		return systemUserDao.findByUsernameAndPassword(username, password);
 	}
 	
+	public SystemUser searchByUsername(String username) {
+		return systemUserDao.searchByUsername(username);
+	}
+	
+	
+	
 	public SystemUser save(SystemUser systemUser) {
 		return systemUserDao.save(systemUser);
 	}

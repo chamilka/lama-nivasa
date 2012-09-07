@@ -100,4 +100,3 @@ INSERT INTO `generic_list` VALUES ('L191','C019', 'Probation Officer In Charge',
 INSERT INTO `generic_list` VALUES ('L192','C019', 'Probation Officer', 'Probation Officer', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L211','C021', 'System Admin', 'System Admin', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-

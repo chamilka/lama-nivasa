@@ -14,7 +14,7 @@
 	<div>
 	  <table  style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th><th>Current Orphans</th><th>&nbsp;</th>
+	  		<th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
@@ -29,7 +29,7 @@
 			 <td><s:property value="telephone"/></td>
 			 <td><s:property value="numberOfOfficers"/></td>
 			 <td><s:property value="numberOfChildren"/></td>
-			 <td>21</td>
+			 <%-- 
 			 <td>
 			 	<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
@@ -41,6 +41,7 @@
 			 	</s:url>
 			 	<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>
+			 --%>
 			</tr>
 		</s:iterator>
 	</table>

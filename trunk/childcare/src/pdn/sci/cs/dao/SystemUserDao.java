@@ -23,6 +23,17 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
 	}
 	
+	public SystemUser searchByUsername(String username) {
+
+		DetachedCriteria criteria = createCriteria(clazz);
+		criteria.add(Restrictions.eq(SystemUser.USERNAME, username));
+
+		return findByCriteriaForUniqueResult(criteria);
+
+	}
+	
+	
+	
 	public Pager findAll(Integer start, Integer size) {
 		
 		DetachedCriteria criteria = createCriteria(getPersistentClass());

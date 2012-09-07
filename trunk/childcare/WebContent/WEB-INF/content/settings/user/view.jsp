@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<s:include value="common/record-delete.jsp"></s:include>
+
 <div>
 	<table>
 		<tr>
@@ -48,12 +48,12 @@
 
 		<tr>
 			<th>Mobile Number</th>
-			<td colspan="5"><s:property value="systemUser.username" />
+			<td colspan="5"><s:property value="systemUser.mobile" />
 			</td>
 		</tr>
 
 		<tr>
-			<th>Tempory Address</th>
+			<th>Temporary Address</th>
 			<td colspan="5"><s:property
 					value="systemUser.addressTemporary" /></td>
 		</tr>
@@ -66,9 +66,10 @@
 
 		<tr>
 			
-			<td colspan="6" style="padding-left:150px"><s:url var="userEditUrl" action="edit" namespace="/user"
-					includeParams="none">
+			<td colspan="6" style="padding-left:150px">
+				<s:url var="userEditUrl" action="edit" namespace="/user" includeParams="none" escapeAmp="&amp;">
 					<s:param name="id" value="%{systemUser.id}"></s:param>
+					<s:param name="addType" value="%{systemUser.userRole}"></s:param>
 				</s:url> <sj:a href="%{userEditUrl}" targets="userList"
 					cssClass="greenTbl"><input type="button" value="Edit" /></sj:a> | 
 					

@@ -66,13 +66,13 @@
 				<s:param name="addType">ADMIN</s:param>
 			</s:url>
 			<s:url var="userAddOfficerUrl" action="add" namespace="/user" includeParams="none">
-				<s:param name="addType">Officer</s:param>
+				<s:param name="addType">OFFICER</s:param>
 			</s:url>
 			<s:url var="userAddUserUrl" action="add" namespace="/user" includeParams="none">
-				<s:param name="addType">User</s:param>
+				<s:param name="addType">USER</s:param>
 			</s:url>
      	
-     		<sj:a href="%{userListUrl}" targets="userList">All</sj:a> | 
+     		<sj:a href="%{userListUrl}" targets="userList">View All</sj:a> | 
 			<sj:a href="%{#userAddAdminUrl}" targets="userList">Add-Admin</sj:a> |
 			<sj:a href="%{#userAddOfficerUrl}" targets="userList">Add-Officer</sj:a> |
 			<sj:a href="%{#userAddUserUrl}" targets="userList">Add-User</sj:a>

@@ -48,7 +48,7 @@
 		
 		<action name="save" class="pdn.sci.cs.action.UserAction" method="save">
 			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
-			<result name="input">/WEB-INF/content/settings/user/view.jsp</result>
+			<result name="input">/WEB-INF/content/settings/user/add.jsp</result>
 		</action>
 		
 		<action name="search-form" class="pdn.sci.cs.action.UserAction" method="searchForm">

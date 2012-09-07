@@ -13,6 +13,7 @@
 		<s:hidden name="systemUser.id" />
 		<s:hidden name="operationMode"/>
 		<s:hidden name="systemUser.userRole" value="%{addType}"/>
+		<s:hidden name="addType" value="%{addType}"/>
 		
 			<tr>
 				<th style="width: 200px">Login Name</th>
@@ -45,7 +46,7 @@
 				</table> 
 				--%>
 				</td> 
-				<s:if test="addType == 'User'" >
+				<s:if test="addType.equals('USER')" >
 				<td colspan="2" id="lamaNivasaSelect"><table> 
 					<sj:autocompleter 
 				  		id="lamaNivwasaUnit"
@@ -56,7 +57,7 @@
 			     		cssStyle="width:600px"
 	     			/> </table></td>		
 				</s:if>
-				<s:elseif test="addType == 'Officer'" >
+				<s:elseif test="addType.equals('OFFICER')" >
 					<td colspan="2" id="unitSelect"><table>
 						<sj:autocompleter 
 							id="probationUnit"
