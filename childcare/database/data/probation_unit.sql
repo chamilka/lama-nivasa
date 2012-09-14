@@ -10,5 +10,5 @@ INSERT INTO `probation_unit` VALUES ('PU06', 'Probation Unit, Dambulla', 'NONE',
 INSERT INTO `probation_unit` VALUES ('PU07', 'Probation Unit, Naula', 'NONE', 1, '0663925122','NONE', '56 Post, Arangala, Naula', 'Nothing' , 7, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `probation_unit` VALUES ('PU08', 'Probation Unit, Nuwara-Eliya', 'NONE', 3, '0512222201','NONE', 'I.R.D.P Building, Nuwara-Eliya', 'Nothing' , 8, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `probation_unit` VALUES ('PU09', 'Probation Unit, Hatton', 'NONE', 2, '0512222201','NONE', 'Court Complex, Hatton', 'Nothing' , 9, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `probation_unit` VALUES ('PU10', 'Probation Unit, Walpane', 'NONE', 1, '0523056005','NONE', 'Liyasevana Centre, Walapane', 'Nothing' , 10, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `probation_unit` VALUES ('PU10', 'Probation Unit, Walapane', 'NONE', 1, '0523056005','NONE', 'Liyasevana Centre, Walapane', 'Nothing' , 10, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
