@@ -22,6 +22,7 @@ INSERT INTO `divisional_secretariat` VALUES ('DS018', 'Udadumbara', 'D001', 18, 
 INSERT INTO `divisional_secretariat` VALUES ('DS019', 'Udapalatha', 'D001', 19, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `divisional_secretariat` VALUES ('DS020', 'Udunuwara', 'D001', 20, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `divisional_secretariat` VALUES ('DS021', 'Yatinuwara', 'D001', 21, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS022', 'Abagamuwa Koralaya', 'D001', 22, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `divisional_secretariat` VALUES ('DS031', 'Matale', 'D002', 22, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `divisional_secretariat` VALUES ('DS032', 'Galewela', 'D002', 23, 'U001', 'U001', '2012/01/12', '2012/01/12' );
