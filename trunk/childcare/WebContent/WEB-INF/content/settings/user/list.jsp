@@ -21,15 +21,14 @@
 		class="greenTbl" cellpadding="2px">
 		<tr>
 			<th></th>
-			
+
 			<th>Name</th>
 			<th>Post</th>
 			<th>User Role</th>
-			<%-- th>Unit/Lama-nivasa</th>  --%>
 			<th>Sex Type</th>
 			<th>Telephone</th>
 			<th>Mobile</th>
-			
+
 		</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
@@ -40,7 +39,7 @@
 					</s:url> <sj:a href="%{#userViewUrl}" targets="userList">
 						<s:property value="name" />
 					</sj:a></td>
-				<td><s:property value="post" /></td>	
+				<td><s:property value="post" /></td>
 				<td><s:property value="userRole" /></td>
 			<%-- 	 <td>
 			 	<s:url var="probationUnitViewUrl" action="view" namespace="/probationUnit" includeParams="none">
@@ -58,8 +57,8 @@
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
 					</s:url> <sj:a href="%{userEditUrl}" targets="userList">Edit</sj:a>
-					
-					| 					
+
+					|
 					<s:url var="userDeleteUrl" action="delete" namespace="/user"
 						escapeAmp="false" includeParams="none">
 						<s:param name="id" value="id"></s:param>
@@ -75,6 +74,6 @@
 </div>
 
 <div id="referenceDiv">
-	
-</div> 
+
+</div>
 

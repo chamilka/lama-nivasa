@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
-<s:include value="common/record-delete.jsp"></s:include>
+
 	<div>
 	  <table>
 	   <tr>
@@ -10,7 +10,7 @@
 	  </table>
 	</div>
 
-	
+
 	<hr />
 	<div>
 	  <table id="commonTable" class="orangeTbl" width="100%">
@@ -25,10 +25,10 @@
 		  <tr>
 	 		<th>Telephone</th>
 	 		<td><s:property value="probationUnit.telephone"/></td>
-		  
+
 		    <th>Fax</th>
 	 		<td><s:property value="probationUnit.fax"/></td>
-	 		
+
 		    <th style="width:100px">Email</th>
 	 		<td><s:property value="probationUnit.email"/></td>
 		  </tr>
@@ -54,7 +54,7 @@
 			 		<input type="button" value="Delete" /></sj:a>
 			 </td>
 		    </tr>
-		    
+
 	  </table>
-	</div>  
-	 
+	</div>
+
