@@ -2,8 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:include value="common/record-delete.jsp"></s:include>
-
 	<div>
 	  <table>
 	   <tr>
@@ -12,7 +10,7 @@
 	  </table>
 	</div>
 	<hr />
-	
+
 	<div>
 	  <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
@@ -35,7 +33,7 @@
 		</table>
 	  </s:if>
 	  <s:else>
-	  	No guardian information yet. Click "Add Guardian" 
+	  	No guardian information yet. Click "Add Guardian"
 	  </s:else>
 	</div>
-	
+

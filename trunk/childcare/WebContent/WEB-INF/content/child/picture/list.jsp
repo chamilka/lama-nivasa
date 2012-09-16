@@ -2,8 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:include value="common/record-delete.jsp"></s:include>
-
 	<div>
 	  <table>
 	   <tr>
@@ -12,8 +10,8 @@
 	  </table>
 	</div>
 	<hr />
-	
-	
+
+
 	<div>
 	 <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
@@ -26,7 +24,7 @@
 				<s:url var="imageShowUrl" action="image-view" namespace="/childPicture" includeParams="none">
 					<s:param name="id" value="id"></s:param>
 				</s:url>
-				
+
 				<s:url var="imageLargeViewUrl" action="image-view-page" namespace="/childPicture" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
@@ -35,7 +33,7 @@
 				</sj:a>
 			</td>
 			 <td>
-			 	
+
 			 	<s:property value="comment"/>
 			 </td>
 			 <td><s:property value="fileName"/></td>
@@ -50,11 +48,11 @@
 		</table>
 	 </s:if>
 	  <s:else>
-	  	No pictures uploaded. Click "Add New Picture" 
+	  	No pictures uploaded. Click "Add New Picture"
 	  </s:else>
 	</div>
-	
+
 	<div id="imageDiv" align="center" style="margin-top: 10px;border: 1px solid #ddd">
-	
+
 	</div>
-	
+

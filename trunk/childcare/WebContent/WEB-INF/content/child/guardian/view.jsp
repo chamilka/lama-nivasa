@@ -2,8 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:include value="common/record-delete.jsp"></s:include>
-
 	<div>
 	  <table>
 	   <tr>
@@ -12,15 +10,15 @@
 	  </table>
 	</div>
 	<div>
-	
+
 	<hr />
-	 
+
 	  <s:label name="childGuardian.name" label="Name" /> <br />
 	  <s:label name="childGuardian.relationship"  label="Relationship to Child" /> <br />
 	  <s:label name="childGuardian.telephone" label="Telephone" />   <br />
 	  <s:label name="childGuardian.address" label="Address" /> <br />
 	  <s:label name="childGuardian.pathToHome" label="Path To Home" /> <br />
-	 
+
 	  <table style="padding-left:0px" cellpadding="0" cellspacing="0">
 	  	<tr>
 	  		<td>
