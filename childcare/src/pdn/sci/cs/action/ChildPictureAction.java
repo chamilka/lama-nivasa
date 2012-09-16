@@ -14,7 +14,7 @@ import pdn.sci.cs.service.ChildPictureService;
 public class ChildPictureAction extends BaseSingleFileUpload {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired private ChildPictureService childPictureService;
 
 	private String childId;
@@ -26,39 +26,39 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 		search();
 		return SUCCESS;
 	}
-	
+
 	public String searchForm() {
 		searchPopulate();
 		return SUCCESS;
 	}
-	
+
 	public String frame() {
 		return SUCCESS;
 	}
-	
+
 	public String add() {
 		addMode();
 		addPopulate();
 		return SUCCESS;
 	}
-	
+
 	public String search() {
 		if(childId != null) {
 			list = childPictureService.findByChildId(childId);
 		} else {
 			addActionError("Please give a criteria");
 		}
-		
-		return SUCCESS; 
+
+		return SUCCESS;
 	}
-	
+
 	public String edit() {
 		editMode();
 		return view();
 	}
-	
+
 	public String save() {
-		
+
 		if(childPicture != null) {
 			validateChildPicture();
 			if(hasErrors()) {
@@ -68,26 +68,27 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 					setFileProperties();
 					setAddSettings(childPicture);
 					childPicture = childPictureService.save(childPicture);
+					childId = childPicture.getChild().getId();
+					return list();
 				} else if (operationMode == OPERATION_MODE.EDIT && !childPicture.getId().isEmpty() ) {
 					setFileProperties();
 					setUpdateSettings(childPicture);
 					childPictureService.update(childPicture);
-					
+
 					childId = childPicture.getChild().getId();
 					return list();
 				} else {
 					addActionError("Error");
 					return INPUT;
 				}
-				
+
 			}
 		} else {
-			addActionError("Invalid Access");
+			addActionError("Invalid Access or the file you uploaded was empty");
 			return INPUT;
 		}
-		return SUCCESS;
 	}
-	
+
 	private void setFileProperties() {
 		childPicture.setFileName(getFileUploadFileName());
 		childPicture.setFileType(getFileUploadContentType());
@@ -97,25 +98,25 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String view() {
-		
+
 		if(id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
 			return INPUT;
 		} else {
 			childPicture = childPictureService.findById(id);
-			
+
 			if(childPicture == null) {
 				addActionError("Item that your are searching could not be found");
 			} else {
 				childId = childPicture.getChild().getId();
 			}
 		}
-		
+
 		return SUCCESS;
 	}
-	
+
 	public String delete() {
 		if(this.id.isEmpty()) {
 			addActionError("Could not delete the entry, id is missing");
@@ -125,17 +126,17 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 			childId = childPicture.getChild().getId();
 			return list();
 		}
-		
+
 	}
-	
+
 	private void searchPopulate() {
-		
+
 	}
-	
+
 	private void addPopulate() {
-		
+
 	}
-	
+
 	private void validateChildPicture() {
 		if(getFileUploadFileName().isEmpty()) {
 			addFieldError("childPicture.fileName", "File Name Cannot Be Empty");
@@ -194,22 +195,22 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 	public void setImageInByte(byte[] imageInByte) {
 		this.imageInByte = imageInByte;
 	}
-	
+
 	public String getCustomContentType() {
 		if(childPicture != null) {
 			return childPicture.getFileType();
-		} 
-		
+		}
+
 		return null;
 	}
- 
+
 	public String getCustomContentDisposition() {
 		if(childPicture != null) {
 			return childPicture.getFileName();
 		}
-		
+
 		return null;
 	}
- 
-	
+
+
 }
