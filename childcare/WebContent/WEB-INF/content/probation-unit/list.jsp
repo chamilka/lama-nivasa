@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
+
+<s:if test="list.size != 0" >
 	<div>
 	  <table>
 	   <tr>
@@ -35,7 +37,7 @@
 			 		<s:param name="id" value="%{id}"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv">Edit</sj:a>
-				 | 
+				 |
 			 	<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{id}"><s:property value="id"/></s:param>
 			 	</s:url>
@@ -45,3 +47,20 @@
 		</s:iterator>
 	</table>
 	</div>
+
+	<script type="text/javascript">
+
+		$("tr").not(':first').hover(
+		  function () {
+		    $(this).css("color","#CC0000");
+		  },
+		  function () {
+		    $(this).css("color","");
+		  }
+		);
+
+	</script>
+</s:if>
+<s:else>
+	No records
+</s:else>

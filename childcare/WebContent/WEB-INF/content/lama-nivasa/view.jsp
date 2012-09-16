@@ -2,8 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:include value="common/record-delete.jsp"></s:include>
-
 	<div>
 	  <table>
 	   <tr>
@@ -12,12 +10,12 @@
 	  </table>
 	</div>
 
-	
+
 	<hr />
 	<div>
-	 
+
 	 <table id="commonTable" class="blueTbl" width="100%">
-	  
+
 	 	<tr>
 	 		<th style="width:130px">Name</th><td  colspan="5"><s:property value="lamaNivasa.name"/></td>
 	 	</tr>
@@ -39,26 +37,26 @@
 	 		<th>Min Age</th><td><s:property value="lamaNivasa.minAge"/></td>
 	 		<th>Max Age</th><td><s:property value="lamaNivasa.maxAge"/></td>
 	 	</tr>
-	 	
+
 	 	<tr>
-	 		<th>Is Registered</th><td><s:property value="lamaNivasa.registrationStatus"/></td>
+	 		<th>Registration</th><td><s:property value="lamaNivasa.registrationStatus"/></td>
 	 		<th>Registration Number</th><td><s:property value="lamaNivasa.registrationNumber"/></td>
 	 		<th>Registered Date</th><td><s:date  name="lamaNivasa.registrationDate.time" format="yyyy/MM/dd"/></td>
 	 	</tr>
-	 	
+
 	 	<tr>
 	 		<th>Funding Method</th><td><s:property value="lamaNivasa.fundingMethod"/></td>
 	 		<th>Department Funding</th><td><s:property value="lamaNivasa.departmentFunding"/></td>
 	 		<th>Number of Officers</th><td><s:property value="lamaNivasa.numberOfOfficers"/></td>
 	 	</tr>
-	 	
+
 	 	 <tr>
 		 	<td colspan="6" style="padding-left:150px"><table cellpadding="0" cellspacing="0">
 		 		<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="lamaNivasa.id"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv"><input type="button" value="Edit" /></sj:a>
-				<s:if test="admin"> | 
+				<s:if test="admin"> |
 				 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
 				 		<s:param name="id" value="lamaNivasa.id"></s:param>
 				 	</s:url>
@@ -66,8 +64,8 @@
 			 	</s:if>
 			 </td>
 		</tr>
-	 
-	 
+
+
 	 </table>
-	 
+
 	 </div>

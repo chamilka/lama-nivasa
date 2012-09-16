@@ -2,6 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+<s:if test="list.size != 0" >
 	<div>
 	  <table>
 	   <tr>
@@ -10,14 +11,15 @@
 	  </table>
 	</div>
 	<hr />
-	
+
 	<div>
 	  <table  style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th>
+	  		<th></th><th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
+			 <td><s:property value="#rowIndex.index + 1"/></td>
 			 <td>
 			 	<s:url var="lamaNivasaViewUrl" action="view" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
@@ -29,13 +31,13 @@
 			 <td><s:property value="telephone"/></td>
 			 <td><s:property value="numberOfOfficers"/></td>
 			 <td><s:property value="numberOfChildren"/></td>
-			 <%-- 
+			 <%--
 			 <td>
 			 	<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">Edit</sj:a>
-				 | 
+				 |
 			 	<s:url var="lamaNivasaDeleteUrl" action="delete" namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
@@ -46,4 +48,19 @@
 		</s:iterator>
 	</table>
 	</div>
-	
+	<script type="text/javascript">
+
+		$("tr").not(':first').hover(
+		  function () {
+		    $(this).css("color","#0000CC");
+		  },
+		  function () {
+		    $(this).css("color","");
+		  }
+		);
+
+	</script>
+</s:if>
+<s:else>
+	No records
+</s:else>

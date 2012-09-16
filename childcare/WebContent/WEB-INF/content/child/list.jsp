@@ -42,7 +42,7 @@
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{childEditUrl}" targets="childResultDiv">Edit</sj:a>
-				 | 
+				 |
 			 	<s:url var="childDeleteUrl" action="delete" namespace="/child" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
@@ -56,4 +56,17 @@
 </s:if>
 <s:else>
   <div class="error"> Items not found to your search input</div>
-</s:else>	
+</s:else>
+
+   <script type="text/javascript">
+
+		$("tr").not(':first').hover(
+		  function () {
+		    $(this).css("color","#000088");
+		  },
+		  function () {
+		    $(this).css("color","");
+		  }
+		);
+
+	</script>

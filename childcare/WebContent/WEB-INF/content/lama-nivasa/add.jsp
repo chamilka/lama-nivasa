@@ -84,9 +84,9 @@
 	 	</tr>
 
 	 	<tr>
-	 		<th>Is Registered</th><td><table><s:select name="lamaNivasa.registrationStatus"  list="registrationStatusList" listKey="listKey" listValue="listValue"/></table></td>
-	 		<th>Reg Number</th><td><table><s:textfield name="lamaNivasa.registrationNumber" cssStyle="width:120px"></s:textfield></table></td>
-	 		<th>Reg Date</th><td><table>  <sj:datepicker
+	 		<th>Registration</th><td><table><s:select name="lamaNivasa.registrationStatus"  list="registrationStatusList" listKey="listKey" listValue="listValue"/></table></td>
+	 		<th>Reg. Number</th><td><table><s:textfield name="lamaNivasa.registrationNumber" cssStyle="width:120px"></s:textfield></table></td>
+	 		<th>Reg. Date</th><td><table>  <sj:datepicker
      				id="registrationDate"
      				name="lamaNivasa.registrationDate"
      				changeMonth="true"
