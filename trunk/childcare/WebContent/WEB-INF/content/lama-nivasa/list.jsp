@@ -2,11 +2,15 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-<s:if test="list.size != 0" >
+<s:if test="pager.list.size != 0" >
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Chidren's Home</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td>
+	   		<td class="sub-title" style="white-space: nowrap;">Chidren's Home</td>
+	   		<td align="right" style="width: 100%">
+	   			<s:include value="../common/pager.jsp"></s:include>
+	   		</td>
 	   </tr>
 	  </table>
 	</div>
@@ -17,9 +21,9 @@
 	  	<tr>
 	  		<th></th><th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th>
 	  	</tr>
-		<s:iterator value="list" status="rowIndex">
+		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
-			 <td><s:property value="#rowIndex.index + 1"/></td>
+			 <td><s:property value="#rowIndex.index + pager.start + 1"/></td>
 			 <td>
 			 	<s:url var="lamaNivasaViewUrl" action="view" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
