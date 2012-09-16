@@ -15,6 +15,7 @@ import pdn.sci.cs.service.DivisionalSecretariatService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
+import pdn.sci.cs.util.Pager;
 
 @Scope(value = "prototype")
 public class LamaNivasaAction extends BaseAction {
@@ -25,7 +26,7 @@ public class LamaNivasaAction extends BaseAction {
 	@Autowired private ProbationUnitService probationUnitService;
 	@Autowired private GenericListService genericListService;
 	@Autowired private DivisionalSecretariatService divisionalSecretariatService;
-	
+
 	private List<DivisionalSecretariat> divisionalSecretariatList;
 	private List<GenericList> lamaNivasaTypeList;
 	private List<GenericList> lamaNivasaReligiousTypeList;
@@ -34,13 +35,13 @@ public class LamaNivasaAction extends BaseAction {
 	private List<GenericList> maintenanceDonationList;
 	private List<GenericList> yesNoList;
 	private List<ProbationUnit> probationUnitList;
-	
+
 	private List<LamaNivasa> list;
 	private LamaNivasa lamaNivasa;
-	
+
 	public String list() {
-		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) { 
-			//if user only own children home 
+		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+			//if user only own children home
 			String referenceId = getSessionUser().getReferenceId();
 			if(referenceId == null) {
 				return INPUT;
@@ -49,6 +50,9 @@ public class LamaNivasaAction extends BaseAction {
 					lamaNivasa = lamaNivasaService.findById(referenceId);
 					list = new ArrayList<LamaNivasa>();
 					list.add(lamaNivasa);
+					targetDiv = "lamaNivasaResultDiv";
+					pager = new Pager(0, list.size(), list.size(), list);
+					setActionContext(pager);
 				} catch(Exception e) {
 					e.printStackTrace();
 					addActionError("You have not assigned to a children\'s home");
@@ -56,41 +60,51 @@ public class LamaNivasaAction extends BaseAction {
 				}
 			}
 		} else {
-			list = lamaNivasaService.findAll();
+			//list = lamaNivasaService.findAll();
+			populateList();
 		}
 		return SUCCESS;
 	}
-	
+
+	private void populateList() {
+		pager = lamaNivasaService.findAll(pageStart, pageSize);
+		targetDiv = "lamaNivasaResultDiv";
+		setActionContext(pager);
+	}
+
 	public String searchForm() {
 		divisionalSecretariatList =	divisionalSecretariatService.findAll();
 		return SUCCESS;
 	}
-	
+
 	public String frame() {
 		return SUCCESS;
 	}
-	
+
 	public String add() {
 		viewInit();
 		addMode();
 		return SUCCESS;
 	}
-	
+
 	public String edit() {
 		editMode();
 		viewInit();
 		return view();
 	}
-	
+
 	public String search() {
-		
+
 		list = lamaNivasaService.search(lamaNivasa);
-		
+		targetDiv = "lamaNivasaResultDiv";
+		pager = new Pager(0, list.size(), list.size(), list);
+		setActionContext(pager);
+
 		return SUCCESS;
 	}
-	
+
 	public String save() {
-		
+
 		if(lamaNivasa != null) {
 			validateLamaNivasa();
 			if(hasErrors()) {
@@ -108,7 +122,7 @@ public class LamaNivasaAction extends BaseAction {
 					viewInit();
 					return INPUT;
 				}
-				
+
 			}
 		} else {
 			addActionError("Invalid Access");
@@ -117,9 +131,9 @@ public class LamaNivasaAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+
 	public String view() {
-		
+
 		if(id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
 			return INPUT;
@@ -131,7 +145,7 @@ public class LamaNivasaAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+
 	public String delete() {
 		if(this.id.isEmpty()) {
 			addActionError("Could not delete the entry, id is missing");
@@ -140,35 +154,35 @@ public class LamaNivasaAction extends BaseAction {
 			lamaNivasaService.delete(id);
 			return list();
 		}
-		
+
 	}
 
 	private void validateLamaNivasa() {
 		if(lamaNivasa.getName().isEmpty()) {
 			addFieldError("lamaNivasa.name", "Name cannot be empty");
 		}
-		
+
 		if(lamaNivasa.getAddress().isEmpty()) {
 			addFieldError("lamaNivasa.address", "Address cannot be empty");
 		}
-		
+
 		if(lamaNivasa.getTelephone().isEmpty()) {
 			addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
 		}
-		
+
 	}
-	
+
 	private void viewInit() {
 		lamaNivasaTypeList = genericListService.findListByCategoryId("C030");
 		lamaNivasaReligiousTypeList = genericListService.findListByCategoryId("C040");
 		registrationStatusList = genericListService.findListByCategoryId("C070");
 		maintenanceDonationList = genericListService.findListByCategoryId("C020");
 		yesNoList = genericListService.findListByCategoryId("C010");
-		
+
 		probationUnitList = probationUnitService.findAll();
 		divisionalSecretariatList =	divisionalSecretariatService.findAll();
 	}
-	
+
 	public List<LamaNivasa> getList() {
 		return list;
 	}
@@ -242,7 +256,7 @@ public class LamaNivasaAction extends BaseAction {
 	public void setProbationUnitList(List<ProbationUnit> probationUnitList) {
 		this.probationUnitList = probationUnitList;
 	}
-	
-	
+
+
 
 }

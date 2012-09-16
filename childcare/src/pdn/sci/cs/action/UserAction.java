@@ -153,7 +153,7 @@ public class UserAction extends BaseAction {
 		populateAddList();
 		return SUCCESS;
 	}
-	
+
 	private void populateAddList(){
 		lamaNivasaList= lamaNivasaService.findAll();
 		probationUnitList= probationUnitService.findAll();
@@ -165,7 +165,7 @@ public class UserAction extends BaseAction {
 			postCategoryList = genericListService.findListByCategoryId("C021");
 		}
 	}
-	
+
 	public String edit() {
 		editMode();
 		populateAddList();
@@ -180,13 +180,14 @@ public class UserAction extends BaseAction {
 /*	private void populateList() {
 		list = systemUserService.findAll();
 	}
-*/	
+*/
 	private void populateList() {
 		pager = systemUserService.findAll(pageStart, pageSize);
+		targetDiv = "userList";
 		setActionContext(pager);
 	}
-	
-	
+
+
 
 	private void validateSignIn() {
 		if (username == null || username.isEmpty()) {
@@ -202,13 +203,13 @@ public class UserAction extends BaseAction {
 		if (systemUser.getUsername().isEmpty() || systemUser.getUsername().trim().length() == 0) {
 			addFieldError("systemUser.username", "Username cannot be empty");
 		}
-		
+
 		if (systemUser.getName().isEmpty() || systemUser.getName().trim().length() == 0) {
 			addFieldError("systemUser.name", "Name cannot be empty");
 		}
-		
+
 		if(!systemUser.getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
-			if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty() || 
+			if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty() ||
 					systemUser.getReferenceId().trim().length() == 0) {
 				addFieldError("systemUser.referenceId", "Please select your work location");
 			}
@@ -278,13 +279,10 @@ public class UserAction extends BaseAction {
 
 	public String search() {
 		if (systemUser != null) {
-			/*
-			 * validateMobile(user.getMobile()); if (hasErrors()) { return
-			 * INPUT; }
-			 */
 
 			try {
-				pager = systemUserService.search(systemUser.getName(), systemUser.getUserRole(), 
+				pageSize = SEARCH_PAGE_SIZE;
+				pager = systemUserService.search(systemUser.getName(), systemUser.getUserRole(),
 						systemUser.getReferenceId(), systemUser.getMobile(), pageStart, pageSize);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -393,7 +391,7 @@ public class UserAction extends BaseAction {
 		this.user = user;
 	}
 	*/
-	
+
 	public List<ProbationUnit> getProbationUnitList() {
 		return probationUnitList;
 	}
@@ -433,5 +431,5 @@ public class UserAction extends BaseAction {
 	public void setPostCategoryList(List<GenericList> postCategoryList) {
 		this.postCategoryList = postCategoryList;
 	}
-	
+
 }

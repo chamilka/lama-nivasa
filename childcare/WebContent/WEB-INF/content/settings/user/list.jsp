@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+
+<s:if test="pager.list.size > 0">
 <div>
 	<table>
 		<tr>
@@ -16,7 +18,7 @@
 <hr />
 
 <div>
-  <s:if test="pager.list.size > 0">
+
 	<table style="margin-top: 10px" width="100%" id="commonTable"
 		class="greenTbl" cellpadding="2px">
 		<tr>
@@ -32,7 +34,7 @@
 		</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
-				<td><s:property value="%{#rowIndex.index + 1}" />
+				<td><s:property value="%{#rowIndex.index + pager.start + 1}" />
 				<td><s:url var="userViewUrl" action="view" namespace="/user"
 						includeParams="none">
 						<s:param name="id" value="id"></s:param>
@@ -67,11 +69,12 @@
 			</tr>
 		</s:iterator>
 	</table>
-  </s:if>
+	</div>
+ </s:if>
   <s:else>
   	No user found for your criteria, search again with a different criteria
   </s:else>
-</div>
+
 
 <div id="referenceDiv">
 

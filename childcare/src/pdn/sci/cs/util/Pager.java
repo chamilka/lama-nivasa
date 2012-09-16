@@ -16,7 +16,7 @@ public class Pager {
 	private String namespace;
 	private String targetDiv;
 	private Map<String, Object> parameters;
-	
+
 	public Pager() {
 		super();
 	}
@@ -60,7 +60,7 @@ public class Pager {
 	public void setList(List<? extends BaseEntity> list) {
 		this.list = list;
 	}
-	
+
 	public String getActionName() {
 		return actionName;
 	}
@@ -84,13 +84,13 @@ public class Pager {
 	public void setParameters(Map<String, Object> parameters) {
 		this.parameters = parameters;
 	}
-	
+
 	public void setActionCallInfo(String name, String namespace, Map<String, Object> params ) {
 		this.actionName = name;
 		this.namespace = namespace;
 		this.parameters = params;
 	}
-	
+
 	public String getTargetDiv() {
 		return targetDiv;
 	}
@@ -104,19 +104,19 @@ public class Pager {
 		return "Pager [start=" + start + ", size=" + size + ", total=" + total
 				+ ", list=" + list.size() + "]";
 	}
-	
+
 	public boolean isFirstEnable () {
-		return start >= size;
+		return start != 0;
 	}
-	
+
 	public boolean isLastEnable() {
 		return total > (start + size);
 	}
-	
+
 	public boolean isPreviousEnable () {
 		return start >= size;
 	}
-	
+
 	public boolean isNextEnable() {
 		return total > (start + size);
 	}

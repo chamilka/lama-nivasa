@@ -18,15 +18,15 @@ import pdn.sci.cs.service.LamaNivasaService;
 public class ChildAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired private ChildService childService;
 	@Autowired private LamaNivasaService lamaNivasaService;
 	@Autowired private GenericListService genericListService;
-	
+
 	private Child child;
 	private List<Child> list;
 	private List<LamaNivasa> lamaNivasaList;
-	
+
 	private List<GenericList> yesNoList;
 	private List<GenericList> genderTypeList;
 	private List<GenericList> raceList;
@@ -35,17 +35,18 @@ public class ChildAction extends BaseAction {
 	private List<GenericList> parentAvailabilityList;
 	private List<GenericList> hasDoNotHaveProcessingList;
 	private List<GenericList> childCategoryList;
-	
+
 	public String list() {
-		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) { 
-			//if user only own children home 
+		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+			//if user only own children home
 			String referenceId = getSessionUser().getReferenceId();
 			if(referenceId == null) {
 				return INPUT;
 			} else {
 				try {
-					pageSize = 1000;
+					pageSize = 4 *SEARCH_PAGE_SIZE;
 					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
+					targetDiv = "childResultDiv";
 					setActionContext(pager);
 					return SUCCESS;
 				} catch(Exception e) {
@@ -55,57 +56,68 @@ public class ChildAction extends BaseAction {
 			}
 		}
 		pager = childService.findAll(pageStart, pageSize);
+		targetDiv = "childResultDiv";
 		setActionContext(pager);
 		return SUCCESS;
 	}
-	
+
 	public String searchForm() {
 		searchPopulate();
 		return SUCCESS;
 	}
-	
+
 	public String frame() {
 		return SUCCESS;
 	}
-	
+
 	public String add() {
 		addMode();
 		addPopulate();
 		return SUCCESS;
 	}
-	
+
 	public String search() {
+		final String defaultValue = "";
 		if(child != null) {
-			String name ="", lamaNivasaId = "";
-			
+			String name = defaultValue, lamaNivasaId = defaultValue;
+
 			if(child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
-				lamaNivasaId = "";
+				lamaNivasaId = defaultValue;
 			} else {
 				lamaNivasaId = child.getLamaNivasa().getId();
 			}
-			
+
 			if(child.getFullName() == null || child.getFullName().isEmpty()) {
-				name = "";
+				name = defaultValue;
 			} else {
 				name = child.getFullName();
 			}
+
+			if(name.equals(defaultValue) && lamaNivasaId.equals(defaultValue)) {
+				addActionError("No suitable inputs");
+				return INPUT;
+			} else if(lamaNivasaId.equals(defaultValue) && name.trim().length() < 5) {
+				addActionError("Name must be at least four (4) characters");
+				return INPUT;
+			}
+
 			pager = childService.search(name, lamaNivasaId, pageStart, pageSize);
 			setActionContext(pager);
 		} else {
 			addActionError("Please give a criteria");
 		}
-		
-		return SUCCESS; 
+
+		return SUCCESS;
 	}
-	
+
 	public String edit() {
 		editMode();
 		addPopulate();
 		return view();
 	}
-	
+
 	public String save() {
-		
+
 		if(child != null) {
 			validateChild();
 			if(hasErrors()) {
@@ -122,7 +134,7 @@ public class ChildAction extends BaseAction {
 					addActionError("Error");
 					return INPUT;
 				}
-				
+
 			}
 		} else {
 			addActionError("Invalid Access");
@@ -130,9 +142,9 @@ public class ChildAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+
 	public String view() {
-		
+
 		if(id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
 			return INPUT;
@@ -144,7 +156,7 @@ public class ChildAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
-	
+
 	public String delete() {
 		if(this.id.isEmpty()) {
 			addActionError("Could not delete the entry, id is missing");
@@ -158,13 +170,13 @@ public class ChildAction extends BaseAction {
 			}
 			return list();
 		}
-		
+
 	}
-	
+
 	private void searchPopulate() {
 		lamaNivasaList = lamaNivasaService.findAll();
 	}
-	
+
 	private void addPopulate() {
 		lamaNivasaList = lamaNivasaService.findAll();
 		yesNoList = genericListService.findListByCategoryId("C010");
@@ -176,24 +188,24 @@ public class ChildAction extends BaseAction {
 		hasDoNotHaveProcessingList = genericListService.findListByCategoryId("C015");
 		childCategoryList = genericListService.findListByCategoryId("C016");
 	}
-	
+
 	private void validateChild() {
 		if(child.getCode().isEmpty()) {
 			addFieldError("child.code", "Code cannot be empty");
 		}
-		
+
 		if(child.getFullName().isEmpty()) {
 			addFieldError("child.fullName", "Full Name cannot be empty");
 		}
-		
+
 		if(child.getLamaNivasa() == null || child.getLamaNivasa().getId() == null) {
 			addFieldError("child.lamaNivasa.id", "Select the lama nivasa");
 		}
-		
+
 		if(child.getSexType().isEmpty()) {
 			addFieldError("child.sexType", "Sex type cannot be empty");
 		}
-		
+
 	}
 
 	public Child getChild() {

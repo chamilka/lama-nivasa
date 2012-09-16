@@ -25,7 +25,7 @@
 	  	</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
-			 <td><s:property value="%{#rowIndex.index + 1}"/>
+			 <td><s:property value="%{#rowIndex.index + pager.start + 1}"/>
 			 <td>
 			 	<s:url var="childViewUrl" action="view" namespace="/child" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
