@@ -117,10 +117,11 @@ public class UserAction extends BaseAction {
 						&& !systemUser.getId().isEmpty()) {
 					SystemUser existingUser = getSessionUser();//systemUserService.findById(systemUser.getId());
 					systemUser.setUserPassword(existingUser.getUserPassword()); // set
-					session.put(SessionKey.SESSION_USER, systemUser);														// password
-					setUpdateSettings(systemUser);
+																	// password
+					setUpdateSettings(systemUser);	
 					try {
 						systemUserService.update(systemUser);
+						session.put(SessionKey.SESSION_USER, systemUser);	
 					} catch (Exception e) {
 						e.printStackTrace();
 						addActionError("Profile was not updated, try again");
