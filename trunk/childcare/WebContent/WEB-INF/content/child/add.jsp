@@ -17,14 +17,14 @@
     <s:actionerror/>
 	<s:hidden name="child.id" />
 	<s:hidden name="operationMode"/>
-	  
+
     <table class="darkBlueTbl" width="100%" >
       <tr>
         <td class="tdLabel">Chidren's Home</td>
-        <td> 
+        <td>
      		<table>
-     		  
-     		   <sj:autocompleter 
+
+     		   <sj:autocompleter
 			  		id="child.lamaNivasa.id"
 		     		name="child.lamaNivasa.id"
 		     		list="%{lamaNivasaList}"
@@ -36,7 +36,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Child's Code</td>
-        <td> 
+        <td>
      		<table>
 				<s:textfield name="child.code" cssStyle="width:100px"/>
 			</table>
@@ -44,15 +44,15 @@
       </tr>
       <tr>
         <td class="tdLabel">Full Name</td>
-        <td> 
+        <td>
      		<table>
-     			<s:textfield name="child.fullName" cssStyle="width:300px"/>
+     			<s:textfield name="child.fullName" cssStyle="width:450px"/>
      			</table>
     	</td>
       </tr>
       <tr>
         <td class="tdLabel">Category</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.category" list="childCategoryList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -60,7 +60,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Parent Availability</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.parentsAvailability" list="parentAvailabilityList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -68,12 +68,12 @@
       </tr>
       <tr>
         <td class="tdLabel">Date Of Birth</td>
-        <td> 
+        <td>
      		<table>
-     			<sj:datepicker 
-     				id="dateOfBirth" 
-     				name="child.dateOfBirth" 
-     				changeMonth="true" 
+     			<sj:datepicker
+     				id="dateOfBirth"
+     				name="child.dateOfBirth"
+     				changeMonth="true"
      				changeYear="true"
      				yearRange="1994:2012"
      				value="%{child.dateOfBirth.time}"
@@ -83,7 +83,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Gender</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.sexType" list="genderTypeList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -91,7 +91,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Race</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.race" list="raceList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -99,7 +99,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Religion</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.religion" list="religionList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -107,7 +107,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Birth Certificate</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.birthCertificate" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -115,7 +115,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Proforma</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.proforma" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -123,7 +123,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Vaccination Card</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.vaccinationCard" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -131,11 +131,11 @@
       </tr>
        <tr>
         <td class="tdLabel">Date Of Registration</td>
-        <td> 
+        <td>
      		<table>
-     			<sj:datepicker 
-     				name="child.dateOfRegistration" 
-     				changeMonth="true" 
+     			<sj:datepicker
+     				name="child.dateOfRegistration"
+     				changeMonth="true"
      				changeYear="true"
      				yearRange="1994:2012"
      				value="%{child.dateOfRegistration.time}"
@@ -145,7 +145,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Disable</td>
-        <td> 
+        <td>
      		<table>
      			<s:select name="child.disable" list="yesNoList" listKey="listKey" listValue="listValue" />
      		</table>
@@ -153,7 +153,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Type of Disability</td>
-        <td> 
+        <td>
      		<table>
      			<s:textfield name="child.typeOfDisability" cssStyle="width:300px" />
      		</table>
@@ -161,15 +161,15 @@
       </tr>
       <tr>
         <td class="tdLabel">School</td>
-        <td> 
+        <td>
      		<table>
-     			<s:textfield name="child.school" cssStyle="width:300px" />
+     			<s:textfield name="child.school" cssStyle="width:450px" />
      		</table>
     	</td>
        </tr>
        <tr>
        <td class="tdLabel">Grade</td>
-        <td> 
+        <td>
      		<table>
      			<s:textfield name="child.grade" cssStyle="width:50px"/>
      		</table>
@@ -177,7 +177,7 @@
       </tr>
       <tr>
         <td class="tdLabel">Intake Method</td>
-        <td> 
+        <td>
      		<table>
 				<s:select name="child.intakeMethod" list="intakeMethodList" listKey="listKey" listValue="listValue" />
 			</table>
@@ -185,14 +185,14 @@
       </tr>
       <tr>
       <td class="tdLabel">Comment</td>
-        <td> 
+        <td>
      		<table>
 				<s:textarea name="child.comment" cssStyle="width:500px;height:60px"/>
 			</table>
     	</td>
       </tr>
       <td class="tdLabel">History</td>
-        <td> 
+        <td>
      		<table>
 				<s:textarea name="child.history" cssStyle="width:500px;height:60px"/>
 			</table>
@@ -200,7 +200,7 @@
       </tr>
       <tr>
         <td class="tdLabel">&nbsp;</td>
-        <td> 
+        <td>
      		<table>
 				<sj:submit targets="childResultDiv"/>
 			</table>
