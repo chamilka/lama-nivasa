@@ -17,7 +17,8 @@
 	 <table id="commonTable" class="blueTbl" width="100%">
 
 	 	<tr>
-	 		<th style="width:130px">Name</th><td  colspan="5"><s:property value="lamaNivasa.name"/></td>
+	 		<th style="width:130px">Name</th><td  colspan="3"><s:property value="lamaNivasa.name"/></td>
+	 		<th>Date Established</th><td><s:date name="lamaNivasa.dateOfEstablishment" format="yyyy/MM/dd"/></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Category</th><td><s:property value="lamaNivasa.category"/></td>
