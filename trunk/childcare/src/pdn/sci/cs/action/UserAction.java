@@ -6,6 +6,7 @@ import java.util.regex.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
@@ -115,13 +116,18 @@ public class UserAction extends BaseAction {
 					systemUser = systemUserService.save(systemUser);
 				} else if (operationMode == OPERATION_MODE.EDIT
 						&& !systemUser.getId().isEmpty()) {
-					SystemUser existingUser = getSessionUser();//systemUserService.findById(systemUser.getId());
-					systemUser.setUserPassword(existingUser.getUserPassword()); // set
-																	// password
-					setUpdateSettings(systemUser);	
+
+					if(systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty()) {
+						SystemUser existingUser = systemUserService.findById(systemUser.getId());
+						systemUser.setUserPassword(existingUser.getUserPassword()); // set password
+					}
+
+					setUpdateSettings(systemUser);
 					try {
 						systemUserService.update(systemUser);
-						session.put(SessionKey.SESSION_USER, systemUser);	
+						if(getSessionUser().getId().equals(systemUser.getId())) {
+							session.put(SessionKey.SESSION_USER, systemUser);
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 						addActionError("Profile was not updated, try again");
@@ -140,6 +146,7 @@ public class UserAction extends BaseAction {
 		}
 		return SUCCESS;
 	}
+
 
 	public String passwordForgot() {
 		return SUCCESS;
