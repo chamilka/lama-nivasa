@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 @GenericGenerator(name = "uuid-strategy", strategy = "uuid.hex")
 public class SystemUser extends BaseEntity implements java.io.Serializable {
 
-	public enum USER_ROLE  { ADMIN, USER, OFFICER }
+	public enum USER_ROLE  { ADMIN, USER, OFFICER,SPONSOR }
 	public static final String USERNAME = "username";
 	public static final String USERPASSWORD = "userPassword";
 	public static final String EMAIL = "email";
