@@ -28,9 +28,11 @@
 	  <s:textarea name="childGuardian.pathToHome" label="Path To Home" cssStyle="width:350px;height:80px"></s:textarea>
 
 	  <tr>
-	   <td>
+	  <td>&nbsp;
+	  </td>
+	   <td >
 	     <table>
-	  		<sj:submit value="SUBMIT" targets="childGuardianResultDiv" cssStyle="margin-left:50px"/>
+	  		<sj:submit value="SUBMIT" targets="childGuardianResultDiv" />
 	  	 </table>
 	   </td>
 	   <td>

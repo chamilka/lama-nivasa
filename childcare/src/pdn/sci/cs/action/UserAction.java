@@ -124,9 +124,12 @@ public class UserAction extends BaseAction {
 
 					setUpdateSettings(systemUser);
 					try {
-						systemUserService.update(systemUser);
 						if(getSessionUser().getId().equals(systemUser.getId())) {
+							systemUserService.merge(systemUser);
 							session.put(SessionKey.SESSION_USER, systemUser);
+
+						} else {
+							systemUserService.update(systemUser);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();

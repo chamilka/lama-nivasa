@@ -24,7 +24,19 @@ public class Child extends BaseEntity implements java.io.Serializable {
 
 	public static final String FULL_NAME = "fullName";
 	public static final String LAMA_NIVASA_ID = "lamaNivasa.id";
+	public static final String RELIGION = "religion";
+	public static final String SEX_TYPE ="sexType";
+	public static final String PARENT_AVAILABILITY = "parentsAvailability";
+	public static final String RACE = "race";
+	public static final String INTAKE_METHOD = "intakeMethod";
+	public static final String DATE_OF_BIRTH = "dateOfBirth";
+	public static final String CODE = "code";
+
+	public static final String MALE = "MALE";
+	public static final String FEMALE = "FEMALE";
+
 	private static final long serialVersionUID = 1L;
+
 	private LamaNivasa lamaNivasa;
 	private String code;
 	private String fullName;
@@ -286,7 +298,7 @@ public class Child extends BaseEntity implements java.io.Serializable {
 	public void setHistory(String history) {
 		this.history = history;
 	}
-	
-	
+
+
 
 }

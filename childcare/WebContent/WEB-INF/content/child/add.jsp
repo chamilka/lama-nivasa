@@ -38,7 +38,7 @@
         <td class="tdLabel">Child's Code</td>
         <td>
      		<table>
-				<s:textfield name="child.code" cssStyle="width:100px"/>
+				<s:textfield name="child.code" cssStyle="width:120px"/>
 			</table>
     	</td>
       </tr>
@@ -130,7 +130,7 @@
     	</td>
       </tr>
        <tr>
-        <td class="tdLabel">Date Of Registration</td>
+        <td class="tdLabel">Date Of Admission</td>
         <td>
      		<table>
      			<sj:datepicker

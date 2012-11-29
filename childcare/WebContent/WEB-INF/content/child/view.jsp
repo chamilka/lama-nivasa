@@ -124,7 +124,7 @@
       </tr>
 
       <tr>
-        <td>
+        <td colspan="2">
         	<s:url var="childPictureFrameUrl" action="frame" namespace="/childPicture" includeParams="none">
 				<s:param name="childId" value="child.id"></s:param>
 			</s:url>
@@ -136,8 +136,16 @@
 			</s:url>
 
 			<sj:a href="%{#childGuardianFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Guardians" /></sj:a>
+
+			|
+				<s:url var="childRecordFrameUrl" action="frame" namespace="/childRecord" includeParams="none">
+					<s:param name="childId" value="child.id"></s:param>
+				</s:url>
+
+				<sj:a href="%{#childRecordFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Records" /></sj:a>
+
     	</td>
-    	<td colspan="4">&nbsp;
+    	<td colspan="3">&nbsp;
     	</td>
     	<td>
 			 	<s:url var="childEditUrl" action="edit" namespace="/child" includeParams="none">
@@ -149,6 +157,7 @@
 			 		<s:param name="id" value="%{child.id}"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
+
 		</td>
 
       </tr>

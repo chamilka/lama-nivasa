@@ -19,7 +19,8 @@ INSERT INTO `generic_list` VALUES ('L401','C040', 'BUDDHIST','BUDDHIST', 1, 'U00
 INSERT INTO `generic_list` VALUES ('L402','C040', 'CHRISTIANITY','CHRISTIANITY', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L403','C040', 'ISLAM','ISLAM', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L404','C040', 'HINDUISM','HINDUISM', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L405','C040', 'OTHER', 'OTHER', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L405','C040', 'ROMAN CATHOLIC', 'ROMAN CATHOLIC', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L406','C040', 'OTHER', 'OTHER', 6, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L501','C050', '2000', '2000', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L502','C050', '2001', '2001', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
@@ -55,31 +56,22 @@ INSERT INTO `generic_list` VALUES ('L701','C070', 'OBTAINED', 'OBTAINED', 1, 'U0
 INSERT INTO `generic_list` VALUES ('L702','C070', 'NOT OBTAINED', 'NOT OBTAINED', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L703','C070', 'PENDING', 'PENDING', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
-INSERT INTO `generic_list` VALUES ('L801','C080', 'UNIT 1', 'UNIT 1', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L802','C080', 'UNIT 2', 'UNIT 2', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L803','C080', 'UNIT 2', 'UNIT 2', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-
-INSERT INTO `generic_list` VALUES ('L901','C090', 'GENERAL', 'General', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L902','C090', 'SPECIAL', 'Special', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-
-INSERT INTO `generic_list` VALUES ('L111','C011', 'EDUCATIONAL', 'Educational', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L112','C011', 'SOCIAL', 'Social', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L113','C011', 'FINANCIAL', 'Financial', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-
 INSERT INTO `generic_list` VALUES ('L121','C012', 'BANK_OK_CEYLON', 'Bank Of Ceylon', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L122','C012', 'COMERCIAL_BANK', 'Commercial Bank', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L123','C012', 'PEOPLES_BANK', 'Peoples Bank', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L124','C012', 'SAMPATH_BANK', 'Sampath Bank', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L130','C013', 'SINHALA','SINHALA', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L131','C013', 'TAMIL','TAMIL', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L132','C013', 'MOOR','MOOR', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L133','C013', 'OTHER', 'OTHER', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L131','C013', 'SRILANKAN TAMIL','SRILANKAN TAMIL', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L132','C013', 'INDIAN TAMIL','INDIAN TAMIL', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L133','C013', 'MUSLIM','MUSLIM', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L134','C013', 'OTHER', 'OTHER', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L140','C014', 'COURT','COURT', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L141','C014', 'PARENT','PARENT', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L142','C014', 'DIRECT', 'DIRECT', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L143','C014', 'OTHER', 'OTHER', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L141','C014', 'DEPARTMENT','DEPARTMENT', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L142','C014', 'PARENT','PARENT', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L143','C014', 'DIRECT', 'DIRECT', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L144','C014', 'OTHER', 'OTHER', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L151','C015', 'HAS','Has', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L152','C015', 'DO NOT HAVE','Do not have', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
@@ -90,18 +82,19 @@ INSERT INTO `generic_list` VALUES ('L162','C016', 'DESERTED','Deserted', 2, 'U00
 INSERT INTO `generic_list` VALUES ('L163','C016', 'ORPHAN', 'Orphan', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L164','C016', 'OTHER', 'Other', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
-INSERT INTO `generic_list` VALUES ('L171','C017', 'BOTH','Both', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L172','C017', 'MOTHER ONLY','Mother Only', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L173','C017', 'FATHER ONLY', 'Father Only', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L174','C017', 'NONE', 'None', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L175','C017', 'UNKNOWN', 'Unknown', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L171','C017', 'BOTH','BOTH', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L172','C017', 'MOTHER ONLY','MOTHER ONLY', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L173','C017', 'FATHER ONLY', 'FATHER ONLY', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L174','C017', 'NONE', 'NONE', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L175','C017', 'UNKNOWN', 'UNKNOWN', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L181','C018', 'Director', 'Director', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L182','C018', 'Child Service Officer', 'Child Service Officer', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L183','C018', 'Principal','Principal', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L183','C018', 'Principal','Principal', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L191','C019', 'Probation Officer In Charge', 'Probation Officer In Charge', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 INSERT INTO `generic_list` VALUES ('L192','C019', 'Probation Officer', 'Probation Officer', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
-INSERT INTO `generic_list` VALUES ('L193','C019', 'Probation Officer of Headquarters', 'Probation Officer of Headquarters', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L193','C019', 'Headquarters Probation Officer', 'Headquarters Probation Officer', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `generic_list` VALUES ('L194','C019', 'Counselor', 'Counselor', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
 
 INSERT INTO `generic_list` VALUES ('L211','C021', 'System Admin', 'System Admin', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );

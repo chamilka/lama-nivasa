@@ -17,6 +17,10 @@
 			<result name="success">/WEB-INF/content/child/search.jsp</result>
 		</action>
 
+		<action name="search-form-lama-nivasa" class="pdn.sci.cs.action.ChildAction" method="searchFormLamaNivasa">
+			<result name="success">/WEB-INF/content/child/search.jsp</result>
+		</action>
+
 		<action name="search" class="pdn.sci.cs.action.ChildAction" method="search">
 			<result name="success">/WEB-INF/content/child/list.jsp</result>
 			<result name="input">/WEB-INF/content/common/invalid-input.jsp</result>
@@ -41,6 +45,10 @@
 		<action name="save" class="pdn.sci.cs.action.ChildAction" method="save">
 			<result name="success">/WEB-INF/content/child/view.jsp</result>
 			<result name="input">/WEB-INF/content/child/add.jsp</result>
+		</action>
+
+		<action name="summary" class="pdn.sci.cs.action.ChildAction" method="childSummary">
+			<result name="success">/WEB-INF/content/child/summary.jsp</result>
 		</action>
 
 	</package>

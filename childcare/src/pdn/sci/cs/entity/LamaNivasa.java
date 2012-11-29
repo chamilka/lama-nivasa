@@ -22,14 +22,16 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "lama_nivasa")
 @GenericGenerator(name = "uuid-strategy", strategy = "uuid.hex")
 public class LamaNivasa extends BaseEntity implements java.io.Serializable {
-	
+
 	public static final String NAME = "name";
 	public static final String DIVISIONAL_SECRETARIAT_ID = "divisionalSecretariat.id";
+	public static final String PROBATION_UNIT_ID = "probationUnit.id";
 	private static final long serialVersionUID = 1L;
 	private ProbationUnit probationUnit;
+	private String probationOfficer;
 	private DivisionalSecretariat divisionalSecretariat;
 	private String name;
-	private String id_widget;
+
 	private Calendar dateOfEstablishment;
 	private String address;
 	private String category;
@@ -301,6 +303,15 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 	public void setMonthlyData(Set<MonthlyData> monthlyData) {
 		this.monthlyData = monthlyData;
 	}
-	
+
+	@Column(name = "PROBATION_OFFICER")
+	public String getProbationOfficer() {
+		return probationOfficer;
+	}
+
+	public void setProbationOfficer(String probationOfficer) {
+		this.probationOfficer = probationOfficer;
+	}
+
 
 }

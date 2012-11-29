@@ -22,8 +22,11 @@
 	 	</tr>
 	 	<tr>
 	 		<th>Category</th><td><s:property value="lamaNivasa.category"/></td>
-	 		<th>Probation Unit</th><td><s:property value="lamaNivasa.probationUnit.name"/></td>
-	 		<th>Divisional Secretariat</th><td><s:property value="lamaNivasa.divisionalSecretariat.name"/></td>
+	 		<th>Divisional Secretariat</th><td colspan="3"><s:property value="lamaNivasa.divisionalSecretariat.name"/></td>
+	 	</tr>
+	 	<tr>
+	 		<th>Probation Unit</th><td colspan="2"><s:property value="lamaNivasa.probationUnit.name"/></td>
+	 		<th>Probation Officer</th><td colspan="2"><s:property value="lamaNivasa.probationOfficer"/></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Address</th><td  colspan="5"><s:property value="lamaNivasa.address"/></td>
@@ -34,7 +37,7 @@
 	 		<th>Email</th><td><s:property value="lamaNivasa.email"/></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Number of children</th><td><s:property value="lamaNivasa.numberOfChildren"/></td>
+	 		<th>Max. No of children</th><td><s:property value="lamaNivasa.numberOfChildren"/></td>
 	 		<th>Min Age</th><td><s:property value="lamaNivasa.minAge"/></td>
 	 		<th>Max Age</th><td><s:property value="lamaNivasa.maxAge"/></td>
 	 	</tr>
@@ -48,7 +51,7 @@
 	 	<tr>
 	 		<th>Funding Method</th><td><s:property value="lamaNivasa.fundingMethod"/></td>
 	 		<th>Department Funding</th><td><s:property value="lamaNivasa.departmentFunding"/></td>
-	 		<th>Number of Officers</th><td><s:property value="lamaNivasa.numberOfOfficers"/></td>
+	 		<th>No. of Staffs</th><td><s:property value="lamaNivasa.numberOfOfficers"/></td>
 	 	</tr>
 
 	 	 <tr>
