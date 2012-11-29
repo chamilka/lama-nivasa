@@ -1,5 +1,6 @@
 package pdn.sci.cs.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
+import pdn.sci.cs.util.ChildrenSummary;
 
 
 @Scope(value = "prototype")
@@ -23,6 +25,7 @@ public class ChildAction extends BaseAction {
 	@Autowired private LamaNivasaService lamaNivasaService;
 	@Autowired private GenericListService genericListService;
 
+	private ChildrenSummary childSummary;
 	private Child child;
 	private List<Child> list;
 	private List<LamaNivasa> lamaNivasaList;
@@ -35,6 +38,11 @@ public class ChildAction extends BaseAction {
 	private List<GenericList> parentAvailabilityList;
 	private List<GenericList> hasDoNotHaveProcessingList;
 	private List<GenericList> childCategoryList;
+
+	public String childSummary() {
+		childSummary = childService.getChildrenSummary();
+		return SUCCESS;
+	}
 
 	public String list() {
 		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
@@ -66,21 +74,31 @@ public class ChildAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String searchFormLamaNivasa() {
+		String referenceId = getSessionUser().getReferenceId();
+		LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
+		lamaNivasaList = new ArrayList<LamaNivasa>();
+		lamaNivasaList.add(lamaNivasa);
+		return SUCCESS;
+	}
+
 	public String frame() {
 		return SUCCESS;
 	}
 
 	public String add() {
+
 		addMode();
 		addPopulate();
 		return SUCCESS;
+
 	}
 
 	public String search() {
 		final String defaultValue = "";
 		if(child != null) {
 			String name = defaultValue, lamaNivasaId = defaultValue;
-
+			String code = defaultValue;
 			if(child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
 				lamaNivasaId = defaultValue;
 			} else {
@@ -93,15 +111,21 @@ public class ChildAction extends BaseAction {
 				name = child.getFullName();
 			}
 
-			if(name.equals(defaultValue) && lamaNivasaId.equals(defaultValue)) {
+			if(child.getCode() == null || child.getCode().isEmpty()) {
+				code = defaultValue;
+			} else {
+				code = child.getCode();
+			}
+
+			if(name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
 				addActionError("No suitable inputs");
 				return INPUT;
-			} else if(lamaNivasaId.equals(defaultValue) && name.trim().length() < 5) {
+			} else if(lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
 				addActionError("Name must be at least four (4) characters");
 				return INPUT;
 			}
 
-			pager = childService.search(name, lamaNivasaId, pageStart, pageSize);
+			pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
 			setActionContext(pager);
 		} else {
 			addActionError("Please give a criteria");
@@ -178,7 +202,20 @@ public class ChildAction extends BaseAction {
 	}
 
 	private void addPopulate() {
-		lamaNivasaList = lamaNivasaService.findAll();
+		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+			//if user only own children home
+			String referenceId = getSessionUser().getReferenceId();
+			if(referenceId == null) {
+				addActionError("Exception, No children home for this user");
+			} else {
+				LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
+				lamaNivasaList = new ArrayList<LamaNivasa>();
+				lamaNivasaList.add(lamaNivasa);
+			}
+		}else {
+			lamaNivasaList = lamaNivasaService.findAll();
+		}
+
 		yesNoList = genericListService.findListByCategoryId("C010");
 		genderTypeList = genericListService.findListByCategoryId("C001");
 		raceList = genericListService.findListByCategoryId("C013");
@@ -295,6 +332,14 @@ public class ChildAction extends BaseAction {
 
 	public void setChildCategoryList(List<GenericList> childCategoryList) {
 		this.childCategoryList = childCategoryList;
+	}
+
+	public ChildrenSummary getChildSummary() {
+		return childSummary;
+	}
+
+	public void setChildSummary(ChildrenSummary childSummary) {
+		this.childSummary = childSummary;
 	}
 
 }

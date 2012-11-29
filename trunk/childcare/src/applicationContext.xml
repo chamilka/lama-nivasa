@@ -39,9 +39,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>pdn.sci.cs.entity.Child</value>  
+				<value>pdn.sci.cs.entity.Child</value>
 				<value>pdn.sci.cs.entity.ChildPicture</value>
 				<value>pdn.sci.cs.entity.ChildGuardian</value>
+				<value>pdn.sci.cs.entity.ChildRecord</value>
 				<value>pdn.sci.cs.entity.District</value>
 				<value>pdn.sci.cs.entity.DivisionalSecretariat</value>
 				<value>pdn.sci.cs.entity.GenericCategory</value>

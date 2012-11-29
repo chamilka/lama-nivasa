@@ -6,7 +6,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td>
+	   		<td><div class="td1" style="width:7px;height:20px">&nbsp;</div></td>
 	   		<td class="sub-title" style="white-space: nowrap;">Chidren's Home</td>
 	   		<td align="right" style="width: 100%">
 	   			<s:include value="../common/pager.jsp"></s:include>

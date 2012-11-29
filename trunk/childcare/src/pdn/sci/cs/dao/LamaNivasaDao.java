@@ -22,8 +22,12 @@ private static final Class<LamaNivasa> clazz = LamaNivasa.class;
 			criteria.add(Restrictions.like(LamaNivasa.NAME, "%" + lamaNivasa.getName() + "%"));
 		}
 
-		if(lamaNivasa.getDivisionalSecretariat()  != null && lamaNivasa.getDivisionalSecretariat().getId().trim().length() != 0 ) {
+		/*if(lamaNivasa.getDivisionalSecretariat()  != null && lamaNivasa.getDivisionalSecretariat().getId().trim().length() != 0 ) {
 			criteria.add(Restrictions.eq(LamaNivasa.DIVISIONAL_SECRETARIAT_ID, lamaNivasa.getDivisionalSecretariat().getId()));
+		}*/
+
+		if(lamaNivasa.getProbationUnit()  != null && lamaNivasa.getProbationUnit().getId().trim().length() != 0 ) {
+			criteria.add(Restrictions.eq(LamaNivasa.PROBATION_UNIT_ID, lamaNivasa.getProbationUnit().getId()));
 		}
 
 		return findByCriteria(criteria);

@@ -24,6 +24,10 @@
 	  		<td><s:property value="childGuardian.relationship"  /></td>
 	  	</tr>
 	  	<tr>
+	  		<th>Status</th>
+	  		<td><s:property value="childGuardian.guardianStatus"  /></td>
+	  	</tr>
+	  	<tr>
 	  		<th>Telephone</th>
 	  		<td><s:property value="childGuardian.telephone" /></td>
 	  	</tr>

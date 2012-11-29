@@ -12,28 +12,29 @@
 
 
 <div>
- 
+
   <table id="commonTable" class="redTbl" width="100%">
+    <s:actionerror/>
   	<tr>
   		<th width="150px">Login Name</th>
   		<td><table><s:label name="systemUser.username" /></table>	</td>
   	</tr>
-  	
+
   	<tr>
   		<th>Name</th>
   		<td><table><s:label name="systemUser.name" /></table>	</td>
   	</tr>
-  	
+
   	<tr>
   		<th>Post</th>
   		<td><table><s:label name="systemUser.post" /></table>	</td>
   	</tr>
-  	
+
   	<tr>
   		<th>System Role</th>
   		<td><table><s:label name="systemUser.userRole" /></table>	</td>
   	</tr>
-  	
+
   	<tr>
   		<th>Mobile</th>
   		<td><table><s:label name="systemUser.mobile" /></table></td>
@@ -46,31 +47,31 @@
   		<th>Telephone</th>
   		<td><table><s:label name="systemUser.telephone" /></table></td>
   	</tr>
-  	
+
   	<tr>
   		<th>Temporary Address</th>
   		<td><table><s:label name="systemUser.addressTemporary" /></table></td>
   	</tr>
-  	
+
   	<tr>
   		<th>Address</th>
   		<td><table><s:label name="systemUser.address" /></table></td>
   	</tr>
-  	
+
   	<tr>
   		<th>Sex</th>
   		<td><table><s:label name="systemUser.sex" /></table></td>
   	</tr>
-  	
+
 	 <tr>
 	    <td></td>
 	 	<td>
-	 		<s:url var="changeProfileUrl" action="change-profile" 
+	 		<s:url var="changeProfileUrl" action="change-profile"
 				namespace="/user" includeParams="none"></s:url>
-	 	
-	 		<table><sj:a href="%{#changeProfileUrl}" targets="accountDiv" cssStyle="margin-left:10px"><input type="button" value="Edit" /></sj:a></table> 
+
+	 		<table><sj:a href="%{#changeProfileUrl}" targets="accountDiv" cssStyle="margin-left:10px"><input type="button" value="Edit" /></sj:a></table>
 	 	</td>
 	 </tr>
-	 
- </table>	
+
+ </table>
 </div>

@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @MappedSuperclass
 public abstract class BaseEntity  {
@@ -17,7 +18,8 @@ public abstract class BaseEntity  {
 	protected String updateUserId;
 	protected Calendar insertDateTime;
 	protected Calendar updateDateTime;
-	
+	protected String id_widget;
+
 	//public abstract String getId();
 
 	@Column(name = "SORT_ORDER")
@@ -65,6 +67,15 @@ public abstract class BaseEntity  {
 
 	public void setUpdateDateTime(Calendar updateDatetime) {
 		this.updateDateTime = updateDatetime;
+	}
+
+	@Transient
+	public String getId_widget() {
+		return id_widget;
+	}
+
+	public void setId_widget(String id_widget) {
+		this.id_widget = id_widget;
 	}
 
 }

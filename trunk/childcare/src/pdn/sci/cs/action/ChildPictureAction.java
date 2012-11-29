@@ -138,8 +138,8 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 	}
 
 	private void validateChildPicture() {
-		if(getFileUploadFileName().isEmpty()) {
-			addFieldError("childPicture.fileName", "File Name Cannot Be Empty");
+		if(getFileUploadFileName() == null || getFileUploadFileName().isEmpty()) {
+			addFieldError("fileUpload", "File Cannot Be Empty");
 		}
 	}
 

@@ -23,7 +23,7 @@
 	  <table id="commonTable" class="blueTbl" width="100%">
 
 	 	<tr>
-	 		<th>Name</th><td  colspan="5"><table><s:textfield name="lamaNivasa.name" cssStyle="width:350px" required="true" /></table></td>
+	 		<th>Name</th><td  colspan="5"><table><s:textfield name="lamaNivasa.name" cssStyle="width:450px" required="true" /></table></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Date of Establishment</th><td  colspan="5"><table>
@@ -39,8 +39,11 @@
 	 		</table></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Category</th><td><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
-	 		<th>Unit</th><td colspan="3"><table><s:select name="lamaNivasa.probationUnit.id" list="probationUnitList" listKey="id" listValue="name"/></table></td>
+	 		<th>Category</th><td colspan="5"><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
+	 	</tr>
+	 	<tr>
+	 		<th>Unit</th><td colspan="2"><table><s:select name="lamaNivasa.probationUnit.id" list="probationUnitList" listKey="id" listValue="name"/></table></td>
+	 		<th>Probation Officer</th><td colspan="2"><table><s:select name="lamaNivasa.probationOfficer" list="probationUnitOfficerList" listKey="name" listValue="name"/></table></td>
 	 	</tr>
 	 	<tr>
 	 	<th>Div. Secretariat</th>
@@ -61,7 +64,7 @@
 	 		<th>Email</th><td><table><s:textfield name="lamaNivasa.email"  cssStyle="width:200px" /></table></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Number of children</th>
+	 		<th>Max. No. of children</th>
 	 			<td><table> <sj:spinner
 			    	name="lamaNivasa.numberOfChildren" id="numberOfChildrenSpinner"
 			    	min="0" step="1"
@@ -104,7 +107,7 @@
 	 	</tr>
 	 	<tr>
 
-	 		<th>No. of Officers</th><td colspan="5"><table><sj:spinner
+	 		<th>No. of Staffs</th><td colspan="5"><table><sj:spinner
 		    	name="lamaNivasa.numberOfOfficers" id="numberOfOfficersSpinner"
 		    	min="0" max="20" step="1"
 		    	cssStyle="width:60px" required="true" mouseWheel="true"

@@ -9,9 +9,6 @@ INSERT INTO `generic_category` VALUES ('C040', 'CHILDREN_HOME_RELIGIOUS_TYPE_EN'
 INSERT INTO `generic_category` VALUES ('C050', 'YEAR_EN', 6, 'U001', 'U001', '2012/04/02', '2012/04/02' );
 INSERT INTO `generic_category` VALUES ('C060', 'MONTH_EN', 7, 'U001', 'U001', '2012/04/02', '2012/04/02' );
 INSERT INTO `generic_category` VALUES ('C070', 'REGISTRATION_STATUS_EN', 8, 'U001', 'U001', '2012/04/02', '2012/04/02' );
-INSERT INTO `generic_category` VALUES ('C080', 'PROBATION_UNIT_EN', 9, 'U001', 'U001', '2012/04/02', '2012/04/02' );
-INSERT INTO `generic_category` VALUES ('C090', 'ACTIVITY_TYPE', 10, 'U001', 'U001', '2012/04/02', '2012/04/02' );
-INSERT INTO `generic_category` VALUES ('C011', 'ACTIVITY_CATEGORY', 11, 'U001', 'U001', '2012/04/02', '2012/04/02' );
 INSERT INTO `generic_category` VALUES ('C012', 'BANKS', 12, 'U001', 'U001', '2012/04/02', '2012/04/02' );
 INSERT INTO `generic_category` VALUES ('C013', 'RACE', 13, 'U001', 'U001', '2012/04/02', '2012/04/02' );
 INSERT INTO `generic_category` VALUES ('C014', 'INTAKE_METHOD', 14, 'U001', 'U001', '2012/04/02', '2012/04/02' );

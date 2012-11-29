@@ -19,32 +19,32 @@ import pdn.sci.cs.util.Pager;
 
 @Repository("genericDao")
 public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
-	
+
 	public static final int MIN_INDEX = 0;
 	private static Logger logger = Logger.getLogger(GenericDao.class);
 	private Class<T> persistentClass;
-	
+
 	@SuppressWarnings("unchecked")
 	public GenericDao(){
 	   this.persistentClass = (Class<T>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
-	
+
 	public List<T> findAll(Class<T> clazz) throws DataAccessException {
 		return getHibernateTemplate().loadAll(clazz);
 	}
-	
+
 	/*public List<T> findAll() throws DataAccessException {
-		
+
 		return getHibernateTemplate().loadAll(persistentClass);
 	}*/
-	
+
 	public List<T> findAll() {
 		DetachedCriteria criteria = createCriteria(persistentClass);
 		criteria.addOrder(Order.asc(BaseEntity.SORT_ORDER));
-		
+
 		return findByCriteria(criteria);
 	}
-	
+
 	protected Integer findByCritiriaUniqueLongResult(DetachedCriteria criteria) {
 		try {
 			@SuppressWarnings("unchecked")
@@ -55,48 +55,48 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			} else {
 				return null;
 			}
-			
+
 		} catch (DataAccessException e) {
 			logger.error("Criteria query execution error for unique result");
 			return null;
 		}
     }
-	
+
 	public Pager find(DetachedCriteria criteria, Integer start, Integer size) {
-		
+
 		Pager pager = new Pager();
-		
-		start = (start == null) ? 0 : start; 
+
+		start = (start == null) ? 0 : start;
 		pager.setStart(start);
-		
-		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size; 
+
+		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size;
 		pager.setSize(size);
 		pager.setTotal(getCount(criteria)); //getCount(criteria)
-		
+
 		criteria.setProjection(null);
 		criteria.setResultTransformer(Criteria.ROOT_ENTITY);
 		pager.setList(findByCriteria(criteria, start, size));
-		
+
 		return pager;
 	}
-	
-	private Integer getCount(DetachedCriteria criteria) {
+
+	protected Integer getCount(DetachedCriteria criteria) {
 
 		criteria.setProjection(Projections.rowCount());
 		int total = findByCritiriaUniqueLongResult(criteria);
-		
+
 		return total;
 	}
 
-	
+
 	public T findById(String id) {
 		try{
 		  return (T)getHibernateTemplate().load(getPersistentClass(), id);
 		}catch (Exception e) {
 		  return null;
-		}  
+		}
 	}
-	
+
 	public void saveAll(T... entities) {
 		for (T entity : entities) {
 			if (entity != null) {
@@ -106,7 +106,7 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			}
 		}
 	}
-	
+
 	public void update(T entity) throws HibernateOptimisticLockingFailureException {
 		try {
 			getHibernateTemplate().update(entity);
@@ -114,9 +114,8 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 		}catch (org.springframework.orm.hibernate3.HibernateSystemException e) {
 			logger.error(e);
 		}
-		
 	}
-	
+
 	public void updateAll(T... entities) {
 		for (T entity : entities) {
 			if (entity != null) {
@@ -126,10 +125,10 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 				throw new NullPointerException("NULL object cannot be updated " + entities.getClass());
 			}
 		}
-		
+
 		getHibernateTemplate().flush();
 	}
-	
+
 	public void deleteById(String id){
 		T t = findById(id);
 		if( t != null){
@@ -139,7 +138,7 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			logger.error("NULL object cannot be deleted ");
 		}
 	}
-	
+
 	public void delete(T entity){
 		if( entity != null){
 			getHibernateTemplate().delete(entity);
@@ -149,26 +148,26 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			throw new NullPointerException("NULL object cannot be deleted ");
 		}
 	}
-	
+
 	protected void deleteEntities(T... entities) {
 		for (T entity : entities) {
 			if (entity != null) {
 				delete(entity);
 			}
 		}
-		
+
 		getHibernateTemplate().flush();
 	}
-	
+
 	protected DetachedCriteria createCriteria(Class<T> t) {
 		return DetachedCriteria.forClass(t);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected List<T> findByCriteria(DetachedCriteria criteria) {
         try {
 		List<T> results = getHibernateTemplate().findByCriteria(criteria);
-        
+
         if (results == null) {
             return new ArrayList<T>();
         }
@@ -179,24 +178,24 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
         	return null;
         }
     }
-	
+
 	@SuppressWarnings("unchecked")
 	protected List<T> findByCriteria(DetachedCriteria criteria, int min, int max) {
-        
+
 		List<T> results = getHibernateTemplate().findByCriteria(criteria, min, max);
 
 		 if (results == null) {
 	            return new ArrayList<T>();
 	     }
-	        
+
 	    return results;
-        
+
     }
 
 	protected List<T> findByCriteria(DetachedCriteria criteria, int max) {
 		return findByCriteria(criteria, MIN_INDEX, max);
     }
-	
+
 	@SuppressWarnings("unchecked")
 	protected T findByCriteriaForUniqueResult(DetachedCriteria criteria) {
 		try {
@@ -207,18 +206,18 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			} else {
 				return null;
 			}
-			
+
 		} catch (DataAccessException e) {
 			logger.error("Criteria query execution error for unique result");
 			return null;
 		}
     }
-	
+
 	@SuppressWarnings("unchecked")
 	public List<T> findByExample(T obj) {
 	    return getHibernateTemplate().findByExample(obj);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Object> groupedByCriteria(DetachedCriteria criteria){
 		try{
@@ -228,50 +227,50 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			logger.error("Criteria query execution error for count result");
 			return null;
 		}
-		
+
 	}
-	
-	
+
+
     protected Integer countByCriteria(DetachedCriteria criteria) {
     	try {
 	        criteria.setProjection(Projections.rowCount());
-	        
+
 	        @SuppressWarnings("unchecked") List<Integer> results = getHibernateTemplate().findByCriteria(criteria);
-	        
+
 	        if (results == null || results.size() == 0) {
 	            return Integer.valueOf(0);
 	        }
-	        
+
 	        return results.get(0);
     	}catch(Exception e) {
     		logger.error(e);
     		return Integer.valueOf(0);
     	}
     }
-	
+
 
     protected Double avgByCriteria(DetachedCriteria criteria) {
     	try {
-	        
+
     		@SuppressWarnings("unchecked") List<Double> results = getHibernateTemplate().findByCriteria(criteria);
-	        
+
 	        if (results == null || results.size() == 0) {
 	            return Double.valueOf(0.0);
 	        }
-	        
+
 	        return results.get(0);
-	        
+
     	} catch(Exception e) {
     		logger.error(e);
     		return Double.valueOf(0.0);
     	}
     }
-	
+
 	@SuppressWarnings("unchecked")
 	protected List<T> findByQuery(String query) {
 		return getHibernateTemplate().find(query);
 	}
-	
+
 	public Class<T> getPersistentClass() {
 		return persistentClass;
 	}
@@ -284,6 +283,17 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 	public T save(T t) {
 		try {
 			getHibernateTemplate().save(t);
+			getHibernateTemplate().flush();
+			return t;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return t;
+	}
+
+	public T merge(T t) {
+		try {
+			getHibernateTemplate().merge(t);
 			getHibernateTemplate().flush();
 			return t;
 		} catch (Exception e) {

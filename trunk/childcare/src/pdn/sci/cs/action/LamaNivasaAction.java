@@ -15,6 +15,7 @@ import pdn.sci.cs.service.DivisionalSecretariatService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
+import pdn.sci.cs.service.SystemUserService;
 import pdn.sci.cs.util.Pager;
 
 @Scope(value = "prototype")
@@ -26,6 +27,7 @@ public class LamaNivasaAction extends BaseAction {
 	@Autowired private ProbationUnitService probationUnitService;
 	@Autowired private GenericListService genericListService;
 	@Autowired private DivisionalSecretariatService divisionalSecretariatService;
+	@Autowired private SystemUserService systemUserService;
 
 	private List<DivisionalSecretariat> divisionalSecretariatList;
 	private List<GenericList> lamaNivasaTypeList;
@@ -35,6 +37,7 @@ public class LamaNivasaAction extends BaseAction {
 	private List<GenericList> maintenanceDonationList;
 	private List<GenericList> yesNoList;
 	private List<ProbationUnit> probationUnitList;
+	private List<SystemUser> probationUnitOfficerList;
 
 	private List<LamaNivasa> list;
 	private LamaNivasa lamaNivasa;
@@ -73,7 +76,8 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	public String searchForm() {
-		divisionalSecretariatList =	divisionalSecretariatService.findAll();
+		//divisionalSecretariatList =	divisionalSecretariatService.findAll();
+		probationUnitList = probationUnitService.findAll();
 		return SUCCESS;
 	}
 
@@ -181,6 +185,7 @@ public class LamaNivasaAction extends BaseAction {
 
 		probationUnitList = probationUnitService.findAll();
 		divisionalSecretariatList =	divisionalSecretariatService.findAll();
+		probationUnitOfficerList = systemUserService.findByUserRole(SystemUser.USER_ROLE.OFFICER);
 	}
 
 	public List<LamaNivasa> getList() {
@@ -257,6 +262,13 @@ public class LamaNivasaAction extends BaseAction {
 		this.probationUnitList = probationUnitList;
 	}
 
+	public List<SystemUser> getProbationUnitOfficerList() {
+		return probationUnitOfficerList;
+	}
 
+	public void setProbationUnitOfficerList(
+			List<SystemUser> probationUnitOfficerList) {
+		this.probationUnitOfficerList = probationUnitOfficerList;
+	}
 
 }
