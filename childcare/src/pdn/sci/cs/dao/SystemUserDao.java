@@ -35,7 +35,7 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 	public List<SystemUser> searchByUserRole(SystemUser.USER_ROLE userRole) {
 
 		DetachedCriteria criteria = createCriteria(clazz);
-		criteria.add(Restrictions.eq(SystemUser.USER_ROLE_STRING, userRole.name()));
+		criteria.add(Restrictions.eq(SystemUser.SYSTEM_USER_ROLE, userRole.name()));
 
 		return findByCriteria(criteria);
 	}
