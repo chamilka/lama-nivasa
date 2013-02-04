@@ -121,7 +121,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 /* ~~ The footer ~~ */
 .footer {
 	padding: 50px 0;
-	background:url(../images/footer.png) 0 0 no-repeat;
+	background:url(../images/footerNew.png) 0 0 no-repeat;
 }
 
 /* ~~ miscellaneous float/clear classes ~~ */
