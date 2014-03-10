@@ -6,7 +6,6 @@ import java.util.regex.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
-import pdn.sci.cs.action.BaseAction.OPERATION_MODE;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
@@ -233,6 +232,20 @@ public class UserAction extends BaseAction {
 			if (systemUser.getUserPassword().isEmpty()) {
 				addFieldError("systemUser.userPassword", "Password cannot be empty");
 			}
+		}
+	}
+	
+	public String delete() {
+		if(this.id.isEmpty()) {
+			addActionError("Could not delete the entry, id is missing");
+			return INPUT;
+		} else {
+			try {
+				systemUserService.delete(id);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			return list();
 		}
 	}
 

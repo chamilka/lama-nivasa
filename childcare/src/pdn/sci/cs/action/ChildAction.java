@@ -95,10 +95,14 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String search() {
+		
 		final String defaultValue = "";
+		
 		if(child != null) {
+			
 			String name = defaultValue, lamaNivasaId = defaultValue;
 			String code = defaultValue;
+		
 			if(child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
 				lamaNivasaId = defaultValue;
 			} else {
@@ -125,8 +129,11 @@ public class ChildAction extends BaseAction {
 				return INPUT;
 			}
 
+			targetDiv = "childResultDiv";
+			pageSize = 200;
 			pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
 			setActionContext(pager);
+			
 		} else {
 			addActionError("Please give a criteria");
 		}
@@ -186,7 +193,6 @@ public class ChildAction extends BaseAction {
 			addActionError("Could not delete the entry, id is missing");
 			return INPUT;
 		} else {
-			System.out.println("delete called " + this.id);
 			try {
 				childService.delete(id);
 			} catch(Exception e) {
@@ -194,7 +200,6 @@ public class ChildAction extends BaseAction {
 			}
 			return list();
 		}
-
 	}
 
 	private void searchPopulate() {

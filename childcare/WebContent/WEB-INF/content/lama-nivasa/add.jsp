@@ -32,7 +32,7 @@
      				name="lamaNivasa.dateOfEstablishment"
      				changeMonth="true"
      				changeYear="true"
-     				yearRange="1972:2012"
+     				yearRange="1972:"
      				value="%{lamaNivasa.dateOfEstablishment.time}"
      				/>
 
@@ -94,7 +94,7 @@
      				name="lamaNivasa.registrationDate"
      				changeMonth="true"
      				changeYear="true"
-     				yearRange="1972:2012"
+     				yearRange="1972:"
      				value="%{lamaNivasa.registrationDate.time}"
      				/></table></td>
 	 	</tr>

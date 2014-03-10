@@ -27,8 +27,6 @@ public class ChildService {
 		return childDao.findAllByLamaNivasaId(lamaNivasaId, start, size);
 	}
 
-
-
 	public Child findById(String id) {
 		return childDao.findById(id);
 	}
