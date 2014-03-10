@@ -40,6 +40,9 @@
 			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
 		</action>
 		
+		<action name="delete" class="pdn.sci.cs.action.UserAction" method="delete">
+			<result name="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
 
 		<action name="profile-save" class="pdn.sci.cs.action.UserAction" method="save">
 			<result name="success">/WEB-INF/content/account/profile-view.jsp</result>

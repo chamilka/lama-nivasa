@@ -75,7 +75,7 @@
      				name="child.dateOfBirth"
      				changeMonth="true"
      				changeYear="true"
-     				yearRange="1994:2012"
+     				yearRange="1994:"
      				value="%{child.dateOfBirth.time}"
      				/>
      		</table>
@@ -137,7 +137,7 @@
      				name="child.dateOfRegistration"
      				changeMonth="true"
      				changeYear="true"
-     				yearRange="1994:2012"
+     				yearRange="1994:"
      				value="%{child.dateOfRegistration.time}"
      				/>
      		</table>

@@ -15,7 +15,7 @@ public class Pager {
 	private String actionName;
 	private String namespace;
 	private String targetDiv;
-	private Map<String, Object> parameters;
+	private Map<String, String[]> parameters;
 
 	public Pager() {
 		super();
@@ -77,15 +77,15 @@ public class Pager {
 		this.namespace = namespace;
 	}
 
-	public Map<String, Object> getParameters() {
+	public Map<String, String[]> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(Map<String, Object> parameters) {
+	public void setParameters(Map<String, String[]> parameters) {
 		this.parameters = parameters;
 	}
 
-	public void setActionCallInfo(String name, String namespace, Map<String, Object> params ) {
+	public void setActionCallInfo(String name, String namespace, Map<String, String[]> params ) {
 		this.actionName = name;
 		this.namespace = namespace;
 		this.parameters = params;

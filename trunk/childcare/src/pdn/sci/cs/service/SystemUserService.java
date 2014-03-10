@@ -41,6 +41,10 @@ public class SystemUserService {
 	public List<SystemUser> findAll() {
 		return systemUserDao.findAll();
 	}
+	
+	public void delete(String id) {
+		systemUserDao.deleteById(id);
+	}
 
 	public Pager findAll(Integer start, Integer size) {
 		return systemUserDao.findAll(start, size);
