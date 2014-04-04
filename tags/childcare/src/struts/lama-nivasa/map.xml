@@ -1,0 +1,47 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="lamaNivasa" namespace="/lamaNivasa" extends="web-default">
+	
+		<action name="list" class="pdn.sci.cs.action.LamaNivasaAction" method="list">
+			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+		</action>
+		
+		<action name="search" class="pdn.sci.cs.action.LamaNivasaAction" method="search">
+			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+			<result name="input">/WEB-INF/content/lama-nivasa/list.jsp</result>
+		</action>
+		
+		<action name="frame" class="pdn.sci.cs.action.LamaNivasaAction" method="list">
+			<result name="success">/WEB-INF/content/lama-nivasa/frame.jsp</result>
+		</action>
+		
+		<action name="search-form" class="pdn.sci.cs.action.LamaNivasaAction" method="searchForm">
+			<result name="success">/WEB-INF/content/lama-nivasa/search.jsp</result>
+		</action>
+		
+		<action name="add" class="pdn.sci.cs.action.LamaNivasaAction" method="add">
+			<result name="success">/WEB-INF/content/lama-nivasa/add.jsp</result>
+		</action>
+		
+		<action name="edit" class="pdn.sci.cs.action.LamaNivasaAction" method="edit">
+			<result name="success">/WEB-INF/content/lama-nivasa/add.jsp</result>
+		</action>
+		
+		<action name="view" class="pdn.sci.cs.action.LamaNivasaAction" method="view">
+			<result name="success">/WEB-INF/content/lama-nivasa/view.jsp</result>
+		</action>
+		
+		<action name="delete" class="pdn.sci.cs.action.LamaNivasaAction" method="delete">
+			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+		</action>
+		
+		<action name="save" class="pdn.sci.cs.action.LamaNivasaAction" method="save">
+			<result name="success">/WEB-INF/content/lama-nivasa/view.jsp</result>
+			<result name="input">/WEB-INF/content/lama-nivasa/add.jsp</result>
+		</action>
+
+	</package>
+</struts>

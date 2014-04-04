@@ -1,0 +1,88 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="web-default">
+	
+		<action name="signin" class="pdn.sci.cs.action.UserAction" method="signIn">
+		    <interceptor-ref name="guest"/>
+			<result name="success">/WEB-INF/content/home.jsp</result>
+			<result name="input">/WEB-INF/content/signin.jsp</result>
+		</action>
+		
+		<action name="signout" class="pdn.sci.cs.action.UserAction" method="signOut">
+		    <interceptor-ref name="guest"/>
+			<result name="success">/WEB-INF/content/signin.jsp</result>
+		</action>
+		
+		<action name="home-view" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name ="success">/WEB-INF/content/home/view.jsp</result>
+		</action>
+		
+		<action name="list" class="pdn.sci.cs.action.UserAction" method="list">
+			<result name ="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
+		
+		<action name="view" class="pdn.sci.cs.action.UserAction" method="view">
+			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
+		</action>
+		
+		<action name="frame" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name="success">/WEB-INF/content/settings/user/frame.jsp</result>
+		</action>
+		
+		<action name="add" class="pdn.sci.cs.action.UserAction" method="add">
+			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
+		</action>
+		
+		<action name="edit" class="pdn.sci.cs.action.UserAction" method="edit">
+			<result name="success">/WEB-INF/content/settings/user/add.jsp</result>
+		</action>
+		
+		<action name="delete" class="pdn.sci.cs.action.UserAction" method="delete">
+			<result name="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
+
+		<action name="profile-save" class="pdn.sci.cs.action.UserAction" method="save">
+			<result name="success">/WEB-INF/content/account/profile-view.jsp</result>
+			<result name="input">/WEB-INF/content/account/profile-change.jsp</result>
+		</action>
+		
+		<action name="save" class="pdn.sci.cs.action.UserAction" method="save">
+			<result name="success">/WEB-INF/content/settings/user/view.jsp</result>
+			<result name="input">/WEB-INF/content/settings/user/add.jsp</result>
+		</action>
+		
+		<action name="search-form" class="pdn.sci.cs.action.UserAction" method="searchForm">
+			<result name="success">/WEB-INF/content/settings/user/search.jsp</result>
+		</action>
+		
+		<action name="search" class="pdn.sci.cs.action.UserAction" method="search">
+			<result name="success">/WEB-INF/content/settings/user/list.jsp</result>
+		</action>
+		
+		<action name="change-password" class="pdn.sci.cs.action.UserAction" method="changePasswordForm">
+			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
+		</action>
+		
+		<action name="view-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">
+			<result name="success">/WEB-INF/content/account/profile-view.jsp</result>
+		</action>
+		
+		<action name="password-change-save" class="pdn.sci.cs.action.UserAction" method="passwordChangeSave">
+			<result name="success">/WEB-INF/content/account/password-change.jsp</result>
+			<result name="input">/WEB-INF/content/account/password-change.jsp</result>
+		</action>
+		
+		<action name="change-profile" class="pdn.sci.cs.action.UserAction" method="changeProfileForm">
+			<result name="success">/WEB-INF/content/account/profile-change.jsp</result>
+		</action>
+		
+		<action name="account-frame" class="pdn.sci.cs.action.UserAction" method="frame">
+			<result name="success">/WEB-INF/content/account/frame.jsp</result>
+		</action>
+		
+
+	</package>
+</struts>

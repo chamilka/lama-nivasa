@@ -1,0 +1,43 @@
+USE child_db;
+
+TRUNCATE TABLE divisional_secretariat;
+INSERT INTO `divisional_secretariat` VALUES ('DS001', 'Akurana', 'D001', 1, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS002', 'Delatota', 'D001', 2, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS003', 'Doluwa', 'D001', 3, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS004', 'Ganga Ihalakodrale', 'D001', 4, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS005', 'Gangawata Korale', 'D001', 5, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS006', 'Harispattuwa', 'D001', 6, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS007', 'Hataraliyadda', 'D001', 7, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS008', 'Kandy', 'D001', 8, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS009', 'Kundasale', 'D001', 9, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS010', 'Madadumbara', 'D001', 10, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS011', 'Minipe', 'D001', 11, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS012', 'Panwila', 'D001', 12, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS013', 'Pasbage Korale', 'D001', 13, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS014', 'Pathadumbara', 'D001', 14, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS015', 'Pathahewaheta', 'D001', 15, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS016', 'Pujapitiya', 'D001', 16, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS017', 'Tumpane', 'D001', 17, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS018', 'Udadumbara', 'D001', 18, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS019', 'Udapalatha', 'D001', 19, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS020', 'Udunuwara', 'D001', 20, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS021', 'Yatinuwara', 'D001', 21, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS022', 'Abagamuwa Koralaya', 'D001', 22, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+
+INSERT INTO `divisional_secretariat` VALUES ('DS031', 'Matale', 'D002', 22, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS032', 'Galewela', 'D002', 23, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS033', 'Dambulla', 'D002', 24, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS034', 'Naula', 'D002', 25, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS035', 'Pallepola', 'D002', 26, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS036', 'Yatawatta', 'D002', 27, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS037', 'Ambanganga Korale', 'D002', 28, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS038', 'Laggala-Pallegama', 'D002', 29, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS039', 'Wilgamuwa', 'D002', 30, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS040', 'Rattota', 'D002', 31, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS041', 'Ukuwela', 'D002', 32, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+
+INSERT INTO `divisional_secretariat` VALUES ('DS051', 'Nuwara-eliya', 'D003', 33, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS052', 'Kotmale', 'D003', 34, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS053', 'Hanguranketha', 'D003', 35, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS054', 'Walapane', 'D003', 36, 'U001', 'U001', '2012/01/12', '2012/01/12' );
+INSERT INTO `divisional_secretariat` VALUES ('DS055', 'Ambagamuwa', 'D003', 37, 'U001', 'U001', '2012/01/12', '2012/01/12' );

@@ -1,0 +1,246 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	font: 80%/1.2 Verdana, Arial, Helvetica, sans-serif;
+	background:url(../images/bg_pattern.png) 0 0 repeat;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~ this fixed width container surrounds the other divs ~~ */
+.container {
+	width: 1070px;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background:url(../images/header.png) 0 0 no-repeat;
+	height:115px;
+	padding-top:0px;
+}
+
+.login_header{
+	background:url(../images/loginHeader.png) 0 0 no-repeat;
+	height:85px;
+}
+
+.login_content{
+	background:url(../images/loginBody.png) 0 0 no-repeat;
+	height:462px;
+	margin:0 auto;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+}
+
+.menu_bar{
+	height:35px;
+	background:url(../images/body_bg.png) 0 0 repeat-y;
+	padding-left:45px;
+
+}
+
+#tblMenu td{
+	height:35px;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}
+
+.td1{
+	width:164px;
+	text-align:center;
+	background:url(../images/menu1.png) 0 0 no-repeat;
+}
+
+.td2{
+	width:163px;
+	text-align:center;
+	background:url(../images/menu2.png) 0 0 no-repeat;
+}
+
+.td3{
+	width:164px;
+	text-align:center;
+	background:url(../images/menu3.png) 0 0 no-repeat;
+}
+
+.td4{
+	width:163px;
+	text-align:center;
+	background:url(../images/menu4.png) 0 0 no-repeat;
+}
+
+.td5{
+	width:164px;
+	text-align:center;
+	background:url(../images/menu5.png) 0 0 no-repeat;
+}
+
+.td6{
+	width:162px;
+	text-align:center;
+	background:url(../images/menu6.png) 0 0 no-repeat;
+}
+
+.content {
+	background:url(../images/body_bg.png) 0 0 repeat-y;
+	padding: 30px 60px;
+}
+
+/* ~~ The footer ~~ */
+.footer {
+	padding: 50px 0;
+	background:url(../images/footerNew.png) 0 0 no-repeat;
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.login{
+	background:#bbb url(images/loginBg.png) 0 0 no-repeat;
+	height:200px;
+	padding-top:100px;
+}
+
+#tbl_login{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#fff;
+	text-align: right;
+}
+
+.textBox{
+	background:#0d2858;
+	height:20px;
+	color:#000;
+
+	outline:none;
+	border:#0f2d62 1px solid;
+}
+
+a.menu-link:link, a.menu-link:visited, a.menu-link:hover, a.menu-link:active{
+	text-decoration: none;
+	white-space: nowrap;
+	height:35px;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}
+
+a.blue-link:link, a.blue-link:visited, a.blue-link:hover, a.blue-link:active{
+	text-decoration: none;
+	white-space: nowrap;
+	height:35px;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+	font-weight:bold;
+	color:#0000bb;
+}
+
+.sub-title {
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+	color: black;
+	font-family:Segoe UI;
+}
+
+.label {
+	font-size:12px;
+	font-style: normal;
+	color: black;
+	white-space: nowrap;
+}
+
+.tdLabel{
+	font-size:12px;
+	font-style: normal;
+	color: black;
+	text-align: right;
+}
+
+.tdLabelHeader {
+	font-size:14px;
+	font-weight: bold;
+}
+
+.required {
+	color: red;
+}
+
+.errorMessage {
+	color:red;
+	font-size:12px;
+	font-weight:bold;
+	text-align: left;
+}
+
+.errorLabel {
+	color: red;
+	font-size:12px;
+	padding: 10px 10px 5px 0;
+}
+
+.monthly-td{
+	padding-left: 100px;
+	font-size:12px;
+	font-weight:bold;
+	text-align: left;
+}
+
+.monthly-td-title{
+	color:#0d2858;
+	font-size:14px;
+	font-weight:bold;
+	text-align: left;
+}
+
+.ui-autocomplete-input {
+	width:250px;
+}
+
