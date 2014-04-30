@@ -5,9 +5,11 @@
 <div>
 
 	<div>
-	  <table>
+	  <table style="width:100%">
 	   <tr>
 	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Summary</td>
+	   		<td>&nbsp;</td>
+	   			<td style="align:right; width:100px"> <a href="#"><img src='<s:url value="/images/ms-excel.png" />' style="width:48px;height:48px" title="Download MS-Excel" /></a></td>
 	   </tr>
 	  </table>
 	</div>
@@ -487,6 +489,30 @@
 		     	 </table>
 		     </td>
 	    </tr>
+	 </table>
+	</div>
+	
+	<div style="margin: 20px 0 0 10px;float: left;">
+       <table class="darkBlueTbl">
+        <tr><th colspan="2">Socialized</th></tr>
+	    <tr><td colspan="2"><b>24. Socialized Information in 2014 (<s:property value="childSummary.intakeCourt.male + childSummary.intakeCourt.female" /> )</b></td></tr>
+	   	<tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label
+				    	name="childSummary.intakeCourt.male"
+				    	label="Male"  />
+		     	 </table>
+		     </td>
+		     <td>
+		     	 <table>
+		     	 	<s:label
+				    	name="childSummary.intakeCourt.female"
+				    	label="Female"  />
+		     	 </table>
+		     </td>
+	    </tr>
+
 	 </table>
 	</div>
 
