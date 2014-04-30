@@ -52,10 +52,24 @@
 
 			<s:url var="childSummaryUrl" action="summary"
 				namespace="/child" includeParams="none"></s:url>
+			
+			<s:url var="childDetailUrl" action="detail"
+				namespace="/child" includeParams="none"></s:url>
 
-     		<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>  |
-			<sj:a href="%{#childListUrl}" targets="childResultDiv">All</sj:a> |
-			<sj:a href="%{#childSummaryUrl}" targets="childResultDiv">Summary</sj:a>
+			<s:if test="!ministry">
+					<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>  |
+			</s:if>
+				
+     		
+			<sj:a href="%{#childListUrl}" targets="childResultDiv">All</sj:a>
+			<s:if test="!user">
+				 |
+				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv">Brief</sj:a>
+				
+				<s:if test="ministry">
+					| <sj:a href="%{#childDetailUrl}" targets="childResultDiv">Detail</sj:a>
+				</s:if>
+			</s:if>
 		</td>
 	  </table>
 	</s:form>

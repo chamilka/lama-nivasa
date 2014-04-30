@@ -50,6 +50,10 @@
 		<action name="summary" class="pdn.sci.cs.action.ChildAction" method="childSummary">
 			<result name="success">/WEB-INF/content/child/summary.jsp</result>
 		</action>
+		
+		<action name="detail" class="pdn.sci.cs.action.ChildAction" method="childDetail">
+			<result name="success">/WEB-INF/content/child/detail.jsp</result>
+		</action>
 
 	</package>
 </struts>

@@ -86,22 +86,18 @@ public class ChildDao extends GenericDao<Child> {
 		Calendar twoYear = (Calendar)today.clone();
 		twoYear.add(Calendar.YEAR, -2);
 		cs.setAgeLessThanTwo(getAgeRangeCount(Child.DATE_OF_BIRTH, twoYear, today));
-		System.out.println(today + " (2, 0)\n " + twoYear);
 
 		Calendar fiveYear = (Calendar)twoYear.clone();
 		fiveYear.add(Calendar.YEAR, -3);
 		cs.setAgeLessThanFive(getAgeRangeCount(Child.DATE_OF_BIRTH, fiveYear, twoYear));
-		System.out.println(twoYear + " (2, 5)\n " + fiveYear);
 
 		Calendar tenYear = (Calendar)fiveYear.clone();
 		tenYear.add(Calendar.YEAR, -5);
 		cs.setAgeLessThanTen(getAgeRangeCount(Child.DATE_OF_BIRTH, tenYear, fiveYear));
-		System.out.println(fiveYear + " (5, 10)\n " + tenYear);
 
 		Calendar eighteenYear = (Calendar)tenYear.clone();
 		eighteenYear.add(Calendar.YEAR, -8);
 		cs.setAgeLessThanEighteen(getAgeRangeCount(Child.DATE_OF_BIRTH, eighteenYear, tenYear));
-		System.out.println(tenYear + " (10, 18)\n " + eighteenYear);
 
 		return cs;
 	}

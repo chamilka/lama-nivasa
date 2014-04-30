@@ -174,6 +174,15 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	public boolean isOfficer() {
 		return getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name());
 	}
+	
+	public boolean isMinistry() {
+		return getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name());
+	}
+	
+	public boolean isAdminOrMinistry() {
+		return getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) ||
+				getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name());
+	}
 
 	public Pager getPager() {
 		return pager;

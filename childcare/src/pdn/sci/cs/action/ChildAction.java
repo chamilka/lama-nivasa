@@ -43,6 +43,11 @@ public class ChildAction extends BaseAction {
 		childSummary = childService.getChildrenSummary();
 		return SUCCESS;
 	}
+	
+	public String childDetail() {
+		//childSummary = childService.getChildrenSummary();
+		return SUCCESS;
+	}
 
 	public String list() {
 		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {

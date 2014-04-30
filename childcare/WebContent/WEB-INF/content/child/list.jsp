@@ -20,7 +20,7 @@
 	  		<th style="width:20px"></th><th>Name</th>
 	  		<th style="width:70px">Sex Type</th>
 	  		<th>Date Of Birth</th>
-	  		<th style="width:50px">Grade</th>
+	  		<th style="width:50px">District</th>
 	  		<th>Children's Home</th>
 	  	</tr>
 		<s:iterator value="pager.list" status="rowIndex">
@@ -34,7 +34,7 @@
 			 </td>
 			 <td><s:property value="sexType"/></td>
 			 <td><s:date name="dateOfBirth.time" format="yyyy/MM/dd"/></td>
-			 <td><s:property value="grade"/></td>
+			 <td><s:property value="lamaNivasa.divisionalSecretariat.district.name"/></td>
 			 <td><s:property value="lamaNivasa.name" /></td>
 			 <%--
 			 <td>
