@@ -49,15 +49,42 @@ public class ChildAction extends BaseAction {
 		return SUCCESS;
 	}
 
+//	public String list() {
+//		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+//			//if user only own children home
+//			String referenceId = getSessionUser().getReferenceId();
+//			if(referenceId == null) {
+//				return INPUT;
+//			} else {
+//				try {
+//					pageSize = 4 *SEARCH_PAGE_SIZE;
+//					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
+//					targetDiv = "childResultDiv";
+//					setActionContext(pager);
+//					return SUCCESS;
+//				} catch(Exception e) {
+//					e.printStackTrace();
+//					return INPUT;
+//				}
+//			}
+//		}
+//		pager = childService.findAll(pageStart, pageSize);
+//		targetDiv = "childResultDiv";
+//		setActionContext(pager);
+//		return SUCCESS;
+//	}
 	public String list() {
-		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-			//if user only own children home
+		if(!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
 			String referenceId = getSessionUser().getReferenceId();
+			//pageSize = 4 *SEARCH_PAGE_SIZE;
+			
 			if(referenceId == null) {
 				return INPUT;
 			} else {
+				
+				if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+				
 				try {
-					pageSize = 4 *SEARCH_PAGE_SIZE;
 					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
 					targetDiv = "childResultDiv";
 					setActionContext(pager);
@@ -66,12 +93,25 @@ public class ChildAction extends BaseAction {
 					e.printStackTrace();
 					return INPUT;
 				}
+				}
+				else{
+					try {
+						pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
+						targetDiv = "childResultDiv";
+						setActionContext(pager);
+						return SUCCESS;
+					} catch(Exception e) {
+						e.printStackTrace();
+						return INPUT;
+					}
+				}
 			}
-		}
+		}else{
 		pager = childService.findAll(pageStart, pageSize);
 		targetDiv = "childResultDiv";
 		setActionContext(pager);
 		return SUCCESS;
+		}
 	}
 
 	public String searchForm() {

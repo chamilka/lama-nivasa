@@ -2,13 +2,16 @@ package pdn.sci.cs.dao;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.Child;
+import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.util.ChildrenSummary;
 import pdn.sci.cs.util.MaleFemale;
 import pdn.sci.cs.util.Pager;
@@ -185,4 +188,30 @@ public class ChildDao extends GenericDao<Child> {
 		return new MaleFemale(male, female);
 	}
 
+	public Pager findAllByProbationUnitId(String referenceId, Integer start, Integer size) {
+		Pager pager = new Pager();
+
+		start = (start == null) ? 0 : start;
+		pager.setStart(start);
+
+		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size;
+		pager.setSize(size);
+		
+		Query queryCount = getSession().createQuery("select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid");
+		queryCount.setParameter("pid", referenceId);
+		int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		pager.setTotal(listCount);
+		
+		Query query = getSession().createQuery("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid");
+		query.setParameter("pid", referenceId);
+		query.setFirstResult(start);
+		query.setMaxResults(size);
+		List<Child> list = query.list();
+	
+		pager.setList(list);
+		
+		return pager;
+	}
+
 }
+

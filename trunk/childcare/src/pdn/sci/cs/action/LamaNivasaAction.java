@@ -23,11 +23,16 @@ public class LamaNivasaAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 
-	@Autowired private LamaNivasaService lamaNivasaService;
-	@Autowired private ProbationUnitService probationUnitService;
-	@Autowired private GenericListService genericListService;
-	@Autowired private DivisionalSecretariatService divisionalSecretariatService;
-	@Autowired private SystemUserService systemUserService;
+	@Autowired
+	private LamaNivasaService lamaNivasaService;
+	@Autowired
+	private ProbationUnitService probationUnitService;
+	@Autowired
+	private GenericListService genericListService;
+	@Autowired
+	private DivisionalSecretariatService divisionalSecretariatService;
+	@Autowired
+	private SystemUserService systemUserService;
 
 	private List<DivisionalSecretariat> divisionalSecretariatList;
 	private List<GenericList> lamaNivasaTypeList;
@@ -43,27 +48,44 @@ public class LamaNivasaAction extends BaseAction {
 	private LamaNivasa lamaNivasa;
 
 	public String list() {
-		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-			//if user only own children home
+		if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
 			String referenceId = getSessionUser().getReferenceId();
-			if(referenceId == null) {
+			if (referenceId == null) {
 				return INPUT;
 			} else {
-				try {
-					lamaNivasa = lamaNivasaService.findById(referenceId);
-					list = new ArrayList<LamaNivasa>();
-					list.add(lamaNivasa);
-					targetDiv = "lamaNivasaResultDiv";
-					pager = new Pager(0, list.size(), list.size(), list);
-					setActionContext(pager);
-				} catch(Exception e) {
-					e.printStackTrace();
-					addActionError("You have not assigned to a children\'s home");
-					return INPUT;
+
+				if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+					// if user only own children home
+					try {
+						lamaNivasa = lamaNivasaService.findById(referenceId);
+						list = new ArrayList<LamaNivasa>();
+						list.add(lamaNivasa);
+						targetDiv = "lamaNivasaResultDiv";
+						pager = new Pager(0, list.size(), list.size(), list);
+						setActionContext(pager);
+					} catch (Exception e) {
+						e.printStackTrace();
+						addActionError("You have not assigned to a children\'s home");
+						return INPUT;
+					}
+				} else {
+					// if officer only own lama nivasa
+					try {
+						list = lamaNivasaService.findByReferenceId(referenceId);
+						targetDiv = "lamaNivasaResultDiv";
+						pager = new Pager(0, list.size(), list.size(), list);
+						setActionContext(pager);
+					} catch (Exception e) {
+						e.printStackTrace();
+						addActionError("You have not assigned to a children\'s home");
+						return INPUT;
+					}
 				}
 			}
-		} else {
-			//list = lamaNivasaService.findAll();
+		}
+
+		else {
+			// admin shows all lama nivasa
 			populateList();
 		}
 		return SUCCESS;
@@ -76,7 +98,7 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	public String searchForm() {
-		//divisionalSecretariatList =	divisionalSecretariatService.findAll();
+		// divisionalSecretariatList = divisionalSecretariatService.findAll();
 		probationUnitList = probationUnitService.findAll();
 		return SUCCESS;
 	}
@@ -109,16 +131,18 @@ public class LamaNivasaAction extends BaseAction {
 
 	public String save() {
 
-		if(lamaNivasa != null) {
+		if (lamaNivasa != null) {
 			validateLamaNivasa();
-			if(hasErrors()) {
+			if (hasErrors()) {
 				viewInit();
 				return INPUT;
 			} else {
-				if(operationMode == OPERATION_MODE.ADD && lamaNivasa.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD
+						&& lamaNivasa.getId().isEmpty()) {
 					setAddSettings(lamaNivasa);
 					lamaNivasa = lamaNivasaService.save(lamaNivasa);
-				} else if (operationMode == OPERATION_MODE.EDIT && !lamaNivasa.getId().isEmpty() ) {
+				} else if (operationMode == OPERATION_MODE.EDIT
+						&& !lamaNivasa.getId().isEmpty()) {
 					setUpdateSettings(lamaNivasa);
 					lamaNivasaService.update(lamaNivasa);
 				} else {
@@ -138,12 +162,12 @@ public class LamaNivasaAction extends BaseAction {
 
 	public String view() {
 
-		if(id == null || id.isEmpty()) {
+		if (id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
 			return INPUT;
 		} else {
 			lamaNivasa = lamaNivasaService.findById(id);
-			if(lamaNivasa == null) {
+			if (lamaNivasa == null) {
 				addActionError("Item that your are searching could not be found");
 			}
 		}
@@ -151,7 +175,7 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	public String delete() {
-		if(this.id.isEmpty()) {
+		if (this.id.isEmpty()) {
 			addActionError("Could not delete the entry, id is missing");
 			return INPUT;
 		} else {
@@ -162,15 +186,15 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	private void validateLamaNivasa() {
-		if(lamaNivasa.getName().isEmpty()) {
+		if (lamaNivasa.getName().isEmpty()) {
 			addFieldError("lamaNivasa.name", "Name cannot be empty");
 		}
 
-		if(lamaNivasa.getAddress().isEmpty()) {
+		if (lamaNivasa.getAddress().isEmpty()) {
 			addFieldError("lamaNivasa.address", "Address cannot be empty");
 		}
 
-		if(lamaNivasa.getTelephone().isEmpty()) {
+		if (lamaNivasa.getTelephone().isEmpty()) {
 			addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
 		}
 
@@ -178,14 +202,18 @@ public class LamaNivasaAction extends BaseAction {
 
 	private void viewInit() {
 		lamaNivasaTypeList = genericListService.findListByCategoryId("C030");
-		lamaNivasaReligiousTypeList = genericListService.findListByCategoryId("C040");
-		registrationStatusList = genericListService.findListByCategoryId("C070");
-		maintenanceDonationList = genericListService.findListByCategoryId("C020");
+		lamaNivasaReligiousTypeList = genericListService
+				.findListByCategoryId("C040");
+		registrationStatusList = genericListService
+				.findListByCategoryId("C070");
+		maintenanceDonationList = genericListService
+				.findListByCategoryId("C020");
 		yesNoList = genericListService.findListByCategoryId("C010");
 
 		probationUnitList = probationUnitService.findAll();
-		divisionalSecretariatList =	divisionalSecretariatService.findAll();
-		probationUnitOfficerList = systemUserService.findByUserRole(SystemUser.USER_ROLE.OFFICER);
+		divisionalSecretariatList = divisionalSecretariatService.findAll();
+		probationUnitOfficerList = systemUserService
+				.findByUserRole(SystemUser.USER_ROLE.OFFICER);
 	}
 
 	public List<LamaNivasa> getList() {
@@ -234,7 +262,8 @@ public class LamaNivasaAction extends BaseAction {
 		return registrationStatusList;
 	}
 
-	public void setRegistrationStatusList(List<GenericList> registrationStatusList) {
+	public void setRegistrationStatusList(
+			List<GenericList> registrationStatusList) {
 		this.registrationStatusList = registrationStatusList;
 	}
 
@@ -242,7 +271,8 @@ public class LamaNivasaAction extends BaseAction {
 		return maintenanceDonationList;
 	}
 
-	public void setMaintenanceDonationList(List<GenericList> maintenanceDonationList) {
+	public void setMaintenanceDonationList(
+			List<GenericList> maintenanceDonationList) {
 		this.maintenanceDonationList = maintenanceDonationList;
 	}
 

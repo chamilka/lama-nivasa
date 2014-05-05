@@ -42,4 +42,8 @@ public class LamaNivasaService {
 		return lamaNivasaDao.search(lamaNivasa);
 	}
 
+	public List<LamaNivasa> findByReferenceId(String referenceId) {
+		return lamaNivasaDao.findByReferenceId(referenceId);
+	}
+
 }
