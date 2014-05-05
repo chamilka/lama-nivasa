@@ -51,4 +51,8 @@ public class ChildService {
 		return childDao.buildChildSummary();
 	}
 
+	public Pager findAllByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
+		return childDao.findAllByProbationUnitId(referenceId,pageStart,pageSize);
+	}
+
 }
