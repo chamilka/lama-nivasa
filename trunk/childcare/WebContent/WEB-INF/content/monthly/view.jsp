@@ -384,6 +384,143 @@
 		     	 </table>
 		     </td>
 	    </tr> 	
+	    
+	    <tr>
+		     <td>
+		       <b>11. Intakes</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	    <s:label 
+				    	name="monthlyData.numOfIntakes" 
+				    	label="Number of Intakes"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 		
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.intakeFromCourt" 
+				    	label="Intakes from Court"
+				    	/>
+		     	 </table>
+		     </td>
+		     <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.intakeFromDepartment" 
+				    	label="Intakes from Department"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 			
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.intakeFromParents" 
+				    	label="Intakes from Parents"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.intakeFromOrganizations" 
+				    	label="Intakes from Organizations"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 			
+	    
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.intakeFromOther" 
+				    	label="Intakes from Other"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 	
+	    
+		<tr>
+		     <td>
+		       <b>12. Reunifications</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToAdoption" 
+				    	label="To Adoption"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 
+	    	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToParent" 
+				    	label="To Parents"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToMarrage" 
+				    	label="To Marrage"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 					
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <s:label 
+				    	name="monthlyData.numToEmployement" 
+				    	label="To Employement"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToVocational" 
+				    	label="To Vocational"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 
+	    
+	     <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToSelfEmployement" 
+				    	label="To Self Employement"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToOther" 
+				    	label="To Other"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 					
 	
 	  </table>
   </s:if>

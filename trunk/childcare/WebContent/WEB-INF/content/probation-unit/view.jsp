@@ -12,7 +12,7 @@
 
 
 	<hr />
-	<div>
+	<div>  
 	  <table id="commonTable" class="orangeTbl" width="100%">
 		  <tr>
 	 		<th style="width:150px">Name</th>
@@ -35,6 +35,10 @@
 		  <tr>
 	 		<th>Address</th>
 	 		<td colspan="5"><s:property value="probationUnit.address"/></td>
+		  </tr>
+		   <tr>
+	 		<th>Police Station</th>
+	 		<td colspan="5" title="<s:property value="probationUnit.policeStation.address"/>"><s:property value="probationUnit.policeStation.name"/> (Tel: <s:property value="probationUnit.policeStation.telephone"/>, Fax: <s:property value="probationUnit.policeStation.fax"/>, Email: <s:property value="probationUnit.policeStation.email"/>)</td>
 		  </tr>
 		   <tr>
 	 		<th>Comment</th>

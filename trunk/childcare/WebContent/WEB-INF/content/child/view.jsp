@@ -105,8 +105,12 @@
        </tr>
       <tr>
         <th>Intake Method</th>
-        <td  colspan="5">
+        <td  colspan="3">
 			<s:property value="child.intakeMethod"  />
+    	</td>
+    	<th>Primary Prob. Unit</th>
+        <td  colspan="3">
+			<s:property value="child.originalProbationUnit"  />
     	</td>
       </tr>
       <tr>

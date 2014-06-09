@@ -39,7 +39,8 @@
 	 		</table></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Category</th><td colspan="5"><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
+	 		<th>Category</th><td><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
+	 		<th>Religion</th><td colspan="3"><table><s:select name="lamaNivasa.religion" list="religionList" listKey="listKey" listValue="listValue"/></table></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Unit</th><td colspan="2"><table><s:select name="lamaNivasa.probationUnit.id" list="probationUnitList" listKey="id" listValue="name"/></table></td>

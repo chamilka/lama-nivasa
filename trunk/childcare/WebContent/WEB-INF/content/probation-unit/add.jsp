@@ -42,6 +42,11 @@
 	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.email" cssStyle="width:250px"  /></table></td>
 		  </tr>
 		  <tr>
+	 		<th>Police Station</th>
+	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
+		  		<s:select name="probationUnit.policeStation.id" list="policeStationList" listKey="id" listValue="name"/></table></td>
+		  </tr>
+		  <tr>
 	 		<th>Address</th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 		  		<s:textfield name="probationUnit.address" cssStyle="width:600px" /></table></td>
