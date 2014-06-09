@@ -15,7 +15,7 @@
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="orangeTbl">
 	  	<tr>
-	  		<th>Name</th><th style="width:50px">Officers</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Address</th>
+	  		<th>Name</th><th style="width:50px">Officers</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Police Station</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
@@ -29,7 +29,7 @@
 			 <td><s:property value="email"/></td>
 			 <td><s:property value="telephone"/></td>
 			 <td><s:property value="fax"/></td>
-			 <td><s:property value="address"/></td>
+			 <td title="<s:property value="policeStation.telephone"/>"><s:property value="policeStation.name"/></td>
 			 <%--
 			 <td><s:property value="comment"/></td>
 			 <td>

@@ -437,7 +437,7 @@
 		     	 </table>
 		     </td>
 	    </tr> 	
-	     <tr>
+	    <tr>
 	     <td>
 	       <b>10. Meetings</b>
 	     </td>
@@ -489,14 +489,249 @@
 		     </td>
 	    </tr> 	
 	 
-	 	<tr>
+	 	
+		<tr>
+		     <td>
+		       <b>11. Intakes</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numOfIntakes" 
+				    	id="numOfIntakes" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Number of Intakes"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      
+	    </tr> 		
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.intakeFromCourt" 
+				    	id="intakeFromCourt" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Intakes from Court"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.intakeFromDepartment" 
+				    	id="intakeFromDepartment" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Intakes from Department"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 			
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.intakeFromParents" 
+				    	id="intakeFromParents" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Intakes from Parents"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.intakeFromOrganizations" 
+				    	id="intakeFromOrganizations" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Intakes from Organizations"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 			
+	    
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.intakeFromOther" 
+				    	id="intakeFromOther" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="Intakes from Other"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		    
+	    </tr> 	
+	    
+	    
+		<tr>
+		     <td>
+		       <b>12. Reunifications</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToAdoption" 
+				    	id="numToAdoption" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Adoption"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      
+	    </tr> 
+	    	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToParent" 
+				    	id="numToParent" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Parents"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToMarrage" 
+				    	id="numToMarrage" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Marrage"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 					
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToEmployement" 
+				    	id="numToEmployement" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Employement"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToVocational" 
+				    	id="numToVocational" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Vocational"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 
+	    
+	     <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToSelfEmployement" 
+				    	id="numToSelfEmployement" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Self Employement"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToOther" 
+				    	id="numToOther" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	value="0"
+				    	label="To Other"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 											
+	    
+	    <tr>
 		      <td colspan="2">
 		     	 <table>
 		     	      <sj:submit targets="monthlyResultDiv"/>
 		     	 	 
 		     	 </table>
 		     </td>
-	    </tr> 	
-	
+	    </tr> 			
 	  </table>
 	</s:form>

@@ -19,7 +19,7 @@
 	<div>
 	  <table  style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th></th><th>Name</th><th>DS Division</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th><th>Total Orphans</th>
+	  		<th></th><th>Name</th><th>Total Children</th><th>Max. Allowed Children</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th>
 	  	</tr>
 		<s:iterator value="pager.list" status="rowIndex">
 			<tr>
@@ -30,11 +30,20 @@
 			 	</s:url>
 			 	<sj:a href="%{#lamaNivasaViewUrl}" targets="lamaNivasaResultDiv"><s:property value="name"/></sj:a>
 			 </td>
-			 <td><s:property value="divisionalSecretariat.name"/></td>
+			 
+			 <s:if test="childs.size > numberOfChildren" >
+			 	<td style="background-color: #FFCC99" title="Overcrowd"><s:property value="childs.size"/></td>
+			 </s:if>
+			 <s:else>
+			 	<td><s:property value="childs.size"/></td>
+			 </s:else>
+
+			 <td><s:property value="numberOfChildren"/></td>
+			<%--  <td><s:property value="divisionalSecretariat.name"/></td> --%>
 			 <td><s:property value="probationUnit.name"/></td>
 			 <td><s:property value="telephone"/></td>
 			 <td><s:property value="numberOfOfficers"/></td>
-			 <td><s:property value="numberOfChildren"/></td>
+			
 			 <%--
 			 <td>
 			 	<s:url var="lamaNivasaEditUrl" action="edit" namespace="/lamaNivasa" includeParams="none">

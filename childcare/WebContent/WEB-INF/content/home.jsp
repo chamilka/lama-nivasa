@@ -63,13 +63,14 @@
   
   	<table border="0" cellspacing="0" cellpadding="0" id="tblMenu">
           <tr>
+            <s:if test="user">
+            	<td class="td2"></td>
+            </s:if>
             <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link">CHILDREN'S HOME</sj:a> </td>
             <s:if test="!user">
             	<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link">UNITS</sj:a></td>
             </s:if>
-            <s:else>
-            	<td class="td2"></td>
-            </s:else>
+
 			<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link">CHILD</sj:a></td>
 			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link">MONTHLY DATA</sj:a></td>
             <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link">MY ACCOUNT</sj:a></td>

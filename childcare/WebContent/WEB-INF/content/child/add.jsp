@@ -184,6 +184,14 @@
     	</td>
       </tr>
       <tr>
+        <td class="tdLabel">Primary Probation Unit</td>
+        <td>
+     		<table>
+				<s:textfield name="child.originalProbationUnit" cssStyle="width:250px"/>
+			</table>
+    	</td>
+      </tr>
+      <tr>
       <td class="tdLabel">Comment</td>
         <td>
      		<table>
