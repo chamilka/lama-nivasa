@@ -29,7 +29,18 @@
 			 <td><s:property value="email"/></td>
 			 <td><s:property value="telephone"/></td>
 			 <td><s:property value="fax"/></td>
-			 <td title="<s:property value="policeStation.telephone"/>"><s:property value="policeStation.name"/></td>
+			 <td>
+			   
+			    <s:iterator value="policeStations" status="indexStatus">
+			      
+			       <span title="<s:property value="telephone" />, <s:property value="email" />, <s:property value="fax" /> "><s:property value="name"/>
+			       <s:if test="#indexStatus.last == false">
+			       		,
+			       </s:if>
+			       </span>
+			       	
+			    </s:iterator>
+			 </td>
 			 <%--
 			 <td><s:property value="comment"/></td>
 			 <td>

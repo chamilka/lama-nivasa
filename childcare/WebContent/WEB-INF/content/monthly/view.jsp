@@ -97,7 +97,7 @@
 	    </tr> 
 	   <tr>
 	     <td>
-	       <b>3. Number Of Reunifications</b>
+	       <b>3. Reunifications</b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -105,7 +105,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfFemaleReunification" 
-				    	label="Female"
+				    	label="Total Female"
 				    	/>
 		     	 </table>
 		     </td>
@@ -113,11 +113,79 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfMaleReunification" 
-				    	label="Male"
+				    	label="Total Male"
 				    	/>
 		     	 </table>
 		     </td>
-	    </tr> 	
+	    </tr> 
+	    
+	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToAdoption" 
+				    	label="To Adoption"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 
+	    	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToParent" 
+				    	label="To Parents"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToMarrage" 
+				    	label="To Marrage"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 					
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <s:label 
+				    	name="monthlyData.numToEmployement" 
+				    	label="To Employement"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToVocational" 
+				    	label="To Vocational"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 
+	    
+	     <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToSelfEmployement" 
+				    	label="To Self Employement"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numToOther" 
+				    	label="To Other"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 						
 	   
 	   <tr>
 	     <td>
@@ -448,79 +516,19 @@
 		     	 </table>
 		     </td>
 	    </tr> 	
-	    
-		<tr>
-		     <td>
-		       <b>12. Reunifications</b>
-		     </td>
+	    <tr>
+	    	<td style="padding-left: 25px" colspan="2">
+			 	<s:url var="monthlyEditUrl" action="edit" namespace="/report" includeParams="none">
+			 		<s:param name="id" value="%{monthlyData.id}"></s:param>
+			 	</s:url>
+			 	<sj:a href="%{monthlyEditUrl}" targets="monthlyResultDiv"><input type="button" value="Edit" /></sj:a>
+				 |
+			 	<s:url var="monthlyDeleteUrl" action="delete" namespace="/report" escapeAmp="false" includeParams="none">
+			 		<s:param name="id" value="%{monthlyData.id}"></s:param>
+			 	</s:url>
+			 	<sj:a href="%{monthlyDeleteUrl}" targets="monthlyResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
+
+			</td>
 	    </tr>
-	    <tr>
-		     <td style="padding-left: 25px" colspan="2">
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToAdoption" 
-				    	label="To Adoption"
-				    	/>
-		     	 </table>
-		     </td>
-	    </tr> 
-	    	    
-	    <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToParent" 
-				    	label="To Parents"
-				    	/>
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToMarrage" 
-				    	label="To Marrage"
-				    	/>
-		     	 </table>
-		     </td>
-	    </tr> 					
-	    
-	    <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	 <s:label 
-				    	name="monthlyData.numToEmployement" 
-				    	label="To Employement"
-				    	/>
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToVocational" 
-				    	label="To Vocational"
-				    	/>
-		     	 </table>
-		     </td>
-	    </tr> 
-	    
-	     <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToSelfEmployement" 
-				    	label="To Self Employement"
-				    	/>
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 	<s:label 
-				    	name="monthlyData.numToOther" 
-				    	label="To Other"
-				    	/>
-		     	 </table>
-		     </td>
-	    </tr> 					
-	
 	  </table>
   </s:if>

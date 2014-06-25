@@ -28,23 +28,23 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
   private Integer year;
   private String month;
   private LamaNivasa lamaNivasa;
-  private Integer numOfMaleChildren;
-  private Integer numOfFemaleChildren;
-  private Integer numOfOfficers;
-  private Integer numOfVacantOfficers;
-  private Integer numOfFemaleReunification;
-  private Integer numOfMaleReunification;
-  private Integer numOfFemaleTransfers;
-  private Integer numOfMaleTransfers;
-  private Integer numOfProformaFemale;
-  private Integer numOfProformaMale;
-  private Integer numOfFemaleNoGuardians;
-  private Integer numOfMaleNoGuardians;
-  private Integer numOfFemaleTerminates;
-  private Integer numOfMaleTerminates;
-  private Integer numOfFemaleHavingSpecialRequirements;
-  private Integer munOfMaleHavingSpecialRequirements;
-  private Integer numOfMeetingsUptoNow;
+  private Integer numOfMaleChildren = 0;
+  private Integer numOfFemaleChildren = 0;
+  private Integer numOfOfficers = 0;
+  private Integer numOfVacantOfficers = 0;
+  private Integer numOfFemaleReunification = 0;
+  private Integer numOfMaleReunification = 0;
+  private Integer numOfFemaleTransfers = 0;
+  private Integer numOfMaleTransfers = 0;
+  private Integer numOfProformaFemale = 0;
+  private Integer numOfProformaMale = 0;
+  private Integer numOfFemaleNoGuardians = 0;
+  private Integer numOfMaleNoGuardians = 0;
+  private Integer numOfFemaleTerminates = 0;
+  private Integer numOfMaleTerminates = 0;
+  private Integer numOfFemaleHavingSpecialRequirements = 0;
+  private Integer munOfMaleHavingSpecialRequirements = 0;
+  private Integer numOfMeetingsUptoNow = 0;
   private Calendar probationOfficerVisitedDate;
   private Calendar counsellorVisitedDate;
   private Calendar departmentCommissionerVisitedDate;
@@ -53,34 +53,20 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
   private Calendar theLastMeetingHeldOn;
   private Calendar placementCommittee;
 
-  private Integer numOfIntakes;
-  private Integer intakeFromCourt;
-  private Integer intakeFromDepartment;
-  private Integer intakeFromParents;
-  private Integer intakeFromOrganizations;
-  private Integer intakeFromOther;
+  private Integer numOfIntakes = 0;
+  private Integer intakeFromCourt = 0;
+  private Integer intakeFromDepartment = 0;
+  private Integer intakeFromParents = 0;
+  private Integer intakeFromOrganizations = 0;
+  private Integer intakeFromOther = 0;
 
-  private Integer numToAdoption;
-  private Integer numToParent;
-  private Integer numToMarrage;
-  private Integer numToEmployement;
-  private Integer numToVocational;
-  private Integer numToSelfEmployement;
-  private Integer numToOther;
-
-  // NUM_OF_INTAKES INT,
-  // INTAKE_FROM_COURT INT,
-  // INTAKE_FROM_DEPARTMENT INT,
-  // INTAKE_FROM_PARENTS INT,
-  // INTAKE_FROM_ORGANIZATIONS INT,
-  // INTAKE_FROM_OTHER INT,
-  // NUM_TO_ADOPTION INT,
-  // NUM_TO_PARENT INT,
-  // NUM_TO_MARRAGE INT,
-  // NUM_TO_EMPLOYEMENT INT,
-  // NUM_TO_VOCATIONAL INT,
-  // NUM_TO_SELF_EMPLOYEMENT INT,
-  // NUM_TO_OTHER INT,
+  private Integer numToAdoption = 0;
+  private Integer numToParent = 0;
+  private Integer numToMarrage = 0;
+  private Integer numToEmployement = 0;
+  private Integer numToVocational = 0;
+  private Integer numToSelfEmployement = 0;
+  private Integer numToOther = 0;
 
   public MonthlyData() {}
 
@@ -503,6 +489,36 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 
   public void setNumToOther(Integer numToOther) {
     this.numToOther = numToOther;
+  }
+
+  @Override
+  public String toString() {
+    return "MonthlyData [id=" + id + ", year=" + year + ", month=" + month + ", lamaNivasa="
+        + lamaNivasa + ", numOfMaleChildren=" + numOfMaleChildren + ", numOfFemaleChildren="
+        + numOfFemaleChildren + ", numOfOfficers=" + numOfOfficers + ", numOfVacantOfficers="
+        + numOfVacantOfficers + ", numOfFemaleReunification=" + numOfFemaleReunification
+        + ", numOfMaleReunification=" + numOfMaleReunification + ", numOfFemaleTransfers="
+        + numOfFemaleTransfers + ", numOfMaleTransfers=" + numOfMaleTransfers
+        + ", numOfProformaFemale=" + numOfProformaFemale + ", numOfProformaMale="
+        + numOfProformaMale + ", numOfFemaleNoGuardians=" + numOfFemaleNoGuardians
+        + ", numOfMaleNoGuardians=" + numOfMaleNoGuardians + ", numOfFemaleTerminates="
+        + numOfFemaleTerminates + ", numOfMaleTerminates=" + numOfMaleTerminates
+        + ", numOfFemaleHavingSpecialRequirements=" + numOfFemaleHavingSpecialRequirements
+        + ", munOfMaleHavingSpecialRequirements=" + munOfMaleHavingSpecialRequirements
+        + ", numOfMeetingsUptoNow=" + numOfMeetingsUptoNow + ", probationOfficerVisitedDate="
+        + probationOfficerVisitedDate + ", counsellorVisitedDate=" + counsellorVisitedDate
+        + ", departmentCommissionerVisitedDate=" + departmentCommissionerVisitedDate
+        + ", departmentProbationOfficerVisitedDate=" + departmentProbationOfficerVisitedDate
+        + ", departmentOfChildDevelopmentOfficerVisitedDate="
+        + departmentOfChildDevelopmentOfficerVisitedDate + ", theLastMeetingHeldOn="
+        + theLastMeetingHeldOn + ", placementCommittee=" + placementCommittee + ", numOfIntakes="
+        + numOfIntakes + ", intakeFromCourt=" + intakeFromCourt + ", intakeFromDepartment="
+        + intakeFromDepartment + ", intakeFromParents=" + intakeFromParents
+        + ", intakeFromOrganizations=" + intakeFromOrganizations + ", intakeFromOther="
+        + intakeFromOther + ", numToAdoption=" + numToAdoption + ", numToParent=" + numToParent
+        + ", numToMarrage=" + numToMarrage + ", numToEmployement=" + numToEmployement
+        + ", numToVocational=" + numToVocational + ", numToSelfEmployement=" + numToSelfEmployement
+        + ", numToOther=" + numToOther + "]";
   }
 
 }
