@@ -44,7 +44,7 @@
 		  <tr>
 	 		<th>Police Station</th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
-		  		<s:select name="probationUnit.policeStation.id" list="policeStationList" listKey="id" listValue="name"/></table></td>
+		  		<s:select name="probationUnit.policeStation.id" multiple="multiple" list="policeStationList" listKey="id" listValue="name"/></table></td>
 		  </tr>
 		  <tr>
 	 		<th>Address</th>

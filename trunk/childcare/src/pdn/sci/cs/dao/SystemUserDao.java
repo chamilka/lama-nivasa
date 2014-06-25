@@ -39,6 +39,15 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
 		return findByCriteria(criteria);
 	}
+	
+	public List<SystemUser> searchByUserRoleAndReferenceId(SystemUser.USER_ROLE userRole, String referenceId) {
+
+      DetachedCriteria criteria = createCriteria(clazz);
+      criteria.add(Restrictions.eq(SystemUser.SYSTEM_USER_ROLE, userRole.name()));
+      criteria.add(Restrictions.eq(SystemUser.REFERENCE_ID, referenceId));
+
+      return findByCriteria(criteria);
+  }
 
 	public Pager findAll(Integer start, Integer size) {
 

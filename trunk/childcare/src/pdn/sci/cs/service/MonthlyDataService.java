@@ -10,32 +10,36 @@ import pdn.sci.cs.entity.MonthlyData;
 
 @Service
 public class MonthlyDataService {
-	
-	@Autowired private  MonthlyDataDao monthlyDataDao;
-	
-	public List<MonthlyData> findAll() {
-		return monthlyDataDao.findAll();
-	}
-	
-	public MonthlyData findById(String id) {
-		return monthlyDataDao.findById(id);
-	}
-	
-	public MonthlyData save(MonthlyData d) {
-		return monthlyDataDao.save(d);
-	}
-	
-	public void update(MonthlyData d) {
-		monthlyDataDao.update(d);
-	}
-	
-	public void delete(String id) {
-		monthlyDataDao.deleteById(id);
-	}
-	
-	public List<MonthlyData> search(MonthlyData monthlyData) {
-		return monthlyDataDao.search(monthlyData);
-	}
+
+  @Autowired
+  private MonthlyDataDao monthlyDataDao;
+
+  public List<MonthlyData> findAll() {
+    return monthlyDataDao.findAll();
+  }
+
+  public MonthlyData findById(String id) {
+    return monthlyDataDao.findById(id);
+  }
+
+  public MonthlyData save(MonthlyData d) {
+    return monthlyDataDao.save(d);
+  }
+
+  public void update(MonthlyData d) {
+    monthlyDataDao.update(d);
+  }
+
+  public void delete(String id) {
+    monthlyDataDao.deleteById(id);
+  }
+
+  public List<MonthlyData> search(MonthlyData monthlyData) {
+    return monthlyDataDao.search(monthlyData);
+  }
+
+  public void deleteByLamaNivasaYearMonth(String id, Integer year, String month) {
+    monthlyDataDao.delete(id, year, month);
+  }
 
 }
-

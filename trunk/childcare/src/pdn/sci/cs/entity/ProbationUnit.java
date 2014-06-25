@@ -4,13 +4,15 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,9 +33,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
   private String address;
   private String comment;
 
-  private PoliceStation policeStation;
-
-  //private Set<SystemUser> systemUsers = new HashSet<SystemUser>(0);
+  private Set<PoliceStation> policeStations;
   private Set<LamaNivasa> lamaNivasas = new HashSet<LamaNivasa>(0);
 
   public ProbationUnit() {}
@@ -56,7 +56,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
     this.updateUserId = updateUserId;
     this.insertDateTime = insertDatetime;
     this.updateDateTime = updateDatetime;
-    //this.systemUsers = systemUsers;
+    // this.systemUsers = systemUsers;
     this.lamaNivasas = lamaNivasas;
   }
 
@@ -71,22 +71,12 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
     this.id = id;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "POLICE_STATION_ID", nullable = true)
-  public PoliceStation getPoliceStation() {
-    return policeStation;
-  }
 
-  public void setPoliceStation(PoliceStation policeStation) {
-    this.policeStation = policeStation;
-  }
 
   @Column(name = "NAME", nullable = false, length = 32)
   public String getName() {
     return this.name;
   }
-
-
 
   public void setName(String name) {
     this.name = name;
@@ -129,14 +119,12 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
     this.address = address;
   }
 
- /* @OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit")
-  public Set<SystemUser> getSystemUsers() {
-    return this.systemUsers;
-  }
-
-  public void setSystemUsers(Set<SystemUser> systemUsers) {
-    this.systemUsers = systemUsers;
-  }*/
+  /*
+   * @OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit") public Set<SystemUser>
+   * getSystemUsers() { return this.systemUsers; }
+   * 
+   * public void setSystemUsers(Set<SystemUser> systemUsers) { this.systemUsers = systemUsers; }
+   */
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "probationUnit")
   public Set<LamaNivasa> getLamaNivasas() {
@@ -163,6 +151,19 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 
   public void setFax(String fax) {
     this.fax = fax;
+  }
+
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinTable(name = "probationunit_policestation", joinColumns = {@JoinColumn(
+      name = "PROBATION_UNIT_ID", nullable = false, updatable = false)},
+      inverseJoinColumns = {@JoinColumn(name = "POLICE_STATION_ID", nullable = false,
+          updatable = false)})
+  public Set<PoliceStation> getPoliceStations() {
+    return policeStations;
+  }
+
+  public void setPoliceStations(Set<PoliceStation> policeStations) {
+    this.policeStations = policeStations;
   }
 
 }

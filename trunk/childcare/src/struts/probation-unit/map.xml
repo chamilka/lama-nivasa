@@ -42,5 +42,10 @@
 			<result name="input">/WEB-INF/content/probation-unit/add.jsp</result>
 		</action>
 		
+		<action name="officers" class="pdn.sci.cs.action.ProbationUnitAction" method="probationOfficerList">
+			<result name="success">/WEB-INF/content/probation-unit/officer-list.jsp</result>
+		</action>
+		
+		
 	</package>
 </struts>

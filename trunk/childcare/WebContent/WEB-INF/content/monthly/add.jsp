@@ -13,6 +13,7 @@
 
 	
 	<hr />
+	<s:property value="monthlyData.id" />
 	<s:form action="save" method="post" namespace="/report" cssStyle="margin-left:50px" >
 	 
 	 <s:actionerror/>
@@ -53,7 +54,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -70,7 +70,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -97,7 +96,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Number of Officers"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -113,7 +111,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Number of Vacant Officers"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -121,12 +118,13 @@
 		     	 	
 		     	 </table>
 		     </td>
+	    </tr>
+	    <tr>
+		     <td>
+		       <b>3. Reunifications</b>
+		     </td>
 	    </tr> 
-	   <tr>
-	     <td>
-	       <b>3. Number Of Reunifications</b>
-	     </td>
-	   </tr>
+
 	    <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
@@ -136,13 +134,12 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
-				    	label="Female"
+				    	label="Total Female"
 				    	cssStyle="width:60px"
 				    	required="true"
 				    	mouseWheel="true"/>
 		     	 	 
-		     	 </table>
+		     	 </table> 
 		     </td>
 		      <td>
 		     	 <table>
@@ -152,8 +149,7 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
-				    	label="Male"
+				    	label="Total Male"
 				    	cssStyle="width:60px"
 				    	required="true"
 				    	mouseWheel="true"/>
@@ -161,6 +157,120 @@
 		     	 </table>
 		     </td>
 	    </tr> 	
+	   
+	   	    <tr>
+		     <td style="padding-left: 25px" colspan="2">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToAdoption" 
+				    	id="numToAdoption" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Adoption"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      
+	    </tr> 
+	    	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToParent" 
+				    	id="numToParent" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Parents"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToMarrage" 
+				    	id="numToMarrage" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Marrage"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 					
+	    
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToEmployement" 
+				    	id="numToEmployement" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Employement"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToVocational" 
+				    	id="numToVocational" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Vocational"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 
+	    
+	     <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numToSelfEmployement" 
+				    	id="numToSelfEmployement" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Self Employement"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numToOther" 
+				    	id="numToOther" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="To Other"
+				    	cssStyle="width:60px"
+				    	required="true"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 
 	   
 	   <tr>
 	     <td>
@@ -176,7 +286,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -192,7 +301,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -215,7 +323,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -231,7 +338,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -254,7 +360,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -270,7 +375,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -294,7 +398,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -310,7 +413,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -333,7 +435,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Female"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -349,7 +450,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Male"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -464,7 +564,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Number of meetings upto now"
 				    	cssStyle="width:60px"
 				    	required="true"
@@ -504,7 +603,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Number of Intakes"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -522,7 +620,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Intakes from Court"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -537,7 +634,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Intakes from Department"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -555,7 +651,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Intakes from Parents"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -570,7 +665,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Intakes from Organizations"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -588,7 +682,6 @@
 				    	min="0" 
 				    	max="100" 
 				    	step="1" 
-				    	value="0"
 				    	label="Intakes from Other"
 				    	cssStyle="width:60px"
 				    	mouseWheel="true"/>
@@ -597,134 +690,7 @@
 		     </td>
 		    
 	    </tr> 	
-	    
-	    
-		<tr>
-		     <td>
-		       <b>12. Reunifications</b>
-		     </td>
-	    </tr>
-	    <tr>
-		     <td style="padding-left: 25px" colspan="2">
-		     	 <table>
-		     	 	 <sj:spinner 
-				    	name="monthlyData.numToAdoption" 
-				    	id="numToAdoption" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Adoption"
-				    	cssStyle="width:60px"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-		      
-	    </tr> 
-	    	    
-	    <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	 <sj:spinner 
-				    	name="monthlyData.numToParent" 
-				    	id="numToParent" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Parents"
-				    	cssStyle="width:60px"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 <sj:spinner 
-				    	name="monthlyData.numToMarrage" 
-				    	id="numToMarrage" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Marrage"
-				    	cssStyle="width:60px"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-	    </tr> 					
-	    
-	    <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	 <sj:spinner 
-				    	name="monthlyData.numToEmployement" 
-				    	id="numToEmployement" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Employement"
-				    	cssStyle="width:60px"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 <sj:spinner 
-				    	name="monthlyData.numToVocational" 
-				    	id="numToVocational" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Vocational"
-				    	cssStyle="width:60px"
-				    	required="true"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-	    </tr> 
-	    
-	     <tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	 <sj:spinner 
-				    	name="monthlyData.numToSelfEmployement" 
-				    	id="numToSelfEmployement" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Self Employement"
-				    	cssStyle="width:60px"
-				    	required="true"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-		      <td>
-		     	 <table>
-		     	 <sj:spinner 
-				    	name="monthlyData.numToOther" 
-				    	id="numToOther" 
-				    	min="0" 
-				    	max="100" 
-				    	step="1" 
-				    	value="0"
-				    	label="To Other"
-				    	cssStyle="width:60px"
-				    	required="true"
-				    	mouseWheel="true"/>
-		     	 	 
-		     	 </table>
-		     </td>
-	    </tr> 											
-	    
+    
 	    <tr>
 		      <td colspan="2">
 		     	 <table>

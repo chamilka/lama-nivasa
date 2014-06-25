@@ -60,5 +60,52 @@
 		    </tr>
 
 	  </table>
+		</table>
+	</div>
+	
+	
+	<div style="margin-top: 20px">
+	  <table>
+	   <tr>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Officers</td>
+	   </tr>
+	  </table>
+	</div>
+	
+	<div>
+		<s:if test="probationOfficers.size > 0">
+
+			<div>
+		
+				<table style="margin-top: 10px" width="100%" id="commonTable"
+					class="orangeTbl" cellpadding="2px">
+					<tr>
+						<th></th>
+		
+						<th>Name</th>
+						<th>Post</th>
+						<th>Sex Type</th>
+						<th>Telephone</th>
+						<th>Mobile</th>
+						<th>Email</th>
+		
+					</tr>
+					<s:iterator value="probationOfficers" status="rowIndex">
+						<tr>
+							<td><s:property value="%{#rowIndex.index + 1}" />
+							<td><s:property value="name" /></td>
+							<td><s:property value="post" /></td>
+							<td><s:property value="sex" /></td>
+							<td><s:property value="telephone" /></td>
+							<td><s:property value="mobile" /></td>
+							<td><s:property value="email" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
+		</s:if>
+		<s:else>
+		  	No user found for your criteria, search again with a different criteria
+		</s:else>
 	</div>
 
