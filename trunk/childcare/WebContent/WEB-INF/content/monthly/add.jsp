@@ -470,6 +470,7 @@
 		     	      <sj:datepicker 
 	     				id="probationOfficerObserved" 
 	     				name="monthlyData.probationOfficerVisitedDate" 
+	     				value="monthlyData.probationOfficerVisitedDate.time"
 	     				label="Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -483,6 +484,7 @@
 		     	     <sj:datepicker 
 	     				id="counsellorVisitedDate" 
 	     				name="monthlyData.counsellorVisitedDate" 
+	     				value="monthlyData.counsellorVisitedDate.time"
 	     				label="Counsellor" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -499,6 +501,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentCommissionerVisitedDate" 
 	     				name="monthlyData.departmentCommissionerVisitedDate" 
+	     				value="monthlyData.departmentCommissionerVisitedDate.time"
 	     				label="Department Commissioner" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -512,6 +515,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentProbationOfficerVisitedDate" 
 	     				name="monthlyData.departmentProbationOfficerVisitedDate" 
+	     				value="monthlyData.departmentProbationOfficerVisitedDate.time"
 	     				label="Department Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -528,6 +532,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentOfChildDevelopmentOfficerVisitedDate" 
 	     				name="monthlyData.departmentOfChildDevelopmentOfficerVisitedDate" 
+	     				value="monthlyData.departmentOfChildDevelopmentOfficerVisitedDate.time"
 	     				label="Department Child Development Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -548,6 +553,7 @@
 		     	      <sj:datepicker 
 	     				id="theLastMeetingHeldOn" 
 	     				name="monthlyData.theLastMeetingHeldOn" 
+	     				value="monthlyData.theLastMeetingHeldOn.time"
 	     				label="The last meeting" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -578,6 +584,7 @@
 		     	      <sj:datepicker 
 	     				id="placementCommittee" 
 	     				name="monthlyData.placementCommittee" 
+	     				value="monthlyData.placementCommittee.time"
 	     				label="Placement Committee" 
 	     				changeMonth="true" 
 	     				changeYear="true"

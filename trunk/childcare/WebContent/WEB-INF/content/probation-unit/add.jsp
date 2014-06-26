@@ -42,9 +42,9 @@
 	 		<td><table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.email" cssStyle="width:250px"  /></table></td>
 		  </tr>
 		  <tr>
-	 		<th>Police Station</th>
+	 		<th>Primary Police Station</th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
-		  		<s:select name="probationUnit.policeStation.id" multiple="multiple" list="policeStationList" listKey="id" listValue="name"/></table></td>
+		  		<s:select name="probationUnit.policeStations" multiple="true" list="policeStationList" listKey="id" listValue="name" value="%{{'0001'}}" cssStyle="height:100px"/></table></td>
 		  </tr>
 		  <tr>
 	 		<th>Address</th>
