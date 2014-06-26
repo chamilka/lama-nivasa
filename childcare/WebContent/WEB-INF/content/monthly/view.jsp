@@ -515,7 +515,9 @@
 				    	/>
 		     	 </table>
 		     </td>
-	    </tr> 	
+	    </tr> 
+	    
+	    <s:if test="user">	
 	    <tr>
 	    	<td style="padding-left: 25px" colspan="2">
 			 	<s:url var="monthlyEditUrl" action="edit" namespace="/report" includeParams="none">
@@ -530,5 +532,6 @@
 
 			</td>
 	    </tr>
+	    </s:if>
 	  </table>
   </s:if>

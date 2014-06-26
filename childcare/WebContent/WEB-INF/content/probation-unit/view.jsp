@@ -36,10 +36,7 @@
 	 		<th>Address</th>
 	 		<td colspan="5"><s:property value="probationUnit.address"/></td>
 		  </tr>
-		   <tr>
-	 		<th>Police Station</th>
-	 		<td colspan="5" title="<s:property value="probationUnit.policeStation.address"/>"><s:property value="probationUnit.policeStation.name"/> (Tel: <s:property value="probationUnit.policeStation.telephone"/>, Fax: <s:property value="probationUnit.policeStation.fax"/>, Email: <s:property value="probationUnit.policeStation.email"/>)</td>
-		  </tr>
+		  
 		   <tr>
 	 		<th>Comment</th>
 	 		<td colspan="5"><s:property value="probationUnit.comment"/></td>
@@ -109,3 +106,48 @@
 		</s:else>
 	</div>
 
+	<div style="margin-top: 20px">
+	  <table>
+	   <tr>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Police Stations</td>
+	   </tr>
+	  </table>
+	</div>
+	
+	<div>
+		<s:if test="probationUnit.policeStations.size > 0">
+
+			<div>
+		
+				<table style="margin-top: 10px" width="100%" id="commonTable"
+					class="orangeTbl" cellpadding="2px">
+					<tr>
+						<th></th>
+		
+						<th>Name</th>
+						<th>Telephone</th>
+						<th>Email</th>
+						<th>Fax</th>
+						<th>Address</th>
+						<th>Comment</th>
+		
+					</tr>
+					<s:iterator value="probationUnit.policeStations" status="rowIndex">
+						<tr>
+							<td><s:property value="%{#rowIndex.index + 1}" />
+							<td><s:property value="name" /></td>
+							<td><s:property value="telephone" /></td>
+							<td><s:property value="email" /></td>
+							<td><s:property value="fax" /></td>
+							<td><s:property value="address" /></td>
+							<td><s:property value="comment" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
+		</s:if>
+		<s:else>
+		  	No user found for your criteria, search again with a different criteria
+		</s:else>
+	</div>
+	
