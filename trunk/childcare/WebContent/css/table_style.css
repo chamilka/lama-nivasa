@@ -31,6 +31,7 @@
 
 .greenTbl th{ 
 	background:url(../images/header_green.png) 0 0 repeat-x;	
+	background-color: #8fc250;
 }
 
 .greenTbl td{ 
@@ -39,6 +40,7 @@
 
 .orangeTbl th{ 
 	background:url(../images/header_orange.png) 0 0 repeat-x;	
+	background-color: #fdd163;
 }
 
 .orangeTbl td{ 

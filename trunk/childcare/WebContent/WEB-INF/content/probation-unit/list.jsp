@@ -15,11 +15,12 @@
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="orangeTbl">
 	  	<tr>
-	  		<th>Name</th><th style="width:50px">Officers</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Police Station</th>
+	  		<th></th><th>Name</th><th style="width:50px">Officers</th><th>Email</th><th>Telephone</th><th>Fax</th><th>Police Station</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
-			 <td>
+			<td><s:property value="%{#rowIndex.index + 1}"/>
+			 <td style="width: 200px">
 			 	<s:url var="probationUnitViewUrl" action="view" namespace="/probationUnit" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>

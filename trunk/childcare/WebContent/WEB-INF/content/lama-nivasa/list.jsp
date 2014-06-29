@@ -31,12 +31,16 @@
 			 	<sj:a href="%{#lamaNivasaViewUrl}" targets="lamaNivasaResultDiv"><s:property value="name"/></sj:a>
 			 </td>
 			 
-			 <s:if test="childs.size > numberOfChildren" >
-			 	<td style="background-color: #FFCC99" title="Overcrowd"><s:property value="childs.size"/></td>
-			 </s:if>
-			 <s:else>
-			 	<td><s:property value="childs.size"/></td>
-			 </s:else>
+			 <td>
+			 	<s:property value="childs.size"/>
+				 <s:if test="childs.size > numberOfChildren" >
+				 	<img src="<s:url value='/images/crowd.png' includeParams='none'/>" style="border:none" align="right"  title="overcrowding" />
+				 </s:if>
+				 
+				  <s:if test="childs.size == 0" >
+				 	<img src="<s:url value='/images/empty.png' includeParams='none'/>" style="border:none;" align="right"  title="please add children" />
+				 </s:if>
+			 </td>
 
 			 <td><s:property value="numberOfChildren"/></td>
 			<%--  <td><s:property value="divisionalSecretariat.name"/></td> --%>
