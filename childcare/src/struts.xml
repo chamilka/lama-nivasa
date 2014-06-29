@@ -76,6 +76,7 @@
     <include file="./struts/child/picture/map.xml"/>
     <include file="./struts/child/guardian/map.xml"/>
     <include file="./struts/child/record/map.xml"/>
+    <include file="./struts/police-station/map.xml"/>
 
     <include file="./struts/generic/generic-category.xml"/>
 	<include file="./struts/generic/generic-list.xml"/>

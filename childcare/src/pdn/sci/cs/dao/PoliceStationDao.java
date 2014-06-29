@@ -7,18 +7,18 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.PoliceStation;
-import pdn.sci.cs.entity.ProbationUnit;
 
 @Repository
 public class PoliceStationDao extends GenericDao<PoliceStation> {
 
   private static final Class<PoliceStation> clazz = PoliceStation.class;
 
-  public List<PoliceStation> search(PoliceStation unit) {
+  public List<PoliceStation> search(PoliceStation policeStation) {
 
     DetachedCriteria criteria = createCriteria(clazz);
-    if (!unit.getName().isEmpty()) {
-      criteria.add(Restrictions.like(ProbationUnit.NAME, "%" + unit.getName() + "%"));
+    
+    if (!policeStation.getName().isEmpty()) {
+      criteria.add(Restrictions.like(PoliceStation.NAME, "%" + policeStation.getName() + "%"));
     }
 
     return findByCriteria(criteria);

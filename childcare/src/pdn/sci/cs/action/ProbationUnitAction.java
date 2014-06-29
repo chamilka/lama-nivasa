@@ -1,6 +1,7 @@
 package pdn.sci.cs.action;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -25,7 +26,7 @@ public class ProbationUnitAction extends BaseAction {
   private PoliceStationService policeStationService;
   @Autowired
   private SystemUserService systemUserService;
-
+  
   private static Logger logger = Logger.getLogger(ProbationUnitAction.class);
 
   private List<ProbationUnit> list;
@@ -33,6 +34,7 @@ public class ProbationUnitAction extends BaseAction {
   private ProbationUnit probationUnit;
   private List<SystemUser> probationOfficers;
   private String referenceId;
+  private List<String> selectedPoliceStations;
 
   public String list() {
     list = probationUnitService.findAll();
@@ -71,23 +73,36 @@ public class ProbationUnitAction extends BaseAction {
       } else {
         if (operationMode == OPERATION_MODE.ADD && probationUnit.getId().isEmpty()) {
           setAddSettings(probationUnit);
+          addPoliceStations();
           probationUnit = probationUnitService.save(probationUnit);
         } else if (operationMode == OPERATION_MODE.EDIT && !probationUnit.getId().isEmpty()) {
           setUpdateSettings(probationUnit);
+          addPoliceStations();
           probationUnitService.update(probationUnit);
         } else {
           addActionError("Error");
           return INPUT;
         }
-
+        
       }
     } else {
       addActionError("Invalid Access");
       return INPUT;
     }
 
-
-    return SUCCESS;
+    this.id = probationUnit.getId();
+    return view();
+  }
+  
+  private void addPoliceStations() {
+    if(this.probationUnit != null && this.selectedPoliceStations != null) {
+      if(probationUnit.getPoliceStations() == null){
+        probationUnit.setPoliceStations(new HashSet<PoliceStation>());
+      }
+      for(String s: selectedPoliceStations) { 
+        probationUnit.getPoliceStations().add(policeStationService.findById(s));
+      }
+    }
   }
 
   public String view() {
@@ -100,10 +115,18 @@ public class ProbationUnitAction extends BaseAction {
       probationUnit = probationUnitService.findById(id);
       if (probationUnit == null) {
         addActionError("Item that your are searching could not be found");
+        return INPUT;
       }
       
       referenceId = id;
       probationOfficerList();
+      
+      if(operationMode == OPERATION_MODE.EDIT) {
+        selectedPoliceStations = new ArrayList<String>();
+        for(PoliceStation ps : probationUnit.getPoliceStations()) {
+          selectedPoliceStations.add(ps.getId());
+        }
+      }
     }
     return SUCCESS;
   }
@@ -175,4 +198,15 @@ public class ProbationUnitAction extends BaseAction {
   public void setProbationOfficers(List<SystemUser> probationOfficers) {
     this.probationOfficers = probationOfficers;
   }
+
+  public List<String> getSelectedPoliceStations() {
+    return selectedPoliceStations;
+  }
+
+  public void setSelectedPoliceStations(List<String> selectedPoliceStations) {
+    this.selectedPoliceStations = selectedPoliceStations;
+  }
+  
+  
+  
 }

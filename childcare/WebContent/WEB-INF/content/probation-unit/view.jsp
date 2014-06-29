@@ -64,7 +64,7 @@
 	<div style="margin-top: 20px">
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Officers</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Personnal</td>
 	   </tr>
 	  </table>
 	</div>

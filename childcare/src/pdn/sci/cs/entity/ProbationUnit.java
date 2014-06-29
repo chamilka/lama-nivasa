@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -155,9 +157,9 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(name = "probationunit_policestation", joinColumns = {@JoinColumn(
-      name = "PROBATION_UNIT_ID", nullable = false, updatable = false)},
-      inverseJoinColumns = {@JoinColumn(name = "POLICE_STATION_ID", nullable = false,
-          updatable = false)})
+      name = "PROBATION_UNIT_ID")},
+      inverseJoinColumns = {@JoinColumn(name = "POLICE_STATION_ID")})
+  @OrderBy("name ASC")
   public Set<PoliceStation> getPoliceStations() {
     return policeStations;
   }
@@ -165,5 +167,15 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
   public void setPoliceStations(Set<PoliceStation> policeStations) {
     this.policeStations = policeStations;
   }
+
+  @Override
+  public String toString() {
+    return "ProbationUnit [name=" + name + ", email=" + email + ", numberOfOfficers="
+        + numberOfOfficers + ", telephone=" + telephone + ", fax=" + fax + ", address=" + address
+        + ", comment=" + comment + ", policeStations=" + policeStations + ", lamaNivasas="
+        + lamaNivasas + "]";
+  }
+  
+  
 
 }

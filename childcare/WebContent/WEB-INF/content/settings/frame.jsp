@@ -20,17 +20,19 @@
 		
 	<s:url var="configurationUrl" action="frame" 
 		namespace="/genericCategory" includeParams="none"></s:url>
+		
+	<s:url var="policeStationUrl" action="frame" 
+		namespace="/police" includeParams="none"></s:url>
+	
 	<div>
 		<sj:a href="%{userFrameUrl}" targets="settingsDiv"><input type="button" value="Users" /></sj:a>
 		<sj:a href="%{#districtListUrl}" targets="settingsDiv"><input type="button" value="Organization" /></sj:a>
 		<sj:a href="%{#configurationUrl}" targets="settingsDiv"><input type="button" value="Configuration" /></sj:a>
+		<sj:a href="%{#policeStationUrl}" targets="settingsDiv"><input type="button" value="Police Station" /></sj:a>
 	</div>
-	
 		
 	<div id="settingsDiv" style="margin: 20px 0 0 0">
 		<sj:div href="%{#userFrameUrl}" cssStyle="margin: 10px 0 0 0">
 		    
 		</sj:div>
 	</div>
-	  
-	  
