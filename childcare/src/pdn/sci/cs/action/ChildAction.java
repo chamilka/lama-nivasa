@@ -19,377 +19,388 @@ import pdn.sci.cs.util.ChildrenSummary;
 @Scope(value = "prototype")
 public class ChildAction extends BaseAction {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Autowired private ChildService childService;
-	@Autowired private LamaNivasaService lamaNivasaService;
-	@Autowired private GenericListService genericListService;
+  @Autowired
+  private ChildService childService;
+  @Autowired
+  private LamaNivasaService lamaNivasaService;
+  @Autowired
+  private GenericListService genericListService;
 
-	private ChildrenSummary childSummary;
-	private Child child;
-	private List<Child> list;
-	private List<LamaNivasa> lamaNivasaList;
+  private ChildrenSummary childSummary;
+  private Child child;
+  private List<Child> list;
+  private List<LamaNivasa> lamaNivasaList;
 
-	private List<GenericList> yesNoList;
-	private List<GenericList> genderTypeList;
-	private List<GenericList> raceList;
-	private List<GenericList> religionList;
-	private List<GenericList> intakeMethodList;
-	private List<GenericList> parentAvailabilityList;
-	private List<GenericList> hasDoNotHaveProcessingList;
-	private List<GenericList> childCategoryList;
+  private List<GenericList> yesNoList;
+  private List<GenericList> genderTypeList;
+  private List<GenericList> raceList;
+  private List<GenericList> religionList;
+  private List<GenericList> intakeMethodList;
+  private List<GenericList> parentAvailabilityList;
+  private List<GenericList> hasDoNotHaveProcessingList;
+  private List<GenericList> childCategoryList;
 
-	public String childSummary() {
-		childSummary = childService.getChildrenSummary();
-		return SUCCESS;
-	}
-	
-	public String childDetail() {
-		//childSummary = childService.getChildrenSummary();
-		return SUCCESS;
-	}
+  public String childSummary() {
+    childSummary = childService.getChildrenSummary();
+    return SUCCESS;
+  }
 
-//	public String list() {
-//		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-//			//if user only own children home
-//			String referenceId = getSessionUser().getReferenceId();
-//			if(referenceId == null) {
-//				return INPUT;
-//			} else {
-//				try {
-//					pageSize = 4 *SEARCH_PAGE_SIZE;
-//					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
-//					targetDiv = "childResultDiv";
-//					setActionContext(pager);
-//					return SUCCESS;
-//				} catch(Exception e) {
-//					e.printStackTrace();
-//					return INPUT;
-//				}
-//			}
-//		}
-//		pager = childService.findAll(pageStart, pageSize);
-//		targetDiv = "childResultDiv";
-//		setActionContext(pager);
-//		return SUCCESS;
-//	}
-	public String list() {
-		if(!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
-			String referenceId = getSessionUser().getReferenceId();
-			//pageSize = 4 *SEARCH_PAGE_SIZE;
-			
-			if(referenceId == null) {
-				return INPUT;
-			} else {
-				
-				if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-				
-				try {
-					pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
-					targetDiv = "childResultDiv";
-					setActionContext(pager);
-					return SUCCESS;
-				} catch(Exception e) {
-					e.printStackTrace();
-					return INPUT;
-				}
-				}
-				else{
-					try {
-						pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
-						targetDiv = "childResultDiv";
-						setActionContext(pager);
-						return SUCCESS;
-					} catch(Exception e) {
-						e.printStackTrace();
-						return INPUT;
-					}
-				}
-			}
-		}else{
-		pager = childService.findAll(pageStart, pageSize);
-		targetDiv = "childResultDiv";
-		setActionContext(pager);
-		return SUCCESS;
-		}
-	}
+  public String childDetail() {
+    // childSummary = childService.getChildrenSummary();
+    return SUCCESS;
+  }
 
-	public String searchForm() {
-		searchPopulate();
-		return SUCCESS;
-	}
+  // public String list() {
+  // if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+  // //if user only own children home
+  // String referenceId = getSessionUser().getReferenceId();
+  // if(referenceId == null) {
+  // return INPUT;
+  // } else {
+  // try {
+  // pageSize = 4 *SEARCH_PAGE_SIZE;
+  // pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
+  // targetDiv = "childResultDiv";
+  // setActionContext(pager);
+  // return SUCCESS;
+  // } catch(Exception e) {
+  // e.printStackTrace();
+  // return INPUT;
+  // }
+  // }
+  // }
+  // pager = childService.findAll(pageStart, pageSize);
+  // targetDiv = "childResultDiv";
+  // setActionContext(pager);
+  // return SUCCESS;
+  // }
+  public String list() {
+    if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
+      String referenceId = getSessionUser().getReferenceId();
+      // pageSize = 4 *SEARCH_PAGE_SIZE;
 
-	public String searchFormLamaNivasa() {
-		String referenceId = getSessionUser().getReferenceId();
-		LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
-		lamaNivasaList = new ArrayList<LamaNivasa>();
-		lamaNivasaList.add(lamaNivasa);
-		return SUCCESS;
-	}
+      if (referenceId == null) {
+        return INPUT;
+      } else {
 
-	public String frame() {
-		return SUCCESS;
-	}
+        if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
 
-	public String add() {
+          try {
+            pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
+            targetDiv = "childResultDiv";
+            setActionContext(pager);
+            return SUCCESS;
+          } catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+          }
+        } else {
+          try {
+            pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
+            targetDiv = "childResultDiv";
+            setActionContext(pager);
+            return SUCCESS;
+          } catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+          }
+        }
+      }
+    } else {
+      pager = childService.findAll(pageStart, pageSize);
+      targetDiv = "childResultDiv";
+      setActionContext(pager);
+      return SUCCESS;
+    }
+  }
 
-		addMode();
-		addPopulate();
-		return SUCCESS;
+  public String searchForm() {
+    searchPopulate();
+    return SUCCESS;
+  }
 
-	}
+  public String searchFormLamaNivasa() {
+    String referenceId = getSessionUser().getReferenceId();
+    LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
+    lamaNivasaList = new ArrayList<LamaNivasa>();
+    lamaNivasaList.add(lamaNivasa);
+    return SUCCESS;
+  }
 
-	public String search() {
-		
-		final String defaultValue = "";
-		
-		if(child != null) {
-			
-			String name = defaultValue, lamaNivasaId = defaultValue;
-			String code = defaultValue;
-		
-			if(child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
-				lamaNivasaId = defaultValue;
-			} else {
-				lamaNivasaId = child.getLamaNivasa().getId();
-			}
+  public String frame() {
+    return SUCCESS;
+  }
 
-			if(child.getFullName() == null || child.getFullName().isEmpty()) {
-				name = defaultValue;
-			} else {
-				name = child.getFullName();
-			}
+  public String add() {
 
-			if(child.getCode() == null || child.getCode().isEmpty()) {
-				code = defaultValue;
-			} else {
-				code = child.getCode();
-			}
+    addMode();
+    addPopulate();
+    return SUCCESS;
 
-			if(name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
-				addActionError("No suitable inputs");
-				return INPUT;
-			} else if(lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
-				addActionError("Name must be at least four (4) characters");
-				return INPUT;
-			}
+  }
 
-			targetDiv = "childResultDiv";
-			pageSize = 200;
-			pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
-			setActionContext(pager);
-			
-		} else {
-			addActionError("Please give a criteria");
-		}
+  public String search() {
 
-		return SUCCESS;
-	}
+    final String defaultValue = "";
 
-	public String edit() {
-		editMode();
-		addPopulate();
-		return view();
-	}
+    if (child != null) {
 
-	public String save() {
+      String name = defaultValue, lamaNivasaId = defaultValue;
+      String code = defaultValue;
 
-		if(child != null) {
-			validateChild();
-			if(hasErrors()) {
-				addPopulate();
-				return INPUT;
-			} else {
-				if(operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
-					setAddSettings(child);
-					child = childService.save(child);
-				} else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty() ) {
-					setUpdateSettings(child);
-					childService.update(child);
-				} else {
-					addActionError("Error");
-					return INPUT;
-				}
+      if (child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
+        lamaNivasaId = defaultValue;
+      } else {
+        lamaNivasaId = child.getLamaNivasa().getId();
+      }
 
-			}
-		} else {
-			addActionError("Invalid Access");
-			return INPUT;
-		}
-		return SUCCESS;
-	}
+      if (child.getFullName() == null || child.getFullName().isEmpty()) {
+        name = defaultValue;
+      } else {
+        name = child.getFullName();
+      }
 
-	public String view() {
+      if (child.getCode() == null || child.getCode().isEmpty()) {
+        code = defaultValue;
+      } else {
+        code = child.getCode();
+      }
 
-		if(id == null || id.isEmpty()) {
-			addActionError("Invalid Access");
-			return INPUT;
-		} else {
-			child = childService.findById(id);
-			if(child == null) {
-				addActionError("Item that your are searching could not be found");
-			}
-		}
-		return SUCCESS;
-	}
+      if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue)
+          && code.equals(defaultValue)) {
+        addActionError("No suitable inputs");
+        return INPUT;
+      } else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)
+          && name.trim().length() < 4) {
+        addActionError("Name must be at least four (4) characters");
+        return INPUT;
+      }
 
-	public String delete() {
-		if(this.id.isEmpty()) {
-			addActionError("Could not delete the entry, id is missing");
-			return INPUT;
-		} else {
-			try {
-				childService.delete(id);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			return list();
-		}
-	}
+      targetDiv = "childResultDiv";
+      pageSize = 200;
+      pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
+      setActionContext(pager);
 
-	private void searchPopulate() {
-		lamaNivasaList = lamaNivasaService.findAll();
-	}
+    } else {
+      addActionError("Please give a criteria");
+    }
 
-	private void addPopulate() {
-		if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-			//if user only own children home
-			String referenceId = getSessionUser().getReferenceId();
-			if(referenceId == null) {
-				addActionError("Exception, No children home for this user");
-			} else {
-				LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
-				lamaNivasaList = new ArrayList<LamaNivasa>();
-				lamaNivasaList.add(lamaNivasa);
-			}
-		}else {
-			lamaNivasaList = lamaNivasaService.findAll();
-		}
+    return SUCCESS;
+  }
 
-		yesNoList = genericListService.findListByCategoryId("C010");
-		genderTypeList = genericListService.findListByCategoryId("C001");
-		raceList = genericListService.findListByCategoryId("C013");
-		religionList = genericListService.findListByCategoryId("C040");
-		intakeMethodList = genericListService.findListByCategoryId("C014");
-		parentAvailabilityList = genericListService.findListByCategoryId("C017");
-		hasDoNotHaveProcessingList = genericListService.findListByCategoryId("C015");
-		childCategoryList = genericListService.findListByCategoryId("C016");
-	}
+  public String edit() {
+    editMode();
+    addPopulate();
+    return view();
+  }
 
-	private void validateChild() {
-		if(child.getCode().isEmpty()) {
-			addFieldError("child.code", "Code cannot be empty");
-		}
+  public String save() {
 
-		if(child.getFullName().isEmpty()) {
-			addFieldError("child.fullName", "Full Name cannot be empty");
-		}
+    if (child != null) {
+      validateChild();
+      if (hasErrors()) {
+        addPopulate();
+        return INPUT;
+      } else {
+        if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
+          setAddSettings(child);
+          child = childService.save(child);
+        } else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty()) {
+          setUpdateSettings(child);
+          childService.update(child);
+        } else {
+          addActionError("Error");
+          return INPUT;
+        }
 
-		if(child.getLamaNivasa() == null || child.getLamaNivasa().getId() == null) {
-			addFieldError("child.lamaNivasa.id", "Select the lama nivasa");
-		}
+      }
+    } else {
+      addActionError("Invalid Access");
+      return INPUT;
+    }
+    return SUCCESS;
+  }
 
-		if(child.getSexType().isEmpty()) {
-			addFieldError("child.sexType", "Sex type cannot be empty");
-		}
+  public String view() {
 
-	}
+    if (id == null || id.isEmpty()) {
+      addActionError("Invalid Access");
+      return INPUT;
+    } else {
+      child = childService.findById(id);
+      if (child == null) {
+        addActionError("Item that your are searching could not be found");
+      }
+    }
+    return SUCCESS;
+  }
 
-	public Child getChild() {
-		return child;
-	}
+  public String delete() {
+    if (this.id.isEmpty()) {
+      addActionError("Could not delete the entry, id is missing");
+      return INPUT;
+    } else {
+      try {
+        childService.delete(id);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return list();
+    }
+  }
 
-	public void setChild(Child child) {
-		this.child = child;
-	}
+  private void searchPopulate() {
+    if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+      lamaNivasaList = lamaNivasaService.findByReferenceId(getSessionUser().getReferenceId());
 
-	public List<Child> getList() {
-		return list;
-	}
+    } else if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
+      lamaNivasaList = lamaNivasaService.findByReferenceId(getSessionUser().getReferenceId());
 
-	public void setList(List<Child> list) {
-		this.list = list;
-	}
+    } else {
+      lamaNivasaList = lamaNivasaService.findAll();
+    }
+  }
 
-	public List<LamaNivasa> getLamaNivasaList() {
-		return lamaNivasaList;
-	}
+  private void addPopulate() {
+    if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+      // if user only own children home
+      String referenceId = getSessionUser().getReferenceId();
+      if (referenceId == null) {
+        addActionError("Exception, No children home for this user");
+      } else {
+        LamaNivasa lamaNivasa = lamaNivasaService.findById(referenceId);
+        lamaNivasaList = new ArrayList<LamaNivasa>();
+        lamaNivasaList.add(lamaNivasa);
+      }
+    } else {
+      lamaNivasaList = lamaNivasaService.findAll();
+    }
 
-	public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
-		this.lamaNivasaList = lamaNivasaList;
-	}
+    yesNoList = genericListService.findListByCategoryId("C010");
+    genderTypeList = genericListService.findListByCategoryId("C001");
+    raceList = genericListService.findListByCategoryId("C013");
+    religionList = genericListService.findListByCategoryId("C040");
+    intakeMethodList = genericListService.findListByCategoryId("C014");
+    parentAvailabilityList = genericListService.findListByCategoryId("C017");
+    hasDoNotHaveProcessingList = genericListService.findListByCategoryId("C015");
+    childCategoryList = genericListService.findListByCategoryId("C016");
+  }
 
-	public List<GenericList> getYesNoList() {
-		return yesNoList;
-	}
+  private void validateChild() {
+    if (child.getCode().isEmpty()) {
+      addFieldError("child.code", "Code cannot be empty");
+    }
 
-	public void setYesNoList(List<GenericList> yesNoList) {
-		this.yesNoList = yesNoList;
-	}
+    if (child.getFullName().isEmpty()) {
+      addFieldError("child.fullName", "Full Name cannot be empty");
+    }
 
-	public List<GenericList> getGenderTypeList() {
-		return genderTypeList;
-	}
+    if (child.getLamaNivasa() == null || child.getLamaNivasa().getId() == null) {
+      addFieldError("child.lamaNivasa.id", "Select the lama nivasa");
+    }
 
-	public void setGenderTypeList(List<GenericList> genderTypeList) {
-		this.genderTypeList = genderTypeList;
-	}
+    if (child.getSexType().isEmpty()) {
+      addFieldError("child.sexType", "Sex type cannot be empty");
+    }
 
-	public List<GenericList> getRaceList() {
-		return raceList;
-	}
+  }
 
-	public void setRaceList(List<GenericList> raceList) {
-		this.raceList = raceList;
-	}
+  public Child getChild() {
+    return child;
+  }
 
-	public List<GenericList> getReligionList() {
-		return religionList;
-	}
+  public void setChild(Child child) {
+    this.child = child;
+  }
 
-	public void setReligionList(List<GenericList> religionList) {
-		this.religionList = religionList;
-	}
+  public List<Child> getList() {
+    return list;
+  }
 
-	public List<GenericList> getIntakeMethodList() {
-		return intakeMethodList;
-	}
+  public void setList(List<Child> list) {
+    this.list = list;
+  }
 
-	public void setIntakeMethodList(List<GenericList> intakeMethodList) {
-		this.intakeMethodList = intakeMethodList;
-	}
+  public List<LamaNivasa> getLamaNivasaList() {
+    return lamaNivasaList;
+  }
 
-	public List<GenericList> getParentAvailabilityList() {
-		return parentAvailabilityList;
-	}
+  public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
+    this.lamaNivasaList = lamaNivasaList;
+  }
 
-	public void setParentAvailabilityList(List<GenericList> parentAvailabilityList) {
-		this.parentAvailabilityList = parentAvailabilityList;
-	}
+  public List<GenericList> getYesNoList() {
+    return yesNoList;
+  }
 
-	public List<GenericList> getHasDoNotHaveProcessingList() {
-		return hasDoNotHaveProcessingList;
-	}
+  public void setYesNoList(List<GenericList> yesNoList) {
+    this.yesNoList = yesNoList;
+  }
 
-	public void setHasDoNotHaveProcessingList(
-			List<GenericList> hasDoNotHaveProcessingList) {
-		this.hasDoNotHaveProcessingList = hasDoNotHaveProcessingList;
-	}
+  public List<GenericList> getGenderTypeList() {
+    return genderTypeList;
+  }
 
-	public List<GenericList> getChildCategoryList() {
-		return childCategoryList;
-	}
+  public void setGenderTypeList(List<GenericList> genderTypeList) {
+    this.genderTypeList = genderTypeList;
+  }
 
-	public void setChildCategoryList(List<GenericList> childCategoryList) {
-		this.childCategoryList = childCategoryList;
-	}
+  public List<GenericList> getRaceList() {
+    return raceList;
+  }
 
-	public ChildrenSummary getChildSummary() {
-		return childSummary;
-	}
+  public void setRaceList(List<GenericList> raceList) {
+    this.raceList = raceList;
+  }
 
-	public void setChildSummary(ChildrenSummary childSummary) {
-		this.childSummary = childSummary;
-	}
+  public List<GenericList> getReligionList() {
+    return religionList;
+  }
+
+  public void setReligionList(List<GenericList> religionList) {
+    this.religionList = religionList;
+  }
+
+  public List<GenericList> getIntakeMethodList() {
+    return intakeMethodList;
+  }
+
+  public void setIntakeMethodList(List<GenericList> intakeMethodList) {
+    this.intakeMethodList = intakeMethodList;
+  }
+
+  public List<GenericList> getParentAvailabilityList() {
+    return parentAvailabilityList;
+  }
+
+  public void setParentAvailabilityList(List<GenericList> parentAvailabilityList) {
+    this.parentAvailabilityList = parentAvailabilityList;
+  }
+
+  public List<GenericList> getHasDoNotHaveProcessingList() {
+    return hasDoNotHaveProcessingList;
+  }
+
+  public void setHasDoNotHaveProcessingList(List<GenericList> hasDoNotHaveProcessingList) {
+    this.hasDoNotHaveProcessingList = hasDoNotHaveProcessingList;
+  }
+
+  public List<GenericList> getChildCategoryList() {
+    return childCategoryList;
+  }
+
+  public void setChildCategoryList(List<GenericList> childCategoryList) {
+    this.childCategoryList = childCategoryList;
+  }
+
+  public ChildrenSummary getChildSummary() {
+    return childSummary;
+  }
+
+  public void setChildSummary(ChildrenSummary childSummary) {
+    this.childSummary = childSummary;
+  }
 
 }
