@@ -31,6 +31,7 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
   private ProbationUnit probationUnit;
   private String probationOfficer;
   private DivisionalSecretariat divisionalSecretariat;
+  private GramaSevakaDivision gramaSevakaDivision;
   private String name;
 
   private Calendar dateOfEstablishment;
@@ -51,6 +52,7 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
 
   private String religion;
   private String comment;
+  private int status;
 
   private Set<Child> childs = new HashSet<Child>(0);
   private Set<MonthlyData> monthlyData = new HashSet<MonthlyData>(0);
@@ -121,13 +123,24 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DIVISIONAL_SECRETARIAT_ID", nullable = false)
+  @JoinColumn(name = "DIVISIONAL_SECRETARIAT_ID", nullable = true)
   public DivisionalSecretariat getDivisionalSecretariat() {
     return this.divisionalSecretariat;
   }
 
   public void setDivisionalSecretariat(DivisionalSecretariat divisionalSecretariat) {
     this.divisionalSecretariat = divisionalSecretariat;
+  }
+  
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "GRAMA_SEVAKA_DIVISION_ID", nullable = true)
+  public GramaSevakaDivision getGramaSevakaDivision() {
+    return gramaSevakaDivision;
+  }
+
+  public void setGramaSevakaDivision(GramaSevakaDivision gramaSevakaDivision) {
+    this.gramaSevakaDivision = gramaSevakaDivision;
   }
 
   @Column(name = "NAME", nullable = false)
@@ -329,6 +342,13 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
     this.comment = comment;
   }
 
+  @Column(name = "STATUS")
+  public int getStatus() {
+    return status;
+  }
 
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
 }

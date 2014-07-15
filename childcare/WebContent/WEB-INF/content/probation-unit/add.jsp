@@ -47,6 +47,12 @@
 		  		<s:select title="Multiple Select" name="selectedPoliceStations" multiple="true" list="policeStationList" listKey="id" listValue="name" value="selectedPoliceStations" cssStyle="height:200px"/></table></td>
 		  </tr>
 		  <tr>
+	 		<th>District</th>
+	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
+	 			<s:select name="probationUnit.district.id" list="districtList" listKey="id" listValue="name" />
+			</table></td>
+		  </tr>
+		  <tr>
 	 		<th>Address</th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 		  		<s:textfield name="probationUnit.address" cssStyle="width:600px" /></table></td>

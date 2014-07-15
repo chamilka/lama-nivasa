@@ -43,6 +43,7 @@
 				<value>pdn.sci.cs.entity.ChildPicture</value>
 				<value>pdn.sci.cs.entity.ChildGuardian</value>
 				<value>pdn.sci.cs.entity.ChildRecord</value>
+				<value>pdn.sci.cs.entity.ChildCareplan</value>
 				<value>pdn.sci.cs.entity.District</value>
 				<value>pdn.sci.cs.entity.DivisionalSecretariat</value>
 				<value>pdn.sci.cs.entity.GenericCategory</value>
@@ -54,6 +55,7 @@
 				<value>pdn.sci.cs.entity.SystemUser</value>
 				<value>pdn.sci.cs.entity.MonthlyData</value>
 				<value>pdn.sci.cs.entity.PoliceStation</value>
+				
 			</list>
 		</property>
 		<property name="hibernateProperties">

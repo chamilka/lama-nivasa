@@ -67,7 +67,11 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
   private Integer numToVocational = 0;
   private Integer numToSelfEmployement = 0;
   private Integer numToOther = 0;
-
+  
+  private Integer numNoChildPlans; 
+  private Integer numDeviatedChildPlans;
+  
+  
   public MonthlyData() {}
 
   public MonthlyData(String id, String lamaNivasaId) {
@@ -489,6 +493,25 @@ public class MonthlyData extends BaseEntity implements java.io.Serializable {
 
   public void setNumToOther(Integer numToOther) {
     this.numToOther = numToOther;
+  }
+  
+  
+  @Column(name = "NUM_NO_CHILD_PLANS")
+  public Integer getNumNoChildPlans() {
+    return numNoChildPlans;
+  }
+
+  public void setNumNoChildPlans(Integer numNoChildPlans) {
+    this.numNoChildPlans = numNoChildPlans;
+  }
+
+  @Column(name = "NUM_DEVIATED_CHILD_PLANS")
+  public Integer getNumDeviatedChildPlans() {
+    return numDeviatedChildPlans;
+  }
+
+  public void setNumDeviatedChildPlans(Integer numDeviatedChildPlans) {
+    this.numDeviatedChildPlans = numDeviatedChildPlans;
   }
 
   @Override

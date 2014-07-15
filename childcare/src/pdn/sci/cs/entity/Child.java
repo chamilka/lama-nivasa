@@ -58,6 +58,7 @@ public class Child extends BaseEntity implements java.io.Serializable {
   private String intakeMethod;
   private String originalProbationUnit;
   private String comment;
+  private int status;
   private Set<ChildGuardian> childGuardians = new HashSet<ChildGuardian>(0);
 
   public Child() {}
@@ -307,7 +308,15 @@ public class Child extends BaseEntity implements java.io.Serializable {
   public void setHistory(String history) {
     this.history = history;
   }
+  
 
+  @Column(name = "STATUS")
+  public int getStatus() {
+    return status;
+  }
 
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
 }
