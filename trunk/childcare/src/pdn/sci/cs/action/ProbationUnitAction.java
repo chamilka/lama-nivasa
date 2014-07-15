@@ -8,9 +8,11 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.PoliceStation;
 import pdn.sci.cs.entity.ProbationUnit;
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.PoliceStationService;
 import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.SystemUserService;
@@ -26,6 +28,8 @@ public class ProbationUnitAction extends BaseAction {
   private PoliceStationService policeStationService;
   @Autowired
   private SystemUserService systemUserService;
+  @Autowired
+  private DistrictService districtService;
   
   private static Logger logger = Logger.getLogger(ProbationUnitAction.class);
 
@@ -35,6 +39,7 @@ public class ProbationUnitAction extends BaseAction {
   private List<SystemUser> probationOfficers;
   private String referenceId;
   private List<String> selectedPoliceStations;
+  private List<District> districtList;
 
   public String list() {
     list = probationUnitService.findAll();
@@ -156,6 +161,10 @@ public class ProbationUnitAction extends BaseAction {
     if (this.probationUnit.getName().isEmpty()) {
       addFieldError("probationUnit.name", "Name cannot be empty");
     }
+    
+    if (this.probationUnit.getDistrict() == null || this.probationUnit.getDistrict().getId().isEmpty()) {
+      addFieldError("probationUnit.district.id", "District cannot be empty");
+    }
   }
 
   public List<ProbationUnit> getList() {
@@ -206,7 +215,14 @@ public class ProbationUnitAction extends BaseAction {
   public void setSelectedPoliceStations(List<String> selectedPoliceStations) {
     this.selectedPoliceStations = selectedPoliceStations;
   }
-  
-  
+
+  public List<District> getDistrictList() {
+    districtList = districtService.findAll();
+    return districtList;
+  }
+
+  public void setDistrictList(List<District> districtList) {
+    this.districtList = districtList;
+  }
   
 }

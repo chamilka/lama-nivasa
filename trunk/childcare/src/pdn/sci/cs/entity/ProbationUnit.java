@@ -13,9 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -35,6 +35,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
   private String address;
   private String comment;
 
+  private District district;
   private Set<PoliceStation> policeStations;
   private Set<LamaNivasa> lamaNivasas = new HashSet<LamaNivasa>(0);
 
@@ -166,6 +167,16 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 
   public void setPoliceStations(Set<PoliceStation> policeStations) {
     this.policeStations = policeStations;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DISTRICT_ID", nullable = false)
+  public District getDistrict() {
+    return district;
+  }
+
+  public void setDistrict(District district) {
+    this.district = district;
   }
 
   @Override

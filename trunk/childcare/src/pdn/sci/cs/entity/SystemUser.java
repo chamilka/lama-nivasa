@@ -15,177 +15,188 @@ import org.hibernate.annotations.GenericGenerator;
 @GenericGenerator(name = "uuid-strategy", strategy = "uuid.hex")
 public class SystemUser extends BaseEntity implements java.io.Serializable {
 
-	public enum USER_ROLE  { ADMIN, USER, OFFICER, SPONSOR, MINISTRY }
-	public static final String USERNAME = "username";
-	public static final String USERPASSWORD = "userPassword";
-	public static final String EMAIL = "email";
-	public static final String NAME = "name";
-	public static final String SYSTEM_USER_ROLE = "userRole";
-	public static final String MOBILE = "mobile";
-	public static final String REFERENCE_ID = "referenceId";
-	
-	private static final long serialVersionUID = 1L;
-	protected String id;
-	private String username;
-	private String name;
-	private String userRole;
-	private String post;
-	private String referenceId;
-	private String userPassword;
-	private String email;
-	private String telephone;
-	private String mobile;
-	private String addressTemporary;
-	private String address;
-	private String sex;
+  public enum USER_ROLE {
+    ADMIN, USER, OFFICER, SPONSOR, MINISTRY
+  }
 
-	@Id
-	@Column(name = "ID", unique = true, nullable = false, length = 32)
-	@GeneratedValue(generator = "uuid-strategy")
-	public String getId() {
-		return this.id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public SystemUser() {
-	}
+  public static final String USERNAME = "username";
+  public static final String USERPASSWORD = "userPassword";
+  public static final String EMAIL = "email";
+  public static final String NAME = "name";
+  public static final String SYSTEM_USER_ROLE = "userRole";
+  public static final String MOBILE = "mobile";
+  public static final String REFERENCE_ID = "referenceId";
 
-	public SystemUser(String id, String username, String userPassword) {
-		this.id = id;
-		this.username = username;
-		this.userPassword = userPassword;
-	}
+  private static final long serialVersionUID = 1L;
+  protected String id;
+  private String username;
+  private String name;
+  private String userRole;
+  private String post;
+  private String referenceId;
+  private String userPassword;
+  private String email;
+  private String telephone;
+  private String mobile;
+  private String addressTemporary;
+  private String address;
+  private String sex;
+  private int status;
 
-	public SystemUser(String id, String username, String userPassword,
-			String email, String telephone, String mobile,
-			String addressTemporary, String address, String sex,
-			Integer sortOrder, String insertUserId, String updateUserId,
-			Calendar insertDatetime, Calendar updateDatetime) {
-		this.id = id;
-		this.username = username;
-		this.userPassword = userPassword;
-		this.email = email;
-		this.telephone = telephone;
-		this.mobile = mobile;
-		this.addressTemporary = addressTemporary;
-		this.address = address;
-		this.sex = sex;
-		this.sortOrder = sortOrder;
-		this.insertUserId = insertUserId;
-		this.updateUserId = updateUserId;
-		this.insertDateTime = insertDatetime;
-		this.updateDateTime = updateDatetime;
-	}
+  @Id
+  @Column(name = "ID", unique = true, nullable = false, length = 32)
+  @GeneratedValue(generator = "uuid-strategy")
+  public String getId() {
+    return this.id;
+  }
 
-	@Column(name = "NAME")
-	public String getName() {
-		return name;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public SystemUser() {}
 
-	@Column(name = "REFERENCE_ID", length = 32)
-	public String getReferenceId() {
-		return referenceId;
-	}
+  public SystemUser(String id, String username, String userPassword) {
+    this.id = id;
+    this.username = username;
+    this.userPassword = userPassword;
+  }
 
-	public void setReferenceId(String referenceId) {
-		this.referenceId = referenceId;
-	}
+  public SystemUser(String id, String username, String userPassword, String email,
+      String telephone, String mobile, String addressTemporary, String address, String sex,
+      Integer sortOrder, String insertUserId, String updateUserId, Calendar insertDatetime,
+      Calendar updateDatetime) {
+    this.id = id;
+    this.username = username;
+    this.userPassword = userPassword;
+    this.email = email;
+    this.telephone = telephone;
+    this.mobile = mobile;
+    this.addressTemporary = addressTemporary;
+    this.address = address;
+    this.sex = sex;
+    this.sortOrder = sortOrder;
+    this.insertUserId = insertUserId;
+    this.updateUserId = updateUserId;
+    this.insertDateTime = insertDatetime;
+    this.updateDateTime = updateDatetime;
+  }
 
-	@Column(name = "USERNAME", unique = true, nullable = false, length = 32)
-	public String getUsername() {
-		return this.username;
-	}
+  @Column(name = "NAME")
+  public String getName() {
+    return name;
+  }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	@Column(name = "USER_PASSWORD", nullable = false, length = 32)
-	public String getUserPassword() {
-		return this.userPassword;
-	}
+  @Column(name = "REFERENCE_ID", length = 32)
+  public String getReferenceId() {
+    return referenceId;
+  }
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
+  public void setReferenceId(String referenceId) {
+    this.referenceId = referenceId;
+  }
 
-	@Column(name = "EMAIL", length = 64)
-	public String getEmail() {
-		return this.email;
-	}
+  @Column(name = "USERNAME", unique = true, nullable = false, length = 32)
+  public String getUsername() {
+    return this.username;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-	@Column(name = "TELEPHONE", length = 16)
-	public String getTelephone() {
-		return this.telephone;
-	}
+  @Column(name = "USER_PASSWORD", nullable = false, length = 32)
+  public String getUserPassword() {
+    return this.userPassword;
+  }
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
+  public void setUserPassword(String userPassword) {
+    this.userPassword = userPassword;
+  }
 
-	@Column(name = "MOBILE", length = 16)
-	public String getMobile() {
-		return this.mobile;
-	}
+  @Column(name = "EMAIL", length = 64)
+  public String getEmail() {
+    return this.email;
+  }
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	@Column(name = "ADDRESS_TEMPORARY")
-	public String getAddressTemporary() {
-		return this.addressTemporary;
-	}
+  @Column(name = "TELEPHONE", length = 16)
+  public String getTelephone() {
+    return this.telephone;
+  }
 
-	public void setAddressTemporary(String addressTemporary) {
-		this.addressTemporary = addressTemporary;
-	}
+  public void setTelephone(String telephone) {
+    this.telephone = telephone;
+  }
 
-	@Column(name = "ADDRESS")
-	public String getAddress() {
-		return this.address;
-	}
+  @Column(name = "MOBILE", length = 16)
+  public String getMobile() {
+    return this.mobile;
+  }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
 
-	@Column(name = "SEX", length = 8)
-	public String getSex() {
-		return this.sex;
-	}
+  @Column(name = "ADDRESS_TEMPORARY")
+  public String getAddressTemporary() {
+    return this.addressTemporary;
+  }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	
-	@Column(name = "USER_ROLE", length = 8)
-	public String getUserRole() {
-		return userRole;
-	}
+  public void setAddressTemporary(String addressTemporary) {
+    this.addressTemporary = addressTemporary;
+  }
 
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
-	}
+  @Column(name = "ADDRESS")
+  public String getAddress() {
+    return this.address;
+  }
 
-	@Column(name = "POST", length = 64)
-	public String getPost() {
-		return post;
-	}
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-	public void setPost(String post) {
-		this.post = post;
-	}
+  @Column(name = "SEX", length = 8)
+  public String getSex() {
+    return this.sex;
+  }
+
+  public void setSex(String sex) {
+    this.sex = sex;
+  }
+
+  @Column(name = "USER_ROLE", length = 8)
+  public String getUserRole() {
+    return userRole;
+  }
+
+  public void setUserRole(String userRole) {
+    this.userRole = userRole;
+  }
+
+  @Column(name = "POST", length = 64)
+  public String getPost() {
+    return post;
+  }
+
+  public void setPost(String post) {
+    this.post = post;
+  }
+
+  @Column(name = "STATUS")
+  public int getStatus() {
+    return status;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
 }

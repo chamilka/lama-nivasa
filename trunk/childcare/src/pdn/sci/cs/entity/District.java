@@ -14,57 +14,66 @@ import javax.persistence.Table;
 @Table(name = "district")
 public class District extends BaseEntity implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private String name;
-	private Set<DivisionalSecretariat> devisionalSecretariats = new HashSet<DivisionalSecretariat>(0);
+  private static final long serialVersionUID = 1L;
+  private String name;
+  private String code;
+  private Set<DivisionalSecretariat> devisionalSecretariats = new HashSet<DivisionalSecretariat>(0);
 
-	public District() {
-	}
+  public District() {}
 
-	public District(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+  public District(String id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-	public District(String id, String name, Integer sortOrder,
-			String insertUserId, String updateUserId, Calendar insertDatetime,
-			Calendar updateDatetime, Set<DivisionalSecretariat> devisionalSecretariats) {
-		this.id = id;
-		this.name = name;
-		this.sortOrder = sortOrder;
-		this.insertUserId = insertUserId;
-		this.updateUserId = updateUserId;
-		this.insertDateTime = insertDatetime;
-		this.updateDateTime = updateDatetime;
-		this.devisionalSecretariats = devisionalSecretariats;
-	}
+  public District(String id, String name, Integer sortOrder, String insertUserId,
+      String updateUserId, Calendar insertDatetime, Calendar updateDatetime,
+      Set<DivisionalSecretariat> devisionalSecretariats) {
+    this.id = id;
+    this.name = name;
+    this.sortOrder = sortOrder;
+    this.insertUserId = insertUserId;
+    this.updateUserId = updateUserId;
+    this.insertDateTime = insertDatetime;
+    this.updateDateTime = updateDatetime;
+    this.devisionalSecretariats = devisionalSecretariats;
+  }
 
-	@Id
-	@Column(name = "ID", unique = true, nullable = false, length = 32)
-	public String getId() {
-		return this.id;
-	}
+  @Id
+  @Column(name = "ID", unique = true, nullable = false, length = 32)
+  public String getId() {
+    return this.id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	@Column(name = "NAME", nullable = false)
-	public String getName() {
-		return this.name;
-	}
+  @Column(name = "NAME", nullable = false)
+  public String getName() {
+    return this.name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "district")
-	public Set<DivisionalSecretariat> getDevisionalSecretariats() {
-		return this.devisionalSecretariats;
-	}
+  @Column(name = "CODE")
+  public String getCode() {
+    return code;
+  }
 
-	public void setDevisionalSecretariats(Set<DivisionalSecretariat> devisionalSecretariats) {
-		this.devisionalSecretariats = devisionalSecretariats;
-	}
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "district")
+  public Set<DivisionalSecretariat> getDevisionalSecretariats() {
+    return this.devisionalSecretariats;
+  }
+
+  public void setDevisionalSecretariats(Set<DivisionalSecretariat> devisionalSecretariats) {
+    this.devisionalSecretariats = devisionalSecretariats;
+  }
 
 }

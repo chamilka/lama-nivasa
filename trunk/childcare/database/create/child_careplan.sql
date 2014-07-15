@@ -1,0 +1,20 @@
+CREATE TABLE `child_careplan` (
+  `ID` char(32) COLLATE utf8_unicode_ci NOT NULL, 
+  `CATEGORY` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DATE_START` datetime NOT NULL,
+  `DATE_END` datetime NOT NULL,
+  `STATUS` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LOCATION` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PRE_NOTE` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ACTION_TAKEN` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `POST_NOTE` char(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CHILD_ID` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `SORT_ORDER` int(4) DEFAULT NULL,
+  `INSERT_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UPDATE_USER_ID` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INSERT_DATETIME` datetime DEFAULT NULL,
+  `UPDATE_DATETIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `CHILD_ID` (`CHILD_ID`),
+  CONSTRAINT FOREIGN KEY (`CHILD_ID`) REFERENCES `child` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
