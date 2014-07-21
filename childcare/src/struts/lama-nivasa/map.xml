@@ -3,8 +3,31 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="lamaNivasa" namespace="/lamaNivasa" extends="web-default">
-	
+	<package name="lamaNivasa" namespace="/lamaNivasa" extends="json-default, web-default">
+		
+		<!-- because json-default extension, we need all configurations -->
+		<interceptors>
+			<interceptor name="sessionExpireInterceptor" class="pdn.sci.cs.action.interceptor.SessionExpireInterceptor" />
+
+			<interceptor-stack name="sessionCheckStack">
+				<interceptor-ref name="sessionExpireInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="guest">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+		
+	    <default-interceptor-ref name="sessionCheckStack" />
+	    
+		<global-results>
+			<result name="exception" >/WEB-INF/content/common/error.jsp</result>
+			<result name="sessionExpired">/WEB-INF/content/common/session-expired.jsp</result>
+			<result name="RuntimeException">/WEB-INF/content/common/session-expired.jsp</result>
+		</global-results>
+		
 		<action name="list" class="pdn.sci.cs.action.LamaNivasaAction" method="list">
 			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
 		</action>
@@ -42,6 +65,40 @@
 			<result name="success">/WEB-INF/content/lama-nivasa/view.jsp</result>
 			<result name="input">/WEB-INF/content/lama-nivasa/add.jsp</result>
 		</action>
+		
+		<action name="district-select-json" class="pdn.sci.cs.action.LamaNivasaAction" method="districtSelectJson">
+             <result type="json">
+             	 <param name="includeProperties">
+				    ^divisionalSecretariatList\[\d+\]\.id,
+				    ^divisionalSecretariatList\[\d+\]\.name,
+				    
+				    ^probationUnitList\[\d+\]\.id,
+				    ^probationUnitList\[\d+\]\.name,
+				    
+				    ^probationUnitOfficerList\[\d+\]\.id,
+				    ^probationUnitOfficerList\[\d+\]\.name,
+
+			   	</param>
+             </result>
+        </action>
+        
+        <action name="ds-select-json" class="pdn.sci.cs.action.LamaNivasaAction" method="dsSelectJson">
+             <result type="json">
+             	 <param name="includeProperties">
+				    ^gramaSevakaDivisionList\[\d+\]\.id,
+				    ^gramaSevakaDivisionList\[\d+\]\.name,
+			   	</param>
+             </result>
+        </action>
+        
+         <action name="district-default-json" class="pdn.sci.cs.action.LamaNivasaAction" method="districtListDefaultJson">
+             <result type="json">
+             	 <param name="includeProperties">
+				    ^districtList\[\d+\]\.id,
+				    ^districtList\[\d+\]\.name,
+			   	</param>
+             </result>
+        </action>
 
 	</package>
 </struts>

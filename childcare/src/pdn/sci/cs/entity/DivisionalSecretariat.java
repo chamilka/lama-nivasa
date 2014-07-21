@@ -17,83 +17,97 @@ import javax.persistence.Transient;
 @Table(name = "divisional_secretariat")
 public class DivisionalSecretariat extends BaseEntity implements java.io.Serializable {
 
-	public static final String DISTRICT_ID = "district.id";
-	private static final long serialVersionUID = 1L;
-	private District district;
-	private String id_widget;
-	private String name;
-	private Set<GramaSevakaDivision> gramaSevakaDivisions = new HashSet<GramaSevakaDivision>(0);
+  public static final String DISTRICT_ID = "district.id";
+  public static final String NAME = "name";
+  public static final String CODE = "code";
+  private static final long serialVersionUID = 1L;
+  private District district;
+  private String code;
+  private String id_widget;
+  private String name;
+  private Set<GramaSevakaDivision> gramaSevakaDivisions = new HashSet<GramaSevakaDivision>(0);
 
-	public DivisionalSecretariat() {
-	}
+  public DivisionalSecretariat() {}
 
-	public DivisionalSecretariat(String id, District district,
-			String name) {
-		this.id = id;
-		this.district = district;
-		this.name = name;
-	}
+  public DivisionalSecretariat(District district, String name) {
+    this.district = district;
+    this.name = name;
+  }
+  
+  public DivisionalSecretariat(String code, District district, String name) {
+    this.district = district;
+    this.name = name;
+    this.code = code;
+  }
 
-	public DivisionalSecretariat(String id, District district,
-			String name, Integer sortOrder, String insertUserId,
-			String updateUserId, Calendar insertDatetime, Calendar updateDatetime,
-			Set<GramaSevakaDivision> gramaSevakaDivisions) {
-		this.id = id;
-		this.district = district;
-		this.name = name;
-		this.sortOrder = sortOrder;
-		this.insertUserId = insertUserId;
-		this.updateUserId = updateUserId;
-		this.insertDateTime = insertDatetime;
-		this.updateDateTime = updateDatetime;
-		this.gramaSevakaDivisions = gramaSevakaDivisions;
-	}
+  public DivisionalSecretariat(String id, District district, String name, Integer sortOrder,
+      String insertUserId, String updateUserId, Calendar insertDatetime, Calendar updateDatetime,
+      Set<GramaSevakaDivision> gramaSevakaDivisions) {
+    this.id = id;
+    this.district = district;
+    this.name = name;
+    this.sortOrder = sortOrder;
+    this.insertUserId = insertUserId;
+    this.updateUserId = updateUserId;
+    this.insertDateTime = insertDatetime;
+    this.updateDateTime = updateDatetime;
+    this.gramaSevakaDivisions = gramaSevakaDivisions;
+  }
 
-	@Id
-	@Column(name = "ID", unique = true, nullable = false, length = 32)
-	public String getId() {
-		return this.id;
-	}
+  @Id
+  @Column(name = "ID", unique = true, nullable = false, length = 32)
+  public String getId() {
+    return this.id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DISTRICT_ID", nullable = false)
-	public District getDistrict() {
-		return this.district;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DISTRICT_ID", nullable = false)
+  public District getDistrict() {
+    return this.district;
+  }
 
-	public void setDistrict(District district) {
-		this.district = district;
-	}
+  public void setDistrict(District district) {
+    this.district = district;
+  }
 
-	@Column(name = "NAME", nullable = false)
-	public String getName() {
-		return this.name;
-	}
+  @Column(name = "NAME", nullable = false)
+  public String getName() {
+    return this.name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionalSecretariat")
-	public Set<GramaSevakaDivision> getGramaSevakaDivisions() {
-		return this.gramaSevakaDivisions;
-	}
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionalSecretariat")
+  public Set<GramaSevakaDivision> getGramaSevakaDivisions() {
+    return this.gramaSevakaDivisions;
+  }
 
-	public void setGramaSevakaDivisions(Set<GramaSevakaDivision> gramaSevakaDivisions) {
-		this.gramaSevakaDivisions = gramaSevakaDivisions;
-	}
+  public void setGramaSevakaDivisions(Set<GramaSevakaDivision> gramaSevakaDivisions) {
+    this.gramaSevakaDivisions = gramaSevakaDivisions;
+  }
 
-	@Transient
-	public String getId_widget() {
-		return id;
-	}
+  @Column(name = "CODE")
+  public String getCode() {
+    return code;
+  }
 
-	public void setId_widget(String id_widget) {
-		this.id = id_widget;
-	}
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  @Transient
+  public String getId_widget() {
+    return id;
+  }
+
+  public void setId_widget(String id_widget) {
+    this.id = id_widget;
+  }
 
 }

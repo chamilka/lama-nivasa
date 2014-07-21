@@ -16,7 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class GramaSevakaDivision extends BaseEntity implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private GramaSevaka gramaSevaka;
+	//private GramaSevaka gramaSevaka;
+	public static final String DIVISIONAL_SECRETARIAT_ID = "divisionalSecretariat.id";
 	private DivisionalSecretariat divisionalSecretariat;
 	private String name;
 	private String code;
@@ -27,7 +28,7 @@ public class GramaSevakaDivision extends BaseEntity implements java.io.Serializa
 	public GramaSevakaDivision(String id, GramaSevaka gramaSevaka,
 			DivisionalSecretariat devisionalSecretariat, String name) {
 		this.id = id;
-		this.gramaSevaka = gramaSevaka;
+		//this.gramaSevaka = gramaSevaka;
 		this.divisionalSecretariat = devisionalSecretariat;
 		this.name = name;
 	}
@@ -37,7 +38,7 @@ public class GramaSevakaDivision extends BaseEntity implements java.io.Serializa
 			Integer sortOrder, String insertUserId, String updateUserId,
 			Calendar insertDatetime, Calendar updateDatetime) {
 		this.id = id;
-		this.gramaSevaka = gramaSevaka;
+		//this.gramaSevaka = gramaSevaka;
 		this.divisionalSecretariat = devisionalSecretariat;
 		this.name = name;
 		this.sortOrder = sortOrder;
@@ -60,14 +61,14 @@ public class GramaSevakaDivision extends BaseEntity implements java.io.Serializa
 
 	//@ManyToOne(fetch = FetchType.LAZY)
 	//@JoinColumn(name = "GRAMA_SEVAKA_ID", nullable = false)
-	@Transactional
+	/*@Transactional
 	public GramaSevaka getGramaSevaka() {
 		return this.gramaSevaka;
 	}
 
 	public void setGramaSevaka(GramaSevaka gramaSevaka) {
 		this.gramaSevaka = gramaSevaka;
-	}
+	}*/
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DIVISIONAL_SECRETARIAT_ID", nullable = false)

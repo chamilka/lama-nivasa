@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "district")
 public class District extends BaseEntity implements java.io.Serializable {
 
+  public static final String DISTRICT_CODE = "code";
+  
   private static final long serialVersionUID = 1L;
   private String name;
   private String code;

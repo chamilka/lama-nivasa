@@ -21,6 +21,14 @@ public class DivisionalSecretariatService {
 		return divisionalSecretariatDao.findById(id);
 	}
 	
+	public DivisionalSecretariat findByName(String name) {
+	    return divisionalSecretariatDao.findByName(name);
+	}
+	
+	public DivisionalSecretariat findByCode(String code) {
+      return divisionalSecretariatDao.findByCode(code);
+  }
+	
 	public DivisionalSecretariat save(DivisionalSecretariat d) {
 		return divisionalSecretariatDao.save(d);
 	}

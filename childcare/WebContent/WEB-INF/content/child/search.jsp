@@ -53,8 +53,8 @@
 			<s:url var="childSummaryUrl" action="summary"
 				namespace="/child" includeParams="none"></s:url>
 			
-			<s:url var="childDetailUrl" action="detail"
-				namespace="/child" includeParams="none"></s:url>
+			<s:url var="childDetailUrl" action="detail-search-form"
+				namespace="/report" includeParams="none"></s:url>
 
 			<s:if test="!ministry">
 					<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>  |

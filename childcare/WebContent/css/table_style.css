@@ -12,6 +12,17 @@
 	font-weight:normal;
 }
 
+#contentTable th{
+	height:30px;
+	text-align:right;
+	padding-left:10px;
+	padding-right:10px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#000;
+	font-weight:normal;
+}
+
 #commonTable td{
 	height:25px;
 	padding-left:3px;
@@ -23,6 +34,7 @@
 
 .blueTbl th{ 
 	background:url(../images/header_lightBlue.png) 0 0 repeat-x;	
+	background-color: #b7d5f4;
 }
 
 .blueTbl td{ 

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
+import pdn.sci.cs.entity.MonthlyDataReport;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
@@ -33,11 +34,23 @@ public class MonthlyInformationAction extends BaseAction {
   private List<GenericList> yearList;
   private List<GenericList> monthList;
   private List<LamaNivasa> lamaNivasaList;
+  private MonthlyDataReport monthlyDataReport;
 
-  private int year;
-  private String month;
-
+  private int year =  Calendar.getInstance().get(Calendar.YEAR);
+  private String month = "";
+  
   public String frame() {
+    return SUCCESS;
+  }
+  
+  public String detailForm() {
+    yearList = gerGenericListService.findListByCategoryId("C050");
+    monthList = gerGenericListService.findListByCategoryId("C060");
+    return SUCCESS;
+  }
+  
+  public String detail() {
+    monthlyDataReport = monthlyDataService.report(year, month);
     return SUCCESS;
   }
 
@@ -261,4 +274,11 @@ public class MonthlyInformationAction extends BaseAction {
     this.month = month;
   }
 
+  public MonthlyDataReport getMonthlyDataReport() {
+    return monthlyDataReport;
+  }
+
+  public void setMonthlyDataReport(MonthlyDataReport monthlyDataReport) {
+    this.monthlyDataReport = monthlyDataReport;
+  }
 }

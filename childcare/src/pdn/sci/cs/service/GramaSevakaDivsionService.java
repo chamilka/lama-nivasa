@@ -28,5 +28,9 @@ public class GramaSevakaDivsionService {
 	public void update(GramaSevakaDivision d) {
 		gramaSevakaDivisionDao.update(d);
 	}
+	
+	public List<GramaSevakaDivision> findByDivisionalSecretariatId(String id) {
+      return gramaSevakaDivisionDao.findByDivisionalSecretariatId(id);
+    } 
 
 }

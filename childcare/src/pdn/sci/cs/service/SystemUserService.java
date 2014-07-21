@@ -61,4 +61,8 @@ public class SystemUserService {
 	public List<SystemUser> findByUserRole(SystemUser.USER_ROLE userRole) {
 		return systemUserDao.searchByUserRole(userRole);
 	}
+	
+	public List<SystemUser> findOfficersInDistrict(String districtId) {
+      return systemUserDao.findOfficersInDistrict(districtId);
+    }
 }

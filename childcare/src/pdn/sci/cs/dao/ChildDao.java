@@ -203,6 +203,7 @@ public class ChildDao extends GenericDao<Child> {
 		pager.setTotal(listCount);
 		
 		Query query = getSession().createQuery("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid");
+		
 		query.setParameter("pid", referenceId);
 		query.setFirstResult(start);
 		query.setMaxResults(size);

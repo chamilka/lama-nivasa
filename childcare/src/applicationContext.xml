@@ -54,6 +54,7 @@
 				<value>pdn.sci.cs.entity.ProbationUnit</value>
 				<value>pdn.sci.cs.entity.SystemUser</value>
 				<value>pdn.sci.cs.entity.MonthlyData</value>
+				<value>pdn.sci.cs.entity.MonthlyDataReport</value> <!--  only for reporting -->
 				<value>pdn.sci.cs.entity.PoliceStation</value>
 				
 			</list>

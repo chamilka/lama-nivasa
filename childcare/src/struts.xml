@@ -18,6 +18,7 @@
 		<global-exception-mappings>
 			<exception-mapping exception="java.sql.SQLException" result="SQLException" />
 			<exception-mapping exception="java.lang.Exception" result="exception" />
+			<exception-mapping exception="java.lang.RuntimeException" result="RuntimeException" />
 		</global-exception-mappings>
 
 	</package>
@@ -63,9 +64,10 @@
     	<global-results>
 			<result name="exception" >/WEB-INF/content/common/error.jsp</result>
 			<result name="sessionExpired">/WEB-INF/content/common/session-expired.jsp</result>
+			<result name="RuntimeException">/WEB-INF/content/common/session-expired.jsp</result>
 		</global-results>
     </package>
-
+    
 	<include file="./struts/user/map.xml"/>
 	<include file="./struts/settings/map.xml"/>
 	<include file="./struts/grama-sevaka-division/map.xml"/>
@@ -76,6 +78,7 @@
     <include file="./struts/child/picture/map.xml"/>
     <include file="./struts/child/guardian/map.xml"/>
     <include file="./struts/child/record/map.xml"/>
+    <include file="./struts/child/care-plan/map.xml"/>
     <include file="./struts/police-station/map.xml"/>
 
     <include file="./struts/generic/generic-category.xml"/>

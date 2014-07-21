@@ -27,11 +27,20 @@
 		</tr>
 		<tr>
 			<th>Category</th>
-			<td><s:property value="lamaNivasa.category" /></td>
-			<th>Divisional Secretariat</th>
-			<td><s:property value="lamaNivasa.divisionalSecretariat.name" /></td>
+			<td colspan="3"><s:property value="lamaNivasa.category" /></td>
+			
 			<th>Total Children</th>
 			<td><s:property value="lamaNivasa.childs.size" /></td>
+		</tr>
+		<tr>
+			<th>District</th>
+			<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name" /></td>
+			
+			<th>Div. Secretariat</th>
+			<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name" /></td>
+			
+			<th>Grama Niladari</th>
+			<td><s:property value="lamaNivasa.gramaSevakaDivision.name" /></td>
 		</tr>
 		<tr>
 			<th>Probation Unit</th>
@@ -111,6 +120,7 @@
 
 </div>
 
+<s:if test="lamaNivasa.childs.size != 0">
 <div style="margin: 10px 0">
 	<table>
 		<tr>
@@ -144,3 +154,4 @@
 		</s:iterator>
 	</table>
 </div>
+</s:if>
