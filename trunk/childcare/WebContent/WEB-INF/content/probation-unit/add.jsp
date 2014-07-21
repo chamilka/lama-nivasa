@@ -16,13 +16,13 @@
 	
 	<s:form id="formAddProbationUnit" action="save" method="post" namespace="/probationUnit" >
 	 
-	 <table id="commonTable" class="orangeTbl" width="100%">
+	 <table id="contentTable" class="orangeTbl" width="100%">
 	 	  <s:actionerror />
 		  <s:hidden name="probationUnit.id" />
 		  <s:hidden name="probationUnit.sortOrder" />
 		  <s:hidden name="operationMode"/> 
 		  <tr>
-	 		<th>Name</th>
+	 		<th>Name<span class="required">*</span></th>
 	 		<td  colspan="3">
 		 		 <table cellpadding="0" cellspacing="0"><s:textfield name="probationUnit.name" cssStyle="width:350px" required="true" /></table>
 		 	</td>

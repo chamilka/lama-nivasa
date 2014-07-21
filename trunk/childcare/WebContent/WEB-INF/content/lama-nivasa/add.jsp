@@ -2,6 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
+
 	<div>
 	  <table>
 	   <tr>
@@ -16,18 +17,23 @@
 
 	<s:form id="lamaNivasaAddForm" action="save" method="post" namespace="/lamaNivasa" >
 
+	  <s:url id="districtDefaultJsonUrl" action="district-default-json" namespace="/lamaNivasa"/>
+	  <s:url id="dsSelectJsonUrl" action="ds-select-json" namespace="/lamaNivasa"/>
+	  <s:url id="districtSelectJsonUrl" action="district-select-json" namespace="/lamaNivasa"/>
+	  
 	  <s:actionerror/>
 	  <s:hidden name="lamaNivasa.id" />
 	  <s:hidden name="operationMode"/>
 
-	  <table id="commonTable" class="blueTbl" width="100%">
+	  <table id="contentTable" class="blueTbl" width="100%">
 
 	 	<tr>
-	 		<th>Name</th><td  colspan="5"><table><s:textfield name="lamaNivasa.name" cssStyle="width:450px" required="true" /></table></td>
+	 		<th>Name<span class="required">*</span></th><td  colspan="5"><table><s:textfield name="lamaNivasa.name" cssStyle="width:450px" required="true" /></table></td>
 	 	</tr>
 	 	<tr>
 	 		<th>Date of Establishment</th><td  colspan="5"><table>
 	 		<sj:datepicker
+	 			
      				id="dateOfEstablished"
      				name="lamaNivasa.dateOfEstablishment"
      				changeMonth="true"
@@ -39,28 +45,91 @@
 	 		</table></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Category</th><td><table><s:select name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
+	 		<th>Category<span class="required">*</span></th><td><table><s:select  name="lamaNivasa.category" list="lamaNivasaTypeList" listKey="listKey" listValue="listValue"/></table></td>
 	 		<th>Religion</th><td colspan="3"><table><s:select name="lamaNivasa.religion" list="religionList" listKey="listKey" listValue="listValue"/></table></td>
 	 	</tr>
+	 	
+	 	<s:if test="!user"> 
 	 	<tr>
-	 		<th>Unit</th><td colspan="2"><table><s:select name="lamaNivasa.probationUnit.id" list="probationUnitList" listKey="id" listValue="name"/></table></td>
-	 		<th>Probation Officer</th><td colspan="2"><table><s:select name="lamaNivasa.probationOfficer" list="probationUnitOfficerList" listKey="name" listValue="name"/></table></td>
+	 		<th>District: <s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name" /> </th>
+	 		<td colspan="5">
+	 				<table> <sj:select href="%{districtDefaultJsonUrl}" id="district" onChangeTopics="reloadsecondlist" name="districtId"
+                                list="districtList" listKey="id" listValue="name" emptyOption="false"
+                                headerKey="-1" headerValue="Please Select a District" 
+                                title="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name}"/>
+                    </table>
+            </td>
 	 	</tr>
 	 	<tr>
 	 	<th>Div. Secretariat</th>
 	 			<td colspan="5">
-	 				<table>  <sj:autocompleter
-			  		id="lamaNivasa.divisionalSecretariat.id"
-		     		name="lamaNivasa.divisionalSecretariat.id"
-		     		list="%{divisionalSecretariatList}"
-		     		listKey="id" listValue="name"
-		     	/></table></td>
+	 				<table> 
+	 					<sj:select href="%{districtSelectJsonUrl}" id="dsId" onChangeTopics="reloadThirdlist" formIds="lamaNivasaAddForm"
+                                reloadTopics="reloadsecondlist" name="divisionalSecretariatId" 
+                                list="divisionalSecretariatList" listKey="id" listValue="name" emptyOption="false"
+                                headerKey="-1" headerValue="Please Select a DS division"
+                                title="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name}"/>
+	 				</table></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 	<th>Grama Niladari Division :<span class="required">*</span></th>
+	 			<td colspan="5">
+	 				<table> 
+	 					<sj:select 
+	 						required="true" 
+	 						href="%{dsSelectJsonUrl}" id="gsId" 
+                            reloadTopics="reloadThirdlist" name="lamaNivasa.gramaSevakaDivision.id" 
+                            list="gramaSevakaDivisionList" listKey="id" listValue="name" emptyOption="false"
+                            headerKey="-1" headerValue="Please Select a GS division"
+                            title="%{lamaNivasa.gramaSevakaDivision.name}"/>
+	 				</table></td>
+	 	</tr>
+	 	
+	 	<tr>
+	 		<th>Unit</th><td colspan="2">
+	 			<table>
+	 				<sj:select href="%{districtSelectJsonUrl}" id="lamaNivasa.probationUnit.id" 
+                                reloadTopics="reloadsecondlist" name="lamaNivasa.probationUnit.id" 
+                                list="probationUnitList" listKey="id" listValue="name" emptyOption="false"
+                                headerKey="-1" headerValue="Please Select Probation Unit"/>
+	 			</table>
+	 		</td>
+	 		
+	 		<th>Probation Officer</th>
+	 			<td colspan="2">
+	 				<table>
+	 					<sj:select 
+	 						required="true" 
+	 						href="%{districtSelectJsonUrl}" id="lamaNivasa.probationOfficer" 
+                            reloadTopics="reloadsecondlist" name="lamaNivasa.probationOfficer" 
+                            list="probationUnitOfficerList" listKey="name" listValue="name" emptyOption="false"
+                            headerKey="-1" headerValue="Please Select Main Officer"/>
+	 				</table>
+	 			</td>
+	 	</tr>
+	 	</s:if>
+	 	<s:else>
+	 		 <s:hidden name="lamaNivasa.probationOfficer" />
+	 		 <s:hidden name="lamaNivasa.probationUnit.id" />
+	 		 <s:hidden name="lamaNivasa.gramaSevakaDivision.id" />
+		 	<tr>
+				<th>District</th>
+				<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name" /></td>
+				
+				<th>Div. Secretariat</th>
+				<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name" /></td>
+				
+				<th>Grama Niladari Division</th>
+				<td><s:property value="lamaNivasa.gramaSevakaDivision.name" /></td>
+			</tr>
+	 		 
+	 	</s:else>
+	 	<tr>
+	 		<th>Address<span class="required">*</span></th><td  colspan="5"><table><s:textfield name="lamaNivasa.address" cssStyle="width:500px" required="true" /></table></td>
 	 	</tr>
 	 	<tr>
-	 		<th>Address</th><td  colspan="5"><table><s:textfield name="lamaNivasa.address" cssStyle="width:300px" required="true" /></table></td>
-	 	</tr>
-	 	<tr>
-	 		<th>Telephone</th><td><table><s:textfield name="lamaNivasa.telephone"  cssStyle="width:150px" required="true" /></table></td>
+	 		<th>Telephone<span class="required">*</span></th><td><table><s:textfield  name="lamaNivasa.telephone"  cssStyle="width:150px" required="true" /></table></td>
 	 		<th>Fax</th><td><table><s:textfield name="lamaNivasa.fax"  cssStyle="width:150px" /></table></td>
 	 		<th>Email</th><td><table><s:textfield name="lamaNivasa.email"  cssStyle="width:200px" /></table></td>
 	 	</tr>

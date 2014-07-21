@@ -6,13 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.DivisionalSecretariat;
 import pdn.sci.cs.entity.GenericList;
+import pdn.sci.cs.entity.GramaSevakaDivision;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.DivisionalSecretariatService;
 import pdn.sci.cs.service.GenericListService;
+import pdn.sci.cs.service.GramaSevakaDivsionService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.SystemUserService;
@@ -25,16 +29,28 @@ public class LamaNivasaAction extends BaseAction {
 
   @Autowired
   private LamaNivasaService lamaNivasaService;
+
   @Autowired
   private ProbationUnitService probationUnitService;
+
   @Autowired
   private GenericListService genericListService;
+
   @Autowired
   private DivisionalSecretariatService divisionalSecretariatService;
+
+  @Autowired
+  private GramaSevakaDivsionService gramaSevakaDivsionService;
+
   @Autowired
   private SystemUserService systemUserService;
 
+  @Autowired
+  private DistrictService districtService;
+
+  private List<District> districtList;
   private List<DivisionalSecretariat> divisionalSecretariatList;
+  private List<GramaSevakaDivision> gramaSevakaDivisionList;
   private List<GenericList> lamaNivasaTypeList;
   private List<GenericList> lamaNivasaReligiousTypeList;
 
@@ -47,6 +63,9 @@ public class LamaNivasaAction extends BaseAction {
 
   private List<LamaNivasa> list;
   private LamaNivasa lamaNivasa;
+
+  private String districtId;
+  private String divisionalSecretariatId;
 
   public String list() {
     if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
@@ -181,7 +200,34 @@ public class LamaNivasaAction extends BaseAction {
       lamaNivasaService.delete(id);
       return list();
     }
+  }
 
+  public String districtListDefaultJson() {
+    districtList = districtService.findAll();
+    return SUCCESS;
+  }
+  
+  public String districtSelectJson() {
+   
+    if (districtId != null) {
+      
+      divisionalSecretariatList = divisionalSecretariatService.findByDistrictId(districtId);
+      probationUnitList = probationUnitService.findByDistrictId(districtId);
+      probationUnitOfficerList = systemUserService.findOfficersInDistrict(districtId);
+    }
+
+    return SUCCESS;
+  }
+
+  public String dsSelectJson() {
+
+    if (divisionalSecretariatId != null) {
+      gramaSevakaDivisionList =
+          gramaSevakaDivsionService.findByDivisionalSecretariatId(divisionalSecretariatId);
+    }
+
+
+    return SUCCESS;
   }
 
   private void validateLamaNivasa() {
@@ -196,6 +242,18 @@ public class LamaNivasaAction extends BaseAction {
     if (lamaNivasa.getTelephone().isEmpty()) {
       addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
     }
+    
+    if(lamaNivasa.getGramaSevakaDivision() == null || lamaNivasa.getGramaSevakaDivision().getId().equals("-1") || lamaNivasa.getGramaSevakaDivision().getId().isEmpty()) {
+      addFieldError("lamaNivasa.gramaSevakaDivision.id", "Grama Niladari division cannot be empty");
+    }
+    
+    if(lamaNivasa.getProbationUnit() == null || lamaNivasa.getProbationUnit().getId().equals("-1") || lamaNivasa.getProbationUnit().getId().isEmpty()) {
+      addFieldError("lamaNivasa.probationUnit.id", "Probation unit cannot be empty");
+    }
+    
+    if(lamaNivasa.getProbationOfficer() == null || lamaNivasa.getProbationOfficer().equals("-1")) {
+      addFieldError("lamaNivasa.probationOfficer", "Probation office should be assigned");
+    }
 
   }
 
@@ -207,9 +265,11 @@ public class LamaNivasaAction extends BaseAction {
     yesNoList = genericListService.findListByCategoryId("C010");
     religionList = genericListService.findListByCategoryId("C040");
 
-    probationUnitList = probationUnitService.findAll();
-    divisionalSecretariatList = divisionalSecretariatService.findAll();
-    probationUnitOfficerList = systemUserService.findByUserRole(SystemUser.USER_ROLE.OFFICER);
+    // districtList = districtService.findAll();
+    // probationUnitList = probationUnitService.findAll();
+    // divisionalSecretariatList = divisionalSecretariatService.findAll();
+    // gramaSevakaDivisionList = gramaSevakaDivsionService.findByDivisionalSecretariatId("DS1");
+    // probationUnitOfficerList = systemUserService.findByUserRole(SystemUser.USER_ROLE.OFFICER);
   }
 
   public List<LamaNivasa> getList() {
@@ -300,6 +360,36 @@ public class LamaNivasaAction extends BaseAction {
     this.religionList = religionList;
   }
 
+  public List<GramaSevakaDivision> getGramaSevakaDivisionList() {
+    return gramaSevakaDivisionList;
+  }
 
+  public void setGramaSevakaDivisionList(List<GramaSevakaDivision> gramaSevakaDivisionList) {
+    this.gramaSevakaDivisionList = gramaSevakaDivisionList;
+  }
+
+  public List<District> getDistrictList() {
+    return districtList;
+  }
+
+  public void setDistrictList(List<District> districtList) {
+    this.districtList = districtList;
+  }
+
+  public String getDistrictId() {
+    return districtId;
+  }
+
+  public void setDistrictId(String districtId) {
+    this.districtId = districtId;
+  }
+
+  public String getDivisionalSecretariatId() {
+    return divisionalSecretariatId;
+  }
+
+  public void setDivisionalSecretariatId(String divisionalSecretariatId) {
+    this.divisionalSecretariatId = divisionalSecretariatId;
+  }
 
 }

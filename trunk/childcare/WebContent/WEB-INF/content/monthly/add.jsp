@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td>Monthly Information</td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td>Monthly Information : <s:property value="monthlyData.lamaNivasa.name" /></td>
 	   </tr>
 	   
 	  </table>
@@ -13,7 +13,7 @@
 
 	
 	<hr />
-	<s:property value="monthlyData.id" />
+
 	<s:form action="save" method="post" namespace="/report" cssStyle="margin-left:50px" >
 	 
 	 <s:actionerror/>
@@ -470,7 +470,7 @@
 		     	      <sj:datepicker 
 	     				id="probationOfficerObserved" 
 	     				name="monthlyData.probationOfficerVisitedDate" 
-	     				value="monthlyData.probationOfficerVisitedDate.time"
+	     				value="%{monthlyData.probationOfficerVisitedDate.time}"
 	     				label="Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -484,7 +484,7 @@
 		     	     <sj:datepicker 
 	     				id="counsellorVisitedDate" 
 	     				name="monthlyData.counsellorVisitedDate" 
-	     				value="monthlyData.counsellorVisitedDate.time"
+	     				value="%{monthlyData.counsellorVisitedDate.time}"
 	     				label="Counsellor" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -501,7 +501,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentCommissionerVisitedDate" 
 	     				name="monthlyData.departmentCommissionerVisitedDate" 
-	     				value="monthlyData.departmentCommissionerVisitedDate.time"
+	     				value="%{monthlyData.departmentCommissionerVisitedDate.time}"
 	     				label="Department Commissioner" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -515,7 +515,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentProbationOfficerVisitedDate" 
 	     				name="monthlyData.departmentProbationOfficerVisitedDate" 
-	     				value="monthlyData.departmentProbationOfficerVisitedDate.time"
+	     				value="%{monthlyData.departmentProbationOfficerVisitedDate.time}"
 	     				label="Department Probation Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -532,7 +532,7 @@
 		     	      <sj:datepicker 
 	     				id="departmentOfChildDevelopmentOfficerVisitedDate" 
 	     				name="monthlyData.departmentOfChildDevelopmentOfficerVisitedDate" 
-	     				value="monthlyData.departmentOfChildDevelopmentOfficerVisitedDate.time"
+	     				value="%{monthlyData.departmentOfChildDevelopmentOfficerVisitedDate.time}"
 	     				label="Department Child Development Officer" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -553,7 +553,7 @@
 		     	      <sj:datepicker 
 	     				id="theLastMeetingHeldOn" 
 	     				name="monthlyData.theLastMeetingHeldOn" 
-	     				value="monthlyData.theLastMeetingHeldOn.time"
+	     				value="%{monthlyData.theLastMeetingHeldOn.time}"
 	     				label="The last meeting" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -584,7 +584,7 @@
 		     	      <sj:datepicker 
 	     				id="placementCommittee" 
 	     				name="monthlyData.placementCommittee" 
-	     				value="monthlyData.placementCommittee.time"
+	     				value="%{monthlyData.placementCommittee.time}"
 	     				label="Placement Committee" 
 	     				changeMonth="true" 
 	     				changeYear="true"
@@ -680,7 +680,7 @@
 		     </td>
 	    </tr> 			
 	    
-	    <tr>
+	     <tr>
 		     <td style="padding-left: 25px" colspan="2">
 		     	 <table>
 		     	 	 <sj:spinner 
@@ -697,6 +697,43 @@
 		     </td>
 		    
 	    </tr> 	
+	    <tr>
+		     <td>
+		       <b>12. Child Care Plans</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	 <sj:spinner 
+				    	name="monthlyData.numNoChildPlans" 
+				    	id="numNoChildPlans" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="No of Children Do Not Have Care Plans"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 <sj:spinner 
+				    	name="monthlyData.numDeviatedChildPlans" 
+				    	id="numDeviatedChildPlans" 
+				    	min="0" 
+				    	max="100" 
+				    	step="1" 
+				    	label="No of Children Deviated From Care Plans"
+				    	cssStyle="width:60px"
+				    	mouseWheel="true"/>
+		     	 	 
+		     	 </table>
+		     </td>
+	    </tr> 			
+	    
+	   
     
 	    <tr>
 		      <td colspan="2">

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pdn.sci.cs.dao.MonthlyDataDao;
 import pdn.sci.cs.entity.MonthlyData;
+import pdn.sci.cs.entity.MonthlyDataReport;
 
 @Service
 public class MonthlyDataService {
@@ -40,6 +41,15 @@ public class MonthlyDataService {
 
   public void deleteByLamaNivasaYearMonth(String id, Integer year, String month) {
     monthlyDataDao.delete(id, year, month);
+  }
+  
+  public MonthlyDataReport report(int year, String month) {
+    List<MonthlyDataReport> l = monthlyDataDao.report(year, month);
+    if(l.size() > 0) {
+      return l.get(0);
+    } else {  
+      return null;
+    }
   }
 
 }

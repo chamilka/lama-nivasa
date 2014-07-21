@@ -516,6 +516,29 @@
 		     	 </table>
 		     </td>
 	    </tr> 
+	    <tr>
+		     <td>
+		       <b>12. Child Care Plans</b>
+		     </td>
+	    </tr>
+	    <tr>
+		     <td style="padding-left: 25px">
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numNoChildPlans" 
+				    	label="No. of children do not have care plans"
+				    	/>
+		     	 </table>
+		     </td>
+		      <td>
+		     	 <table>
+		     	 	<s:label 
+				    	name="monthlyData.numDeviatedChildPlans" 
+				    	label="No of Children Deviated From Care Plans"
+				    	/>
+		     	 </table>
+		     </td>
+	    </tr> 		
 	    
 	    <s:if test="user">	
 	    <tr>

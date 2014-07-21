@@ -1,6 +1,7 @@
 package pdn.sci.cs.action;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,12 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.entity.MonthlyDataReport;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
+import pdn.sci.cs.service.MonthlyDataService;
 import pdn.sci.cs.util.ChildrenSummary;
 
 
@@ -29,6 +32,7 @@ public class ChildAction extends BaseAction {
   private GenericListService genericListService;
 
   private ChildrenSummary childSummary;
+  
   private Child child;
   private List<Child> list;
   private List<LamaNivasa> lamaNivasaList;
@@ -41,7 +45,7 @@ public class ChildAction extends BaseAction {
   private List<GenericList> parentAvailabilityList;
   private List<GenericList> hasDoNotHaveProcessingList;
   private List<GenericList> childCategoryList;
-
+  
   public String childSummary() {
     childSummary = childService.getChildrenSummary();
     return SUCCESS;

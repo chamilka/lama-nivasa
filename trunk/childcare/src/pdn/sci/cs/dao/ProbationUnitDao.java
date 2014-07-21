@@ -23,4 +23,12 @@ private static final Class<ProbationUnit> clazz = ProbationUnit.class;
 		return findByCriteria(criteria);
 		
 	}
+
+  public List<ProbationUnit> findByDistrictId(String districtId) {
+    DetachedCriteria criteria = createCriteria(clazz);
+    
+    criteria.add(Restrictions.eq(ProbationUnit.DISTRICT_ID, districtId));
+
+    return findByCriteria(criteria);
+  }
 }

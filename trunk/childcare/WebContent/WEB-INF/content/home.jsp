@@ -20,6 +20,8 @@
 	
 	<script type="text/javascript" src="<s:url value="/javaScript/user.js" includeParams="none"/>"> </script>
 	
+	
+	
 	<sj:head jqueryui="true" jquerytheme="redmond" defaultIndicator="defaultIndicator"/>
 	<script type="text/javascript">
 	//var count = 0;

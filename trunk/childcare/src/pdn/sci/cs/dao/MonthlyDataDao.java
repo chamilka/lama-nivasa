@@ -3,11 +3,13 @@ package pdn.sci.cs.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.MonthlyData;
+import pdn.sci.cs.entity.MonthlyDataReport;
 
 @Repository
 public class MonthlyDataDao extends GenericDao<MonthlyData> {
@@ -51,6 +53,58 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
       logger.info(md);
       delete(md);
     }
-
+  }
+  
+ 
+  public List<MonthlyDataReport> report(int year, String month) {
+    String sql = "SELECT 'ID_0' as ID, "
+                + "0 as MUN_OF_MALE_HAVING_SPECIAL_REQUIREMENTS,"
+                + "0 as NUM_OF_FEMALE_HAVING_SPECIAL_REQUIREMENTS,"
+                + "0 as NUM_OF_MEETINGS_UPTO_NOW,"
+                + "0 as NUM_OF_OFFICERS,"
+                + "0 as NUM_OF_VACANT_OFFICERS,"+
+                  "SUM(NUM_OF_MALE_CHILDREN) AS NUM_OF_MALE_CHILDREN," +
+                  "SUM(NUM_OF_FEMALE_CHILDREN) AS NUM_OF_FEMALE_CHILDREN," +
+                  "SUM(NUM_OF_FEMALE_REUNIFICATION) AS NUM_OF_FEMALE_REUNIFICATION," +
+                  "SUM(NUM_OF_MALE_REUNIFICATION) AS NUM_OF_MALE_REUNIFICATION," +
+                  "SUM(NUM_OF_FEMALE_TRANSFERS) AS NUM_OF_FEMALE_TRANSFERS," +
+                  "SUM(NUM_OF_MALE_TRANSFERS) AS NUM_OF_MALE_TRANSFERS," +
+                  "SUM(NUM_OF_PROFORMA_FEMALE) AS NUM_OF_PROFORMA_FEMALE," +
+                  "SUM(NUM_OF_PROFORMA_MALE) AS NUM_OF_PROFORMA_MALE," +
+                  "SUM(NUM_OF_FEMALE_NO_GUARDIANS) AS NUM_OF_FEMALE_NO_GUARDIANS," +
+                  "SUM(NUM_OF_MALE_NO_GUARDIANS) AS NUM_OF_MALE_NO_GUARDIANS," +
+                  "SUM(NUM_OF_FEMALE_TERMINATES) AS NUM_OF_FEMALE_TERMINATES," +
+                  "SUM(NUM_OF_MALE_TERMINATES) AS NUM_OF_MALE_TERMINATES," +
+                  "SUM(NUM_OF_INTAKES) AS NUM_OF_INTAKES," +
+                  "SUM(INTAKE_FROM_COURT) AS INTAKE_FROM_COURT," +
+                  "SUM(INTAKE_FROM_DEPARTMENT) AS INTAKE_FROM_DEPARTMENT," +
+                  "SUM(INTAKE_FROM_PARENTS) AS INTAKE_FROM_PARENTS," +
+                  "SUM(INTAKE_FROM_ORGANIZATIONS) AS INTAKE_FROM_ORGANIZATIONS," +
+                  "SUM(INTAKE_FROM_OTHER) AS INTAKE_FROM_OTHER," +
+                  "SUM(NUM_TO_MARRAGE) AS NUM_TO_MARRAGE," + 
+                  "SUM(NUM_TO_ADOPTION) as NUM_TO_ADOPTION,"
+                  + "SUM(NUM_TO_PARENT) as NUM_TO_PARENT," +
+                  "SUM(NUM_TO_EMPLOYEMENT) AS NUM_TO_EMPLOYEMENT," +
+                  "SUM(NUM_TO_VOCATIONAL) AS NUM_TO_VOCATIONAL," +
+                  "SUM(NUM_TO_SELF_EMPLOYEMENT) AS NUM_TO_SELF_EMPLOYEMENT," +
+                  "SUM(NUM_TO_OTHER) AS NUM_TO_OTHER," +
+                  "SUM(NUM_NO_CHILD_PLANS) AS NUM_NO_CHILD_PLANS," +
+                  "SUM(NUM_DEVIATED_CHILD_PLANS) AS NUM_DEVIATED_CHILD_PLANS" +
+                  " FROM monthly_data" +
+                  " WHERE 1<> 0 "; 
+    
+     if(year != 0) {
+       sql += " AND YEAR = " + year;
+     }
+     
+     if(!month.isEmpty()) {
+       sql += " AND MONTH = \'" + month + "\'";
+     }
+    
+     Query query = getSession().createSQLQuery(sql).addEntity(MonthlyDataReport.class);
+     List<MonthlyDataReport> list = query.list();
+     
+     return list;
+     
   }
 }

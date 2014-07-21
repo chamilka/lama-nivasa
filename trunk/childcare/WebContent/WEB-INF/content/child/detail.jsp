@@ -5,19 +5,20 @@
 <div>
 
 	<div>
-	  <table style="width:100%">
+	  <%-- <table style="width:100%">
 	   <tr>
 	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Detail</td>
 	   		<td>&nbsp;</td>
 	   			<td style="align:right; width:100px"> <a href="#"><img src='<s:url value="/images/ms-excel.png" />' style="width:48px;height:48px" title="Download MS-Excel" /></a></td>
 	   </tr>
-	  </table>
+	  </table> --%>
 	 </div>
+
 
 	<div style="margin: 20px 0 0 20px;border: 1px dotted;">
 	 	<table>
 	 	 <tr>
-	 	   <td>
+	 	   <%-- <td>
 	 	     <table>
 			  	<s:select headerKey="-1" headerValue="" label="Province"
 		       			  list="#{'Central':'Central', 'Western':'Western', 'Southern':'Southern'}"></s:select>
@@ -28,17 +29,17 @@
 	       		<s:select headerKey="-1" headerValue="" label="District"
 	       			  list="#{'Kandy':'Kandy', 'Matale':'Matale', 'Nuwara Eliya':'Nuwara Eliya', 'Colombo':'Colombo', 'Gampaha':'Gampaha'}"></s:select>
 		     </table>
-	       </td>
+	       </td> --%>
 	 	   <td>
 	 	     <table>
-				<s:select headerKey="-1" headerValue="" label="Start Year"
+				<s:select headerKey="-1" headerValue="" label="Year" name="searchYear"
 	         			  list="#{'2012':'2012', '2013':'2013', '2014':'2014'}"></s:select>
 	        </table>
 	       </td>
 	 	   <td>
 	 	     <table> 			  
-	        	<s:select headerKey="-1" headerValue="" label="End Year"
-	       			  list="#{'2012':'2012', '2013':'2013', '2014':'2014'}"></s:select>
+	        	<s:select headerKey="-1" headerValue="" label="MONTH" name="searchMonth"
+	       			  list="#{'JANUARY':'JANUARY', 'FEBRUARY':'FEBRUARY', 'MARCH':'MARCH'}"></s:select>
 	       	 </table>
 	       </td>
 	       <td>

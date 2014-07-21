@@ -21,6 +21,10 @@ public class DistrictService {
 		return districtDao.findById(id);
 	}
 	
+	public District findByDistrictCode(String code) {
+	    return districtDao.findByDistrictCode(code);
+	}
+	
 	public District save(District d) {
 		return districtDao.save(d);
 	}
@@ -28,5 +32,7 @@ public class DistrictService {
 	public void update(District d) {
 		districtDao.update(d);
 	}
+	
+	
 
 }

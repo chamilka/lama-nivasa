@@ -148,6 +148,13 @@
 
 				<sj:a href="%{#childRecordFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Records" /></sj:a>
 
+			|
+				<s:url var="childCareplanFrameUrl" action="frame" namespace="/childCareplan" includeParams="none">
+					<s:param name="childId" value="child.id"></s:param>
+				</s:url>
+
+				<sj:a href="%{#childCareplanFrameUrl}" targets="childDetailViewDiv"><input type="button" value="Care Plan" /></sj:a>
+			
     	</td>
     	<td colspan="3">&nbsp;
     	</td>
