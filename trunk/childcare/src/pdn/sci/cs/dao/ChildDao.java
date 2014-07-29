@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.Child;
-import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.util.ChildrenSummary;
 import pdn.sci.cs.util.MaleFemale;
 import pdn.sci.cs.util.Pager;
@@ -62,28 +61,28 @@ public class ChildDao extends GenericDao<Child> {
 		ChildrenSummary cs = new ChildrenSummary();
 
 		cs.setCount(getSexTypeCount());
-		cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST"));
-		cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC"));
-		cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY"));
-		cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM"));
-		cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM"));
-		cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER"));
+		cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", 0, null));
+		cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", 0, null));
+		cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", 0, null));
+		cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", 0, null));
+		cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", 0, null));
+		cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", 0, null));
 
-		cs.setSinhala(getTypeCount(Child.RACE, "SINHALA"));
-		cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL"));
-		cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL"));
-		cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM"));
-		cs.setRaceOther(getTypeCount(Child.RACE, "OTHER"));
+		cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", 0, null));
+		cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", 0, null));
+		cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", 0, null));
+		cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", 0, null));
+		cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", 0, null));
 
-		cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH"));
-		cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY"));
-		cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY"));
-		cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE"));
+		cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", 0, null));
+		cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", 0, null));
+		cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", 0, null));
+		cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", 0, null));
 
-		cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT"));
-		cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT"));
-		cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT"));
-		cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT"));
+		cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", 0, null));
+		cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", 0, null));
+		cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", 0, null));
+		cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", 0, null));
 
 		Calendar today = GregorianCalendar.getInstance();
 		Calendar twoYear = (Calendar)today.clone();
@@ -123,16 +122,28 @@ public class ChildDao extends GenericDao<Child> {
 		return criteria;
 	}
 
-	private DetachedCriteria maleCriteriaByRestriction(String key, String value) {
+	private DetachedCriteria maleCriteriaByRestriction(String key, String value, int age, String district) {
 		DetachedCriteria criteria;
 
 		criteria = createCriteria(getPersistentClass());
 		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
 		criteria.add(Restrictions.eq(key, value));
+		
+		if(age != 0) {
+		  Calendar today = GregorianCalendar.getInstance();
+	      Calendar before = (Calendar)today.clone();
+	      before.add(Calendar.YEAR, -age);
+	      criteria.add(Restrictions.between(key, before, today));
+		}
+		
+		if(district.equals("-1")) {
+		  
+		}
+		
 		return criteria;
 	}
 
-	private DetachedCriteria femaleCriteriaByRestriction(String key, String value) {
+	private DetachedCriteria femaleCriteriaByRestriction(String key, String value, int age, String district) {
 		DetachedCriteria criteria;
 
 		criteria = createCriteria(getPersistentClass());
@@ -172,11 +183,11 @@ public class ChildDao extends GenericDao<Child> {
 	}
 
 
-	private MaleFemale getTypeCount(String key, String value) {
+	private MaleFemale getTypeCount(String key, String value, int age, String district) {
 
-		int male = getCount(maleCriteriaByRestriction(key, value));
-		int female = getCount(femaleCriteriaByRestriction(key, value));
-
+		int male = getCount(maleCriteriaByRestriction(key, value, age, district));
+		int female = getCount(femaleCriteriaByRestriction(key, value, age, district));
+		
 		return new MaleFemale(male, female);
 	}
 
@@ -213,6 +224,36 @@ public class ChildDao extends GenericDao<Child> {
 		
 		return pager;
 	}
+
+  public ChildrenSummary buildChildSummary(int age, String district) {
+    ChildrenSummary cs = new ChildrenSummary();
+
+    cs.setCount(getSexTypeCount());
+    cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", age, district));
+    cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", age, district));
+    cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", age, district));
+    cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", age, district));
+    cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", age, district));
+    cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", age, district));
+
+    cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", age, district));
+    cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", age, district));
+    cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", age, district));
+    cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", age, district));
+    cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", age, district));
+
+    cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", age, district));
+    cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", age, district));
+    cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", age, district));
+    cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", age, district));
+
+    cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", age, district));
+    cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", age, district));
+    cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", age, district));
+    cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", age, district));
+
+    return cs;
+  }
 
 }
 

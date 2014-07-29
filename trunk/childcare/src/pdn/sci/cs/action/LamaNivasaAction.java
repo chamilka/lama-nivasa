@@ -68,7 +68,8 @@ public class LamaNivasaAction extends BaseAction {
   private String divisionalSecretariatId;
 
   public String list() {
-    if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
+        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
       String referenceId = getSessionUser().getReferenceId();
       if (referenceId == null) {
         return INPUT;
@@ -197,7 +198,11 @@ public class LamaNivasaAction extends BaseAction {
       addActionError("Could not delete the entry, id is missing");
       return INPUT;
     } else {
-      lamaNivasaService.delete(id);
+      lamaNivasa = lamaNivasaService.findById(this.id);
+      if(lamaNivasa != null) {
+        lamaNivasa.setStatus(1);
+        lamaNivasaService.save(lamaNivasa);
+      }
       return list();
     }
   }

@@ -12,11 +12,23 @@
 		<action name="frame" class="pdn.sci.cs.action.ChildAction" method="frame">
 			<result name="success">/WEB-INF/content/child/frame.jsp</result>
 		</action>
+		
+		<action name="summary-frame" class="pdn.sci.cs.action.ChildAction" method="childSummaryFrame">
+			<result name="success">/WEB-INF/content/child/summary-frame.jsp</result>
+		</action>
 
 		<action name="search-form" class="pdn.sci.cs.action.ChildAction" method="searchForm">
 			<result name="success">/WEB-INF/content/child/search.jsp</result>
 		</action>
 
+		<action name="summary-search-form" class="pdn.sci.cs.action.ChildAction" method="summarySearchForm">
+			<result name="success">/WEB-INF/content/child/summary-search.jsp</result>
+		</action>
+		
+		<action name="summary-search" class="pdn.sci.cs.action.ChildAction" method="summarySearch">
+			<result name="success">/WEB-INF/content/child/summary.jsp</result>
+		</action>
+		
 		<action name="search-form-lama-nivasa" class="pdn.sci.cs.action.ChildAction" method="searchFormLamaNivasa">
 			<result name="success">/WEB-INF/content/child/search.jsp</result>
 		</action>

@@ -50,7 +50,7 @@
 			<s:url var="childListUrl" action="list"
 				namespace="/child" includeParams="none"></s:url>
 
-			<s:url var="childSummaryUrl" action="summary"
+			<s:url var="childSummaryUrl" action="summary-frame"
 				namespace="/child" includeParams="none"></s:url>
 			
 			<s:url var="childDetailUrl" action="detail-search-form"

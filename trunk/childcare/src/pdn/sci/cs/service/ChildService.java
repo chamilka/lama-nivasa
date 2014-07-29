@@ -50,6 +50,10 @@ public class ChildService {
 	public ChildrenSummary getChildrenSummary() {
 		return childDao.buildChildSummary();
 	}
+	
+	public ChildrenSummary getChildrenSummary(int age, String district) {
+      return childDao.buildChildSummary(age, district);
+  }
 
 	public Pager findAllByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
 		return childDao.findAllByProbationUnitId(referenceId,pageStart,pageSize);
