@@ -5,32 +5,26 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title">Detail Information</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Detail Information</td>
 	   </tr>
 	   
 	  </table>
 	</div>
 
-	
 	<hr />
      <div style="margin-left:50px"> <s:actionerror/></div>
      
      <s:if test="!hasErrors()" > 		 
 	 <table width="100%" style="margin-left:50px">
 	  
-	  
-       <tr>
-       	<td colspan="2">
-       		<hr />
-       	</td>
-       </tr> 
-	   
-	   <tr>
+	    
+	  <tr>
 	     <td>
 	       <b>1. Reunifications</b>
 	     </td>
-	   </tr>
-	    <tr>
+	  </tr>
+	  
+	  <tr>
 		     <td style="padding-left: 25px">
 		     	 <table>
 		     	     <s:label 

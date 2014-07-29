@@ -8,8 +8,8 @@
 	  <table style="width:100%">
 	   <tr>
 	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Summary</td>
-	   		<td>&nbsp;</td>
-	   			<td style="align:right; width:100px"> <a href="#"><img src='<s:url value="/images/ms-excel.png" />' style="width:48px;height:48px" title="Download MS-Excel" /></a></td>
+	   		<%-- <td>&nbsp;</td>
+	   			<td style="align:right; width:100px"> <a href="#"><img src='<s:url value="/images/ms-excel.png" />' style="width:48px;height:48px" title="Download MS-Excel" /></a></td> --%>
 	   </tr>
 	  </table>
 	</div>
@@ -40,10 +40,11 @@
 	    </tr>
 	  </table>
 	</div>
-
+	
+	
 <div align="center">
 	<div style="margin: 20px 0 0 10px; float: left;">
-		<table class="darkBlueTbl">
+		<table class="blueTbl">
         	<tr><th colspan="2">Age</th></tr>
         	<tr><td colspan="2"><b>1. Age less than 2 (<s:property value="childSummary.ageLessThanTwo.male + childSummary.ageLessThanTwo.female" /> )</b></td></tr>
 		   	<tr>
@@ -118,7 +119,7 @@
 	</div>
 
 	<div style="margin: 20px 0 0 10px; float: left;">
-	  <table class="darkBlueTbl">
+	  <table class="blueTbl">
 	  <tr>
 	     <th class="td3" colspan="2">
 	       Religion
@@ -243,7 +244,7 @@
     </div>
 
     <div style="margin: 20px 0 0 10px;float: left;">
-      <table class="darkBlueTbl">
+      <table class="blueTbl">
         <tr><th colspan="2">Race</th></tr>
 	    <tr><td colspan="2"><b>11. Sinhala (<s:property value="childSummary.sinhala.male + childSummary.sinhala.female" /> )</b></td></tr>
 	   	<tr>
@@ -337,8 +338,8 @@
 	  </table>
 	 </div>
 
-	<div style="margin: 20px 0 0 10px;float: left; background-color: #f0f0f0">
-	    <table class="darkBlueTbl">
+	<div style="margin: 20px 0 0 10px;float: left;">
+	    <table class="blueTbl">
         <tr><th colspan="2">Parents</th></tr>
 	    <tr><td colspan="2"><b>16. Both Parents (<s:property value="childSummary.parentBoth.male + childSummary.parentBoth.female" /> )</b></td></tr>
 	   	<tr>
@@ -416,7 +417,7 @@
 
 
     <div style="margin: 20px 0 0 10px;float: left;">
-       <table class="darkBlueTbl">
+       <table class="blueTbl">
         <tr><th colspan="2">Intake</th></tr>
 	    <tr><td colspan="2"><b>20. Courts (<s:property value="childSummary.intakeCourt.male + childSummary.intakeCourt.female" /> )</b></td></tr>
 	   	<tr>
@@ -489,30 +490,6 @@
 		     	 </table>
 		     </td>
 	    </tr>
-	 </table>
-	</div>
-	
-	<div style="margin: 20px 0 0 10px;float: left;">
-       <table class="darkBlueTbl">
-        <tr><th colspan="2">Socialized</th></tr>
-	    <tr><td colspan="2"><b>24. Socialized Information in 2014 (<s:property value="childSummary.intakeCourt.male + childSummary.intakeCourt.female" /> )</b></td></tr>
-	   	<tr>
-		     <td style="padding-left: 25px">
-		     	 <table>
-		     	 	<s:label
-				    	name="childSummary.intakeCourt.male"
-				    	label="Male"  />
-		     	 </table>
-		     </td>
-		     <td>
-		     	 <table>
-		     	 	<s:label
-				    	name="childSummary.intakeCourt.female"
-				    	label="Female"  />
-		     	 </table>
-		     </td>
-	    </tr>
-
 	 </table>
 	</div>
 

@@ -4,7 +4,7 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <div>
-
+	
 	<div>
 		<table style="width: 100%">
 			<tr>
@@ -17,10 +17,13 @@
 	</div>
 
 
-	<div style="margin: 20px 0 0 20px; border: 1px dotted;">
+	<div style="margin: 20px 0 0 0px; border: 1px;">
 		<s:form action="detail-search-result" namespace="/report"
 			method="post">
-			<table>
+			 <table id="commonTable" class="blueTbl" cellpadding="0" cellspacing="0" style="width: 100%; text-align: left;">
+			   <tr>
+			   	<th colspan="6">Summary Criteria</th>
+			   </tr>
 				<tr>
 					<%-- <td>
 	 	     <table>

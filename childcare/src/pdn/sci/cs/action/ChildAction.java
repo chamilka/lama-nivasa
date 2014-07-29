@@ -1,21 +1,20 @@
 package pdn.sci.cs.action;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import pdn.sci.cs.entity.Child;
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
-import pdn.sci.cs.entity.MonthlyDataReport;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
+import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
-import pdn.sci.cs.service.MonthlyDataService;
 import pdn.sci.cs.util.ChildrenSummary;
 
 
@@ -26,10 +25,15 @@ public class ChildAction extends BaseAction {
 
   @Autowired
   private ChildService childService;
+  
   @Autowired
   private LamaNivasaService lamaNivasaService;
+  
   @Autowired
   private GenericListService genericListService;
+  
+  @Autowired
+  private DistrictService districtService;
 
   private ChildrenSummary childSummary;
   
@@ -45,6 +49,26 @@ public class ChildAction extends BaseAction {
   private List<GenericList> parentAvailabilityList;
   private List<GenericList> hasDoNotHaveProcessingList;
   private List<GenericList> childCategoryList;
+  private List<GenericList> ageLimitList;
+  
+  private List<District> districtList;
+  private String searchDistrict;
+  private int searchAge = 0;
+  
+  public String childSummaryFrame() {
+    return SUCCESS;
+  }
+  
+  public String summarySearchForm() {
+    ageLimitList = genericListService.findListByCategoryId("C090");
+    districtList = districtService.findAll();
+    return SUCCESS;
+  }
+  
+  public String summarySearch() {
+    childSummary = childService.getChildrenSummary(searchAge, searchDistrict);
+    return SUCCESS;
+  }
   
   public String childSummary() {
     childSummary = childService.getChildrenSummary();
@@ -81,7 +105,8 @@ public class ChildAction extends BaseAction {
   // return SUCCESS;
   // }
   public String list() {
-    if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
+        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
       String referenceId = getSessionUser().getReferenceId();
       // pageSize = 4 *SEARCH_PAGE_SIZE;
 
@@ -247,7 +272,11 @@ public class ChildAction extends BaseAction {
       return INPUT;
     } else {
       try {
-        childService.delete(id);
+        child = childService.findById(this.id);
+        if(child != null) {
+          child.setStatus(1);
+          childService.save(child);
+        }
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -407,4 +436,36 @@ public class ChildAction extends BaseAction {
     this.childSummary = childSummary;
   }
 
+  public List<District> getDistrictList() {
+    return districtList;
+  }
+
+  public void setDistrictList(List<District> districtList) {
+    this.districtList = districtList;
+  }
+
+  public String getSearchDistrict() {
+    return searchDistrict;
+  }
+
+  public void setSearchDistrict(String searchDistrict) {
+    this.searchDistrict = searchDistrict;
+  }
+
+  public int getSearchAge() {
+    return searchAge;
+  }
+
+  public void setSearchAge(int searchAge) {
+    this.searchAge = searchAge;
+  }
+
+  public List<GenericList> getAgeLimitList() {
+    return ageLimitList;
+  }
+
+  public void setAgeLimitList(List<GenericList> ageLimitList) {
+    this.ageLimitList = ageLimitList;
+  }
+  
 }
