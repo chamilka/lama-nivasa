@@ -11,10 +11,12 @@ import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.entity.MonthlyDataReport;
+import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.MonthlyDataService;
+import pdn.sci.cs.service.ProvinceService;
 
 @Scope(value = "prototype")
 public class MonthlyInformationAction extends BaseAction {
@@ -27,6 +29,9 @@ public class MonthlyInformationAction extends BaseAction {
   private MonthlyDataService monthlyDataService;
   @Autowired
   private LamaNivasaService lamaNivasaService;
+  @Autowired
+  private ProvinceService provinceService;
+  
   private String lamaNivasaId;
   private MonthlyData monthlyData;
   private List<MonthlyData> list;
@@ -35,6 +40,7 @@ public class MonthlyInformationAction extends BaseAction {
   private List<GenericList> monthList;
   private List<LamaNivasa> lamaNivasaList;
   private MonthlyDataReport monthlyDataReport;
+  private List<Province> provinceList;
 
   private int year =  Calendar.getInstance().get(Calendar.YEAR);
   private String month = "";
@@ -80,7 +86,6 @@ public class MonthlyInformationAction extends BaseAction {
   public String edit() {
     //edit();
     findById();
-    System.out.println(monthlyData);
     viewInit();
     editMode();
     assignLamaNivasaId();
@@ -281,4 +286,13 @@ public class MonthlyInformationAction extends BaseAction {
   public void setMonthlyDataReport(MonthlyDataReport monthlyDataReport) {
     this.monthlyDataReport = monthlyDataReport;
   }
+
+  public List<Province> getProvinceList() {
+    return provinceList;
+  }
+
+  public void setProvinceList(List<Province> provinceList) {
+    this.provinceList = provinceList;
+  }
+  
 }

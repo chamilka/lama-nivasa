@@ -22,9 +22,15 @@
 	   	  		 </td>
 	   	  		 <td>
 				   	 <table>
+						<s:select list="provinceList" label="Province" listKey="id" listValue="name" name="searchProvince" headerKey="-1" headerValue="All provinces"/>	   
+			     	 </table>
+				</td>
+	   	  		 <td>
+				   	 <table>
 						<s:select list="districtList" label="District" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
 			     	 </table>
 				</td>
+				
 				<td>
 				   	 <table>
 						<sj:submit targets="childSummaryDiv" value="Filter" />	   
