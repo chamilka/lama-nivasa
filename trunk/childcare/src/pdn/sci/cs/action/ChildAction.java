@@ -10,11 +10,13 @@ import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
+import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.util.ChildrenSummary;
 
 
@@ -34,6 +36,9 @@ public class ChildAction extends BaseAction {
   
   @Autowired
   private DistrictService districtService;
+  
+  @Autowired
+  private ProvinceService provinceService;
 
   private ChildrenSummary childSummary;
   
@@ -50,10 +55,12 @@ public class ChildAction extends BaseAction {
   private List<GenericList> hasDoNotHaveProcessingList;
   private List<GenericList> childCategoryList;
   private List<GenericList> ageLimitList;
+  private List<Province> provinceList;
   
   private List<District> districtList;
   private String searchDistrict;
   private int searchAge = 0;
+  private String searchProvince;
   
   public String childSummaryFrame() {
     return SUCCESS;
@@ -62,6 +69,7 @@ public class ChildAction extends BaseAction {
   public String summarySearchForm() {
     ageLimitList = genericListService.findListByCategoryId("C090");
     districtList = districtService.findAll();
+    provinceList = provinceService.findAll();
     return SUCCESS;
   }
   
@@ -466,6 +474,22 @@ public class ChildAction extends BaseAction {
 
   public void setAgeLimitList(List<GenericList> ageLimitList) {
     this.ageLimitList = ageLimitList;
+  }
+
+  public List<Province> getProvinceList() {
+    return provinceList;
+  }
+
+  public void setProvinceList(List<Province> provinceList) {
+    this.provinceList = provinceList;
+  }
+
+  public String getSearchProvince() {
+    return searchProvince;
+  }
+
+  public void setSearchProvince(String searchProvince) {
+    this.searchProvince = searchProvince;
   }
   
 }

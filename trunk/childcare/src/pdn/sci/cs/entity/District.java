@@ -3,10 +3,13 @@ package pdn.sci.cs.entity;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,6 +19,7 @@ public class District extends BaseEntity implements java.io.Serializable {
 
   public static final String DISTRICT_CODE = "code";
   
+  private Province province;
   private static final long serialVersionUID = 1L;
   private String name;
   private String code;
@@ -67,6 +71,16 @@ public class District extends BaseEntity implements java.io.Serializable {
 
   public void setCode(String code) {
     this.code = code;
+  }
+  
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PROVINCE", nullable = false)
+  public Province getProvince() {
+    return province;
+  }
+
+  public void setProvince(Province province) {
+    this.province = province;
   }
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "district")
