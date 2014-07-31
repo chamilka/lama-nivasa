@@ -18,6 +18,8 @@ import javax.persistence.Table;
 public class District extends BaseEntity implements java.io.Serializable {
 
   public static final String DISTRICT_CODE = "code";
+  public static final String PROVINCE_ID = "province.id";
+  public static final String DISTRICT_NAME = "name";
   
   private Province province;
   private static final long serialVersionUID = 1L;

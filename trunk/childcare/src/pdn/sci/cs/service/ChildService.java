@@ -60,11 +60,16 @@ public class ChildService {
 	}
 	
 	public ChildrenSummary getChildrenSummary(int age, String district) {
-      return childDao.buildChildSummary(age, district);
+      //return childDao.buildChildSummary(age, district);
+		return null;
   }
 
 	public Pager findAllByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
 		return childDao.findAllByProbationUnitId(referenceId,pageStart,pageSize);
+	}
+
+	public ChildrenSummary getChildrenSummary(int age, String district, String province) {
+		return childDao.buildChildSummary(age, district, province);
 	}
 
 	public Pager findAllDeletedByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
