@@ -124,6 +124,14 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	background:url(../images/footerNew.png) 0 0 no-repeat;
 }
 
+.comicsans {
+	font-family: "Indie Flower";
+	font-weight: 100;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 16px;
+}
+
 /* ~~ miscellaneous float/clear classes ~~ */
 .fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
 	float: right;

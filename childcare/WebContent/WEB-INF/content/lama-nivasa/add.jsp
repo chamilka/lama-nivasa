@@ -192,3 +192,19 @@
 	</s:form>
 
 </div>
+<script type="text/javascript" >
+	$( document ).ready(function() {
+		var did = '<s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.id" />';
+		var dsid = '<s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.id" />';
+		var didadd ='<s:property value="districtId" />';
+		var dsidadd = '<s:property value="divisionalSecretariatId" />';
+		
+		if(did!=""){$("#district").val(did).change();}
+		if(didadd!=""){$("#district").val(didadd).change();}		
+		
+		setTimeout(function(){
+			if(did!=""){$("#dsId").val(dsid).change();}
+			if(dsidadd!=""){$("#dsId").val(dsidadd).change();}		  
+		}, 200);
+	});
+</script>
