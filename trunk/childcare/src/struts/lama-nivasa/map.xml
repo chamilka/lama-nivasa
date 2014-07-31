@@ -32,6 +32,10 @@
 			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
 		</action>
 		
+		<action name="deletedlist" class="pdn.sci.cs.action.LamaNivasaAction" method="deletedList">
+			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+		</action>
+		
 		<action name="search" class="pdn.sci.cs.action.LamaNivasaAction" method="search">
 			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
 			<result name="input">/WEB-INF/content/lama-nivasa/list.jsp</result>
@@ -58,11 +62,19 @@
 		</action>
 		
 		<action name="delete" class="pdn.sci.cs.action.LamaNivasaAction" method="delete">
-			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+			<result name="success" type="redirect">
+		       <param name="location">
+		         /lamaNivasa/list.action
+		      </param >
+			</result>
 		</action>
 		
 		<action name="restore" class="pdn.sci.cs.action.LamaNivasaAction" method="restore">
-			<result name="success">/WEB-INF/content/lama-nivasa/list.jsp</result>
+			<result name="success" type="redirect">
+		       <param name="location">
+		         /lamaNivasa/list.action
+		      </param >
+			</result>
 		</action>
 		
 		<action name="save" class="pdn.sci.cs.action.LamaNivasaAction" method="save">

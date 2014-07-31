@@ -111,6 +111,39 @@ public class LamaNivasaAction extends BaseAction {
     }
     return SUCCESS;
   }
+  
+  public String deletedList() {
+	    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
+	        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+	    	
+	      String referenceId = getSessionUser().getReferenceId();
+	      if (referenceId == null) {
+	        return INPUT;
+	      } else {
+
+	        if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+	        	// if officer only own lama nivasa
+		          try {
+		            list = lamaNivasaService.findByReferenceId(referenceId);
+		            targetDiv = "lamaNivasaResultDiv";
+		            pager = new Pager(0, list.size(), list.size(), list);
+		            setActionContext(pager);
+		          } catch (Exception e) {
+		            e.printStackTrace();
+		            addActionError("You have not assigned to a children\'s home");
+		            return INPUT;
+		          }
+	        }
+	      }
+	    }
+	    else {
+	      // admin shows all lama nivasa
+	    	pager = lamaNivasaService.findAllDeleted(pageStart, pageSize);
+	        targetDiv = "lamaNivasaResultDiv";
+	        setActionContext(pager);
+	    }
+	    return SUCCESS;
+	  }
 
   private void populateList() {
     pager = lamaNivasaService.findAll(pageStart, pageSize);

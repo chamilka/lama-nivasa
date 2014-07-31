@@ -152,6 +152,47 @@ public class ChildAction extends BaseAction {
       return SUCCESS;
     }
   }
+  
+  public String deletedList() {
+	    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
+	        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+	      String referenceId = getSessionUser().getReferenceId();
+	      // pageSize = 4 *SEARCH_PAGE_SIZE;
+
+	      if (referenceId == null) {
+	        return INPUT;
+	      } else {
+
+	        if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+
+	          try {
+	            pager = childService.findAllDeletedByLamaNivasaId(referenceId, pageStart, pageSize);
+	            targetDiv = "childResultDiv";
+	            setActionContext(pager);
+	            return SUCCESS;
+	          } catch (Exception e) {
+	            e.printStackTrace();
+	            return INPUT;
+	          }
+	        } else {
+	          try {
+	            pager = childService.findAllDeletedByProbationUnitId(referenceId, pageStart, pageSize);
+	            targetDiv = "childResultDiv";
+	            setActionContext(pager);
+	            return SUCCESS;
+	          } catch (Exception e) {
+	            e.printStackTrace();
+	            return INPUT;
+	          }
+	        }
+	      }
+	    } else {
+	      pager = childService.findAllDeleted(pageStart, pageSize);
+	      targetDiv = "childResultDiv";
+	      setActionContext(pager);
+	      return SUCCESS;
+	    }
+	  }
 
   public String searchForm() {
     searchPopulate();

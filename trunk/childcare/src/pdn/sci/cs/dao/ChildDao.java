@@ -41,11 +41,17 @@ public class ChildDao extends GenericDao<Child> {
 	}
 
 	public Pager findAll(Integer start, Integer size) {
-
 		DetachedCriteria criteria = createCriteria(getPersistentClass());
 		criteria.addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq(Child.STATUS, 0));
 		return super.find(criteria, start, size);
-
+	}
+	
+	public Pager findAllDeleted(Integer start, Integer size) {
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq(Child.STATUS, 1));
+		return super.find(criteria, start, size);
 	}
 
 	public Pager findAllByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
@@ -53,8 +59,17 @@ public class ChildDao extends GenericDao<Child> {
 		DetachedCriteria criteria = createCriteria(getPersistentClass());
 		criteria.addOrder(Order.asc("id"));
 		criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
+		criteria.add(Restrictions.eq(Child.STATUS, 0));
 		return super.find(criteria, start, size);
-
+	}
+	
+	public Pager findAllDeletedByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
+		
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.addOrder(Order.asc("id"));
+		criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
+		criteria.add(Restrictions.eq(Child.STATUS, 1));
+		return super.find(criteria, start, size);
 	}
 
 	public ChildrenSummary buildChildSummary() {
@@ -208,16 +223,44 @@ public class ChildDao extends GenericDao<Child> {
 		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size;
 		pager.setSize(size);
 		
-		Query queryCount = getSession().createQuery("select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid");
+		Query queryCount = getSession().createQuery("select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=0");
 		queryCount.setParameter("pid", referenceId);
 		int listCount= ((Long)queryCount.uniqueResult()).intValue();
 		pager.setTotal(listCount);
 		
-		Query query = getSession().createQuery("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid");
+		Query query = getSession().createQuery("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=0");
 		
 		query.setParameter("pid", referenceId);
 		query.setFirstResult(start);
 		query.setMaxResults(size);
+		@SuppressWarnings("unchecked")
+		List<Child> list = query.list();
+	
+		pager.setList(list);
+		
+		return pager;
+	}
+	
+	public Pager findAllDeletedByProbationUnitId(String referenceId, Integer start, Integer size) {
+		Pager pager = new Pager();
+	
+		start = (start == null) ? 0 : start;
+		pager.setStart(start);
+	
+		size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size;
+		pager.setSize(size);
+		
+		Query queryCount = getSession().createQuery("select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=1");
+		queryCount.setParameter("pid", referenceId);
+		int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		pager.setTotal(listCount);
+		
+		Query query = getSession().createQuery("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=1");
+		
+		query.setParameter("pid", referenceId);
+		query.setFirstResult(start);
+		query.setMaxResults(size);
+		@SuppressWarnings("unchecked")
 		List<Child> list = query.list();
 	
 		pager.setList(list);
@@ -254,6 +297,5 @@ public class ChildDao extends GenericDao<Child> {
 
     return cs;
   }
-
 }
 

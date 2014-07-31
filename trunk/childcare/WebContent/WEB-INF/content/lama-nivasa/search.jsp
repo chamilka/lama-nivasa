@@ -11,12 +11,12 @@
 	   </tr>
 
 	   <tr>
-	   	<td style="width: 250px">
+	   	<td style="width: 225px">
 	   	 	<table>
-	  			<s:textfield name="lamaNivasa.name" label="Name" cssStyle="width:250px" ></s:textfield>
+	  			<s:textfield name="lamaNivasa.name" label="Name" cssStyle="width:225px" ></s:textfield>
 			</table>
      	</td>
-     	<td style="width: 300px">
+     	<td style="width: 250px">
 	   	 	<table>
 	  			<sj:autocompleter
 			  		id="lamaNivasa.probationUnit.id"
@@ -28,7 +28,7 @@
 			</table>
      	</td>
 
-     	<td style="width: 100px; text-align: left" >
+     	<td style="width: 75px; text-align: left" >
 	   	  <table>
 	  		<sj:submit value="SEARCH" targets="lamaNivasaResultDiv"/>
 	  	  </table>
@@ -41,8 +41,12 @@
 			<s:url var="lamaNivasaListUrl" action="list"
 				namespace="/lamaNivasa" includeParams="none"></s:url>
 				
+			<s:url var="lamaNivasaListDeleteUrl" action="deletedlist"
+				namespace="/lamaNivasa" includeParams="none"></s:url>
+				
      		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv">Add</sj:a>  |
-			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv">All</sj:a>
+			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv">Active Homes</sj:a> |
+			<sj:a href="%{#lamaNivasaListDeleteUrl}" targets="lamaNivasaResultDiv">Inactive Homes</sj:a>
 		</td>
      	</tr>
 	  </table>
