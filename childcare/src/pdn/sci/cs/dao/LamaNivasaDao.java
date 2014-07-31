@@ -57,10 +57,17 @@ private static final Class<LamaNivasa> clazz = LamaNivasa.class;
 	
   public List<LamaNivasa> findByProvinceId(String province) {
     
-    Query query = getSession().createQuery("select ln from LamaNivasa ln, ProbationUnit pu, District d, Province p where ln.probationUnit.id = pu.id AND pu.district.id = d.id AND d.province = p.id AND p.id = :pid");
+    Query query = getSession().createQuery("select ln from LamaNivasa ln, ProbationUnit pu, District d, Province p where ln.probationUnit.id = pu.id AND pu.district.id = d.id AND d.province = p.id AND ln.status=0 AND p.id = :pid");
     query.setParameter("pid", province);
     List<LamaNivasa> list= query.list();
     return list;
+  }
+
+  public List<LamaNivasa> findDeletedByProvinceId(String province) {	
+	  Query query = getSession().createQuery("select ln from LamaNivasa ln, ProbationUnit pu, District d, Province p where ln.probationUnit.id = pu.id AND pu.district.id = d.id AND d.province = p.id AND ln.status=1 AND p.id = :pid");
+	    query.setParameter("pid", province);
+	    List<LamaNivasa> list= query.list();
+	    return list;
   }
 
 }

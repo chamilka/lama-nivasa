@@ -54,4 +54,9 @@ public class LamaNivasaService {
     return lamaNivasaDao.findByProvinceId(province);
   }
 
+  	public List<LamaNivasa> findDeletedByProvinceId(String province) {
+	
+		return lamaNivasaDao.findDeletedByProvinceId(province);
+	}
+
 }
