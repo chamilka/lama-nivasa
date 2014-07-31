@@ -282,11 +282,27 @@ public class ChildAction extends BaseAction {
       try {
         child = childService.findById(this.id);
         if(child != null) {
-          child.setStatus(1);
+          setUpdateSettings(child);
+          child.setStatus(INACTIVE_STATE);
           childService.save(child);
         }
       } catch (Exception e) {
         e.printStackTrace();
+      }
+      return list();
+    }
+  }
+  
+  public String restore() {
+    if (this.id.isEmpty()) {
+      addActionError("Could not delete the entry, id is missing");
+      return INPUT;
+    } else {
+      child = childService.findById(this.id);
+      if(child != null) {
+        setUpdateSettings(child);
+        child.setStatus(ACTIVE_STATE);
+        childService.save(child);
       }
       return list();
     }

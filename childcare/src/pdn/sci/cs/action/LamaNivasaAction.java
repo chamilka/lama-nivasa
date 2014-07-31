@@ -200,7 +200,23 @@ public class LamaNivasaAction extends BaseAction {
     } else {
       lamaNivasa = lamaNivasaService.findById(this.id);
       if(lamaNivasa != null) {
-        lamaNivasa.setStatus(1);
+        setUpdateSettings(lamaNivasa);
+        lamaNivasa.setStatus(INACTIVE_STATE);
+        lamaNivasaService.save(lamaNivasa);
+      }
+      return list();
+    }
+  }
+  
+  public String restore() {
+    if (this.id.isEmpty()) {
+      addActionError("Could not delete the entry, id is missing");
+      return INPUT;
+    } else {
+      lamaNivasa = lamaNivasaService.findById(this.id);
+      if(lamaNivasa != null) {
+        setUpdateSettings(lamaNivasa);
+        lamaNivasa.setStatus(ACTIVE_STATE);
         lamaNivasaService.save(lamaNivasa);
       }
       return list();

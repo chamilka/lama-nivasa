@@ -102,14 +102,26 @@
 						<input type="button" value="Edit" />
 					</sj:a>
 					<s:if test="admin"> |
-					 	<s:url var="lamaNivasaDeleteUrl" action="delete"
-							namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
-							<s:param name="id" value="lamaNivasa.id"></s:param>
-						</s:url>
-						<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv"
-							onClickTopics="/confirmDelete">
-							<input type="button" value="Delete" />
-						</sj:a>
+ 						<s:if test="lamaNivasa.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
+						 	<s:url var="lamaNivasaDeleteUrl" action="delete"
+								namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
+								<s:param name="id" value="lamaNivasa.id"></s:param>
+							</s:url>
+							<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv"
+								onClickTopics="/confirmDelete">
+								<input type="button" value="Delete" />
+							</sj:a>
+						</s:if>
+						<s:else>
+							<s:url var="lamaNivasaRestoreUrl" action="restore"
+								namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
+								<s:param name="id" value="lamaNivasa.id"></s:param>
+							</s:url>
+							<sj:a href="%{lamaNivasaRestoreUrl}" targets="lamaNivasaResultDiv"
+								onClickTopics="/confirmRestore">
+								<input type="button" value="Restore" />
+							</sj:a>
+						</s:else>
 					</s:if>
 				</table>
 			</td>
