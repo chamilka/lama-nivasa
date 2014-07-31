@@ -28,7 +28,16 @@
 			</tr>
 			<s:iterator value="pager.list" status="rowIndex">
 				<tr>
-					<td><s:property value="%{#rowIndex.index + pager.start + 1}" />
+					<tr>
+						 <s:if test="status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
+						 	<td>
+						 </s:if>
+						 <s:else>
+						 	<td style="background-color: orange" title="Inactive">
+						 </s:else>
+						 	<s:property value="#rowIndex.index + pager.start + 1"/>
+						 </td>
+			 
 					<td><s:url var="childViewUrl" action="view" namespace="/child"
 							includeParams="none">
 							<s:param name="id" value="id"></s:param>

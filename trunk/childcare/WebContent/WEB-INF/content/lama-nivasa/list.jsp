@@ -22,8 +22,16 @@
 	  		<th></th><th>Name</th><th>Total Children</th><th>Max. Allowed Children</th><th>Probation Unit</th><th>Telephone</th><th>Officers</th>
 	  	</tr>
 		<s:iterator value="pager.list" status="rowIndex">
+		 
 			<tr>
-			 <td><s:property value="#rowIndex.index + pager.start + 1"/></td>
+			 <s:if test="status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
+			 	<td>
+			 </s:if>
+			 <s:else>
+			 	<td style="background-color: orange" title="Inactive">
+			 </s:else>
+			 	<s:property value="#rowIndex.index + pager.start + 1"/>
+			 </td>
 			 <td>
 			 	<s:url var="lamaNivasaViewUrl" action="view" namespace="/lamaNivasa" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>

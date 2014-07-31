@@ -35,6 +35,17 @@
 	         }
 	    },null);
 	})(jQuery);
+	
+	(function($) {
+		$.subscribe("/confirmRestore",function(event,data) {
+	        if ( confirm('<s:text name="Are you sure to restore record/s?" />') ) {
+	            return true;
+	         }
+	         else {
+	            return exit;
+	         }
+	    },null);
+	})(jQuery);
 	</script>
 
 </head>

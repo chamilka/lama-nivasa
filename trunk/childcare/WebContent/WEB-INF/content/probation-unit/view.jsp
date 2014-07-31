@@ -37,6 +37,11 @@
 	 		<td colspan="5"><s:property value="probationUnit.address"/></td>
 		  </tr>
 		  
+		  <tr>
+	 		<th>District</th>
+	 		<td colspan="5"><s:property value="probationUnit.district.name"/></td>
+		  </tr>
+		  
 		   <tr>
 	 		<th>Comment</th>
 	 		<td colspan="5"><s:property value="probationUnit.comment"/></td>

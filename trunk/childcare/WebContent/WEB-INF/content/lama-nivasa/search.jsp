@@ -40,7 +40,7 @@
 
 			<s:url var="lamaNivasaListUrl" action="list"
 				namespace="/lamaNivasa" includeParams="none"></s:url>
-
+				
      		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv">Add</sj:a>  |
 			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv">All</sj:a>
 		</td>

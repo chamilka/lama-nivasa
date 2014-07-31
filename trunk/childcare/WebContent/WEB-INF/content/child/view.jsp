@@ -164,11 +164,19 @@
 			 	</s:url>
 			 	<sj:a href="%{childEditUrl}" targets="childResultDiv"><input type="button" value="Edit" /></sj:a>
 				 |
-			 	<s:url var="childDeleteUrl" action="delete" namespace="/child" escapeAmp="false" includeParams="none">
-			 		<s:param name="id" value="%{child.id}"></s:param>
-			 	</s:url>
-			 	<sj:a href="%{childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
-
+				
+				<s:if test="child.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE"> 
+				 	<s:url var="childDeleteUrl" action="delete" namespace="/child" escapeAmp="false" includeParams="none">
+				 		<s:param name="id" value="%{child.id}"></s:param>
+				 	</s:url>
+				 	<sj:a href="%{childDeleteUrl}" targets="childResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
+				</s:if>
+				<s:else>
+					<s:url var="childRestoreUrl" action="restore" namespace="/child" escapeAmp="false" includeParams="none">
+				 		<s:param name="id" value="%{child.id}"></s:param>
+				 	</s:url>
+				 	<sj:a href="%{childRestoreUrl}" targets="childResultDiv" onClickTopics="/confirmRestore"><input type="button" value="Restore" /></sj:a>
+				</s:else>
 		</td>
 
       </tr>

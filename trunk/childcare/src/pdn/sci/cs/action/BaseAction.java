@@ -21,6 +21,9 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	protected static final String MOBILE_VIEW = "mobile";
 	protected static final String WEB_VIEW = "web";
 	public static final String NO_SEARCH_RESULT = "no-result";
+	
+	public static final int ACTIVE_STATE = 0;
+	public static final int INACTIVE_STATE = 1;
 
 	protected Map<SessionKey, Object> session;
 	protected boolean loggedIn;
@@ -153,6 +156,7 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 
 	protected void setUpdateSettings(BaseEntity entity) {
 		setUpdateDateTime(entity);
+		entity.setUpdateUserId(getSessionUser().getId());
 	}
 
 	private void setUpdateDateTime(BaseEntity entity) {
