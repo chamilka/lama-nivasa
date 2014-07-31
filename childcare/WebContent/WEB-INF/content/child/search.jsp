@@ -13,7 +13,7 @@
 	   </tr>
 
 	   <tr>
-	   	<td style="width: 300px">
+	   	<td style="width: 250px">
 	   	 <table>
 
 		   <sj:autocompleter
@@ -22,7 +22,7 @@
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
 	     		label="Chidren's Home"
-	     		cssStyle="width:450px"
+	     		cssStyle="width:400px"
 	     		forceValidOption="true"
 	     	/>
      	 </table>
@@ -37,7 +37,7 @@
 	   		<s:textfield name="child.code" label="Code" cssStyle="width:50px" />
 	 	  </table>
      	 </td>
-     	 <td style="width: 100px; text-align: left" >
+     	 <td style="width: 75px; text-align: left" >
 	   	  	<table>
 	  			<sj:submit value="SEARCH" targets="childResultDiv"/>
 	  		</table>
@@ -49,19 +49,22 @@
 
 			<s:url var="childListUrl" action="list"
 				namespace="/child" includeParams="none"></s:url>
+				
+			<s:url var="childDeletedListUrl" action="deletedlist"
+				namespace="/child" includeParams="none"></s:url>
 
 			<s:url var="childSummaryUrl" action="summary-frame"
 				namespace="/child" includeParams="none"></s:url>
 			
 			<s:url var="childDetailUrl" action="detail-search-form"
-				namespace="/report" includeParams="none"></s:url>
-
-			<s:if test="!ministry">
-					<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>  |
-			</s:if>
+				namespace="/report" includeParams="none"></s:url>			
 				
      		
-			<sj:a href="%{#childListUrl}" targets="childResultDiv">All</sj:a>
+			<sj:a href="%{#childListUrl}" targets="childResultDiv">View Active</sj:a>  |
+			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv">View Inactive</sj:a>
+			<s:if test="!ministry">
+					<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>
+			</s:if>
 			<s:if test="!user">
 				 |
 				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv">Brief</sj:a>

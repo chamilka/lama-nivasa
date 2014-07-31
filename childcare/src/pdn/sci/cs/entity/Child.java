@@ -31,6 +31,7 @@ public class Child extends BaseEntity implements java.io.Serializable {
   public static final String INTAKE_METHOD = "intakeMethod";
   public static final String DATE_OF_BIRTH = "dateOfBirth";
   public static final String CODE = "code";
+  public static final String STATUS = "status";
 
   public static final String MALE = "MALE";
   public static final String FEMALE = "FEMALE";

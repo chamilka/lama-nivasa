@@ -27,6 +27,7 @@ public class LamaNivasa extends BaseEntity implements java.io.Serializable {
   public static final String DIVISIONAL_SECRETARIAT_ID = "divisionalSecretariat.id";
   public static final String PROBATION_UNIT_ID = "probationUnit.id";
   public static final String LAMA_NIVASA_ID = "id";
+  public static final String STATUS = "status";
   private static final long serialVersionUID = 1L;
   private ProbationUnit probationUnit;
   private String probationOfficer;

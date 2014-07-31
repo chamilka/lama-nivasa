@@ -22,9 +22,17 @@ public class ChildService {
 	public Pager findAll(Integer start, Integer size) {
 		return childDao.findAll(start, size);
 	}
+	
+	public Pager findAllDeleted(Integer start, Integer size) {		
+		return childDao.findAllDeleted(start, size);
+	}
 
 	public Pager findAllByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
 		return childDao.findAllByLamaNivasaId(lamaNivasaId, start, size);
+	}
+	
+	public Pager findAllDeletedByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {		
+		return childDao.findAllDeletedByLamaNivasaId(lamaNivasaId, start, size);
 	}
 
 	public Child findById(String id) {
@@ -59,4 +67,7 @@ public class ChildService {
 		return childDao.findAllByProbationUnitId(referenceId,pageStart,pageSize);
 	}
 
+	public Pager findAllDeletedByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
+		return childDao.findAllDeletedByProbationUnitId(referenceId,pageStart,pageSize);
+	}
 }

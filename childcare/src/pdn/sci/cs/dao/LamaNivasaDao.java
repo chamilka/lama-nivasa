@@ -33,6 +33,7 @@ private static final Class<LamaNivasa> clazz = LamaNivasa.class;
 	public Pager findAll(Integer start, Integer size) {
 
 		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.add(Restrictions.eq(LamaNivasa.STATUS, 0));
 		criteria.addOrder(Order.asc("id"));
 		return super.find(criteria, start, size);
 
@@ -43,6 +44,14 @@ private static final Class<LamaNivasa> clazz = LamaNivasa.class;
 		criteria.add(Restrictions.eq(LamaNivasa.PROBATION_UNIT_ID, referenceId));
 		
 		return findByCriteria(criteria);
+	}
+
+	public Pager findAllDeleted(Integer pageStart, Integer pageSize) {
+		
+		DetachedCriteria criteria = createCriteria(getPersistentClass());
+		criteria.add(Restrictions.eq(LamaNivasa.STATUS, 1));
+		criteria.addOrder(Order.asc("id"));
+		return super.find(criteria, pageStart, pageSize);
 	}
 
 }
