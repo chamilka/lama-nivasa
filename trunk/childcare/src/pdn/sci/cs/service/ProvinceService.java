@@ -10,22 +10,27 @@ import pdn.sci.cs.entity.Province;
 
 @Service
 public class ProvinceService {
-	
-	@Autowired private ProvinceDao provinceDao;
-	
-	public List<Province> findAll() {
-		return provinceDao.findAll();
-	}
-	
-	public Province findById(String id) {
-		return provinceDao.findById(id);
-	}
-	
-	public Province save(Province d) {
-		return provinceDao.save(d);
-	}
-	
-	public void update(Province d) {
-	  provinceDao.update(d);
-	}
+
+  @Autowired
+  private ProvinceDao provinceDao;
+
+  public List<Province> findAll() {
+    return provinceDao.findAll();
+  }
+
+  public Province findById(String id) {
+    return provinceDao.findById(id);
+  }
+
+  public Province save(Province d) {
+    return provinceDao.save(d);
+  }
+
+  public void update(Province d) {
+    provinceDao.update(d);
+  }
+
+  public String findByReferenceId(String referenceId) {
+    return provinceDao.findByReferenceId(referenceId);
+  }
 }

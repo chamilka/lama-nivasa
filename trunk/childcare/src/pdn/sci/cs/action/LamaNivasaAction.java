@@ -19,6 +19,7 @@ import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.GramaSevakaDivsionService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
+import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
 import pdn.sci.cs.util.Pager;
 
@@ -29,6 +30,8 @@ public class LamaNivasaAction extends BaseAction {
 
   @Autowired
   private LamaNivasaService lamaNivasaService;
+  
+
 
   @Autowired
   private ProbationUnitService probationUnitService;
@@ -47,6 +50,9 @@ public class LamaNivasaAction extends BaseAction {
 
   @Autowired
   private DistrictService districtService;
+  
+  @Autowired
+  private ProvinceService provinceService;
 
   private List<District> districtList;
   private List<DivisionalSecretariat> divisionalSecretariatList;
@@ -66,10 +72,11 @@ public class LamaNivasaAction extends BaseAction {
 
   private String districtId;
   private String divisionalSecretariatId;
+  private static final String hpo="Probation Officer of Headquarters";
 
   public String list() {
-    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
-        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
+        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
       String referenceId = getSessionUser().getReferenceId();
       if (referenceId == null) {
         return INPUT;
@@ -91,16 +98,38 @@ public class LamaNivasaAction extends BaseAction {
           }
         } else {
           // if officer only own lama nivasa
-          try {
-            list = lamaNivasaService.findByReferenceId(referenceId);
-            targetDiv = "lamaNivasaResultDiv";
-            pager = new Pager(0, list.size(), list.size(), list);
-            setActionContext(pager);
-          } catch (Exception e) {
-            e.printStackTrace();
-            addActionError("You have not assigned to a children\'s home");
-            return INPUT;
+
+          if (getSessionUser().getPost().equals(hpo)){
+            String province = provinceService.findByReferenceId(referenceId);
+            
+            try {
+              list=lamaNivasaService.findByProvinceId(province);
+              targetDiv = "lamaNivasaResultDiv";
+              pager = new Pager(0, list.size(), list.size(), list);
+              setActionContext(pager);
+            } catch (Exception e) {
+              e.printStackTrace();
+              addActionError("You have not assigned to a children\'s home");
+              return INPUT;
+            }
+
+          } else {
+
+
+            try {
+              list = lamaNivasaService.findByReferenceId(referenceId);
+              targetDiv = "lamaNivasaResultDiv";
+              pager = new Pager(0, list.size(), list.size(), list);
+              setActionContext(pager);
+            } catch (Exception e) {
+              e.printStackTrace();
+              addActionError("You have not assigned to a children\'s home");
+              return INPUT;
+            }
           }
+
+
+
         }
       }
     }
@@ -232,7 +261,7 @@ public class LamaNivasaAction extends BaseAction {
       return INPUT;
     } else {
       lamaNivasa = lamaNivasaService.findById(this.id);
-      if(lamaNivasa != null) {
+      if (lamaNivasa != null) {
         setUpdateSettings(lamaNivasa);
         lamaNivasa.setStatus(INACTIVE_STATE);
         lamaNivasaService.save(lamaNivasa);
@@ -240,14 +269,14 @@ public class LamaNivasaAction extends BaseAction {
       return list();
     }
   }
-  
+
   public String restore() {
     if (this.id.isEmpty()) {
       addActionError("Could not delete the entry, id is missing");
       return INPUT;
     } else {
       lamaNivasa = lamaNivasaService.findById(this.id);
-      if(lamaNivasa != null) {
+      if (lamaNivasa != null) {
         setUpdateSettings(lamaNivasa);
         lamaNivasa.setStatus(ACTIVE_STATE);
         lamaNivasaService.save(lamaNivasa);
@@ -260,11 +289,11 @@ public class LamaNivasaAction extends BaseAction {
     districtList = districtService.findAll();
     return SUCCESS;
   }
-  
+
   public String districtSelectJson() {
-   
+
     if (districtId != null) {
-      
+
       divisionalSecretariatList = divisionalSecretariatService.findByDistrictId(districtId);
       probationUnitList = probationUnitService.findByDistrictId(districtId);
       probationUnitOfficerList = systemUserService.findOfficersInDistrict(districtId);
@@ -296,18 +325,22 @@ public class LamaNivasaAction extends BaseAction {
     if (lamaNivasa.getTelephone().isEmpty()) {
       addFieldError("lamaNivasa.telephone", "Telephone cannot be empty");
     }
-    
-    if(lamaNivasa.getGramaSevakaDivision() == null || lamaNivasa.getGramaSevakaDivision().getId().equals("-1") || lamaNivasa.getGramaSevakaDivision().getId().isEmpty()) {
+
+    if (lamaNivasa.getGramaSevakaDivision() == null
+        || lamaNivasa.getGramaSevakaDivision().getId().equals("-1")
+        || lamaNivasa.getGramaSevakaDivision().getId().isEmpty()) {
       addFieldError("lamaNivasa.gramaSevakaDivision.id", "Grama Niladari division cannot be empty");
     }
-    
-    if(lamaNivasa.getProbationUnit() == null || lamaNivasa.getProbationUnit().getId().equals("-1") || lamaNivasa.getProbationUnit().getId().isEmpty()) {
+
+    if (lamaNivasa.getProbationUnit() == null || lamaNivasa.getProbationUnit().getId().equals("-1")
+        || lamaNivasa.getProbationUnit().getId().isEmpty()) {
       addFieldError("lamaNivasa.probationUnit.id", "Probation unit cannot be empty");
     }
-    
-    if(lamaNivasa.getProbationOfficer() == null || lamaNivasa.getProbationOfficer().equals("-1")) {
-      addFieldError("lamaNivasa.probationOfficer", "Probation office should be assigned");
-    }
+
+    // if(lamaNivasa.getProbationOfficer() == null || lamaNivasa.getProbationOfficer().equals("-1"))
+    // {
+    // addFieldError("lamaNivasa.probationOfficer", "Probation office should be assigned");
+    // }
 
   }
 

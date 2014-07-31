@@ -46,8 +46,12 @@ public class LamaNivasaService {
 		return lamaNivasaDao.findByReferenceId(referenceId);
 	}
 
-	public Pager findAllDeleted(Integer pageStart, Integer pageSize) {		
-		return lamaNivasaDao.findAllDeleted(pageStart, pageSize);
-	}
+	   public Pager findAllDeleted(Integer pageStart, Integer pageSize) {      
+	        return lamaNivasaDao.findAllDeleted(pageStart, pageSize);
+	    }
+
+  public List<LamaNivasa> findByProvinceId(String province) {
+    return lamaNivasaDao.findByProvinceId(province);
+  }
 
 }
