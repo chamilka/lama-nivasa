@@ -50,6 +50,11 @@
 								listKey="listKey" listValue="listValue" />
 						</table>
 					</td>
+					<td style="width: 100px">
+					   	 <table>
+							<s:select list="districtList" label="District" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
+				     	 </table>
+					</td>
 					<td><table><sj:submit value="SEARCH" targets="monthlyDetailDiv" /></table></td>
 				</tr>
 			</table>
