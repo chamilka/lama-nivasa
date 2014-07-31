@@ -62,6 +62,8 @@ public class ChildAction extends BaseAction {
   private int searchAge = 0;
   private String searchProvince;
   
+  private Boolean ageView = true;
+  
   public String childSummaryFrame() {
     return SUCCESS;
   }
@@ -74,7 +76,10 @@ public class ChildAction extends BaseAction {
   }
   
   public String summarySearch() {
-    childSummary = childService.getChildrenSummary(searchAge, searchDistrict);
+      childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
+      if(searchAge>0) {
+    	  setAgeView(false);
+      }
     return SUCCESS;
   }
   
@@ -548,5 +553,15 @@ public class ChildAction extends BaseAction {
   public void setSearchProvince(String searchProvince) {
     this.searchProvince = searchProvince;
   }
+
+public Boolean getAgeView() {
+	return ageView;
+}
+
+public void setAgeView(Boolean ageView) {
+	this.ageView = ageView;
+}
+  
+  
   
 }

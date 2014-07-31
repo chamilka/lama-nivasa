@@ -11,6 +11,10 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import pdn.sci.cs.entity.Child;
+import pdn.sci.cs.entity.District;
+import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.entity.ProbationUnit;
+import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.util.ChildrenSummary;
 import pdn.sci.cs.util.MaleFemale;
 import pdn.sci.cs.util.Pager;
@@ -62,6 +66,8 @@ public class ChildDao extends GenericDao<Child> {
 		criteria.add(Restrictions.eq(Child.STATUS, 0));
 		return super.find(criteria, start, size);
 	}
+		
+	
 	
 	public Pager findAllDeletedByLamaNivasaId(String lamaNivasaId, Integer start, Integer size) {
 		
@@ -73,49 +79,53 @@ public class ChildDao extends GenericDao<Child> {
 	}
 
 	public ChildrenSummary buildChildSummary() {
+					
 		ChildrenSummary cs = new ChildrenSummary();
-
-		cs.setCount(getSexTypeCount());
-		cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", 0, null));
-		cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", 0, null));
-		cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", 0, null));
-		cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", 0, null));
-		cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", 0, null));
-		cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", 0, null));
-
-		cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", 0, null));
-		cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", 0, null));
-		cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", 0, null));
-		cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", 0, null));
-		cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", 0, null));
-
-		cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", 0, null));
-		cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", 0, null));
-		cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", 0, null));
-		cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", 0, null));
-
-		cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", 0, null));
-		cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", 0, null));
-		cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", 0, null));
-		cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", 0, null));
-
-		Calendar today = GregorianCalendar.getInstance();
-		Calendar twoYear = (Calendar)today.clone();
-		twoYear.add(Calendar.YEAR, -2);
-		cs.setAgeLessThanTwo(getAgeRangeCount(Child.DATE_OF_BIRTH, twoYear, today));
-
-		Calendar fiveYear = (Calendar)twoYear.clone();
-		fiveYear.add(Calendar.YEAR, -3);
-		cs.setAgeLessThanFive(getAgeRangeCount(Child.DATE_OF_BIRTH, fiveYear, twoYear));
-
-		Calendar tenYear = (Calendar)fiveYear.clone();
-		tenYear.add(Calendar.YEAR, -5);
-		cs.setAgeLessThanTen(getAgeRangeCount(Child.DATE_OF_BIRTH, tenYear, fiveYear));
-
-		Calendar eighteenYear = (Calendar)tenYear.clone();
-		eighteenYear.add(Calendar.YEAR, -8);
-		cs.setAgeLessThanEighteen(getAgeRangeCount(Child.DATE_OF_BIRTH, eighteenYear, tenYear));
-
+		try{
+			cs.setCount(getSexTypeCount());
+			cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", 0, null));
+			cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", 0, null));
+			cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", 0, null));
+			cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", 0, null));
+			cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", 0, null));
+			cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", 0, null));
+	
+			cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", 0, null));
+			cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", 0, null));
+			cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", 0, null));
+			cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", 0, null));
+			cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", 0, null));
+	
+			cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", 0, null));
+			cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", 0, null));
+			cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", 0, null));
+			cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", 0, null));
+	
+			cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", 0, null));
+			cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", 0, null));
+			cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", 0, null));
+			cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", 0, null));
+	
+			Calendar today = GregorianCalendar.getInstance();
+			Calendar twoYear = (Calendar)today.clone();
+			twoYear.add(Calendar.YEAR, -2);
+			cs.setAgeLessThanTwo(getAgeRangeCount(Child.DATE_OF_BIRTH, twoYear, today));
+	
+			Calendar fiveYear = (Calendar)twoYear.clone();
+			fiveYear.add(Calendar.YEAR, -3);
+			cs.setAgeLessThanFive(getAgeRangeCount(Child.DATE_OF_BIRTH, fiveYear, twoYear));
+	
+			Calendar tenYear = (Calendar)fiveYear.clone();
+			tenYear.add(Calendar.YEAR, -5);
+			cs.setAgeLessThanTen(getAgeRangeCount(Child.DATE_OF_BIRTH, tenYear, fiveYear));
+	
+			Calendar eighteenYear = (Calendar)tenYear.clone();
+			eighteenYear.add(Calendar.YEAR, -8);
+			cs.setAgeLessThanEighteen(getAgeRangeCount(Child.DATE_OF_BIRTH, eighteenYear, tenYear));
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return cs;
 	}
 
@@ -127,6 +137,75 @@ public class ChildDao extends GenericDao<Child> {
 
 		return criteria;
 	}
+	
+	private DetachedCriteria maleProvinceDistrictCriteria(int age, String district, String province) {
+		DetachedCriteria criteria;
+
+		criteria = createCriteria(getPersistentClass());
+		criteria.createAlias("lamaNivasa", "l");
+		criteria.createAlias("l.probationUnit", "p");
+		criteria.createAlias("p.district", "d");
+		criteria.createAlias("d.province", "pr");
+		
+		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
+		if(!district.equals("-1") && district!=null) {
+			criteria.add(Restrictions.eq("d.id",district));
+		}
+		if(!province.equals("-1") && district!=null) {
+			criteria.add(Restrictions.eq("pr.id",province));
+		}
+		
+		return criteria;
+	}
+	
+	private DetachedCriteria femaleProvinceDistrictCriteria(int age, String district, String province) {
+		DetachedCriteria criteria;
+
+		criteria = createCriteria(getPersistentClass());
+		criteria.createAlias("lamaNivasa", "l");
+		criteria.createAlias("l.probationUnit", "p");
+		criteria.createAlias("p.district", "d");
+		criteria.createAlias("d.province", "pr");
+		
+		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.FEMALE));
+		if(!district.equals("-1") && district!=null) {
+			criteria.add(Restrictions.eq("d.id",district));
+		}
+		if(!province.equals("-1") && district!=null) {
+			criteria.add(Restrictions.eq("pr.id",province));
+		}
+		
+		return criteria;
+	}
+	
+	private int maleProvinceDistrictCount(int age, String district, String province) {
+		String query = "select count(c) from Child c,LamaNivasa l,ProbationUnit p, Province pr, District d "
+				+ "where c.lamaNivasa.id=l.id and "
+				+ "l.probationUnit.id=p.id and "
+				+ "p.district.id=d.id and "
+				+ "d.province.id=pr.id and "
+				+ "c.sexType='MALE'" ;
+		if(!district.equals("-1") && district!=null) {
+				query += " and d.id=:did";
+		}
+		if(!province.equals("-1") && district!=null) {
+				query += " and pr.id=:prid";
+		}
+		
+		Query queryCount = getSession().createQuery(query);
+		
+		if(!district.equals("-1") && district!=null) {
+			queryCount.setParameter("did", district);
+		}
+		if(!province.equals("-1") && district!=null) {
+			queryCount.setParameter("prid", province);
+		}
+		
+		int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		return listCount;
+	}
+	
+	
 
 	private DetachedCriteria femaleCriteria() {
 		DetachedCriteria criteria;
@@ -137,33 +216,69 @@ public class ChildDao extends GenericDao<Child> {
 		return criteria;
 	}
 
-	private DetachedCriteria maleCriteriaByRestriction(String key, String value, int age, String district) {
+	private DetachedCriteria maleCriteriaByRestriction(String key, String value, int age, String district, String province) {
+		
 		DetachedCriteria criteria;
 
 		criteria = createCriteria(getPersistentClass());
-		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
-		criteria.add(Restrictions.eq(key, value));
+		criteria.createAlias("lamaNivasa", "l");
+		criteria.createAlias("l.probationUnit", "p");
+		criteria.createAlias("p.district", "d");
+		criteria.createAlias("d.province", "pr");
 		
-		if(age != 0) {
+		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
+		
+		if(key!=null) {
+			criteria.add(Restrictions.eq(key, value));
+		}
+		
+		if(age > 0) {
 		  Calendar today = GregorianCalendar.getInstance();
 	      Calendar before = (Calendar)today.clone();
 	      before.add(Calendar.YEAR, -age);
-	      criteria.add(Restrictions.between(key, before, today));
+	      criteria.add(Restrictions.between(Child.DATE_OF_BIRTH, before, today));
 		}
 		
-		if(district.equals("-1")) {
-		  
+		if(district!=null && !district.equals("-1")) {
+			criteria.add(Restrictions.eq("d.id",district));
+		}
+		if( province!=null && !province.equals("-1")) {
+			criteria.add(Restrictions.eq("pr.id",province));
 		}
 		
 		return criteria;
+		
 	}
 
-	private DetachedCriteria femaleCriteriaByRestriction(String key, String value, int age, String district) {
+	private DetachedCriteria femaleCriteriaByRestriction(String key, String value, int age, String district, String province) {
 		DetachedCriteria criteria;
 
 		criteria = createCriteria(getPersistentClass());
+		criteria.createAlias("lamaNivasa", "l");
+		criteria.createAlias("l.probationUnit", "p");
+		criteria.createAlias("p.district", "d");
+		criteria.createAlias("d.province", "pr");
+		
 		criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.FEMALE));
-		criteria.add(Restrictions.eq(key, value));
+		
+		if(key!=null) {
+			criteria.add(Restrictions.eq(key, value));
+		}
+		
+		if(age > 0) {
+		  Calendar today = GregorianCalendar.getInstance();
+	      Calendar before = (Calendar)today.clone();
+	      before.add(Calendar.YEAR, -age);
+	      criteria.add(Restrictions.between(Child.DATE_OF_BIRTH, before, today));
+		}
+		
+		if(district!=null && !district.equals("-1")) {
+			criteria.add(Restrictions.eq("d.id",district));
+		}
+		if(district!=null && !province.equals("-1")) {
+			criteria.add(Restrictions.eq("pr.id",province));
+		}
+		
 		return criteria;
 	}
 
@@ -196,12 +311,26 @@ public class ChildDao extends GenericDao<Child> {
 
 		return new MaleFemale(male, female);
 	}
+	
+	private MaleFemale getSexTypeCount(int age, String district, String province) {
+
+		int male = getCount(maleProvinceDistrictCriteria(age,district, province));
+		int female = getCount(femaleProvinceDistrictCriteria(age,district, province));
+		return new MaleFemale(male, female);
+	}
 
 
 	private MaleFemale getTypeCount(String key, String value, int age, String district) {
 
-		int male = getCount(maleCriteriaByRestriction(key, value, age, district));
-		int female = getCount(femaleCriteriaByRestriction(key, value, age, district));
+		int male = getCount(maleCriteriaByRestriction(key, value, age, district, null));
+		int female = getCount(femaleCriteriaByRestriction(key, value, age, district, null));
+		
+		return new MaleFemale(male, female);
+	}
+	
+	private MaleFemale getTypeCount(String key, String value, int age, String district, String province) {
+		int male = getCount(maleCriteriaByRestriction(key, value, age, district, province));
+		int female = getCount(femaleCriteriaByRestriction(key, value, age, district, province));
 		
 		return new MaleFemale(male, female);
 	}
@@ -268,34 +397,107 @@ public class ChildDao extends GenericDao<Child> {
 		return pager;
 	}
 
-  public ChildrenSummary buildChildSummary(int age, String district) {
+  public ChildrenSummary buildChildSummary(int age, String district, String province) {
     ChildrenSummary cs = new ChildrenSummary();
-
-    cs.setCount(getSexTypeCount());
-    cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", age, district));
-    cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", age, district));
-    cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", age, district));
-    cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", age, district));
-    cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", age, district));
-    cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", age, district));
-
-    cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", age, district));
-    cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", age, district));
-    cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", age, district));
-    cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", age, district));
-    cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", age, district));
-
-    cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", age, district));
-    cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", age, district));
-    cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", age, district));
-    cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", age, district));
-
-    cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", age, district));
-    cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", age, district));
-    cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", age, district));
-    cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", age, district));
-
+    try{
+	    cs.setCount(getSexTypeCount(age,district,province));
+	    cs.setBuddhist(getTypeCount(Child.RELIGION, "BUDDHIST", age, district, province));
+	    cs.setRomanCatholic(getTypeCount(Child.RELIGION, "ROMAN CATHOLIC", age, district, province));
+	    cs.setChristianity(getTypeCount(Child.RELIGION, "CHRISTIANITY", age, district, province));
+	    cs.setIslam(getTypeCount(Child.RELIGION, "ISLAM", age, district, province));
+	    cs.setHinduism(getTypeCount(Child.RELIGION, "HINDUISM", age, district, province));
+	    cs.setReligionOther(getTypeCount(Child.RELIGION, "OTHER", age, district, province));
+	
+	    cs.setSinhala(getTypeCount(Child.RACE, "SINHALA", age, district, province));
+	    cs.setSrilankanTamil(getTypeCount(Child.RACE, "SRILANKAN TAMIL", age, district, province));
+	    cs.setIndianTamil(getTypeCount(Child.RACE, "INDIAN TAMIL", age, district, province));
+	    cs.setMuslim(getTypeCount(Child.RACE, "MUSLIM", age, district, province));
+	    cs.setRaceOther(getTypeCount(Child.RACE, "OTHER", age, district, province));
+	
+	    cs.setParentBoth(getTypeCount(Child.PARENT_AVAILABILITY, "BOTH", age, district, province));
+	    cs.setParentMotherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "MOTHER ONLY", age, district, province));
+	    cs.setParentFatherOnly(getTypeCount(Child.PARENT_AVAILABILITY, "FATHER ONLY", age, district, province));
+	    cs.setParentNone(getTypeCount(Child.PARENT_AVAILABILITY, "NONE", age, district, province));
+	
+	    cs.setIntakeCourt(getTypeCount(Child.INTAKE_METHOD, "COURT", age, district, province));
+	    cs.setIntakeDepartment(getTypeCount(Child.INTAKE_METHOD, "DEPARTMENT", age, district, province));
+	    cs.setIntakeDirect(getTypeCount(Child.INTAKE_METHOD, "DIRECT", age, district, province));
+	    cs.setIntakeParent(getTypeCount(Child.INTAKE_METHOD, "PARENT", age, district, province));
+	    
+	    if(age==-1) {
+	    	Calendar today = GregorianCalendar.getInstance();
+			Calendar twoYear = (Calendar)today.clone();
+			twoYear.add(Calendar.YEAR, -2);
+			cs.setAgeLessThanTwo(getAgeRangeCountDistrictProvince(Child.DATE_OF_BIRTH, twoYear, today, district, province));
+	
+			Calendar fiveYear = (Calendar)twoYear.clone();
+			fiveYear.add(Calendar.YEAR, -3);
+			cs.setAgeLessThanFive(getAgeRangeCountDistrictProvince(Child.DATE_OF_BIRTH, fiveYear, twoYear, district, province));
+	
+			Calendar tenYear = (Calendar)fiveYear.clone();
+			tenYear.add(Calendar.YEAR, -5);
+			cs.setAgeLessThanTen(getAgeRangeCountDistrictProvince(Child.DATE_OF_BIRTH, tenYear, fiveYear, district, province));
+	
+			Calendar eighteenYear = (Calendar)tenYear.clone();
+			eighteenYear.add(Calendar.YEAR, -8);
+			cs.setAgeLessThanEighteen(getAgeRangeCountDistrictProvince(Child.DATE_OF_BIRTH, eighteenYear, tenYear, district, province));
+	    }
+    }
+    catch(Exception ex) {
+    	ex.printStackTrace();
+    }
     return cs;
   }
+
+private MaleFemale getAgeRangeCountDistrictProvince(String key,	Calendar startDate, Calendar endDate, String district, String province) {
+	int male = getCount(maleCriteriaDateRangeByRestrictionDistrictProvince(key, startDate, endDate, district, province));
+	int female = getCount(femaleCriteriaDateRangeByRestrictionDistrictProvince(key, startDate, endDate, district, province));
+
+	return new MaleFemale(male, female);
+}
+
+private DetachedCriteria maleCriteriaDateRangeByRestrictionDistrictProvince(String key, Calendar startDate, Calendar endDate, String district, String province) {
+	DetachedCriteria criteria;
+
+	criteria = createCriteria(getPersistentClass());
+	criteria.createAlias("lamaNivasa", "l");
+	criteria.createAlias("l.probationUnit", "p");
+	criteria.createAlias("p.district", "d");
+	criteria.createAlias("d.province", "pr");
+	
+	criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
+	criteria.add(Restrictions.between(key, startDate, endDate));
+	
+	if(district!=null && !district.equals("-1")) {
+		criteria.add(Restrictions.eq("d.id",district));
+	}
+	if( province!=null && !province.equals("-1")) {
+		criteria.add(Restrictions.eq("pr.id",province));
+	}
+
+	return criteria;
+}
+
+private DetachedCriteria femaleCriteriaDateRangeByRestrictionDistrictProvince(String key, Calendar startDate, Calendar endDate, String district, String province) {
+	DetachedCriteria criteria;
+	
+	criteria = createCriteria(getPersistentClass());
+	criteria.createAlias("lamaNivasa", "l");
+	criteria.createAlias("l.probationUnit", "p");
+	criteria.createAlias("p.district", "d");
+	criteria.createAlias("d.province", "pr");
+
+	criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.FEMALE));
+	criteria.add(Restrictions.between(key, startDate, endDate));
+	
+	if(district!=null && !district.equals("-1")) {
+		criteria.add(Restrictions.eq("d.id",district));
+	}
+	if( province!=null && !province.equals("-1")) {
+		criteria.add(Restrictions.eq("pr.id",province));
+	}
+
+	return criteria;
+}
 }
 

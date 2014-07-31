@@ -57,6 +57,7 @@ public abstract class GenericDao<T extends BaseEntity> extends BaseDao {
 			}
 
 		} catch (DataAccessException e) {
+			e.printStackTrace();
 			logger.error("Criteria query execution error for unique result");
 			return null;
 		}
