@@ -33,6 +33,7 @@ public class UserAction extends BaseAction {
 	private List<ProbationUnit> probationUnitList;
 	private List<LamaNivasa> lamaNivasaList;
 	private List<GenericList> postCategoryList;
+	private List<GenericList> provinceList;
 
 	//private SystemUser user;
 	private SystemUser systemUser;
@@ -167,6 +168,7 @@ public class UserAction extends BaseAction {
 	private void populateAddList(){
 		lamaNivasaList= lamaNivasaService.findAll();
 		probationUnitList= probationUnitService.findAll();
+		provinceList = genericListService.findListByCategoryId("C022");
 		if(addType.equalsIgnoreCase("User")) {
 			postCategoryList = genericListService.findListByCategoryId("C018");
 		} else if(addType.equalsIgnoreCase("Officer")) {
@@ -455,5 +457,14 @@ public class UserAction extends BaseAction {
 	public void setPostCategoryList(List<GenericList> postCategoryList) {
 		this.postCategoryList = postCategoryList;
 	}
+
+  public List<GenericList> getProvinceList() {
+    return provinceList;
+  }
+
+  public void setProvinceList(List<GenericList> provinceList) {
+    this.provinceList = provinceList;
+  }
+	
 
 }
