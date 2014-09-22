@@ -9,11 +9,13 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
+import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
+import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
 
 @Scope(value = "prototype")
@@ -33,7 +35,7 @@ public class UserAction extends BaseAction {
 	private List<ProbationUnit> probationUnitList;
 	private List<LamaNivasa> lamaNivasaList;
 	private List<GenericList> postCategoryList;
-	private List<GenericList> provinceList;
+	private List<Province> provinceList;
 
 	//private SystemUser user;
 	private SystemUser systemUser;
@@ -43,6 +45,7 @@ public class UserAction extends BaseAction {
 	@Autowired private LamaNivasaService lamaNivasaService;
 	@Autowired private ProbationUnitService probationUnitService;
 	@Autowired private GenericListService genericListService;
+	@Autowired private ProvinceService provinceService;
 
 	public String signIn() {
 
@@ -168,7 +171,8 @@ public class UserAction extends BaseAction {
 	private void populateAddList(){
 		lamaNivasaList= lamaNivasaService.findAll();
 		probationUnitList= probationUnitService.findAll();
-		provinceList = genericListService.findListByCategoryId("C022");
+		//provinceList = genericListService.findListByCategoryId("C022");
+		provinceList = provinceService.findAll();
 		if(addType.equalsIgnoreCase("User")) {
 			postCategoryList = genericListService.findListByCategoryId("C018");
 		} else if(addType.equalsIgnoreCase("Officer")) {
@@ -458,11 +462,11 @@ public class UserAction extends BaseAction {
 		this.postCategoryList = postCategoryList;
 	}
 
-  public List<GenericList> getProvinceList() {
+  public List<Province> getProvinceList() {
     return provinceList;
   }
 
-  public void setProvinceList(List<GenericList> provinceList) {
+  public void setProvinceList(List<Province> provinceList) {
     this.provinceList = provinceList;
   }
 	
