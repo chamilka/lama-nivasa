@@ -5,4 +5,4 @@ create database child_db CHARACTER SET utf8;
 
 use child_db;
 
-set names utf8;
+¬

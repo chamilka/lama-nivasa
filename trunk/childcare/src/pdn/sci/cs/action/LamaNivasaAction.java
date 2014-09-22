@@ -152,32 +152,16 @@ public class LamaNivasaAction extends BaseAction {
 
 	        if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
 	        	// if officer only own lama nivasa
-	        	if (getSessionUser().getPost().equals(hpo)){
-	                String province = provinceService.findByReferenceId(referenceId);
-	                
-	                try {
-	                  list=lamaNivasaService.findDeletedByProvinceId(province);
-	                  targetDiv = "lamaNivasaResultDiv";
-	                  pager = new Pager(0, list.size(), list.size(), list);
-	                  setActionContext(pager);
-	                } catch (Exception e) {
-	                  e.printStackTrace();
-	                  addActionError("You have not assigned to a children\'s home");
-	                  return INPUT;
-	                }
-
-	              } else {
-			          try {
-			            list = lamaNivasaService.findByReferenceId(referenceId);
-			            targetDiv = "lamaNivasaResultDiv";
-			            pager = new Pager(0, list.size(), list.size(), list);
-			            setActionContext(pager);
-			          } catch (Exception e) {
-			            e.printStackTrace();
-			            addActionError("You have not assigned to a children\'s home");
-			            return INPUT;
-			          }
-	              }
+		          try {
+		            list = lamaNivasaService.findByReferenceId(referenceId);
+		            targetDiv = "lamaNivasaResultDiv";
+		            pager = new Pager(0, list.size(), list.size(), list);
+		            setActionContext(pager);
+		          } catch (Exception e) {
+		            e.printStackTrace();
+		            addActionError("You have not assigned to a children\'s home");
+		            return INPUT;
+		          }
 	        }
 	      }
 	    }

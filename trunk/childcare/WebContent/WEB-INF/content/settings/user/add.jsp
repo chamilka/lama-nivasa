@@ -74,7 +74,7 @@
 								<td>Province:</td>
 								<td><s:select id="provincialOfficerSelect"
 										name="systemUser.referenceId" list="provinceList"
-										listKey="id" listValue="listValue" /></td>
+										listKey="id" listValue="name" /></td>
 							</tr>
 						</table>
 					</td>
