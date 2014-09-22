@@ -27,21 +27,21 @@ public class ChildAction extends BaseAction {
 
   @Autowired
   private ChildService childService;
-  
+
   @Autowired
   private LamaNivasaService lamaNivasaService;
-  
+
   @Autowired
   private GenericListService genericListService;
-  
+
   @Autowired
   private DistrictService districtService;
-  
+
   @Autowired
   private ProvinceService provinceService;
 
   private ChildrenSummary childSummary;
-  
+
   private Child child;
   private List<Child> list;
   private List<LamaNivasa> lamaNivasaList;
@@ -56,33 +56,35 @@ public class ChildAction extends BaseAction {
   private List<GenericList> childCategoryList;
   private List<GenericList> ageLimitList;
   private List<Province> provinceList;
-  
+
   private List<District> districtList;
   private String searchDistrict;
   private int searchAge = 0;
   private String searchProvince;
-  
+
   private Boolean ageView = true;
-  
+
+  private static final String provincial_officer = "Provincial Officer";
+
   public String childSummaryFrame() {
     return SUCCESS;
   }
-  
+
   public String summarySearchForm() {
     ageLimitList = genericListService.findListByCategoryId("C090");
     districtList = districtService.findAll();
     provinceList = provinceService.findAll();
     return SUCCESS;
   }
-  
+
   public String summarySearch() {
-      childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
-      if(searchAge>0) {
-    	  setAgeView(false);
-      }
+    childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
+    if (searchAge > 0) {
+      setAgeView(false);
+    }
     return SUCCESS;
   }
-  
+
   public String childSummary() {
     childSummary = childService.getChildrenSummary();
     return SUCCESS;
@@ -118,8 +120,8 @@ public class ChildAction extends BaseAction {
   // return SUCCESS;
   // }
   public String list() {
-    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
-        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
+        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
       String referenceId = getSessionUser().getReferenceId();
       // pageSize = 4 *SEARCH_PAGE_SIZE;
 
@@ -139,14 +141,28 @@ public class ChildAction extends BaseAction {
             return INPUT;
           }
         } else {
-          try {
-            pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
-            targetDiv = "childResultDiv";
-            setActionContext(pager);
-            return SUCCESS;
-          } catch (Exception e) {
-            e.printStackTrace();
-            return INPUT;
+
+          if (getSessionUser().getPost().equals(provincial_officer)) {
+
+            try {
+              pager = childService.findAllByProvinceId(referenceId, pageStart, pageSize);
+              targetDiv = "childResultDiv";
+              setActionContext(pager);
+              return SUCCESS;
+            } catch (Exception e) {
+              e.printStackTrace();
+              return INPUT;
+            }
+          } else {
+            try {
+              pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
+              targetDiv = "childResultDiv";
+              setActionContext(pager);
+              return SUCCESS;
+            } catch (Exception e) {
+              e.printStackTrace();
+              return INPUT;
+            }
           }
         }
       }
@@ -157,47 +173,47 @@ public class ChildAction extends BaseAction {
       return SUCCESS;
     }
   }
-  
+
   public String deletedList() {
-	    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || 
-	        getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
-	      String referenceId = getSessionUser().getReferenceId();
-	      // pageSize = 4 *SEARCH_PAGE_SIZE;
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
+        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+      String referenceId = getSessionUser().getReferenceId();
+      // pageSize = 4 *SEARCH_PAGE_SIZE;
 
-	      if (referenceId == null) {
-	        return INPUT;
-	      } else {
+      if (referenceId == null) {
+        return INPUT;
+      } else {
 
-	        if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+        if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
 
-	          try {
-	            pager = childService.findAllDeletedByLamaNivasaId(referenceId, pageStart, pageSize);
-	            targetDiv = "childResultDiv";
-	            setActionContext(pager);
-	            return SUCCESS;
-	          } catch (Exception e) {
-	            e.printStackTrace();
-	            return INPUT;
-	          }
-	        } else {
-	          try {
-	            pager = childService.findAllDeletedByProbationUnitId(referenceId, pageStart, pageSize);
-	            targetDiv = "childResultDiv";
-	            setActionContext(pager);
-	            return SUCCESS;
-	          } catch (Exception e) {
-	            e.printStackTrace();
-	            return INPUT;
-	          }
-	        }
-	      }
-	    } else {
-	      pager = childService.findAllDeleted(pageStart, pageSize);
-	      targetDiv = "childResultDiv";
-	      setActionContext(pager);
-	      return SUCCESS;
-	    }
-	  }
+          try {
+            pager = childService.findAllDeletedByLamaNivasaId(referenceId, pageStart, pageSize);
+            targetDiv = "childResultDiv";
+            setActionContext(pager);
+            return SUCCESS;
+          } catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+          }
+        } else {
+          try {
+            pager = childService.findAllDeletedByProbationUnitId(referenceId, pageStart, pageSize);
+            targetDiv = "childResultDiv";
+            setActionContext(pager);
+            return SUCCESS;
+          } catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+          }
+        }
+      }
+    } else {
+      pager = childService.findAllDeleted(pageStart, pageSize);
+      targetDiv = "childResultDiv";
+      setActionContext(pager);
+      return SUCCESS;
+    }
+  }
 
   public String searchForm() {
     searchPopulate();
@@ -327,7 +343,7 @@ public class ChildAction extends BaseAction {
     } else {
       try {
         child = childService.findById(this.id);
-        if(child != null) {
+        if (child != null) {
           setUpdateSettings(child);
           child.setStatus(INACTIVE_STATE);
           childService.save(child);
@@ -338,14 +354,14 @@ public class ChildAction extends BaseAction {
       return list();
     }
   }
-  
+
   public String restore() {
     if (this.id.isEmpty()) {
       addActionError("Could not delete the entry, id is missing");
       return INPUT;
     } else {
       child = childService.findById(this.id);
-      if(child != null) {
+      if (child != null) {
         setUpdateSettings(child);
         child.setStatus(ACTIVE_STATE);
         childService.save(child);
@@ -554,14 +570,14 @@ public class ChildAction extends BaseAction {
     this.searchProvince = searchProvince;
   }
 
-public Boolean getAgeView() {
-	return ageView;
-}
+  public Boolean getAgeView() {
+    return ageView;
+  }
 
-public void setAgeView(Boolean ageView) {
-	this.ageView = ageView;
-}
-  
-  
-  
+  public void setAgeView(Boolean ageView) {
+    this.ageView = ageView;
+  }
+
+
+
 }

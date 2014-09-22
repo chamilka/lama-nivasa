@@ -122,7 +122,7 @@ public class UserAction extends BaseAction {
 
 					if(systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty()) {
 						SystemUser existingUser = systemUserService.findById(systemUser.getId());
-						systemUser.setUserPassword(existingUser.getUserPassword()); // set password
+						systemUser.setUserPassword(existingUser.getUserPassword()); // set password 
 					}
 
 					setUpdateSettings(systemUser);

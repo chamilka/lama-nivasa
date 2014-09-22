@@ -16,7 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class SystemUser extends BaseEntity implements java.io.Serializable {
 
   public enum USER_ROLE {
-    ADMIN, USER, OFFICER, SPONSOR, MINISTRY
+    ADMIN, USER, OFFICER, SPONSOR, MINISTRY, 
   }
 
   public static final String USERNAME = "username";

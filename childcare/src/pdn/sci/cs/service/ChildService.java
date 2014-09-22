@@ -75,4 +75,8 @@ public class ChildService {
 	public Pager findAllDeletedByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
 		return childDao.findAllDeletedByProbationUnitId(referenceId,pageStart,pageSize);
 	}
+
+    public Pager findAllByProvinceId(String referenceId, Integer pageStart, Integer pageSize) {
+      return childDao.findAllByProvinceId(referenceId,pageStart,pageSize);
+  }
 }
