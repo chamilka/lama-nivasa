@@ -16,7 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class SystemUser extends BaseEntity implements java.io.Serializable {
 
   public enum USER_ROLE {
-    ADMIN, USER, OFFICER, SPONSOR, MINISTRY, 
+    ADMIN, USER, OFFICER, SPONSOR, MINISTRY,
   }
 
   public static final String USERNAME = "username";
@@ -93,7 +93,21 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 
   @Column(name = "REFERENCE_ID", length = 32)
   public String getReferenceId() {
-    return referenceId;
+    if (referenceId == null && referenceId.isEmpty()) {
+      return referenceId;
+    } else {
+      if (referenceId.indexOf(",") >= 0) {
+        String[] split = referenceId.split(",");
+        for(String s: split){
+          if(s.length()>=3){
+            return s.trim();
+          }
+        }
+        return referenceId;
+      }else {
+        return referenceId;
+      }
+    }
   }
 
   public void setReferenceId(String referenceId) {
@@ -197,6 +211,10 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 
   public void setStatus(int status) {
     this.status = status;
+  }
+  
+  public void setReferenceId_widget(String aa){
+    
   }
 
 }

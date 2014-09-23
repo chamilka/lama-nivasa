@@ -2,6 +2,7 @@ package pdn.sci.cs.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -30,5 +31,13 @@ private static final Class<ProbationUnit> clazz = ProbationUnit.class;
     criteria.add(Restrictions.eq(ProbationUnit.DISTRICT_ID, districtId));
 
     return findByCriteria(criteria);
+  }
+
+  public List<ProbationUnit> findByProvince(String province) {
+    
+    Query query = getSession().createQuery("select pu from ProbationUnit pu, District d, Province p where pu.district.id = d.id AND d.province = p.id AND p.id = :pid");
+    query.setParameter("pid", province);
+    List<ProbationUnit> list= query.list();
+    return list;
   }
 }

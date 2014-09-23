@@ -145,16 +145,21 @@
 <script>
 	$(document).ready(function() {
 		$("#provincialOfficer").hide();
-
+		$("#provincialOfficer").prop( "disabled", true );
+		
 	});
 
 	$("#postSelect").change(function() {
 		if ($(this).val() == "Provincial Officer") {
 			$("#otherOfficer").hide();
+			$("#otherOfficer").prop( "disabled", true );
 			$("#provincialOfficer").show();
+			$("#provincialOfficer").prop( "disabled", false );
 		} else {
 			$("#otherOfficer").show();
+			$("#otherOfficer").prop( "disabled", false );
 			$("#provincialOfficer").hide();
+			$("#provincialOfficer").prop( "disabled", true );
 		}
 	});
 </script>
