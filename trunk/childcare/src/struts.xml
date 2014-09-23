@@ -15,11 +15,12 @@
 			</result>
 		</global-results>
 
-		<global-exception-mappings>
+		
+		<!-- global-exception-mappings>
 			<exception-mapping exception="java.sql.SQLException" result="SQLException" />
 			<exception-mapping exception="java.lang.Exception" result="exception" />
 			<exception-mapping exception="java.lang.RuntimeException" result="RuntimeException" />
-		</global-exception-mappings>
+		</global-exception-mappings-->
 
 	</package>
 

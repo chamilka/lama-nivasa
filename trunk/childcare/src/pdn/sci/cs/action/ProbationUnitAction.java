@@ -30,7 +30,7 @@ public class ProbationUnitAction extends BaseAction {
   private SystemUserService systemUserService;
   @Autowired
   private DistrictService districtService;
-  
+
   private static Logger logger = Logger.getLogger(ProbationUnitAction.class);
 
   private List<ProbationUnit> list;
@@ -41,9 +41,30 @@ public class ProbationUnitAction extends BaseAction {
   private List<String> selectedPoliceStations;
   private List<District> districtList;
 
+  private static final String provincial_officer = "Provincial Officer";
+
   public String list() {
-    list = probationUnitService.findAll();
-    return SUCCESS;
+
+    if ((getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
+        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+      list = probationUnitService.findAll();
+      return SUCCESS;
+    } else {
+      String referenceId = getSessionUser().getReferenceId();
+      if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
+        if (getSessionUser().getPost().equals(provincial_officer)) {
+          list = probationUnitService.findByProvince(referenceId);
+          return SUCCESS;
+        } else {
+          ProbationUnit punit = probationUnitService.findById(referenceId);
+          list = new ArrayList<ProbationUnit>();
+          list.add(punit);
+          return SUCCESS;
+        }
+      } else {
+        return INPUT;
+      }
+    }
   }
 
   public String searchForm() {
@@ -88,7 +109,7 @@ public class ProbationUnitAction extends BaseAction {
           addActionError("Error");
           return INPUT;
         }
-        
+
       }
     } else {
       addActionError("Invalid Access");
@@ -98,37 +119,37 @@ public class ProbationUnitAction extends BaseAction {
     this.id = probationUnit.getId();
     return view();
   }
-  
+
   private void addPoliceStations() {
-    if(this.probationUnit != null && this.selectedPoliceStations != null) {
-      if(probationUnit.getPoliceStations() == null){
+    if (this.probationUnit != null && this.selectedPoliceStations != null) {
+      if (probationUnit.getPoliceStations() == null) {
         probationUnit.setPoliceStations(new HashSet<PoliceStation>());
       }
-      for(String s: selectedPoliceStations) { 
+      for (String s : selectedPoliceStations) {
         probationUnit.getPoliceStations().add(policeStationService.findById(s));
       }
     }
   }
 
   public String view() {
-    
+
     if (id == null || id.isEmpty()) {
       addActionError("Invalid Access");
       return INPUT;
     } else {
-      
+
       probationUnit = probationUnitService.findById(id);
       if (probationUnit == null) {
         addActionError("Item that your are searching could not be found");
         return INPUT;
       }
-      
+
       referenceId = id;
       probationOfficerList();
-      
-      if(operationMode == OPERATION_MODE.EDIT) {
+
+      if (operationMode == OPERATION_MODE.EDIT) {
         selectedPoliceStations = new ArrayList<String>();
-        for(PoliceStation ps : probationUnit.getPoliceStations()) {
+        for (PoliceStation ps : probationUnit.getPoliceStations()) {
           selectedPoliceStations.add(ps.getId());
         }
       }
@@ -146,14 +167,14 @@ public class ProbationUnitAction extends BaseAction {
     }
 
   }
-  
-  public String probationOfficerList(){
+
+  public String probationOfficerList() {
     if (referenceId != null) {
       probationOfficers = systemUserService.search(SystemUser.USER_ROLE.OFFICER, referenceId);
     } else {
       probationOfficers = new ArrayList<SystemUser>();
     }
-    
+
     return SUCCESS;
   }
 
@@ -161,8 +182,9 @@ public class ProbationUnitAction extends BaseAction {
     if (this.probationUnit.getName().isEmpty()) {
       addFieldError("probationUnit.name", "Name cannot be empty");
     }
-    
-    if (this.probationUnit.getDistrict() == null || this.probationUnit.getDistrict().getId().isEmpty()) {
+
+    if (this.probationUnit.getDistrict() == null
+        || this.probationUnit.getDistrict().getId().isEmpty()) {
       addFieldError("probationUnit.district.id", "District cannot be empty");
     }
   }
@@ -224,5 +246,5 @@ public class ProbationUnitAction extends BaseAction {
   public void setDistrictList(List<District> districtList) {
     this.districtList = districtList;
   }
-  
+
 }

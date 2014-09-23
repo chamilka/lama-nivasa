@@ -1,5 +1,6 @@
 package pdn.sci.cs.action;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -7,14 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
-import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.entity.MonthlyDataReport;
 import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SystemUser;
-import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.MonthlyDataService;
@@ -33,9 +32,7 @@ public class MonthlyInformationAction extends BaseAction {
   private LamaNivasaService lamaNivasaService;
   @Autowired
   private ProvinceService provinceService;
-  @Autowired
-  private DistrictService districtService;
-  
+
   private String lamaNivasaId;
   private MonthlyData monthlyData;
   private List<MonthlyData> list;
@@ -45,24 +42,22 @@ public class MonthlyInformationAction extends BaseAction {
   private List<LamaNivasa> lamaNivasaList;
   private MonthlyDataReport monthlyDataReport;
   private List<Province> provinceList;
-  private List<District> districtList;
-  
-  private String searchDistrict;
 
-  private int year =  Calendar.getInstance().get(Calendar.YEAR);
+  private int year = Calendar.getInstance().get(Calendar.YEAR);
   private String month = "";
-  
+
+  private static final String provincial_officer = "Provincial Officer";
+
   public String frame() {
     return SUCCESS;
   }
-  
+
   public String detailForm() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
-    districtList = districtService.findAll();
     return SUCCESS;
   }
-  
+
   public String detail() {
     monthlyDataReport = monthlyDataService.report(year, month);
     return SUCCESS;
@@ -71,7 +66,24 @@ public class MonthlyInformationAction extends BaseAction {
   private void viewInit() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
-    lamaNivasaList = lamaNivasaService.findAll();
+
+    if ((getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
+        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+      lamaNivasaList = lamaNivasaService.findAll();
+    } else {
+      String referenceId = getSessionUser().getReferenceId();
+      if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
+        if (getSessionUser().getPost().equals(provincial_officer)) {
+          lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
+        } else {
+          lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);
+        }
+      } else {
+        LamaNivasa lNiwasa = lamaNivasaService.findById(referenceId);
+        lamaNivasaList = new ArrayList<LamaNivasa>();
+        lamaNivasaList.add(lNiwasa);
+      }
+    }
   }
 
   private void findById() {
@@ -92,7 +104,7 @@ public class MonthlyInformationAction extends BaseAction {
   }
 
   public String edit() {
-    //edit();
+    // edit();
     findById();
     viewInit();
     editMode();
@@ -164,7 +176,7 @@ public class MonthlyInformationAction extends BaseAction {
         try {
           if (operationMode == OPERATION_MODE.ADD && monthlyData.getId().isEmpty()) {
             if (monthlyData.getLamaNivasa().getId() != null && monthlyData.getMonth() != null
-                && monthlyData.getYear() != null) {  //delete if there is an entry before
+                && monthlyData.getYear() != null) { // delete if there is an entry before
               monthlyDataService.deleteByLamaNivasaYearMonth(monthlyData.getLamaNivasa().getId(),
                   monthlyData.getYear(), monthlyData.getMonth());
             }
@@ -303,24 +315,4 @@ public class MonthlyInformationAction extends BaseAction {
     this.provinceList = provinceList;
   }
 
-public List<District> getDistrictList() {
-	return districtList;
-}
-
-public void setDistrictList(List<District> districtList) {
-	this.districtList = districtList;
-}
-
-public String getSearchDistrict() {
-	return searchDistrict;
-}
-
-public void setSearchDistrict(String selectedDistrict) {
-	this.searchDistrict = selectedDistrict;
-}
-
-
-  
-  
-  
 }

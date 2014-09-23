@@ -80,14 +80,21 @@
             <s:if test="user">
             	<td class="td2"></td>
             </s:if>
+            <s:if test="ministry">
+            	<td class="td4">&nbsp;</td>
+            </s:if>
             <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link">CHILDREN'S HOME</sj:a> </td>
             <s:if test="!user">
             	<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link">UNITS</sj:a></td>
             </s:if>
 
 			<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link">CHILD</sj:a></td>
+			
+			<s:if test="!ministry">
 			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link">MONTHLY DATA</sj:a></td>
+            </s:if>
             <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link">MY ACCOUNT</sj:a></td>
+            
             <s:if test="admin">
             	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTINGS</sj:a></td>
          	</s:if>
@@ -104,7 +111,7 @@
   </div>
   <div class="footer comicsans">
 	<div style="padding-left: 75px; margin-top: -30px;">Copyright <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %>. All Right Reserved. </div>
-	<div style="text-align: right; margin-top: -14px; margin-right: 70px;">Designed & Developed By <a href="http://www.doerit.com">DoerIT</a> </div>
+	<div style="text-align: right; margin-top: -14px; margin-right: 70px;">Developed & Designed By <a href="http://www.doerit.com">DoerIT</a> </div>
  </div>
   <!-- end .container --></div>
 </body>
