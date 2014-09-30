@@ -70,12 +70,9 @@
 								cssStyle="width:600px" />
 						</table>
 						<table id="provincialOfficer">
-							<tr>
-								<td>Province:</td>
-								<td><s:select id="provincialOfficerSelect"
-										name="systemUser.referenceId" list="provinceList"
-										listKey="id" listValue="name" /></td>
-							</tr>
+							<s:select id="provincialOfficerSelect"
+								name="systemUser.referenceId" list="provinceList" listKey="id"
+								listValue="name" label="Province" />
 						</table>
 					</td>
 				</s:elseif>
@@ -145,21 +142,21 @@
 <script>
 	$(document).ready(function() {
 		$("#provincialOfficer").hide();
-		$("#provincialOfficer").prop( "disabled", true );
-		
+		$("#provincialOfficer").prop("disabled", true);
+
 	});
 
 	$("#postSelect").change(function() {
 		if ($(this).val() == "Provincial Officer") {
 			$("#otherOfficer").hide();
-			$("#otherOfficer").prop( "disabled", true );
+			$("#otherOfficer").prop("disabled", true);
 			$("#provincialOfficer").show();
-			$("#provincialOfficer").prop( "disabled", false );
+			$("#provincialOfficer").prop("disabled", false);
 		} else {
 			$("#otherOfficer").show();
-			$("#otherOfficer").prop( "disabled", false );
+			$("#otherOfficer").prop("disabled", false);
 			$("#provincialOfficer").hide();
-			$("#provincialOfficer").prop( "disabled", true );
+			$("#provincialOfficer").prop("disabled", true);
 		}
 	});
 </script>
