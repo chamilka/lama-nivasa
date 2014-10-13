@@ -55,9 +55,9 @@
 
 <div class="container">
   <div class="header">
-  	<div style="padding:30px 0 0 870px">
+  	<div style="padding:30px 0 0 800px">
   	    <s:url var="signOutUrl" namespace="/user" action="signout" includeParams="none" />
-  	    <s:a href="%{#signOutUrl}" title="%{#session.SESSION_USER.name}" cssStyle="text-decoration:none">Sign Out [<s:property value="%{#session.SESSION_USER.userRole}"/>]</s:a>
+  	    <s:a href="%{#signOutUrl}" id="signOut" title="%{#session.SESSION_USER.post}" cssStyle="text-decoration:none">Sign Out [<s:property value="%{#session.SESSION_USER.name}"/>]</s:a>
   	</div>
   </div>
   <div class="menu_bar">
