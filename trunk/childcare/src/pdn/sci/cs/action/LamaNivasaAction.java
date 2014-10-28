@@ -73,8 +73,7 @@ public class LamaNivasaAction extends BaseAction {
 
   private String districtId;
   private String divisionalSecretariatId;
-
-
+  
 
   public String list() {
     if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
@@ -87,15 +86,13 @@ public class LamaNivasaAction extends BaseAction {
         if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
           // if user only own children home
           try {
-
             lamaNivasa = lamaNivasaService.findById(referenceId);
             list = new ArrayList<LamaNivasa>();
             list.add(lamaNivasa);
             targetDiv = "lamaNivasaResultDiv";
             pager = new Pager(0, list.size(), list.size(), list);
             setActionContext(pager);
-
-
+            
           } catch (Exception e) {
             e.printStackTrace();
             addActionError("You have not assigned to a children\'s home");
@@ -108,6 +105,7 @@ public class LamaNivasaAction extends BaseAction {
            // String province = provinceService.findByReferenceId(referenceId);
 
             try {
+              //list = lamaNivasaService.findByProvinceId(province);
               list = lamaNivasaService.findByReferenceId(referenceId);
               targetDiv = "lamaNivasaResultDiv";
               pager = new Pager(0, list.size(), list.size(), list);

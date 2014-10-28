@@ -4,15 +4,41 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
 
-<div>
-	<table>
-		<tr>
-			<td class="td3" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">Care Plan Information</td>
-		</tr>
-	</table>
-</div>
-<div>
+<script type="text/javascript">
+ $(document).ready(function() {
+    $( "#dateStart" ).datepicker({
+      defaultDate: "today",
+      changeMonth: true,
+      showOn: "button",
+      buttonImage: "/childcare/struts/js/calendar.gif",
+      buttonText: "Select End date",
+      onClose: function( selectedDate ) {
+        $( "#dateEnd" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#dateEnd" ).datepicker({
+      defaultDate: "today",
+      changeMonth: true,
+      showOn: "button",
+      buttonImage: "/childcare/struts/js/calendar.gif",
+      buttonText: "Select End date",
+      maxDate:"today",
+      onClose: function( selectedDate ) {
+        $( "#dateStart" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+</script>
+
+	<div>
+		<table>
+			<tr>
+				<td class="td3" style="width: 5px">&nbsp;</td>
+				<td class="sub-title">Care Plan Information</td>
+			</tr>
+		</table>
+	</div>
+	<div>
 
 	<hr />
 

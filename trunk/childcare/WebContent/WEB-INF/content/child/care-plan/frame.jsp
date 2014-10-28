@@ -2,9 +2,16 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
-
 <div style="border: 2px dotted #ddd">
-
+	<sj:datepicker id="initialDatepicker"  showOn="none"/>
+	
+	<script type="text/javascript">
+		$(function() {
+			$( "#initialDatepicker" ).hide();
+			$( "#initialDatepicker" ).datepicker( "destroy" );    		
+		});
+	</script>
+	
     <s:label name="child.id"/>
 	<s:url var="childCareplanListUrl" action="list" namespace="/childCareplan" includeParams="none">
 			<s:param name="childId" value="%{childId}"></s:param>
