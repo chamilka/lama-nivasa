@@ -67,7 +67,7 @@ public class MonthlyInformationAction extends BaseAction {
 
     if ((getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
         .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
-      lamaNivasaList = lamaNivasaService.findAll();
+      lamaNivasaList = lamaNivasaService.findAllLamaNivasa();
     } else {
       String referenceId = getSessionUser().getReferenceId();
       if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
