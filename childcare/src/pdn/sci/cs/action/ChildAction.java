@@ -280,9 +280,11 @@ public class ChildAction extends BaseAction {
       } else {
         if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
           setAddSettings(child);
+          fieldsGenerators();
           child = childService.save(child);
         } else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty()) {
           setUpdateSettings(child);
+          fieldsGenerators();
           childService.update(child);
         } else {
           addActionError("Error");
@@ -295,6 +297,10 @@ public class ChildAction extends BaseAction {
       return INPUT;
     }
     return SUCCESS;
+  }
+  
+  private void fieldsGenerators(){
+    child.setLamaNivasa(lamaNivasaService.findById(child.getLamaNivasa().getId()));
   }
 
   public String view() {

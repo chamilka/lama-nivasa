@@ -63,4 +63,8 @@ public class LamaNivasaService {
       return lamaNivasaDao.findDeletedByProbationUnitID(probationUnitID);
     }
 
+    public List<LamaNivasa> findAllLamaNivasa() {
+      return lamaNivasaDao.findAllLamaNivasa();
+    }
+
 }

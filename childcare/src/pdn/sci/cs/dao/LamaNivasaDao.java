@@ -89,5 +89,14 @@ public class LamaNivasaDao extends GenericDao<LamaNivasa> {
     return list;
   }
 
+  public List<LamaNivasa> findAllLamaNivasa() {
+    Query query =
+        getSession()
+            .createQuery(
+                "select ln from LamaNivasa ln where ln.status=0");
+    List<LamaNivasa> list = query.list();
+    return list;
+  }
+
 
 }
