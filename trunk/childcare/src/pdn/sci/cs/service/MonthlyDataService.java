@@ -43,13 +43,15 @@ public class MonthlyDataService {
     monthlyDataDao.delete(id, year, month);
   }
   
-  public MonthlyDataReport report(int year, String month) {
-    List<MonthlyDataReport> l = monthlyDataDao.report(year, month);
+  public MonthlyDataReport report(int year, String month, String searchDistrict) {
+    List<MonthlyDataReport> l = monthlyDataDao.report(year, month, searchDistrict);
     if(l.size() > 0) {
       return l.get(0);
     } else {  
       return null;
     }
   }
+
+
 
 }

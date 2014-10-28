@@ -8,8 +8,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import pdn.sci.cs.entity.MonthlyData;
-import pdn.sci.cs.entity.MonthlyDataReport;
+import pdn.sci.cs.entity.*;
 
 @Repository
 public class MonthlyDataDao extends GenericDao<MonthlyData> {
@@ -56,7 +55,7 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
   }
   
  
-  public List<MonthlyDataReport> report(int year, String month) {
+  public List<MonthlyDataReport> report(int year, String month, String searchDistrict) {
     String sql = "SELECT 'ID_0' as ID, "
                 + "0 as MUN_OF_MALE_HAVING_SPECIAL_REQUIREMENTS,"
                 + "0 as NUM_OF_FEMALE_HAVING_SPECIAL_REQUIREMENTS,"
@@ -90,17 +89,21 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
                   "SUM(NUM_TO_OTHER) AS NUM_TO_OTHER," +
                   "SUM(NUM_NO_CHILD_PLANS) AS NUM_NO_CHILD_PLANS," +
                   "SUM(NUM_DEVIATED_CHILD_PLANS) AS NUM_DEVIATED_CHILD_PLANS" +
-                  " FROM monthly_data" +
-                  " WHERE 1<> 0 "; 
+                  " FROM monthly_data as md, lama_nivasa as ln, probation_unit as pu, district as d" +
+                  " WHERE 1<> 0 "+
+                  "AND md.LAMA_NIVASA_ID=ln.ID AND ln.PROBATION_UNIT_ID = pu.ID AND pu.DISTRICT_ID  = d.ID"; 
     
-     if(year != 0) {
+    if(!(searchDistrict.equals("-1"))){
+      sql += " AND d.ID = \'" + searchDistrict + "\'";
+    }
+    if(year != 0) {
        sql += " AND YEAR = " + year;
      }
      
      if(!month.isEmpty()) {
        sql += " AND MONTH = \'" + month + "\'";
      }
-    
+      
      Query query = getSession().createSQLQuery(sql).addEntity(MonthlyDataReport.class);
      List<MonthlyDataReport> list = query.list();
      
