@@ -44,6 +44,7 @@ public class LamaNivasaDao extends GenericDao<LamaNivasa> {
 
   public List<LamaNivasa> findByReferenceId(String referenceId) {
     DetachedCriteria criteria = createCriteria(clazz);
+    criteria.add(Restrictions.eq(LamaNivasa.STATUS, 0));
     criteria.add(Restrictions.eq(LamaNivasa.PROBATION_UNIT_ID, referenceId));
 
     return findByCriteria(criteria);

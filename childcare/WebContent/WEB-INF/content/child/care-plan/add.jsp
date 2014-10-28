@@ -27,16 +27,16 @@
 		<s:select name="childCareplan.category" list="careplanCategories" listKey="listValue" listValue="listValue" label="Category"/>
 		 
 		<sj:datepicker id="dateStart" name="childCareplan.dateStart"
-			changeMonth="true" changeYear="true"
+			changeMonth="true" changeYear="true" required="true"
 			value="%{childCareplan.dateStart.time}" label="Start Date" />
 			
 			
 		<sj:datepicker id="dateEnd" name="childCareplan.dateEnd"
-			changeMonth="true" changeYear="true"
+			changeMonth="true" changeYear="true" required="true"
 			value="%{childCareplan.dateEnd.time}" label="End Date" />
 			
 		<sjr:tinymce name="childCareplan.preNote" label="Pre-Note"
-			cssStyle="width:550px;height:100px"
+			cssStyle="width:550px;height:100px" required="true"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 			
 		<sjr:tinymce name="childCareplan.status" label="Status"

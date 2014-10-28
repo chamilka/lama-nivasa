@@ -37,7 +37,7 @@
 				<th>Name<span class="required">*</span></th>
 				<td colspan="5"><table>
 						<s:textfield name="lamaNivasa.name" cssStyle="width:450px"
-							required="true" />
+							required="true" maxlength="250"/>
 					</table></td>
 			</tr>
 			<tr>
@@ -89,7 +89,8 @@
 								list="divisionalSecretariatList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
 								headerValue="Please Select a DS division"
-								title="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name}" />
+								title="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name}" 
+								cssStyle="width: 250px" />
 						</table>
 					</td>
 				</tr>
@@ -104,20 +105,22 @@
 								list="gramaSevakaDivisionList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
 								headerValue="Please Select a GS division"
-								title="%{lamaNivasa.gramaSevakaDivision.name}" />
+								title="%{lamaNivasa.gramaSevakaDivision.name}" 
+								cssStyle="width: 250px" />
 						</table>
 					</td>
 				</tr>
 
 				<tr>
-					<th>Unit</th>
+					<th>Unit:<span class="required">*</span></th>
 					<td colspan="2">
 						<table>
 							<sj:select href="%{districtSelectJsonUrl}"
 								id="lamaNivasa.probationUnit.id" reloadTopics="reloadsecondlist"
 								name="lamaNivasa.probationUnit.id" list="probationUnitList"
 								listKey="id" listValue="name" emptyOption="false" headerKey="-1"
-								headerValue="Please Select Probation Unit" />
+								headerValue="Please Select Probation Unit" 
+								cssStyle="width: 250px"/>
 						</table>
 					</td>
 
@@ -129,7 +132,8 @@
 								name="lamaNivasa.probationOfficer"
 								list="probationUnitOfficerList" listKey="name" listValue="name"
 								emptyOption="false" headerKey="-1"
-								headerValue="Please Select Main Officer" />
+								headerValue="Please Select Main Officer" 
+								cssStyle="width: 250px"/>
 						</table>
 					</td>
 				</tr>
@@ -156,29 +160,29 @@
 				<th>Address<span class="required">*</span></th>
 				<td colspan="5"><table>
 						<s:textfield name="lamaNivasa.address" cssStyle="width:500px"
-							required="true" />
+							required="true" maxlength="250" />
 					</table></td>
 			</tr>
 			<tr>
 				<th>Telephone<span class="required">*</span></th>
 				<td><table>
 						<s:textfield name="lamaNivasa.telephone" cssStyle="width:150px"
-							required="true" />
+							required="true" maxlength="15" />
 					</table></td>
 				<th>Fax</th>
 				<td><table>
-						<s:textfield name="lamaNivasa.fax" cssStyle="width:150px" />
+						<s:textfield name="lamaNivasa.fax" cssStyle="width:150px" maxlength="15"/>
 					</table></td>
 				<th>Email</th>
 				<td><table>
-						<s:textfield name="lamaNivasa.email" cssStyle="width:200px" />
+						<s:textfield name="lamaNivasa.email" cssStyle="width:200px" maxlength="60"/>
 					</table></td>
 			</tr>
 			<tr>
 				<th>Max. No. of children</th>
 				<td><table>
 						<sj:spinner name="lamaNivasa.numberOfChildren"
-							id="numberOfChildrenSpinner" min="0" step="1"
+							id="numberOfChildrenSpinner" min="0" step="1" max="999"
 							cssStyle="width:60px" required="true" mouseWheel="true"
 							tooltip="Head count" />
 					</table></td>
@@ -190,9 +194,9 @@
 					</table></td>
 				<th>Max Age</th>
 				<td><table>
-						<sj:spinner name="lamaNivasa.maxAge" id="maxAgeSpinner" min="5"
-							max="30" step="1" cssStyle="width:60px" required="true"
-							mouseWheel="true" tooltip="Maximu Age in Years" />
+						<sj:spinner name="lamaNivasa.maxAge" id="maxAgeSpinner" Min="5"
+							Max="30" step="1" cssStyle="width:60px" required="true"
+							mouseWheel="true" tooltip="Maximum Age in Years" />
 					</table></td>
 			</tr>
 
@@ -201,7 +205,8 @@
 				<td><table>
 						<s:select name="lamaNivasa.registrationStatus"
 							list="registrationStatusList" listKey="listKey"
-							listValue="listValue" />
+							listValue="listValue" 
+							cssStyle="width:150px"/>
 					</table></td>
 				<th>Reg. Number</th>
 				<td><table>
@@ -222,7 +227,8 @@
 				<td><table>
 						<s:select name="lamaNivasa.fundingMethod"
 							list="maintenanceDonationList" listKey="listKey"
-							listValue="listValue" />
+							listValue="listValue" 
+							cssStyle="width:150px"/>
 					</table></td>
 				<th>Dept Funding</th>
 				<td colspan="3"><table>

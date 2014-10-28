@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Children</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Children</td>	   		
 	   </tr>
 	  </table>
 	</div>
@@ -40,6 +40,7 @@
 			 <td>
 			 	<s:url var="childPictureDeleteUrl" action="delete" namespace="/childPicture" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
+			 		<s:param name="childId" value="childId"></s:param>
 			 	</s:url>
 			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
 			 </td>

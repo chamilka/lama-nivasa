@@ -67,6 +67,8 @@ public class ChildCareplanAction extends BaseAction {
     if (childCareplan != null) {
       validateChild();
       if (hasErrors()) {
+    	  childId = childCareplan.getChild().getId();
+    	  addPopulate();
         return INPUT;
       } else {
         if (operationMode == OPERATION_MODE.ADD && childCareplan.getId().isEmpty()) {
@@ -123,13 +125,17 @@ public class ChildCareplanAction extends BaseAction {
   }
 
   private void validateChild() {
-    if (childCareplan.getPreNote() == null) {
+    if (childCareplan.getPreNote() == null || childCareplan.getPreNote().isEmpty()) {
       addFieldError("childCareplan.preNote", "Pre-note cannot be empty");
     }
 
     if (childCareplan.getDateStart() == null) {
       addFieldError("childCareplan.dateStart", "Start date cannot be empty");
     }
+    
+    if (childCareplan.getDateEnd() == null) {
+        addFieldError("childCareplan.dateEnd", "End date cannot be empty");
+      }
   }
 
   public String getChildId() {

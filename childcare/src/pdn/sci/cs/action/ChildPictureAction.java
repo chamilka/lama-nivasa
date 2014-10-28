@@ -123,7 +123,8 @@ public class ChildPictureAction extends BaseSingleFileUpload {
 			return INPUT;
 		} else {
 			childPictureService.delete(id);
-			childId = childPicture.getChild().getId();
+			if(childPicture != null)
+				childId = childPicture.getChild().getId();
 			return list();
 		}
 

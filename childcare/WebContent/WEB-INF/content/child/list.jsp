@@ -19,12 +19,12 @@
 		<table style="margin-top: 10px" width="100%" id="commonTable"
 			class="darkBlueTbl">
 			<tr>
-				<th style="width: 20px"></th>
-				<th>Name</th>
-				<th style="width: 70px">Sex Type</th>
-				<th>Date Of Birth</th>
+				<th style="width: 10px"></th>
+				<th style="width: 200px">Name</th>
+				<th style="width: 65px">Sex Type</th>
+				<th style="width: 95px">Date Of Birth</th>
 				<th style="width: 50px">District</th>
-				<th>Children's Home</th>
+				<th style="width: 530px">Children's Home</th>
 			</tr>
 			<s:iterator value="pager.list" status="rowIndex">
 				<tr>
@@ -49,7 +49,7 @@
 					<td><s:date name="dateOfBirth.time" format="yyyy/MM/dd" /></td>
 					<td><s:property
 							value="lamaNivasa.divisionalSecretariat.district.name" /></td>
-					<td><s:property value="lamaNivasa.name" /></td>
+					<td style="text-wrap:normal;"><s:property value="lamaNivasa.name" /></td>
 					<%--
 			 <td>
 			 	<s:url var="childEditUrl" action="edit" namespace="/child" includeParams="none">
