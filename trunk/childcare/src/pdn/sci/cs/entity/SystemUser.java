@@ -93,10 +93,10 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 
   @Column(name = "REFERENCE_ID", length = 32)
   public String getReferenceId() {
-    if (referenceId == null && referenceId.isEmpty()) {
-      return referenceId;
+    if (this.referenceId == null || this.referenceId.isEmpty()) {
+      return this.referenceId;
     } else {
-      if (referenceId.indexOf(",") >= 0) {
+      if (this.referenceId.indexOf(",") >= 0) {
         String[] split = referenceId.split(",");
         for(String s: split){
           if(s.length()>=3){

@@ -17,6 +17,7 @@
 	 <s:hidden name="systemUser.id" />
 	 <s:hidden name="systemUser.post" />
 	 <s:hidden name="systemUser.userRole" />
+	 <s:hidden name="systemUser.referenceId" />
 	 <s:hidden name="operationMode"/>
 	 <s:textfield name="systemUser.username"  label="Login Name" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="systemUser.name"  label="Name" cssStyle="width:300px" ></s:textfield>

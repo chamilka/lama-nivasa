@@ -70,13 +70,11 @@
 		 		   <td>
 		 		    <table>
 			 			<sj:submit value="SUBMIT" targets="probationUnitResultDiv"/>
-			 			
 			 		</table>
 			 	   </td>
 			 	   <td>
 			 	   	<table>
-			 	   	<s:url var="probationUnitViewUrl" action="list" namespace="/probationUnit" includeParams="none">
-				 		</s:url>
+			 	   		<s:url var="probationUnitViewUrl" action="list" namespace="/probationUnit" includeParams="none"></s:url>
 		 				<sj:a href="%{#probationUnitViewUrl}" targets="probationUnitResultDiv"><input type="button" value="CANCEL" /></sj:a>
 		 			</table>
 			 	   </td>

@@ -47,7 +47,14 @@
 			<td colspan="3"><s:property
 					value="lamaNivasa.probationUnit.name" /></td>
 			<th>Probation Officer</th>
-			<td><s:property value="lamaNivasa.probationOfficer" /></td>
+			<td colspan="2">
+				<s:if test="lamaNivasa.probationOfficer == -1">
+					Probation Officer Not Selected
+				</s:if>
+				<s:else>
+					<s:property value="lamaNivasa.probationOfficer" />
+				</s:else>				
+			</td>
 		</tr>
 		<tr>
 			<th>Address</th>
