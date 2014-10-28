@@ -104,6 +104,7 @@
           </tr>
      </table>
   </div>
+
   <div id="content" class="content">
 	  <sj:div href="%{#lamaNivasaFrameUrl}">
 	    

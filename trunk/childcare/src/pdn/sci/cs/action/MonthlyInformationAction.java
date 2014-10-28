@@ -46,8 +46,6 @@ public class MonthlyInformationAction extends BaseAction {
   private int year = Calendar.getInstance().get(Calendar.YEAR);
   private String month = "";
 
-  private static final String provincial_officer = "Provincial Officer";
-
   public String frame() {
     return SUCCESS;
   }
@@ -73,7 +71,7 @@ public class MonthlyInformationAction extends BaseAction {
     } else {
       String referenceId = getSessionUser().getReferenceId();
       if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
-        if (getSessionUser().getPost().equals(provincial_officer)) {
+        if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
           lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
         } else {
           lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);

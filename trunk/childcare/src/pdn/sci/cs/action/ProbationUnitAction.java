@@ -100,10 +100,12 @@ public class ProbationUnitAction extends BaseAction {
         if (operationMode == OPERATION_MODE.ADD && probationUnit.getId().isEmpty()) {
           setAddSettings(probationUnit);
           addPoliceStations();
+          fieldsGenerators();
           probationUnit = probationUnitService.save(probationUnit);
         } else if (operationMode == OPERATION_MODE.EDIT && !probationUnit.getId().isEmpty()) {
           setUpdateSettings(probationUnit);
           addPoliceStations();
+          fieldsGenerators();
           probationUnitService.update(probationUnit);
         } else {
           addActionError("Error");
@@ -118,6 +120,11 @@ public class ProbationUnitAction extends BaseAction {
 
     this.id = probationUnit.getId();
     return view();
+  }
+  
+  private void fieldsGenerators(){
+    probationUnit.setDistrict(districtService.findById(probationUnit.getDistrict().getId()));
+    
   }
 
   private void addPoliceStations() {

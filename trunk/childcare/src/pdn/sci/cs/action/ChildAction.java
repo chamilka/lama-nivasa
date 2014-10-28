@@ -64,7 +64,6 @@ public class ChildAction extends BaseAction {
 
   private Boolean ageView = true;
 
-  private static final String provincial_officer = "Provincial Officer";
 
   public String childSummaryFrame() {
     return SUCCESS;
@@ -95,30 +94,6 @@ public class ChildAction extends BaseAction {
     return SUCCESS;
   }
 
-  // public String list() {
-  // if(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-  // //if user only own children home
-  // String referenceId = getSessionUser().getReferenceId();
-  // if(referenceId == null) {
-  // return INPUT;
-  // } else {
-  // try {
-  // pageSize = 4 *SEARCH_PAGE_SIZE;
-  // pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
-  // targetDiv = "childResultDiv";
-  // setActionContext(pager);
-  // return SUCCESS;
-  // } catch(Exception e) {
-  // e.printStackTrace();
-  // return INPUT;
-  // }
-  // }
-  // }
-  // pager = childService.findAll(pageStart, pageSize);
-  // targetDiv = "childResultDiv";
-  // setActionContext(pager);
-  // return SUCCESS;
-  // }
   public String list() {
     if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
         .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
@@ -142,7 +117,7 @@ public class ChildAction extends BaseAction {
           }
         } else {
 
-          if (getSessionUser().getPost().equals(provincial_officer)) {
+          if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
 
             try {
               pager = childService.findAllByProvinceId(referenceId, pageStart, pageSize);

@@ -44,10 +44,10 @@
 		</tr>
 		<tr>
 			<th>Probation Unit</th>
-			<td colspan="2"><s:property
+			<td colspan="3"><s:property
 					value="lamaNivasa.probationUnit.name" /></td>
 			<th>Probation Officer</th>
-			<td colspan="2"><s:property value="lamaNivasa.probationOfficer" /></td>
+			<td><s:property value="lamaNivasa.probationOfficer" /></td>
 		</tr>
 		<tr>
 			<th>Address</th>

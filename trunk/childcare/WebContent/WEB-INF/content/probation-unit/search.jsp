@@ -21,6 +21,8 @@
 	  	  </table>
      	</td>
      	<td style="text-align: right; padding-right: 10px">
+	   	  
+	   	 <s:if test="ministry || admin">
 	   	  <table>
 	  		  	<s:url var="probationUnitAddUrl" action="add" 
 						namespace="/probationUnit" includeParams="none"></s:url>
@@ -33,9 +35,9 @@
 				<sj:a href="%{#probationUnitListUrl}" targets="probationUnitResultDiv">
 					All Units</sj:a>
 	  	  </table>
+	  	  </s:if>
      	</td>
 	  </table>
 	
 	</s:form>
-
 </div>
