@@ -8,12 +8,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.MonthlyData;
 import pdn.sci.cs.entity.MonthlyDataReport;
 import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SystemUser;
+import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.MonthlyDataService;
@@ -32,6 +34,8 @@ public class MonthlyInformationAction extends BaseAction {
   private LamaNivasaService lamaNivasaService;
   @Autowired
   private ProvinceService provinceService;
+  @Autowired
+  private DistrictService districtService;
 
   private String lamaNivasaId;
   private MonthlyData monthlyData;
@@ -42,9 +46,12 @@ public class MonthlyInformationAction extends BaseAction {
   private List<LamaNivasa> lamaNivasaList;
   private MonthlyDataReport monthlyDataReport;
   private List<Province> provinceList;
+  private List<District> districtList;
+  
 
   private int year = Calendar.getInstance().get(Calendar.YEAR);
   private String month = "";
+  private String searchDistrict;
 
   public String frame() {
     return SUCCESS;
@@ -53,11 +60,12 @@ public class MonthlyInformationAction extends BaseAction {
   public String detailForm() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
+    districtList = districtService.findAll();
     return SUCCESS;
   }
 
   public String detail() {
-    monthlyDataReport = monthlyDataService.report(year, month);
+    monthlyDataReport = monthlyDataService.report(year, month, searchDistrict);
     return SUCCESS;
   }
 
@@ -313,4 +321,21 @@ public class MonthlyInformationAction extends BaseAction {
     this.provinceList = provinceList;
   }
 
+  public List<District> getDistrictList() {
+    return districtList;
+  }
+
+  public void setDistrictList(List<District> districtList) {
+    this.districtList = districtList;
+  }
+
+  public String getSearchDistrict() {
+    return searchDistrict;
+  }
+
+  public void setSearchDistrict(String searchDistrict) {
+    this.searchDistrict = searchDistrict;
+  }
+
+  
 }
