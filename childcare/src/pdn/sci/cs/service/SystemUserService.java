@@ -53,9 +53,9 @@ public class SystemUserService {
 	public List<SystemUser> search(SystemUser.USER_ROLE userRole, String referenceId) {
           return  systemUserDao.searchByUserRoleAndReferenceId(userRole, referenceId);
 	}
-	public Pager search(String userId, String userRole, String referenceId,
+	public Pager search(String userId, String userRole,
 			String mobile, Integer pageStart, Integer pageSize) {
-		return systemUserDao.search(userId, userRole, referenceId, mobile, pageStart, pageSize);
+		return systemUserDao.search(userId, userRole, mobile, pageStart, pageSize);
 	}
 
 	public List<SystemUser> findByUserRole(SystemUser.USER_ROLE userRole) {

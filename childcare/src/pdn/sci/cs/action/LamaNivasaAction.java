@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.DivisionalSecretariat;
 import pdn.sci.cs.entity.GenericList;
+import pdn.sci.cs.entity.GramaSevaka;
 import pdn.sci.cs.entity.GramaSevakaDivision;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
@@ -72,8 +73,8 @@ public class LamaNivasaAction extends BaseAction {
 
   private String districtId;
   private String divisionalSecretariatId;
-  private static final String hpo = "Probation Officer of Headquarters";
-  private static final String provincialOfficer = "Provincial Officer";
+
+
 
   public String list() {
     if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
@@ -86,12 +87,15 @@ public class LamaNivasaAction extends BaseAction {
         if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
           // if user only own children home
           try {
+
             lamaNivasa = lamaNivasaService.findById(referenceId);
             list = new ArrayList<LamaNivasa>();
             list.add(lamaNivasa);
             targetDiv = "lamaNivasaResultDiv";
             pager = new Pager(0, list.size(), list.size(), list);
             setActionContext(pager);
+
+
           } catch (Exception e) {
             e.printStackTrace();
             addActionError("You have not assigned to a children\'s home");
@@ -100,7 +104,7 @@ public class LamaNivasaAction extends BaseAction {
         } else {
 
           // if officer only own lama nivasa
-          if (getSessionUser().getPost().equals(hpo)) {
+          if (getSessionUser().getPost().equals(UserPost.PROBATION_OFFICER_OF_HEADQUARTERS.getStatusCode())) {
             String province = provinceService.findByReferenceId(referenceId);
 
             try {
@@ -116,7 +120,7 @@ public class LamaNivasaAction extends BaseAction {
           } else {
 
             // if provincial Officer only
-            if (getSessionUser().getPost().equals(provincialOfficer)) {
+            if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
               try {
                 list = lamaNivasaService.findByProvinceId(referenceId);
                 targetDiv = "lamaNivasaResultDiv";
@@ -152,8 +156,9 @@ public class LamaNivasaAction extends BaseAction {
   }
 
   public String deletedList() {
-    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
+        || getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()) || getSessionUser()
+        .getPost().equals(UserPost.PROBATION_OFFICER_OF_HEADQUARTERS.getStatusCode()))) {
 
       String referenceId = getSessionUser().getReferenceId();
       if (referenceId == null) {
@@ -163,10 +168,23 @@ public class LamaNivasaAction extends BaseAction {
         if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
           // if officer only own lama nivasa
           try {
-            list = lamaNivasaService.findByReferenceId(referenceId);
-            targetDiv = "lamaNivasaResultDiv";
-            pager = new Pager(0, list.size(), list.size(), list);
-            setActionContext(pager);
+
+            if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
+
+              list = lamaNivasaService.findDeletedByProvinceId(referenceId);
+              targetDiv = "lamaNivasaResultDiv";
+              pager = new Pager(0, list.size(), list.size(), list);
+              setActionContext(pager);
+              
+            } else {
+              list= lamaNivasaService.findDeletedByProbationUnitID(referenceId);
+              targetDiv = "lamaNivasaResultDiv";
+              pager = new Pager(0, list.size(), list.size(), list);
+              setActionContext(pager);
+
+            }
+
+
           } catch (Exception e) {
             e.printStackTrace();
             addActionError("You have not assigned to a children\'s home");
@@ -231,9 +249,12 @@ public class LamaNivasaAction extends BaseAction {
       } else {
         if (operationMode == OPERATION_MODE.ADD && lamaNivasa.getId().isEmpty()) {
           setAddSettings(lamaNivasa);
+          fieldsGenerators();
           lamaNivasa = lamaNivasaService.save(lamaNivasa);
+
         } else if (operationMode == OPERATION_MODE.EDIT && !lamaNivasa.getId().isEmpty()) {
           setUpdateSettings(lamaNivasa);
+          fieldsGenerators();
           lamaNivasaService.update(lamaNivasa);
         } else {
           addActionError("Error");
@@ -247,7 +268,15 @@ public class LamaNivasaAction extends BaseAction {
       viewInit();
       return INPUT;
     }
+    lamaNivasa = lamaNivasaService.findById(lamaNivasa.getId());
     return SUCCESS;
+  }
+
+  private void fieldsGenerators() {
+    lamaNivasa.setGramaSevakaDivision(gramaSevakaDivsionService.findById(lamaNivasa
+        .getGramaSevakaDivision().getId()));
+    lamaNivasa.setProbationUnit(probationUnitService
+        .findById(lamaNivasa.getProbationUnit().getId()));
   }
 
   public String view() {

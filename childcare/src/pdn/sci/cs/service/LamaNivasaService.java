@@ -59,4 +59,8 @@ public class LamaNivasaService {
 		return lamaNivasaDao.findDeletedByProvinceId(province);
 	}
 
+    public List<LamaNivasa> findDeletedByProbationUnitID(String probationUnitID) {
+      return lamaNivasaDao.findDeletedByProbationUnitID(probationUnitID);
+    }
+
 }

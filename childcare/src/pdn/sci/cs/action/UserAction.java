@@ -54,8 +54,6 @@ public class UserAction extends BaseAction {
   @Autowired
   private ProvinceService provinceService;
 
-  private static final String provincial_officer = "Provincial Officer";
-
   public String signIn() {
 
     validateSignIn();
@@ -322,8 +320,7 @@ public class UserAction extends BaseAction {
       try {
         pageSize = SEARCH_PAGE_SIZE;
         pager =
-            systemUserService.search(systemUser.getName(), systemUser.getUserRole(),
-                systemUser.getReferenceId(), systemUser.getMobile(), pageStart, pageSize);
+            systemUserService.search(systemUser.getName(), systemUser.getUserRole(), systemUser.getMobile(), pageStart, pageSize);
       } catch (Exception e) {
         e.printStackTrace();
         populateAddList();
@@ -340,7 +337,7 @@ public class UserAction extends BaseAction {
   public String changeProfileForm() {
     editMode();
     systemUser = systemUserService.findById(super.getSessionUser().getId());
-    if (getSessionUser().getPost().equals(provincial_officer)) {
+    if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
       province = provinceService.findById(systemUser.getReferenceId()).getName();
     }
 

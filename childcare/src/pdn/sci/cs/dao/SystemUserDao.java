@@ -58,7 +58,7 @@ public class SystemUserDao extends GenericDao<SystemUser> {
     return super.find(criteria, start, size);
   }
 
-  public Pager search(String name, String userRole, String referenceId, String mobile,
+  public Pager search(String name, String userRole, String mobile,
       Integer pageStart, Integer pageSize) {
 
     DetachedCriteria criteria = createCriteria(clazz);
@@ -69,10 +69,6 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
     if (userRole != null && !userRole.isEmpty()) {
       criteria.add(Restrictions.eq(SystemUser.SYSTEM_USER_ROLE, userRole));
-    }
-
-    if (referenceId != null && !referenceId.isEmpty()) {
-      criteria.add(Restrictions.eq(SystemUser.REFERENCE_ID, referenceId));
     }
 
     if (mobile != null && !mobile.isEmpty()) {
