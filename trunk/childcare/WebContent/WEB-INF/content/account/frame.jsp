@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td5" style="width:5px">&nbsp;</td><td class="sub-title">My Account</td>
+	   		<td class="td5" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.myaccount.title"/></td>
 	   </tr>
 	  </table>
 	</div>

@@ -17,24 +17,7 @@
     			<pathelement location="${db.dir}/lib/mysql.jar" />
 			</classpath>
 
-			<transaction src="${db.dir}/create/database.sql"/>
-			<transaction src="${db.dir}/create/probation_unit.sql"/>
-			<transaction src="${db.dir}/create/district.sql"/>
-			<transaction src="${db.dir}/create/system_user.sql"/>
-			<transaction src="${db.dir}/create/divisional_secretariat.sql"/>
 
-			<transaction src="${db.dir}/create/lama_nivasa.sql"/>
-			<transaction src="${db.dir}/create/child.sql"/>
-			<transaction src="${db.dir}/create/child_picture.sql"/>
-			<transaction src="${db.dir}/create/child_guardian.sql"/>
-
-			<transaction src="${db.dir}/create/grama_sevaka.sql"/>
-			<transaction src="${db.dir}/create/grama_sevaka_division.sql"/>
-			<transaction src="${db.dir}/create/generic_category.sql"/>
-			<transaction src="${db.dir}/create/generic_list.sql"/>
-			<transaction src="${db.dir}/create/monthly_data.sql"/>
-			<transaction src="${db.dir}/create/police_station.sql"/>
-			<transaction src="${db.dir}/create/probationunit_policestation.sql"/>
 			
 			<transaction src="${db.dir}/data/probation_unit.sql"/>
 			<transaction src="${db.dir}/data/system_user.sql"/>
@@ -42,8 +25,8 @@
 			<transaction src="${db.dir}/data/generic_category_list.sql"/>
 			<transaction src="${db.dir}/data/district.sql"/>
 			<transaction src="${db.dir}/data/divisional_secretariat.sql"/>	
-			<transaction src="${db.dir}/data/lama-nivasa.sql"/>	
-			<transaction src="${db.dir}/data/child.sql"/>	
+	
+			
 		</sql>
 	</target>
 </project>
