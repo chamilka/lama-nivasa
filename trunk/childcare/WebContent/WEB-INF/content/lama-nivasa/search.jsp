@@ -13,7 +13,7 @@
 	   <tr>
 	   	<td style="width: 225px">
 	   	 	<table>
-	  			<s:textfield name="lamaNivasa.name" label="Name" cssStyle="width:225px" ></s:textfield>
+	  			<s:textfield name="lamaNivasa.name" key="lamaNivasa.form.search.Name" cssStyle="width:225px" ></s:textfield>
 			</table>
      	</td>
      	<td style="width: 250px">
