@@ -37,12 +37,12 @@
 		  	  </tr>
 		     
 		      <tr>
-		        <td style="height:25px;color: #000">USERNAME</td>
+		        <td style="height:25px;color: #000"><s:text name="user.login.email" /></td>
 		        <td><table cellpadding="0" cellspacing="0">
 		        	<s:textfield name="username" cssStyle="width:150px; height:25px"  /></table></td>
 		      </tr>
 		      <tr>
-		        <td style="height:25px;color: #000">PASSWORD</td>
+		        <td style="height:25px;color: #000"><s:text name="user.login.Password" /></td>
 		        <td><table  cellpadding="0" cellspacing="0">
 		        	<s:password name="password" cssStyle="width:150px; height:25px" showPassword="true" /></table></td>
 		      </tr>
