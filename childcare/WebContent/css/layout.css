@@ -23,6 +23,28 @@ h1, h2, h3, h4, h5, h6, p {
 a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
 	border: none;
 }
+
+#eng input{
+	color: red;
+	/* background-color: rgba(105, 104, 104, 1); */
+}
+#sin input{
+	color: orange;
+	/* background-color: rgba(0, 183, 255, 1); */
+}
+
+a input { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	text-decoration: none;
+	width: 30px;
+	height: 30px;
+	font-size: 18px;
+	margin: 1px
+}
+.localeStyle{
+	padding-top: 40px;
+	padding-right: 60px;
+}
+
 /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
 a:link {
 	color: #42413C;
