@@ -7,7 +7,7 @@
 	 <table id="commonTable" class="blueTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
 
 	   <tr>
-	   	<th colspan="4">Search</th>
+	   	<th colspan="4"><s:text name="lamaNivasa.form.search"/></th>
 	   </tr>
 
 	   <tr>
