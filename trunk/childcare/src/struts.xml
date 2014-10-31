@@ -38,6 +38,10 @@
 		<action name="invalid-url" class="">
 			<result>/WEB-INF/content/common/invalid-url.jsp</result>
 		</action>
+		
+		<action name="localeChange" class="pdn.sci.cs.action.IndexAction">
+			<result>/WEB-INF/content/signin.jsp</result>
+		</action>
 
 	</package>
 
