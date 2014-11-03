@@ -4,6 +4,6 @@
 
 <div>
 	
-	Monthly View
+ <s:text name="page.preview"/>
 
 </div>

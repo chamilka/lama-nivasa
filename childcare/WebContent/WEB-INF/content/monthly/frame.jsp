@@ -6,7 +6,7 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title">Monthly Data</td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name= "page.title"/></td>
 	   </tr>
 	  </table>
 	</div>
