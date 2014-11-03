@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td>Monthly Information : <s:property value="monthlyData.lamaNivasa.name" /></td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td><s:text name="page.add"/> <s:property value="monthlyData.lamaNivasa.name" /></td>
 	   </tr>
 	   
 	  </table>
