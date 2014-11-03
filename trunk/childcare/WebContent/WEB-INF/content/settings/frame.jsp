@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Settings</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="settings.frame.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -25,10 +25,10 @@
 		namespace="/police" includeParams="none"></s:url>
 	
 	<div>
-		<sj:a href="%{userFrameUrl}" targets="settingsDiv"><input type="button" value="Users" /></sj:a>
-		<sj:a href="%{#districtListUrl}" targets="settingsDiv"><input type="button" value="Organization" /></sj:a>
-		<sj:a href="%{#configurationUrl}" targets="settingsDiv"><input type="button" value="Configuration" /></sj:a>
-		<sj:a href="%{#policeStationUrl}" targets="settingsDiv"><input type="button" value="Police Station" /></sj:a>
+		<sj:a href="%{userFrameUrl}" targets="settingsDiv"><input type="button" value="<s:text name = "settings.frame.value.user"/>" /></sj:a>
+		<sj:a href="%{#districtListUrl}" targets="settingsDiv"><input type="button" value="<s:text name = "settings.frame.value.org"/>" /></sj:a>
+		<sj:a href="%{#configurationUrl}" targets="settingsDiv"><input type="button" value="<s:text name = "settings.frame.value.config"/>" /></sj:a>
+		<sj:a href="%{#policeStationUrl}" targets="settingsDiv"><input type="button" value="<s:text name = "settings.frame.value.police"/>" /></sj:a>
 	</div>
 		
 	<div id="settingsDiv" style="margin: 20px 0 0 0">
