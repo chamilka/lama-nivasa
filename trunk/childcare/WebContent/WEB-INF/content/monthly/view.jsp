@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title">Monthly Information View</td>
+	   		<td class="td4" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name= "page.view.information"/></td>
 	   </tr>
 	   
 	  </table>
@@ -45,7 +45,7 @@
        </tr> 
 	   <tr>
 	     <td>
-	       <b>1. Number Of Children</b>
+	       <b><s:text name= "page.view.no.of.children"/></b>
 	     </td>
 	   </tr>
 	   	<tr>
@@ -71,7 +71,7 @@
 	   
 	   <tr>
 	     <td>
-	       <b>2. Officers</b>
+	       <b><s:text name= "page.view.officers"/></b>
 	     </td>
 	   </tr>
 	   
@@ -97,7 +97,7 @@
 	    </tr> 
 	   <tr>
 	     <td>
-	       <b>3. Reunifications</b>
+	       <b><s:text name= "page.view.reunifications"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -189,7 +189,7 @@
 	   
 	   <tr>
 	     <td>
-	       <b>4. Number Of Transfers</b>
+	       <b><s:text name= "page.view.transfers"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -214,7 +214,7 @@
 	    </tr> 	
 	    <tr>
 	     <td>
-	       <b>5. No Proforma</b>
+	       <b><s:text name= "page.view.proforma"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -239,7 +239,7 @@
 	    </tr> 		
 	   <tr>
 	     <td>
-	       <b>6. No Guardian</b>
+	       <b><s:text name= "page.view.guardian"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -264,7 +264,7 @@
 	    </tr> 		
 	    <tr>
 	    <td>
-	       <b>7. Number Of Terminates</b>
+	       <b><s:text name= "page.view.terminates"/></b>
 	     </td>
 	    </tr>
 	   
@@ -289,7 +289,7 @@
 	    </tr> 		
 	    <tr>
 	     <td>
-	       <b>8. Having Special Requirements</b>
+	       <b><s:text name= "page.view.having.sp.requirements"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -314,7 +314,7 @@
 	    </tr> 			
 	    <tr>
 	     <td>
-	       <b>9. Visits on</b>
+	       <b><s:text name="page.view.visits"/></b>
 	     </td>
 	    </tr>
 	    
@@ -323,7 +323,7 @@
 		     	 <table>
 		     	    <tr>
 		     	      <td>
-		     	         Probation Officer :
+		     	         <s:text name="page.view.officer"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -338,7 +338,7 @@
 		      	 <table>
 		     	    <tr>
 		     	      <td>
-		     	         Counsellor :
+		     	         <s:text name="page.view.counsellor"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -356,7 +356,7 @@
 		     	<table>
 		     	    <tr>
 		     	      <td>
-		     	         Department Commissioner :
+		     	         <s:text name="page.view.commissioner"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -371,7 +371,7 @@
 		         <table>
 		     	    <tr>
 		     	      <td>
-		     	         Department Probation Officer :
+		     	         <s:text name="page.view.department.probation.officer"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -390,7 +390,7 @@
 		      	 <table>
 		     	    <tr>
 		     	      <td>
-		     	         Department Child Development Officer :
+		     	         <s:text name="page.view.department.development.officer"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -405,7 +405,7 @@
 	    </tr> 	
 	     <tr>
 	     <td>
-	       <b>10. Meetings</b>
+	       <b><s:text name="page.view.meetings"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -413,7 +413,7 @@
 		         <table>
 		     	    <tr>
 		     	      <td>
-		     	         The last meeting :
+		     	         <s:text name="page.view.last.meeting"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -440,7 +440,7 @@
 		         <table>
 		     	    <tr>
 		     	      <td>
-		     	         Placement Committee :
+		     	         <s:text name="page.view.placement.committee"/>
 		     	      </td>
 		     	      <td>
 			     	      <s:date 
@@ -455,7 +455,7 @@
 	    
 	    <tr>
 		     <td>
-		       <b>11. Intakes</b>
+		       <b><s:text name="page.view.intakes"/></b>
 		     </td>
 	    </tr>
 	    <tr>
@@ -518,7 +518,7 @@
 	    </tr> 
 	    <tr>
 		     <td>
-		       <b>12. Child Care Plans</b>
+		       <b><s:text name = "page.view.care.plans"/></b>
 		     </td>
 	    </tr>
 	    <tr>

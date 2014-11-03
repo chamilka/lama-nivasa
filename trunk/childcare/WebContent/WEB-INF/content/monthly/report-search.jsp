@@ -5,7 +5,7 @@
 <div>
   <table>
    <tr>
-   		<td class="td4" style="width:10px">&nbsp;</td><td>Report Search</td>
+   		<td class="td4" style="width:10px">&nbsp;</td><td><s:text name= "page.report.search"/></td>
    </tr>
   </table>
 </div>

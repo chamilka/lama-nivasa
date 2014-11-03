@@ -7,7 +7,7 @@
 
 	 <table id="commonTable" class="redTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
 	   <tr>
-	   	<th colspan="6">Search</th>
+	   	<th colspan="6"><s:text name = "page.search"/></th>
 	   </tr>
 	   <tr>
 
