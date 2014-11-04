@@ -9,7 +9,7 @@
 		<table style="width: 100%">
 			<tr>
 				<td class="td3" style="width: 5px">&nbsp;</td>
-				<td class="sub-title">Detail Search</td>
+				<td class="sub-title"><s:text name="page.detail-search.title"/></td>
 				<%-- <td>&nbsp;</td>
 	   			<td style="align:right; width:100px"> <a href="#"><img src='<s:url value="/images/ms-excel.png" />' style="width:48px;height:48px" title="Download MS-Excel" /></a></td> --%>
 			</tr>
@@ -22,7 +22,7 @@
 			method="post">
 			 <table id="commonTable" class="blueTbl" cellpadding="0" cellspacing="0" style="width: 100%; text-align: left;">
 			   <tr>
-			   	<th colspan="6">Summary Criteria</th>
+			   	<th colspan="6"><s:text name="page.detail-search.summary.criteria"/></th>
 			   </tr>
 				<tr>
 					<%-- <td>
@@ -39,23 +39,23 @@
 	       </td> --%>
 					<td style="width: 100px">
 						<table>
-							<s:select label="Year" name="year" list="yearList" headerKey="0" headerValue="All Years"
+							<s:select label="%{getText('page.detail-search.label.year')}" name="year" list="yearList" headerKey="0" headerValue="All Years"
 								listKey="listKey" listValue="listValue" />
 						</table>
 					</td>
 
 					<td style="width: 100px">
 						<table>
-							<s:select label="Month" name="month" list="monthList" headerKey="" headerValue="All Months"
+							<s:select label="%{getText('page.detail-search.label.month')}" name="month" list="monthList" headerKey="" headerValue="All Months"
 								listKey="listKey" listValue="listValue" />
 						</table>
 					</td>
 					<td style="width: 100px">
 					   	 <table>
-							<s:select list="districtList" label="District" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
+							<s:select list="districtList" label="%{getText('page.detail-search.label.district')}" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
 				     	 </table>
 					</td>
-					<td><table><sj:submit value="SEARCH" targets="monthlyDetailDiv" /></table></td>
+					<td><table><sj:submit value="%{getText('page.detail-search.button.search')}" targets="monthlyDetailDiv" /></table></td>
 				</tr>
 			</table>
 		</s:form>

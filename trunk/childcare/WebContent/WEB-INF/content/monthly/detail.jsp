@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Detail Information</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.detail.title"/></td>
 	   </tr>
 	   
 	  </table>
@@ -20,7 +20,7 @@
 	    
 	  <tr>
 	     <td>
-	       <b>1. Reunifications</b>
+	       <b><s:text name="page.detail.reunifications"/></b>
 	     </td>
 	  </tr>
 	  
@@ -29,7 +29,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyDataReport.numOfFemaleReunification" 
-				    	label="Total Female"
+				    	label="%{getText('page.detail.female')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -37,7 +37,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyDataReport.numOfMaleReunification" 
-				    	label="Total Male"
+				    	label="%{getText('page.detail.male')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -48,7 +48,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToAdoption" 
-				    	label="To Adoption"
+				    	label="%{getText('page.detail.adoption ')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -59,7 +59,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToParent" 
-				    	label="To Parents"
+				    	label="%{getText('page.detail.parents')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -67,7 +67,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToMarrage" 
-				    	label="To Marrage"
+				    	label="%{getText('page.detail.marriage')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -78,7 +78,7 @@
 		     	 <table>
 		     	 	 <s:label 
 				    	name="monthlyDataReport.numToEmployement" 
-				    	label="To Employement"
+				    	label="%{getText('page.detail.employment')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -86,7 +86,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToVocational" 
-				    	label="To Vocational"
+				    	label="%{getText('page.detail.vocational')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -97,7 +97,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToSelfEmployement" 
-				    	label="To Self Employement"
+				    	label="%{getText(page.detail.self.employment'')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -105,7 +105,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyDataReport.numToOther" 
-				    	label="To Other"
+				    	label="%{getText('page.detail.other')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -113,7 +113,7 @@
 	   
 	   <tr>
 	     <td>
-	       <b>2. Number Of Transfers</b>
+	       <b><s:text name="page.detail.transfers"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -121,7 +121,8 @@
 		     	 <table>
 		     	      <s:label 
 				    	name="monthlyDataReport.numOfFemaleTransfers" 
-				    	label="Female"
+				    	label="%{getText('page.detail.label.female')}
+"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -130,7 +131,8 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyDataReport.numOfMaleTransfers" 
-				    	label="Male"
+				    	label="%{getText('page.detail.label.male')}
+"
 				    	/>
 		     	 	 
 		     	 </table>

@@ -19,7 +19,7 @@
 		<s:textfield label="Lama Nivasa Name" name="lamaNivasaName" cssStyle="width:200px"/>
 		<s:select name="year"  label="Year" list="#{'2010':'2010', '2011':'2011', '2012':'2012'}" required="true"/>
 		<s:select name="Month"  label="Month" list="#{'Jan':'Jan', 'Feb':'Feb', 'Mar':'Mar'}" required="true"/>
-		<sj:submit value="Search"/>
+		<sj:submit value="%{getText('page.xreport-search.button.search ')}"/>
 	</s:form>
  
 </div>
