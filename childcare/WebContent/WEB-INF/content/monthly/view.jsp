@@ -546,12 +546,12 @@
 			 	<s:url var="monthlyEditUrl" action="edit" namespace="/report" includeParams="none">
 			 		<s:param name="id" value="%{monthlyData.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{monthlyEditUrl}" targets="monthlyResultDiv"><input type="button" value="Edit" /></sj:a>
+			 	<sj:a href="%{monthlyEditUrl}" targets="monthlyResultDiv"><input type="button" value="<s:text name = "page.view.edit"/>" /></sj:a>
 				 |
 			 	<s:url var="monthlyDeleteUrl" action="delete" namespace="/report" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{monthlyData.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{monthlyDeleteUrl}" targets="monthlyResultDiv" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a>
+			 	<sj:a href="%{monthlyDeleteUrl}" targets="monthlyResultDiv" onClickTopics="/confirmDelete"><input type="button" value="<s:text name = "page.view.delete"/>" /></sj:a>
 
 			</td>
 	    </tr>
