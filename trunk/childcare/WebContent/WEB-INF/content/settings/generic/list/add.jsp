@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Add New Category</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="settings.category.add.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,21 +15,21 @@
 		<s:form id="formAddCategoryList" action="save" namespace="/genericList" method="post" >
 		  <s:hidden name="genericList.id" />
 		  <s:hidden name="operationMode"/> 
-		  <s:select list="genericCategories" listKey="id" listValue="category" name="genericList.genericCategory.id" label="Category"/>
-		  <s:textfield name="genericList.listKey" label="List Key" cssStyle="width:250px" required="true" />
-		  <s:textfield name="genericList.listValue" label="List Value" cssStyle="width:250px" required="true" />
+		  <s:select list="genericCategories" listKey="id" listValue="category" name="genericList.genericCategory.id" label="%{getText('settings.category.label.category')}"/>
+		  <s:textfield name="genericList.listKey" label="%{getText('settings.category.label.list.key')}" cssStyle="width:250px" required="true" />
+		  <s:textfield name="genericList.listValue" label="%{getText('settings.category.label.list.value')}" cssStyle="width:250px" required="true" />
 		  <sj:spinner 
 	    	name="genericList.sortOrder" 
 	    	id="sortOrder" 
 	    	min="0" 
 	    	max="50" 
 	    	step="1" 
-	    	label="Sort Order"
+	    	label="%{getText('settings.category.label.sort')}"
 	    	cssStyle="width:60px"
 	    	required="true"
 	    	mouseWheel="true"
 	    	tooltip="Range [0, 50]"/>
 		 
-		  <sj:submit value="Save" targets="categoryDiv" cssStyle="margin-left:240px"/>
+		  <sj:submit value="%{getText('settings.category.save')}" targets="categoryDiv" cssStyle="margin-left:240px"/>
 		</s:form>
 	</div>

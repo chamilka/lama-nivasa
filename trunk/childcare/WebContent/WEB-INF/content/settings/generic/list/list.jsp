@@ -4,16 +4,16 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Item List</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="settings.category.list.title"/></td>
 	   </tr>
 	  </table>
 	</div>
 	<hr />
-	Category : <span class="sub-title"><s:property value="genericLists[0].genericCategory.category"/></span>
+	<s:text name="settings.category.list.category"/> <span class="sub-title"><s:property value="genericLists[0].genericCategory.category"/></span>
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="greenTbl">
 	  	<tr>
-	  		<th>List Key</th><th>List Value</th><th>Sort Order</th><th>&nbsp;</th>
+	  		<th><s:text name="settings.category.label.list.key"/></th><th><s:text name="settings.category.label.list.value"/></th><th><s:text name="settings.category.label.sort"/></th><th>&nbsp;</th>
 	  	</tr>
 		<s:iterator value="genericLists" status="rowIndex">
 			<tr>
@@ -30,13 +30,13 @@
 			 	<s:url var="categoryListEditUrl" action="edit" namespace="/genericList" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{categoryListEditUrl}" targets="categoryListDiv">Edit</sj:a>
+			 	<sj:a href="%{categoryListEditUrl}" targets="categoryListDiv"><s:text name="settings.category.list.edit"/></sj:a>
 				 | 
 			 	<s:url var="categoryListDeleteUrl" action="delete" namespace="/genericList" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 		<s:param name="generericCategoryId" value="genericCategory.id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{categoryListDeleteUrl}" targets="categoryDiv" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{categoryListDeleteUrl}" targets="categoryDiv" onClickTopics="/confirmDelete"><s:text name="settings.category.list.delete"/></sj:a>
 			 </td>
 		</s:iterator>
 	</table>
