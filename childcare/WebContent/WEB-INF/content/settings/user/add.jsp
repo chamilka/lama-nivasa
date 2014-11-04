@@ -128,7 +128,7 @@
 			<tr>
 				<th valign="top">&nbsp;</th>
 				<td colspan="5"><table>
-						<sj:submit targets="userList" />
+						<sj:submit value="%{getText('settings.user.add.user.submit')}" targets="userList" />
 					</table></td>
 			</tr>
 
