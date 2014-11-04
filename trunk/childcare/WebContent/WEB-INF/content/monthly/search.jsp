@@ -14,7 +14,7 @@
      	 <s:if test="!isUser()">
      	 <td style="width: 300px; ">
 	   	  <table>
-	   		<s:select cssStyle="white-space: nowrap;" label="Chidren's Home" name="monthlyData.lamaNivasa.id"  list="lamaNivasaList" listKey="id" listValue="name"/>
+	   		<s:select cssStyle="white-space: nowrap;" label="%{getText('page.view.search.home')}" name="monthlyData.lamaNivasa.id"  list="lamaNivasaList" listKey="id" listValue="name"/>
 	 	  </table>
      	 </td>
     	 </s:if>
@@ -22,19 +22,19 @@
 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Year" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="%{getText('page.view.search.year')}" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Month" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="%{getText('page.view.search.month')}" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
 
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="monthlyResultDiv"/>
+	  			<sj:submit value="%{getText('page.view.search')}" targets="monthlyResultDiv"/>
 	  		</table>
      	 </td>
 
