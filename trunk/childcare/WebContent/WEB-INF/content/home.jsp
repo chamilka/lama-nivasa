@@ -57,7 +57,7 @@
   <div class="header">
   	<div style="padding:30px 0 0 800px">
   	    <s:url var="signOutUrl" namespace="/user" action="signout" includeParams="none" />
-  	    <s:a href="%{#signOutUrl}" id="signOut" title="%{#session.SESSION_USER.post}" cssStyle="text-decoration:none">Sign Out [<s:property value="%{#session.SESSION_USER.name}"/>]</s:a>
+  	    <s:a href="%{#signOutUrl}" id="signOut" title="%{#session.SESSION_USER.post}" cssStyle="text-decoration:none"><s:text name="header.signOut"/> [<s:property value="%{#session.SESSION_USER.name}"/>]</s:a>
   	</div>
   </div>
   <div class="menu_bar">
@@ -83,17 +83,17 @@
             <s:if test="ministry">
             	<td class="td4">&nbsp;</td>
             </s:if>
-            <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link">CHILDREN'S HOME</sj:a> </td>
+            <td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.childrensHome"/></sj:a> </td>
             <s:if test="!user">
-            	<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link">UNITS</sj:a></td>
+            	<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.units"/></sj:a></td>
             </s:if>
 
 			<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.child"/></sj:a></td>
 			
 			<s:if test="!ministry">
-			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link">MONTHLY DATA</sj:a></td>
+			<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link"><s:text name="header.monthlyData"/></sj:a></td>
             </s:if>
-            <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link">MY ACCOUNT</sj:a></td>
+            <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link"><s:text name="header.myAccount"/></sj:a></td>
             
             <s:if test="admin">
             	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTINGS</sj:a></td>

@@ -23,14 +23,15 @@
 		     		name="lamaNivasa.probationUnit.id"
 		     		list="%{probationUnitList}"
 		     		listKey="id" listValue="name"
-		     		label="Prob. Unit."
+		     		key="lamaNivasa.form.search.probUnit" 
+		     	
 		     	/>
 			</table>
      	</td>
 
      	<td style="width: 75px; text-align: left" >
 	   	  <table>
-	  		<sj:submit value="SEARCH" targets="lamaNivasaResultDiv"/>
+	  		<sj:submit key="lamaNivasa.form.search.btn" targets="lamaNivasaResultDiv"/>
 	  	  </table>
      	 </td>
      	 <td style="text-align: right; padding-right: 10px">
@@ -44,9 +45,9 @@
 			<s:url var="lamaNivasaListDeleteUrl" action="deletedlist"
 				namespace="/lamaNivasa" includeParams="none"></s:url>
 				
-     		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv">Add</sj:a>  |
-			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv">Active Homes</sj:a> |
-			<sj:a href="%{#lamaNivasaListDeleteUrl}" targets="lamaNivasaResultDiv">Inactive Homes</sj:a>
+     		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.add"/></sj:a>  |
+			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.activeHomes"/></sj:a> |
+			<sj:a href="%{#lamaNivasaListDeleteUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.inActiveHomes"/></sj:a>
 		</td>
      	</tr>
 	  </table>
