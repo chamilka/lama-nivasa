@@ -25,13 +25,13 @@
 	  <tr>
 	    <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Year" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="%{getText('page.add.label.year')}" name="monthlyData.year"  list="yearList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
      	 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:select label="Month" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
+	   		<s:select label="%{getText('page.add.label.month')}" name="monthlyData.month"  list="monthList" listKey="listKey" listValue="listValue"/>
 	 	  </table>
      	 </td>
        </tr>	
@@ -42,7 +42,7 @@
        </tr> 
 	   <tr>
 	     <td>
-	       <b>1. Number Of Children</b>
+	       <b><s:text name="page.view.no.of.children"/></b>
 	     </td>
 	   </tr>
 	   	<tr>
@@ -83,7 +83,7 @@
 	   
 	   <tr>
 	     <td>
-	       <b>2. Officers</b>
+	       <b><s:text name="page.view.officers"/></b>
 	     </td>
 	   </tr>
 	   
@@ -121,7 +121,7 @@
 	    </tr>
 	    <tr>
 		     <td>
-		       <b>3. Reunifications</b>
+		       <b><s:text name="page.view.reunifications"/></b>
 		     </td>
 	    </tr> 
 
@@ -274,7 +274,7 @@
 	   
 	   <tr>
 	     <td>
-	       <b>4. Number Of Transfers</b>
+	       <b><s:text name="page.view.transfers"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -311,7 +311,7 @@
 	    </tr> 	
 	    <tr>
 	     <td>
-	       <b>5. No Proforma</b>
+	       <b><s:text name="page.view.proforma"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -348,7 +348,7 @@
 	    </tr> 		
 	   <tr>
 	     <td>
-	       <b>6. No Guardian</b>
+	       <b><s:text name="page.view.guardian"/></b>
 	     </td>
 	   </tr>
 	    <tr>
@@ -385,7 +385,7 @@
 	    </tr> 		
 	    <tr>
 	    <td>
-	       <b>7. Number Of Terminates</b>
+	       <b><s:text name="page.view.terminates"/></b>
 	     </td>
 	    </tr>
 	   
@@ -423,7 +423,7 @@
 	    </tr> 		
 	    <tr>
 	     <td>
-	       <b>8. Having Special Requirements</b>
+	       <b><s:text name="page.view.having.sp.requirements"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -460,7 +460,7 @@
 	    </tr> 			
 	    <tr>
 	     <td>
-	       <b>9. Visits on</b>
+	       <b><s:text name=""/>page.view.visits</b>
 	     </td>
 	    </tr>
 	    
@@ -544,7 +544,7 @@
 	    </tr> 	
 	    <tr>
 	     <td>
-	       <b>10. Meetings</b>
+	       <b><s:text name="page.view.meetings"/></b>
 	     </td>
 	    </tr>
 	    <tr>
@@ -598,7 +598,7 @@
 	 	
 		<tr>
 		     <td>
-		       <b>11. Intakes</b>
+		       <b><s:text name="page.view.intakes"/></b>
 		     </td>
 	    </tr>
 	    <tr>
@@ -699,7 +699,7 @@
 	    </tr> 	
 	    <tr>
 		     <td>
-		       <b>12. Child Care Plans</b>
+		       <b><s:text name="page.view.care.plans"/></b>
 		     </td>
 	    </tr>
 	    <tr>
