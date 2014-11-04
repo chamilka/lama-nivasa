@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Add New Category</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="settings.category.add.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,19 +15,19 @@
 		<s:form id="formAddCategory" action="save" namespace="/genericCategory" method="post" >
 		  <s:hidden name="genericCategory.id" />
 		  <s:hidden name="operationMode"/> 
-		  <s:textfield name="genericCategory.category" label="Name" cssStyle="width:250px" required="true" />
+		  <s:textfield name="genericCategory.category" label="%{getText('settings.category.add.new.category.name')}" cssStyle="width:250px" required="true" />
 		  <sj:spinner 
 	    	name="genericCategory.sortOrder" 
 	    	id="sortOrder" 
 	    	min="0" 
 	    	max="50" 
 	    	step="1" 
-	    	label="Sort Order"
+	    	label="%{getText('settings.category.add.new.category.order')}"
 	    	cssStyle="width:60px"
 	    	required="true"
 	    	mouseWheel="true"
 	    	tooltip="Range [0, 50]"/>
 		 
-		  <sj:submit value="Save" targets="categoryDiv" cssStyle="margin-left:100px" onSuccessTopics="refreshCategoryList"/>
+		  <sj:submit value="%{getText('settings.category.add.new.category.submit')}" targets="categoryDiv" cssStyle="margin-left:100px" onSuccessTopics="refreshCategoryList"/>
 		</s:form>
 	</div>

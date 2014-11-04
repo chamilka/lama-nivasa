@@ -10,10 +10,10 @@
 			<s:url var="configurationRefreshUrl" action="frame" 
 				namespace="/genericCategory" includeParams="none"></s:url>
 				
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title" style="width:150px">Category List</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title" style="width:150px"><s:text name="settings.category.list.title"/></td>
    			<td colspan="2" style="text-align: right; padding-right:10px" >
-   			<sj:a href="%{#categoryAddUrl}" targets="categoryDiv">Add New</sj:a> | 
-   			<sj:a href="%{#configurationRefreshUrl}" targets="content">Refresh</sj:a></td>
+   			<sj:a href="%{#categoryAddUrl}" targets="categoryDiv"><s:text name="settings.category.list.add.new"/></sj:a> | 
+   			<sj:a href="%{#configurationRefreshUrl}" targets="content"><s:text name="settings.category.list.refresh"/></sj:a></td>
 	   </tr>
 	  </table>
 	</div>
@@ -22,7 +22,7 @@
 	
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="greenTbl" cellpadding="2px" cellspacing="2px">
 	  	<tr>
-	  		<th>Category Name</th><th>Sort Order</th><th>&nbsp;</th>
+	  		<th><s:text name="settings.category.list.name"/></th><th><s:text name="settings.category.list.order"/></th><th>&nbsp;</th>
 	  	</tr>
 		<s:iterator value="genericCategoryList" status="rowIndex">
 			<tr>
@@ -37,17 +37,17 @@
 			 	<s:url var="categoryListViewUrl" action="list" namespace="/genericList" includeParams="none">
 			 		<s:param name="generericCategoryId" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{categoryListViewUrl}" targets="categoryDiv">List</sj:a>
+			 	<sj:a href="%{categoryListViewUrl}" targets="categoryDiv"><s:text name="settings.category.list.link"/></sj:a>
 				 | 
 			 	<s:url var="categoryEditUrl" action="edit" namespace="/genericCategory" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{categoryEditUrl}" targets="categoryDiv">Edit</sj:a>
+			 	<sj:a href="%{categoryEditUrl}" targets="categoryDiv"><s:text name="settings.category.list.edit"/></sj:a>
 				 |
 			 	<s:url var="categoryDeleteUrl" action="delete" namespace="/genericCategory" includeParams="none">
 			 		<s:param name="id" value="id"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{categoryDeleteUrl}" targets="categoryListDive" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{categoryDeleteUrl}" targets="categoryListDive" onClickTopics="/confirmDelete"><s:text name="settings.category.list.delete"/></sj:a>
 			 </td>
 		</s:iterator>
 	</table>
