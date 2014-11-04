@@ -33,7 +33,7 @@ a img { /* this selector removes the default blue border displayed in some brows
 	/* background-color: rgba(0, 183, 255, 1); */
 }
 
-a input { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+.locale_btn a input { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
 	text-decoration: none;
 	width: 30px;
 	height: 30px;

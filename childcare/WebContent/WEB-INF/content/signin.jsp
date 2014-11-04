@@ -42,10 +42,10 @@
 							<s:param name="request_locale">si</s:param>
 						</s:url>
 
-						<td id="eng"><s:a href="%{#EnglishUrl}">
+						<td id="eng" class="locale_btn"><s:a href="%{#EnglishUrl}">
 								<input type="button" value="E">
 							</s:a></td>
-						<td id="sin"><s:a href="%{#SinhalaUrl}">
+						<td id="sin" class="locale_btn" ><s:a href="%{#SinhalaUrl}">
 								<input type="button" value="සි">
 							</s:a></td>
 					</tr>
