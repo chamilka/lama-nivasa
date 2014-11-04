@@ -19,8 +19,8 @@
 		namespace="/user" includeParams="none"></s:url>
 		
 	<div>
-		<sj:a href="%{changeProfileUrl}" targets="accountDiv"><input type="button" value="Profile View" /></sj:a>
-		<sj:a href="%{#changePasswordUrl}" targets="accountDiv"><input type="button" value="Password Change" /></sj:a>
+		<sj:a href="%{changeProfileUrl}" targets="accountDiv"><input type="button" value="<s:text name="page.myaccount.button.profile.view"/>" /></sj:a>
+		<sj:a href="%{#changePasswordUrl}" targets="accountDiv"><input type="button" value="<s:text name="page.myaccount.button.change.password"/>" /></sj:a>
 	</div>
 	
 		

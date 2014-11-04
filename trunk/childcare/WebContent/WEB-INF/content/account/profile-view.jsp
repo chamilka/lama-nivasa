@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td5" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">My Profile</td>
+			<td class="sub-title"><s:text name="page.myaccount.profile-view.title"/></td>
 		</tr>
 	</table>
 </div>
@@ -18,75 +18,75 @@
 	<table id="commonTable" class="redTbl" width="100%">
 		<s:actionerror />
 		<tr>
-			<th width="150px">Login Name</th>
+			<th width="150px"><s:text name="page.myaccount.profile-view.login.name"/></th>
 			<td><table>
 					<s:label name="systemUser.username" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Name</th>
+			<th><s:text name="page.myaccount.profile-view.name"/></th>
 			<td><table>
 					<s:label name="systemUser.name" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Post</th>
+			<th><s:text name="page.myaccount.profile-view.post"/></th>
 			<td><table>
 					<s:label id="postValue" name="systemUser.post" />
 				</table></td>
 		</tr>
 
 		<tr id="provice_tr">
-			<th>Province</th>
+			<th><s:text name="page.myaccount.profile-view.province"/></th>
 			<td><table>
 					<s:label name="province" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>System Role</th>
+			<th><s:text name="page.myaccount.profile-view.role"/></th>
 			<td><table>
 					<s:label name="systemUser.userRole" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Mobile</th>
+			<th><s:text name="page.myaccount.profile-view.mobile"/></th>
 			<td><table>
 					<s:label name="systemUser.mobile" />
 				</table></td>
 		</tr>
 		<tr>
-			<th>Email</th>
+			<th><s:text name="page.myaccount.profile-view.email"/></th>
 			<td><table>
 					<s:label name="systemUser.email" />
 				</table></td>
 		</tr>
 		<tr>
-			<th>Telephone</th>
+			<th><s:text name="page.myaccount.profile-view.telephone"/></th>
 			<td><table>
 					<s:label name="systemUser.telephone" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Temporary Address</th>
+			<th><s:text name="page.myaccount.profile-view.temp.address"/></th>
 			<td><table>
 					<s:label name="systemUser.addressTemporary" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Address</th>
+			<th><s:text name="page.myaccount.profile-view.address"/></th>
 			<td><table>
 					<s:label name="systemUser.address" />
 				</table></td>
 		</tr>
 
 		<tr>
-			<th>Sex</th>
+			<th><s:text name="page.myaccount.profile-view.sex"/></th>
 			<td><table>
 					<s:label name="systemUser.sex" />
 				</table></td>
@@ -100,7 +100,7 @@
 				<table>
 					<sj:a href="%{#changeProfileUrl}" targets="accountDiv"
 						cssStyle="margin-left:10px">
-						<input type="button" value="Edit" />
+						<input type="button" value="<s:text name="page.myaccount.profile-view.button.edit"/>" />
 					</sj:a>
 				</table></td>
 		</tr>

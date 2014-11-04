@@ -5,7 +5,7 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td5" style="width:5px">&nbsp;</td><td class="sub-title">Change Password</td>
+	   		<td class="td5" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.myaccount.button.change.password"/></td>
 	   </tr>
 	  </table>
 </div>
@@ -17,13 +17,13 @@
    	 <s:actionerror cssStyle="margin-left:100px"/>
    	 <s:hidden name="systemUser.id" />
 	 <s:hidden name="operationMode"/>
-	 <s:password name="oldUserPassword"  label="Old Password" required="true"></s:password>
-	 <s:password name="newUserPassword"  label="New Password" required="true"></s:password>
-	 <s:password name="newUserPasswordConfirm"  label="New Password Again" required="true"></s:password>
+	 <s:password name="oldUserPassword"  label="%{getText('page.myaccount.password.change.label.old.pw')}" required="true"></s:password>
+	 <s:password name="newUserPassword"  label="%{getText('page.myaccount.password.change.label.new.pw')}" required="true"></s:password>
+	 <s:password name="newUserPasswordConfirm"  label="%{getText('page.myaccount.password.change.label.new.again.pw')}" required="true"></s:password>
 	 <tr>
 	 	<td>
 	 	</td>
-	 	<td><table cellpadding="0" cellspacing="0"><sj:submit targets="accountDiv"/></table>
+	 	<td><table cellpadding="0" cellspacing="0"><sj:submit value= "%{getText('page.myaccount.password.submit')}" targets="accountDiv"/></table>
 	 	</td>
 	 </tr>
 	 
