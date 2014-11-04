@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title">Configuration</td>
+	   		<td class="td6" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="settings.category.frame.title"/></td>
 	   </tr>
 	  </table>
 	</div>
