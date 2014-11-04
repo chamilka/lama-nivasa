@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td><div class="td6" style="width:7px;height:20px">&nbsp;</div></td>
-			<td class="sub-title">Users</td>
+			<td class="sub-title"><s:text name="settings.user.list.users"/></td>
 			<td align="right" style="width: 100%">
 	   			<s:include value="../../common/pager.jsp"></s:include>
 	   		</td>
@@ -24,12 +24,12 @@
 		<tr>
 			<th></th>
 
-			<th>Name</th>
-			<th>Post</th>
-			<th>User Role</th>
-			<th>Sex Type</th>
-			<th>Telephone</th>
-			<th>Mobile</th>
+			<th><s:text name="settings.user.list.name"/></th>
+			<th><s:text name="settings.user.list.post"/></th>
+			<th><s:text name="settings.user.list.role"/></th>
+			<th><s:text name="settings.user.list.sex"/></th>
+			<th><s:text name="settings.user.list.telephone"/></th>
+			<th><s:text name="settings.user.list.mobile"/></th>
 
 		</tr>
 		<s:iterator value="pager.list" status="rowIndex">

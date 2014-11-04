@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td6" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">User: <s:property value="systemUser.name" /></td>
+			<td class="sub-title"><s:text name="settings.user.view.title"/> <s:property value="systemUser.name" /></td>
 		</tr>
 	</table>
 </div>
@@ -17,49 +17,49 @@
 
 	<table id="commonTable" class="greenTbl" width="100%">
 		<tr>
-			<th colspan="7">User Detail</th>
+			<th colspan="7"><s:text name="settings.user.view.detail"/></th>
 		</tr>
 
 		<tr>
-			<th width="130px">Login Name</th>
+			<th width="130px"><s:text name="settings.user.view.login.name"/></th>
 			<td><s:property value="systemUser.username" />
 			</td>
-			<th width="150px">Name</th>
+			<th width="150px"><s:text name="settings.user.view.name"/></th>
 			<td colspan="3"><s:property value="systemUser.name" /></td>
 		</tr>
 		
 		<tr>
-			<th>User Role</th>
+			<th><s:text name="settings.user.view.role"/></th>
 			<td ><s:property value="systemUser.userRole" /></td>
-			<th width="150px">Post</th>
+			<th width="150px"><s:text name="settings.user.view.post"/></th>
 			<td colspan="3"><s:property value="systemUser.post" /></td>
 		</tr>
 
 		<tr>
-			<th>Gender</th>
+			<th><s:text name="settings.user.view.gender"/></th>
 			<td colspan="5"><s:property value="systemUser.sex" /></td>
 		</tr>
 
 		<tr>
-			<th>Telephone Number</th>
+			<th><s:text name="settings.user.view.telephone"/></th>
 			<td colspan="5"><s:property value="systemUser.telephone" />
 			</td>
 		</tr>
 
 		<tr>
-			<th>Mobile Number</th>
+			<th><s:text name="settings.user.view.mobile"/></th>
 			<td colspan="5"><s:property value="systemUser.mobile" />
 			</td>
 		</tr>
 
 		<tr>
-			<th>Temporary Address</th>
+			<th><s:text name="settings.user.view.temp.address"/></th>
 			<td colspan="5"><s:property
 					value="systemUser.addressTemporary" /></td>
 		</tr>
 
 		<tr>
-			<th>Address</th>
+			<th><s:text name="settings.user.view.address"/></th>
 			<td colspan="5"><s:property value="systemUser.address" />
 			</td>
 		</tr>
@@ -71,14 +71,14 @@
 					<s:param name="id" value="%{systemUser.id}"></s:param>
 					<s:param name="addType" value="%{systemUser.userRole}"></s:param>
 				</s:url> <sj:a href="%{userEditUrl}" targets="userList"
-					cssClass="greenTbl"><input type="button" value="Edit" /></sj:a> | 
+					cssClass="greenTbl"><input type="button" value="<s:text name="settings.user.view.edit"/>"/></sj:a> | 
 					
 					<s:url var="userDeleteUrl"
 					action="delete" namespace="/user" escapeAmp="false"
 					includeParams="none">
 					<s:param name="id" value="%{systemUser.id}"></s:param>
 				</s:url> <sj:a href="%{userDeleteUrl}" targets="userList"
-					cssClass="greenTbl" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a></td>
+					cssClass="greenTbl" onClickTopics="/confirmDelete"><input type="button" value="<s:text name="settings.user.view.delete"/>"/> </sj:a></td>
 
 		</tr>
 	</table>

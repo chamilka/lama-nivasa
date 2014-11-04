@@ -5,7 +5,7 @@
 
 <div>
 
-	<div class="sub-title">Add User</div>
+	<div class="sub-title"><s:text name="settings.user.add.user.title"/></div>
 	<br />
 
 	<s:form action="save" namespace="/user" method="post">
@@ -17,14 +17,14 @@
 			<s:hidden name="addType" value="%{addType}" />
 
 			<tr>
-				<th style="width: 200px">Login Name</th>
+				<th style="width: 200px"><s:text name="settings.user.add.user.login.name"/></th>
 				<td colspan="5"><table>
 						<s:textfield name="systemUser.username" />
 					</table></td>
 			</tr>
 
 			<tr>
-				<th style="width: 200px">Login Password</th>
+				<th style="width: 200px"><s:text name="settings.user.add.user.login.password"/></th>
 				<td colspan="5"><table>
 						<s:password name="systemUser.userPassword" showPassword="true" />
 					</table></td>
@@ -32,14 +32,14 @@
 
 
 			<tr>
-				<th>Name</th>
+				<th><s:text name="settings.user.add.user.name"/></th>
 				<td colspan="5"><table>
 						<s:textfield name="systemUser.name" cssStyle="width:350px" />
 					</table></td>
 			</tr>
 
 			<tr>
-				<th>Post</th>
+				<th><s:text name="settings.user.add.user.post"/></th>
 				<td colspan="5"><table>
 						<s:select id="postSelect" name="systemUser.post"
 							list="postCategoryList" listKey="listKey" listValue="listValue" />
@@ -47,7 +47,7 @@
 			</tr>
 
 			<tr>
-				<th>User Role</th>
+				<th><s:text name="settings.user.add.user.role"/></th>
 				<td style="width: 100px; padding-left: 20px"><s:property
 						value="addType" /> <%-- <table>
 						 s:select id="addUserRole" name="systemUser.userRole" list="#{'USER': 'User', 'OFFICER': 'Officer','ADMIN':'Admin'}" onChange="javascript:addUser()"/> 
@@ -57,7 +57,7 @@
 					<td colspan="2" id="lamaNivasaSelect"><table>
 							<sj:autocompleter id="lamaNivwasaUnit"
 								name="systemUser.referenceId" list="%{lamaNivasaList}"
-								listKey="id" listValue="name" label="Chidren's Home"
+								listKey="id" listValue="name" label="%{getText('settings.user.add.user.children.home')}"
 								cssStyle="width:600px" />
 						</table></td>
 				</s:if>
@@ -66,7 +66,7 @@
 						<table id="otherOfficer">
 							<sj:autocompleter id="probationUnit"
 								name="systemUser.referenceId" list="%{probationUnitList}"
-								listKey="id" listValue="name" label="Unit Name"
+								listKey="id" listValue="name" label="%{getText('settings.user.add.user.post.label.unit.name')}"
 								cssStyle="width:600px" />
 						</table>
 						<table id="provincialOfficer">
@@ -82,7 +82,7 @@
 			</tr>
 
 			<tr>
-				<th>Gender</th>
+				<th><s:text name="settings.user.add.user.gender"/></th>
 				<td colspan="5"><table>
 						<s:select name="systemUser.sex"
 							list="#{'MALE': 'Male', 'FEMALE': 'Female'}" />
@@ -90,27 +90,27 @@
 			</tr>
 
 			<tr>
-				<th>Telephone Number</th>
+				<th><s:text name="settings.user.add.user.telephone"/></th>
 				<td colspan="5"><table>
 						<s:textfield name="systemUser.telephone" />
 					</table></td>
 			</tr>
 
 			<tr>
-				<th>Mobile Number</th>
+				<th><s:text name="settings.user.add.user.mobile"/></th>
 				<td colspan="5"><table>
 						<s:textfield name="systemUser.mobile" />
 					</table></td>
 			</tr>
 			<tr>
-				<th>Email</th>
+				<th><s:text name="settings.user.add.user.email"/></th>
 				<td colspan="5"><table>
 						<s:textfield name="systemUser.email" cssStyle="width:200px" />
 					</table></td>
 			</tr>
 
 			<tr>
-				<th valign="top">Tempory Address</th>
+				<th valign="top"><s:text name="settings.user.add.user.temp.address"/></th>
 				<td colspan="5"><table>
 						<s:textarea name="systemUser.addressTemporary"
 							cssStyle="width:600px;height:30px" />
@@ -118,7 +118,7 @@
 			</tr>
 
 			<tr>
-				<th valign="top">Address</th>
+				<th valign="top"><s:text name="settings.user.add.user.address"/></th>
 				<td colspan="5"><table>
 						<s:textarea name="systemUser.address"
 							cssStyle="width:600px;height:30px" />

@@ -7,18 +7,18 @@
 	 
 	 <table id="commonTable" class="greenTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
 	   <tr>
-	   	<th colspan="6">Search</th>
+	   	<th colspan="6"><s:text name="settings.user.search.title"/></th>
 	   </tr>
 	   
 	   <tr>
 	   	 <td style="width: 200px">
 	   	 <table>
-		   <s:textfield name="systemUser.name" label="Name" />
+		   <s:textfield name="systemUser.name" label="%{getText('settings.user.search.label.name')}" />
      	 </table>
      	 </td>
      	 <td style="width: 100px;">
 	   	  <table>
-	   		<s:select name="systemUser.userRole" id="searchUserRole" label="Role" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" /> <%-- onChange="javascript:userSearch()" --%>
+	   		<s:select name="systemUser.userRole" id="searchUserRole" label="%{getText('settings.user.search.label.role')}" list="#{'':'','ADMIN':'Admin', 'USER': 'User', 'OFFICER': 'Officer'}" /> <%-- onChange="javascript:userSearch()" --%>
 	 	  </table>
      	 </td>
      	 <%-- td id="unitTd" style="width: 100px; display: none">
@@ -49,12 +49,12 @@
      	 --%>
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:textfield name="systemUser.mobile" label="Mobile" />
+	   		<s:textfield name="systemUser.mobile" label="%{getText('settings.user.search.label.mobile')}" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="userList"/>
+	  			<sj:submit value="%{getText('settings.user.search.submit')}" targets="userList"/>
 	  		</table>
      	 </td>
      	 <td style="text-align: right; padding-right: 10px;white-space: nowrap;">
@@ -72,10 +72,10 @@
 				<s:param name="addType">USER</s:param>
 			</s:url>
      	
-     		<sj:a href="%{userListUrl}" targets="userList">View All</sj:a> | 
-			<sj:a href="%{#userAddAdminUrl}" targets="userList">Add-Admin</sj:a> |
-			<sj:a href="%{#userAddOfficerUrl}" targets="userList">Add-Officer</sj:a> |
-			<sj:a href="%{#userAddUserUrl}" targets="userList">Add-User</sj:a>
+     		<sj:a href="%{userListUrl}" targets="userList"><s:text name="settings.user.view.all"/></sj:a> | 
+			<sj:a href="%{#userAddAdminUrl}" targets="userList"><s:text name="settings.user.add.admin"/></sj:a> |
+			<sj:a href="%{#userAddOfficerUrl}" targets="userList"><s:text name="settings.user.view.officer"/></sj:a> |
+			<sj:a href="%{#userAddUserUrl}" targets="userList"><s:text name="settings.user.view.user"/></sj:a>
 		</td>
 	  </table>
 	</s:form>
