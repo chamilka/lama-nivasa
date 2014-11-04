@@ -96,7 +96,7 @@
             <td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link"><s:text name="header.myAccount"/></sj:a></td>
             
             <s:if test="admin">
-            	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link">SETTINGS</sj:a></td>
+            	<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.settings"/></sj:a></td>
          	</s:if>
          	<s:else>
             	 <td class="td6">&nbsp;</td>
