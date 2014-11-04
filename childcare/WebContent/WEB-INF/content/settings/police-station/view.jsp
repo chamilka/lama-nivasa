@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td6" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">Police Station: <s:property value="policeStation.name" /></td>
+			<td class="sub-title"><s:text name="settings.police-station.view.title"/> <s:property value="policeStation.name" /></td>
 		</tr>
 	</table>
 </div>
@@ -17,29 +17,29 @@
 
 	<table id="commonTable" class="greenTbl" width="100%">
 		<tr>
-			<th colspan="7">Detail</th>
+			<th colspan="7"><s:text name="settings.police-station.view.detail"/></th>
 		</tr>
 
 		<tr>
-			<th width="130px">Email</th>
+			<th width="130px"><s:text name="settings.police-station.view.email"/></th>
 			<td><s:property value="policeStation.email" />
 			</td>
-			<th width="150px">Telephone</th>
+			<th width="150px"><s:text name="settings.police-station.view.telephone"/></th>
 			<td colspan="3"><s:property value="policeStation.telephone" /></td>
 		</tr>
 		
 		<tr>
-			<th>Fax</th>
+			<th><s:text name="settings.police-station.view.fax"/></th>
 			<td colspan="5"><s:property value="policeStation.fax" /></td>
 		</tr>
 
 		<tr>
-			<th>Address</th>
+			<th><s:text name="settings.police-station.view.address"/></th>
 			<td colspan="5"><s:property value="policeStation.address" /></td>
 		</tr>
 
 		<tr>
-			<th>Comment</th>
+			<th><s:text name="settings.police-station.view.comment"/></th>
 			<td colspan="5"><s:property value="policeStation.comment" />
 			</td>
 		</tr>
@@ -52,7 +52,7 @@
 				</s:url> 
 				
 				<sj:a href="%{policeEditUrl}" targets="policeList"
-					cssClass="greenTbl"><input type="button" value="Edit" /></sj:a> | 
+					cssClass="greenTbl"><input type="button" value="<s:text name="settings.police-station.view.edit"/>" /></sj:a> | 
 					
 				<s:url var="policeDeleteUrl"
 					action="delete" namespace="/police" escapeAmp="false" includeParams="none">
@@ -60,7 +60,7 @@
 				</s:url> 
 				
 				<sj:a href="%{policeDeleteUrl}" targets="policeList"
-					cssClass="greenTbl" onClickTopics="/confirmDelete"><input type="button" value="Delete" /></sj:a></td>
+					cssClass="greenTbl" onClickTopics="/confirmDelete"><input type="button" value="<s:text name="settings.police-station.view.delete"/>" /></sj:a></td>
 
 		</tr>
 	</table>

@@ -9,20 +9,20 @@
 		<table id="commonTable" class="greenTbl" cellpadding="0"
 			cellspacing="0" style="width: 100%">
 			<tr>
-				<th colspan="6">Search</th>
+				<th colspan="6"><s:text name="settings.police-station.search.table.heading"/></th>
 			</tr>
 
 			<tr>
 				<td style="width: 200px">
 					<table>
-						<s:textfield name="policeStation.name" label="Name" />
+						<s:textfield name="policeStation.name" label="%{getText('settings.police-station.search.name')}" />
 					</table>
 				</td>
 				<td style="width: 100px;"></td>
 
 				<td style="width: 100px; text-align: left">
 					<table>
-						<sj:submit value="SEARCH" targets="policeList" />
+						<sj:submit value="%{getText('settings.police-station.search.button')}" targets="policeList" />
 					</table>
 				</td>
 				<td
@@ -31,8 +31,8 @@
 					<s:url var="policeListUrl" action="list" namespace="/police" includeParams="none"></s:url> 
 					<s:url var="policeAddUrl" action="add" namespace="/police" includeParams="none"></s:url> 
 					
-					<sj:a href="%{policeListUrl}" targets="policeList">View All</sj:a> | 
-					<sj:a href="%{#policeAddUrl}" targets="policeList">Add</sj:a>
+					<sj:a href="%{policeListUrl}" targets="policeList"><s:text name="settings.police-station.view.all"/></sj:a> | 
+					<sj:a href="%{#policeAddUrl}" targets="policeList"><s:text name="settings.police-station.add"/></sj:a>
 
 				</td>
 			</tr>

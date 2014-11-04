@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td><div class="td6" style="width:7px;height:20px">&nbsp;</div></td>
-			<td class="sub-title">Police Stations</td>
+			<td class="sub-title"><s:text name="police-station.list"/></td>
 			
 		</tr>
 	</table>
@@ -22,12 +22,12 @@
 		<tr>
 			<th></th>
 
-			<th>Name</th>
-			<th>Email</th>
-			<th>Telephone</th>
-			<th>Fax</th>
-			<th>Address</th>
-			<th>Comment</th>
+			<th><s:text name="settings.police-station.list.name"/></th>
+			<th><s:text name="settings.police-station.list.email"/></th>
+			<th><s:text name="settings.police-station.list.telephone"/></th>
+			<th><s:text name="settings.police-station.list.fax"/></th>
+			<th><s:text name="settings.police-station.list.address"/></th>
+			<th><s:text name="settings.police-station.list.comment"/></th>
 
 		</tr>
 		<s:iterator value="list" status="rowIndex">

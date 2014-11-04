@@ -5,7 +5,7 @@
 
 <div>
 	
-    <div class="sub-title">Add Police Station</div><br />
+    <div class="sub-title"><s:text name="settings.police-station.add.title"/> </div><br />
     
     <s:form action="save" namespace="/police" method="post">
 		<table id="commonTable" class="greenTbl" width="100%">
@@ -15,35 +15,35 @@
 	<%-- 	<s:hidden name="addType" value="%{addType}"/> --%>
 		
 			<tr>
-				<th style="width: 200px">Name</th>
+				<th style="width: 200px"><s:text name="settings.police-station.add.name"/></th>
 				<td colspan="5"><table><s:textfield name="policeStation.name" cssStyle="width:350px"/></table>
 				</td>
 			</tr>
 			
 			<tr>
-				<th style="width: 200px">Email</th>
+				<th style="width: 200px"><s:text name="settings.police-station.add.email"/></th>
 				<td colspan="5"><table><s:textfield name="policeStation.email" cssStyle="width:350px" /></table>
 				</td>
 			</tr>
 			
 			<tr>
-				<th>Telephone</th>
+				<th><s:text name="settings.police-station.add.telephone"/></th>
 				<td colspan="5"><table><s:textfield name="policeStation.telephone" cssStyle="width:200px"/></table></td>
 			</tr>
 			
 			<tr>
-				<th>Fax</th>
+				<th><s:text name="settings.police-station.add.fax"/></th>
 				<td colspan="5"><table><s:textfield name="policeStation.fax" cssStyle="width:200px"/></table></td>
 			</tr>
 	
 			<tr>
-				<th>Address</th>
+				<th><s:text name="settings.police-station.add.address"/></th>
 				<td colspan="5"><table><s:textfield name="policeStation.address" cssStyle="width:450px"/></table>
 				</td>
 			</tr>
 
 			<tr>
-				<th valign="top">Comment</th>
+				<th valign="top"><s:text name="settings.police-station.add.comment"/></th>
 				<td colspan="5"><table><s:textarea name="policeStation.comment" cssStyle="width:600px;height:30px" /></table>
 				</td>
 			</tr>
