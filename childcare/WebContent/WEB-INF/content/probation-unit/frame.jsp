@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Probation Units</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.probationunit.frame.subtitle"/></td>
 	   </tr>
 	  </table>
 	</div>
