@@ -21,20 +21,20 @@
 	  <tr>
 	    <td style="width: 100px" colspan="2">
 	   	  <table>
-	   		<s:label label="Chidren's Home" name="monthlyData.lamaNivasa.name" />
+	   		<s:label label="%{getText('page.view.label.home')}" name="monthlyData.lamaNivasa.name" />
 	 	  </table>
      	 </td>
        </tr>
 	  <tr>
 	    <td style="width: 100px">
 	   	  <table>
-	   		<s:label label="Year" name="monthlyData.year" />
+	   		<s:label label="%{getText('page.add.label.year')}" name="monthlyData.year" />
 	 	  </table>
      	 </td>
      	 
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:label label="Month" name="monthlyData.month" />
+	   		<s:label label="%{getText('page.add.label.month')}" name="monthlyData.month" />
 	 	  </table>
      	 </td>
        </tr>	
@@ -53,7 +53,7 @@
 		     	 <table>
 		     	 <s:label 
 				    	name="monthlyData.numOfMaleChildren" 
-				    	label="Female"
+				    	label="%{getText('page.detail.label.female')}"
  		    	 />
 		     	 </table>
 		     </td>
@@ -61,7 +61,7 @@
 		     	 <table>
 		     	 <s:label 
 				    	name="monthlyData.numOfFemaleChildren" 
-				    	label="Male"
+				    	label="%{getText('page.detail.label.male')}"
 				    	/>
 		     	 	
 		     	 </table>
@@ -80,7 +80,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numOfOfficers" 
-				    	label="Number of Officers"
+				    	label="%{getText('page.view.label.no.of.officers')}"
 				    	/>
 		     	 	
 		     	 </table>
@@ -89,7 +89,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numOfVacantOfficers" 
-				    	label="Number of Vacant Officers"
+				    	label="%{getText('page.view.label.no.of.vacant.officers')}"
 				    	/>
 		     	 	
 		     	 </table>
@@ -105,7 +105,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfFemaleReunification" 
-				    	label="Total Female"
+				    	label="%{getText('page.detail.female')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -113,7 +113,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfMaleReunification" 
-				    	label="Total Male"
+				    	label="%{getText('page.detail.male')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -124,7 +124,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToAdoption" 
-				    	label="To Adoption"
+				    	label="%{getText('page.detail.adoption')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -135,7 +135,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToParent" 
-				    	label="To Parents"
+				    	label="%{getText('page.detail.parents')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -143,7 +143,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToMarrage" 
-				    	label="To Marrage"
+				    	label="%{getText('page.detail.marriage')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -154,7 +154,7 @@
 		     	 <table>
 		     	 	 <s:label 
 				    	name="monthlyData.numToEmployement" 
-				    	label="To Employement"
+				    	label="%{getText('page.detail.employment')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -162,7 +162,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToVocational" 
-				    	label="To Vocational"
+				    	label="%{getText('page.detail.vocational')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -173,7 +173,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToSelfEmployement" 
-				    	label="To Self Employement"
+				    	label="%{getText('page.detail.self.employment')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -181,7 +181,7 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numToOther" 
-				    	label="To Other"
+				    	label="%{getText('page.detail.other')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -197,7 +197,7 @@
 		     	 <table>
 		     	      <s:label 
 				    	name="monthlyData.numOfFemaleTransfers" 
-				    	label="Female"
+				    	label="%{getText('page.view.label.female')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -206,7 +206,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfMaleTransfers" 
-				    	label="Male"
+				    	label="%{getText('page.view.label.male')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -222,7 +222,7 @@
 		     	 <table>
 		     	      <s:label 
 				    	name="monthlyData.numOfProformaFemale" 
-				    	label="Female"
+				    	label="%{getText('page.view.label.female')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -231,7 +231,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfProformaMale" 
-				    	label="Male"
+				    	label="%{getText('page.view.label.male')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -247,7 +247,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfFemaleNoGuardians" 
-				    	label="Female"
+				    	label="%{getText('page.view.label.female')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -256,7 +256,7 @@
 		     	 <table>
 		     	 	  <s:label 
 				    	name="monthlyData.numOfMaleNoGuardians" 
-				    	label="Male"
+				    	label="%{getText('page.view.label.male')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -273,7 +273,7 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfFemaleTerminates" 
-				    	label="Female"
+				    	label="%{getText('page.view.label.female')}"
 				    	/>
 		     	 </table>
 		     </td>
@@ -281,7 +281,7 @@
 		     	 <table>
 		     	      <s:label 
 				    	name="monthlyData.numOfMaleTerminates" 
-				    	label="Male"
+				    	label="%{getText('page.view.label.male')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -297,7 +297,7 @@
 		     	 <table>
 		     	 	 <s:label 
 				    	name="monthlyData.numOfFemaleHavingSpecialRequirements" 
-				    	label="Female"
+				    	label="%{getText('page.view.label.female')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -306,7 +306,7 @@
 		     	 <table>
 		     	 <s:label 
 				    	name="monthlyData.munOfMaleHavingSpecialRequirements" 
-				    	label="Male"
+				    	label="%{getText('page.view.label.male')}"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -429,7 +429,8 @@
 		     	 <table>
 		     	     <s:label 
 				    	name="monthlyData.numOfMeetingsUptoNow" 
-				    	label="Number of meetings upto now"
+				    	label="%{getText('page.view.label.no.of.meetings.up.to')}
+"
 				    	/>
 		     	 	 
 		     	 </table>
@@ -463,7 +464,8 @@
 		     	 <table>
 		     	    <s:label 
 				    	name="monthlyData.numOfIntakes" 
-				    	label="Number of Intakes"
+				    	label="%{getText('page.detail.number.of.intakes')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -473,7 +475,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.intakeFromCourt" 
-				    	label="Intakes from Court"
+				    	label="%{getText('page.detail.intakes.court')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -481,7 +484,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.intakeFromDepartment" 
-				    	label="Intakes from Department"
+				    	label="%{getText('page.detail.intakes.dept')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -492,7 +496,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.intakeFromParents" 
-				    	label="Intakes from Parents"
+				    	label="%{getText('page.detail.intakes.parents')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -500,7 +505,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.intakeFromOrganizations" 
-				    	label="Intakes from Organizations"
+				    	label="%{getText('page.detail.intakes.org')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -511,7 +517,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.intakeFromOther" 
-				    	label="Intakes from Other"
+				    	label="%{getText('page.detail.intakes.other')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -526,7 +533,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numNoChildPlans" 
-				    	label="No. of children do not have care plans"
+				    	label="%{getText('page.detail.no.care.plans')}
+"
 				    	/>
 		     	 </table>
 		     </td>
@@ -534,7 +542,8 @@
 		     	 <table>
 		     	 	<s:label 
 				    	name="monthlyData.numDeviatedChildPlans" 
-				    	label="No of Children Deviated From Care Plans"
+				    	label="%{getText('page.detail.deviated.care.plans')}
+"
 				    	/>
 		     	 </table>
 		     </td>
