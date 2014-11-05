@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td>Care Plan Information</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td><s:text name="page.care-plan.view.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -16,42 +16,42 @@
 	  <table style="padding-left:0px"  width="100%" id="commonTable" class="blueTbl">
 
 		<tr>
-	  		<th style="width:100px">Category</th>
+	  		<th style="width:100px"><s:text name="page.care-plan.view.category"/></th>
 	  		<td><s:property value="childCareplan.category" /></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th style="width:100px">Start</th>
+	  		<th style="width:100px"><s:text name="page.care-plan.view.start"/></th>
 	  		<td><s:date name="childCareplan.dateStart.time" format="yyyy/MM/dd"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th style="width:100px">End</th>
+	  		<th style="width:100px"><s:text name="page.care-plan.view.end"/></th>
 	  		<td><s:date name="childCareplan.dateEnd.time" format="yyyy/MM/dd"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th>Pre-note</th>
+	  		<th><s:text name="page.care-plan.view.pre"/></th>
 	  		<td><s:property value="childCareplan.preNote" escape="false"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th>Status</th>
+	  		<th><s:text name="page.care-plan.view.status"/></th>
 	  		<td><s:property value="childCareplan.status" escape="false"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th>Location</th>
+	  		<th><s:text name="page.care-plan.view.location"/></th>
 	  		<td><s:property value="childCareplan.location" escape="false"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th>Action Taken</th>
+	  		<th><s:text name="page.care-plan.view.take"/></th>
 	  		<td><s:property value="childCareplan.actionTaken" escape="false"/></td>
 	  	</tr>
 	  	
 	  	<tr>
-	  		<th>Post-note</th>
+	  		<th><s:text name="page.care-plan.view.post"/></th>
 	  		<td><s:property value="childCareplan.postNote" escape="false"/></td>
 	  	</tr>
 
@@ -67,7 +67,7 @@
 	  					<s:param name="id" value="%{childCareplan.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childCareplanDeleteUrl}" targets="childCareplanResultDiv" onClickTopics="/confirmDelete">
-	  					<input type="button" value="Delete Care Plan" /></sj:a>
+	  					<input type="button" value="<s:text name="page.care-plan.view.delete"/>" /></sj:a>
 	  			</table>
 	  		</td>
 	  	</tr>

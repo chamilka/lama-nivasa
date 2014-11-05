@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Guardian</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.guardian.list.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,7 +15,7 @@
 	  <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th>Name</th><th>Telephone</th><th>Status</th><th>Relationship</th><th>Address</th>
+	  		<th><s:text name="page.guardian.list.name"/></th><th><s:text name="page.guardian.list.telephone"/></th><th><s:text name="page.guardian.list.status"/></th><th><s:text name="page.guardian.list.relationship"/></th><th><s:text name="page.guardian.list.address"/></th>
 	  	</tr>
 			<s:iterator value="list" status="rowIndex">
 				<tr>

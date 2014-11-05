@@ -15,8 +15,8 @@
 		</s:url>
   
     <div style="text-align:center">
-		<sj:a href="%{#childPictureListUrl}" targets="childPictureResultDiv">Pictures</sj:a> | 
-		<sj:a href="%{#childPictureAddUrl}" targets="childPictureResultDiv">Add New Picture</sj:a>
+		<sj:a href="%{#childPictureListUrl}" targets="childPictureResultDiv"><s:text name="page.picture.frame.title"/></sj:a> | 
+		<sj:a href="%{#childPictureAddUrl}" targets="childPictureResultDiv"><s:text name="page.picture.frame.new.pic"/></sj:a>
 	</div> 
 
 	<div id="childPictureResultDiv">

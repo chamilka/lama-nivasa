@@ -6,7 +6,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Record Information</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.record.info"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -28,17 +28,17 @@
   				changeMonth="true"
   				changeYear="true"
   				value="%{childRecord.recordDate.time}"
-  				label ="Record Date"
+  				label ="%{getText('page.record.date')}"
   				/>
 	  	  <sjr:tinymce
 					name="childRecord.comment"
-					label="Comment"
+					label="%{getText('page.record.comment')}"
 					cssStyle="width:550px;height:100px"
 					toolbarButtonsRow2="undo,redo,|,forecolor,backcolor"
 
 				/>
 
-	  <sj:submit value="SUBMIT" targets="childRecordResultDiv" cssStyle="margin-left:85px"/>
+	  <sj:submit value="<s:text name="page.record.submit"/>" targets="childRecordResultDiv" cssStyle="margin-left:85px"/>
 	</s:form>
 
 </div>

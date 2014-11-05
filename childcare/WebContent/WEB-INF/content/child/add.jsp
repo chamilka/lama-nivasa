@@ -5,7 +5,7 @@
 <div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Add/Edit Child</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.add.title"/></td>
 	   </tr>
 	  </table>
 </div>
@@ -20,7 +20,7 @@
 
     <table class="darkBlueTbl" width="100%" >
       <tr>
-        <td class="tdLabel">Chidren's Home</td>
+        <td class="tdLabel"><s:text name="page.add.title"/></td>
         <td>
      		<table>
 
@@ -35,7 +35,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Child's Code</td>
+        <td class="tdLabel"><s:text name="page.add.child.code"/></td>
         <td>
      		<table>
 				<s:textfield name="child.code" cssStyle="width:120px"/>
@@ -43,7 +43,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Full Name</td>
+        <td class="tdLabel"><s:text name="page.add.full.name"/></td>
         <td>
      		<table>
      			<s:textfield name="child.fullName" cssStyle="width:450px"/>
@@ -51,7 +51,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Category</td>
+        <td class="tdLabel"><s:text name="page.add.category"/></td>
         <td>
      		<table>
      			<s:select name="child.category" list="childCategoryList" listKey="listKey" listValue="listValue" />
@@ -59,7 +59,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Parent Availability</td>
+        <td class="tdLabel"><s:text name="page.add.availabitity.parents"/></td>
         <td>
      		<table>
      			<s:select name="child.parentsAvailability" list="parentAvailabilityList" listKey="listKey" listValue="listValue" />
@@ -67,7 +67,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Date Of Birth</td>
+        <td class="tdLabel"><s:text name="page.list.dob"/></td>
         <td>
      		<table>
      			<sj:datepicker
@@ -82,7 +82,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Gender</td>
+        <td class="tdLabel"><s:text name="page.list.gender"/></td>
         <td>
      		<table>
      			<s:select name="child.sexType" list="genderTypeList" listKey="listKey" listValue="listValue" />
@@ -90,7 +90,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Race</td>
+        <td class="tdLabel"><s:text name="page.add.race"/></td>
         <td>
      		<table>
      			<s:select name="child.race" list="raceList" listKey="listKey" listValue="listValue" />
@@ -98,7 +98,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Religion</td>
+        <td class="tdLabel"><s:text name="page.add.religion"/></td>
         <td>
      		<table>
      			<s:select name="child.religion" list="religionList" listKey="listKey" listValue="listValue" />
@@ -106,7 +106,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Birth Certificate</td>
+        <td class="tdLabel"><s:text name="page.add.birth.certificate"/></td>
         <td>
      		<table>
      			<s:select name="child.birthCertificate" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
@@ -114,7 +114,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Proforma</td>
+        <td class="tdLabel"><s:text name="page.add.proforma"/></td>
         <td>
      		<table>
      			<s:select name="child.proforma" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
@@ -122,7 +122,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Vaccination Card</td>
+        <td class="tdLabel"><s:text name="page.add.vacc.card"/></td>
         <td>
      		<table>
      			<s:select name="child.vaccinationCard" list="hasDoNotHaveProcessingList" listKey="listKey" listValue="listValue" />
@@ -130,7 +130,7 @@
     	</td>
       </tr>
        <tr>
-        <td class="tdLabel">Date Of Admission</td>
+        <td class="tdLabel"><s:text name="page.add.date.of.addmission"/></td>
         <td>
      		<table>
      			<sj:datepicker
@@ -144,7 +144,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Disable</td>
+        <td class="tdLabel"><s:text name="page.add.disable"/></td>
         <td>
      		<table>
      			<s:select name="child.disable" list="yesNoList" listKey="listKey" listValue="listValue" />
@@ -152,7 +152,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Type of Disability</td>
+        <td class="tdLabel"><s:text name="page.add.type.disability"/></td>
         <td>
      		<table>
      			<s:textfield name="child.typeOfDisability" cssStyle="width:300px" />
@@ -160,7 +160,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">School</td>
+        <td class="tdLabel"><s:text name="page.add.school"/></td>
         <td>
      		<table>
      			<s:textfield name="child.school" cssStyle="width:450px" />
@@ -168,7 +168,7 @@
     	</td>
        </tr>
        <tr>
-       <td class="tdLabel">Grade</td>
+       <td class="tdLabel"><s:text name="page.add.grade"/></td>
         <td>
      		<table>
      			<s:textfield name="child.grade" cssStyle="width:50px"/>
@@ -176,7 +176,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Intake Method</td>
+        <td class="tdLabel"><s:text name="page.add.intake"/></td>
         <td>
      		<table>
 				<s:select name="child.intakeMethod" list="intakeMethodList" listKey="listKey" listValue="listValue" />
@@ -184,7 +184,7 @@
     	</td>
       </tr>
       <tr>
-        <td class="tdLabel">Primary Probation Unit</td>
+        <td class="tdLabel"><s:text name="page.add.prob.unit"/></td>
         <td>
      		<table>
 				<s:textfield name="child.originalProbationUnit" cssStyle="width:250px"/>
@@ -192,14 +192,14 @@
     	</td>
       </tr>
       <tr>
-      <td class="tdLabel">Comment</td>
+      <td class="tdLabel"><s:text name="page.add.comment"/></td>
         <td>
      		<table>
 				<s:textarea name="child.comment" cssStyle="width:500px;height:60px"/>
 			</table>
     	</td>
       </tr>
-      <td class="tdLabel">History</td>
+      <td class="tdLabel"><s:text name="page.add.history"/></td>
         <td>
      		<table>
 				<s:textarea name="child.history" cssStyle="width:500px;height:60px"/>
@@ -210,7 +210,7 @@
         <td class="tdLabel">&nbsp;</td>
         <td>
      		<table>
-				<sj:submit targets="childResultDiv"/>
+				<sj:submit value = "%{getText('page.add.button')}" targets="childResultDiv"/>
 			</table>
     	</td>
       </tr>

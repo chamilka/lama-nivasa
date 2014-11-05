@@ -9,7 +9,7 @@
 		<table>
 			<tr>
 				<td><div class="td3" style="width: 7px; height: 20px">&nbsp;</div></td>
-				<td class="sub-title">Children</td>
+				<td class="sub-title"><s:text name="page.list.title"/></td>
 				<td align="right" style="width: 100%"><s:include
 						value="../common/pager.jsp"></s:include></td>
 			</tr>
@@ -20,11 +20,11 @@
 			class="darkBlueTbl">
 			<tr>
 				<th style="width: 10px"></th>
-				<th style="width: 200px">Name</th>
-				<th style="width: 65px">Sex Type</th>
-				<th style="width: 95px">Date Of Birth</th>
-				<th style="width: 50px">District</th>
-				<th style="width: 530px">Children's Home</th>
+				<th style="width: 200px"><s:text name="page.search.name"/></th>
+				<th style="width: 65px"><s:text name="page.list.gender"/></th>
+				<th style="width: 95px"><s:text name="page.list.dob"/></th>
+				<th style="width: 50px"><s:text name="page.list.district"/></th>
+				<th style="width: 530px"><s:text name="page.search.title"/></th>
 			</tr>
 			<s:iterator value="pager.list" status="rowIndex">
 				<tr>
