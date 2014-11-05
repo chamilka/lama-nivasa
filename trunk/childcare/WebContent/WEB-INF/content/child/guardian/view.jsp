@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td>Guardian Information</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td><s:text name="page.guardian.view.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -16,27 +16,27 @@
 	  <table style="padding-left:0px"  width="100%" id="commonTable" class="blueTbl">
 
 	  	<tr>
-	  		<th style="width:120px">Name</th>
+	  		<th style="width:120px"><s:text name="page.guardian.add.name"/></th>
 	  		<td> <s:property value="childGuardian.name" /></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Relationship</th>
+	  		<th><s:text name="page.guardian.list.relationship"/></th>
 	  		<td><s:property value="childGuardian.relationship"  /></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Status</th>
+	  		<th><s:text name="page.guardian.list.status"/></th>
 	  		<td><s:property value="childGuardian.guardianStatus"  /></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Telephone</th>
+	  		<th><s:text name="page.guardian.list.telephone"/></th>
 	  		<td><s:property value="childGuardian.telephone" /></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Address</th>
+	  		<th><s:text name="page.guardian.list.address"/></th>
 	  		<td><s:property value="childGuardian.address"  /></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Path to home</th>
+	  		<th><s:text name="page.guardian.add.path"/></th>
 	  		<td><s:property value="childGuardian.pathToHome" /></td>
 	  	</tr>
 

@@ -22,8 +22,8 @@
 		</s:url>
 
     <div style="text-align:center">
-		<sj:a href="%{#childCareplanListUrl}" targets="childCareplanResultDiv">Care Plans</sj:a> |
-		<sj:a href="%{#childCareplanAddUrl}" targets="childCareplanResultDiv">Add a Care Plan</sj:a>
+		<sj:a href="%{#childCareplanListUrl}" targets="childCareplanResultDiv"><s:text name="page.care-plan"/></sj:a> |
+		<sj:a href="%{#childCareplanAddUrl}" targets="childCareplanResultDiv"><s:text name="page.care-plan.add"/></sj:a>
 	</div>
 
 	<div id="childCareplanResultDiv">

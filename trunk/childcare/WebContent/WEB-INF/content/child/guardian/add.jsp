@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title">Guardian Information</td>
+	   		<td class="td1" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.guardian.add.title"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -20,19 +20,19 @@
 	<s:hidden name="childGuardian.child.id" value="%{childId}"/>
 	<s:hidden name="operationMode"/>
 
-	  <s:textfield name="childGuardian.name" label="Guardian Name" cssStyle="width:350px" required="true" />
-	  <s:select name="childGuardian.relationship"  label="Relationship to Child" list="#{'Mother':'Mother', 'Father':'Father', 'Brother':'Brother', 'Sister':'Sister', 'Aunt':'Aunt', 'Uncle':'Uncle'}" required="true"/>
-	  <s:select name="childGuardian.guardianStatus"  label="Parents Status" list="#{'DISABLE':'Disable', 'ABROAD':'Abroad','INCARCERATE':'Incarcerate', 'UNEMPLOYED':'Un employed'}" required="true"/>
-	  <s:textfield name="childGuardian.telephone" label="Telephone" cssStyle="width:150px"></s:textfield>
-	  <s:textarea name="childGuardian.address" label="Address" cssStyle="width:350px;height:80px"></s:textarea>
-	  <s:textarea name="childGuardian.pathToHome" label="Path To Home" cssStyle="width:350px;height:80px"></s:textarea>
+	  <s:textfield name="childGuardian.name" label="%{getText('page.guardian.add.name')}" cssStyle="width:350px" required="true" />
+	  <s:select name="childGuardian.relationship"  label="%{getText('page.guardian.add.relationship')}" list="#{'Mother':'Mother', 'Father':'Father', 'Brother':'Brother', 'Sister':'Sister', 'Aunt':'Aunt', 'Uncle':'Uncle'}" required="true"/>
+	  <s:select name="childGuardian.guardianStatus"  label="%{getText('page.guardian.add.status')}" list="#{'DISABLE':'Disable', 'ABROAD':'Abroad','INCARCERATE':'Incarcerate', 'UNEMPLOYED':'Un employed'}" required="true"/>
+	  <s:textfield name="childGuardian.telephone" label="%{getText('page.guardian.add.telephone')}" cssStyle="width:150px"></s:textfield>
+	  <s:textarea name="childGuardian.address" label="%{getText('page.guardian.add.address')}" cssStyle="width:350px;height:80px"></s:textarea>
+	  <s:textarea name="childGuardian.pathToHome" label="%{getText('page.guardian.add.path')}" cssStyle="width:350px;height:80px"></s:textarea>
 
 	  <tr>
 	  <td>&nbsp;
 	  </td>
 	   <td >
 	     <table>
-	  		<sj:submit value="SUBMIT" targets="childGuardianResultDiv" />
+	  		<sj:submit value="%{getText('page.search.button')}" targets="childGuardianResultDiv" />
 	  	 </table>
 	   </td>
 	   <td>

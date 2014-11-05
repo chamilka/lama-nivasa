@@ -17,8 +17,8 @@
 		</s:url>
   
     <div style="text-align:center">
-		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv">Guardians</sj:a> | 
-		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv">Add Guardian</sj:a>
+		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv"><s:text name="page.guardian.frame.title"/></sj:a> | 
+		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv"><s:text name="page.guardian.frame.new.pic"/></sj:a>
 	</div> 
 
 	<div id="childGuardianResultDiv">

@@ -34,7 +34,7 @@
 		<table>
 			<tr>
 				<td class="td3" style="width: 5px">&nbsp;</td>
-				<td class="sub-title">Care Plan Information</td>
+				<td class="sub-title"><s:text name="page.care-plan.view.title"/></td>
 			</tr>
 		</table>
 	</div>
@@ -50,34 +50,34 @@
 		<s:hidden name="childCareplan.child.id" value="%{childId}" />
 		<s:hidden name="operationMode" />
 	
-		<s:select name="childCareplan.category" list="careplanCategories" listKey="listValue" listValue="listValue" label="Category"/>
+		<s:select name="childCareplan.category" list="careplanCategories" listKey="listValue" listValue="listValue" label="%{getText('page.care-plan.view.category')}"/>
 		 
 		<sj:datepicker id="dateStart" name="childCareplan.dateStart"
 			changeMonth="true" changeYear="true" required="true"
-			value="%{childCareplan.dateStart.time}" label="Start Date" />
+			value="%{childCareplan.dateStart.time}" label="%{getText('page.care-plan.list.start')}" />
 			
 			
 		<sj:datepicker id="dateEnd" name="childCareplan.dateEnd"
 			changeMonth="true" changeYear="true" required="true"
-			value="%{childCareplan.dateEnd.time}" label="End Date" />
+			value="%{childCareplan.dateEnd.time}" label="%{getText('page.care-plan.list.end')}" />
 			
-		<sjr:tinymce name="childCareplan.preNote" label="Pre-Note"
+		<sjr:tinymce name="childCareplan.preNote" label="%{getText('page.care-plan.list.note')}"
 			cssStyle="width:550px;height:100px" required="true"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 			
-		<sjr:tinymce name="childCareplan.status" label="Status"
+		<sjr:tinymce name="childCareplan.status" label="%{getText('page.care-plan.view.status')}"
 			cssStyle="width:550px;height:100px"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 			
-		<sjr:tinymce name="childCareplan.location" label="Location"
+		<sjr:tinymce name="childCareplan.location" label="%{getText('page.care-plan.view.location')}"
 			cssStyle="width:550px;height:100px"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 		
-		<sjr:tinymce name="childCareplan.actionTaken" label="Action Taken"
+		<sjr:tinymce name="childCareplan.actionTaken" label="%{getText('page.care-plan.view.take')}"
 			cssStyle="width:550px;height:100px"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 			
-		<sjr:tinymce name="childCareplan.postNote" label="Post-note"
+		<sjr:tinymce name="childCareplan.postNote" label="%{getText('page.care-plan.view.post')}"
 			cssStyle="width:550px;height:100px"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 

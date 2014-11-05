@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title">Children</td>	   		
+	   		<td class="td3" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.list.title"/></td>	   		
 	   </tr>
 	  </table>
 	</div>
@@ -16,7 +16,8 @@
 	 <s:if test="list.size > 0">
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="blueTbl">
 	  	<tr>
-	  		<th style="width:120px">Thumbnail</th><th>Comment</th><th>File</th><th>&nbsp;</th>
+	  		<th style="width:120px"><s:text name="page.picture.list.thumbnail"/></th><th>
+<s:text name="page.picture.list.comment"/></th><th><s:text name="page.picture.list.file"/></th><th>&nbsp;</th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
@@ -42,7 +43,7 @@
 			 		<s:param name="id" value="id"></s:param>
 			 		<s:param name="childId" value="childId"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv" onClickTopics="/confirmDelete">Delete</sj:a>
+			 	<sj:a href="%{childPictureDeleteUrl}" targets="childPictureResultDiv" onClickTopics="/confirmDelete"><s:text name="page.view.button.delete"/></sj:a>
 			 </td>
 			</tr>
 		</s:iterator>

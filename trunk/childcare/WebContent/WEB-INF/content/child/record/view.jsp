@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td3" style="width:5px">&nbsp;</td><td>Records Information</td>
+	   		<td class="td3" style="width:5px">&nbsp;</td><td><s:text name="page.record.info"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -16,11 +16,11 @@
 	  <table style="padding-left:0px"  width="100%" id="commonTable" class="blueTbl">
 
 	  	<tr>
-	  		<th style="width:100px">Date</th>
+	  		<th style="width:100px"><s:text name="page.record.date"/></th>
 	  		<td><s:date name="childRecord.recordDate.time" format="yyyy/MM/dd"/></td>
 	  	</tr>
 	  	<tr>
-	  		<th>Comment</th>
+	  		<th><s:text name="page.record.comment"/></th>
 	  		<td><s:property value="childRecord.comment" escape="false"/></td>
 	  	</tr>
 
@@ -36,7 +36,7 @@
 	  					<s:param name="id" value="%{childRecord.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childRecordDeleteUrl}" targets="childRecordResultDiv" onClickTopics="/confirmDelete">
-	  					<input type="button" value="Delete Record" /></sj:a>
+	  					<input type="button" value="<s:text name="page.record.delete"/>" /></sj:a>
 	  			</table>
 	  		</td>
 	  	</tr>

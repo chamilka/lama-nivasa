@@ -8,7 +8,7 @@
 
 	 <table id="commonTable" class="blueTbl" cellpadding="0" cellspacing="0" style="width: 100%; text-align: left;">
 	   <tr>
-	   	<th colspan="6">Summary Criteria</th>
+	   	<th colspan="6"><s:text name="page.summary-search.title"/></th>
 	   </tr>
 			
 	   <tr>
@@ -17,23 +17,23 @@
 	   	  	<tr>
 	   	  		<td>
 	   	  		 <table>
-						<s:select list="ageLimitList" label="Age (less)" name="searchAge" listKey="listKey" listValue="listValue" headerKey="-1" headerValue="All ages"/>	   
+						<s:select list="ageLimitList" label="%{getText('page.summary-search.label.age')}" name="searchAge" listKey="listKey" listValue="listValue" headerKey="-1" headerValue="All ages"/>	   
 			     	 </table>
 	   	  		 </td>
 	   	  		 <td>
 				   	 <table>
-						<s:select list="provinceList" label="Province" listKey="id" listValue="name" name="searchProvince" headerKey="-1" headerValue="All provinces"/>	   
+						<s:select list="provinceList" label="%{getText('page.summary-search.label.province')}" listKey="id" listValue="name" name="searchProvince" headerKey="-1" headerValue="All provinces"/>	   
 			     	 </table>
 				</td>
 	   	  		 <td>
 				   	 <table>
-						<s:select list="districtList" label="District" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
+						<s:select list="districtList" label="%{getText('page.summary-search.label.district')}" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
 			     	 </table>
 				</td>
 				
 				<td>
 				   	 <table>
-						<sj:submit targets="childSummaryDiv" value="Filter" />	   
+						<sj:submit targets="childSummaryDiv" value="%{getText('page.summary-search.label.filter')}" />	   
 			     	 </table>
 				</td>
 	   	  	</tr>

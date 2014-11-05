@@ -21,7 +21,7 @@
 	     		name="child.lamaNivasa.id"
 	     		list="%{lamaNivasaList}"
 	     		listKey="id" listValue="name"
-	     		label="Chidren's Home"
+	     		label="%{getText('page.search.title')}"
 	     		cssStyle="width:400px"
 	     		forceValidOption="true"
 	     	/>
@@ -29,17 +29,17 @@
      	 </td>
      	 <td style="width: 200px">
 	   	  <table>
-	   		<s:textfield name="child.fullName" label="Name" />
+	   		<s:textfield name="child.fullName" label="%{getText('page.search.name')}" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px">
 	   	  <table>
-	   		<s:textfield name="child.code" label="Code" cssStyle="width:50px" />
+	   		<s:textfield name="child.code" label="%{getText('page.search.code')}" cssStyle="width:50px" />
 	 	  </table>
      	 </td>
      	 <td style="width: 75px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="childResultDiv"/>
+	  			<sj:submit value="%{getText('page.search.button')}" targets="childResultDiv"/>
 	  		</table>
      	 </td>
      	 <td style="text-align: right; padding-right: 10px">
@@ -60,17 +60,17 @@
 				namespace="/report" includeParams="none"></s:url>			
 				
      		
-			<sj:a href="%{#childListUrl}" targets="childResultDiv">View Active</sj:a>  |
-			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv">View Inactive</sj:a>
+			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.view.active"/></sj:a>  |
+			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv"><s:text name="page.search.view.inactive"/></sj:a>
 			<s:if test="!ministry">
-					<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>
+					<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a>
 			</s:if>
 			<s:if test="!user">
 				 |
-				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv">Brief</sj:a>
+				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv"><s:text name="page.search.brief"/></sj:a>
 				
 				<s:if test="ministry">
-					| <sj:a href="%{#childDetailUrl}" targets="childResultDiv">Detail</sj:a>
+					| <sj:a href="%{#childDetailUrl}" targets="childResultDiv"><s:text name="page.search.detail"/></sj:a>
 				</s:if>
 			</s:if>
 		</td>
@@ -82,18 +82,18 @@
 
 	 <table id="commonTable" class="darkBlueTbl" cellpadding="0" cellspacing="0" style="width: 100%" >
 	   <tr>
-	   	<th colspan="4">Search</th>
+	   	<th colspan="4"><s:text name="page.search.button"/></th>
 	   </tr>
 
 	   <tr>
 	 	 <td style="width: 250px">
 	   	  <table>
-	   		<s:textfield name="child.fullName" label="Name" />
+	   		<s:textfield name="child.fullName" label="%{getText('page.search.name')}" />
 	 	  </table>
      	 </td>
      	 <td style="width: 100px; text-align: left" >
 	   	  	<table>
-	  			<sj:submit value="SEARCH" targets="childResultDiv"/>
+	  			<sj:submit value="%{getText('page.search.button')}" targets="childResultDiv"/>
 	  		</table>
      	 </td>
      	 <td style="text-align: right; padding-right: 10px">
@@ -104,8 +104,8 @@
 			<s:url var="childListUrl" action="list"
 				namespace="/child" includeParams="none"></s:url>
 
-     		<sj:a href="%{#childAddUrl}" targets="childResultDiv">Add</sj:a>  |
-			<sj:a href="%{#childListUrl}" targets="childResultDiv">All</sj:a> |
+     		<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a>  |
+			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.all"/></sj:a> |
 
 		</td>
 	  </table>
