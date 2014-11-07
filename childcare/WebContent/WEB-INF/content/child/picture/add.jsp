@@ -18,14 +18,14 @@
 	<s:hidden name="childPicture.child.id" value="%{childId}"/>
 	<s:hidden name="operationMode"/>
 	
-	<s:textfield name="childPicture.comment" label="Comment" cssStyle="width:300px"/>  
-    <s:file name="fileUpload" label="Select a Picture File to upload" size="40" />
+	<s:textfield name="childPicture.comment" label="%{getText('page.picture.list.comment')}" cssStyle="width:300px"/>  
+    <s:file name="fileUpload" label="%{getText('page.picture.list.select.file')}" size="40" />
     
     <tr>
         <td class="tdLabel">&nbsp;</td>
         <td> 
      		<table>
-				<sj:submit targets="childPictureResultDiv"/>
+				<sj:submit value= "%{getText('page.add.button')}" targets="childPictureResultDiv"/>
 			</table>
     	</td>
     </tr>
