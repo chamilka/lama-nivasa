@@ -6,7 +6,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Probation Units</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.probationunit.list.subtitle2"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,7 +15,7 @@
 	<div>
 	  <table style="margin-top: 10px" width="100%" id="commonTable" class="orangeTbl">
 	  	<tr>
-	  		<th></th><th>Name</th><th style="width:50px">Officers</th><th>Email</th><th>Telephone</th><th>District</th><th>Police Station</th>
+	  		<th></th><th><s:text name="page.probationunit.list.name"/></th><th style="width:50px"><s:text name="page.probationunit.list.officers"/></th><th><s:text name="page.probationunit.list.email"/></th><th><s:text name="page.probationunit.list.telephone"/></th><th><s:text name="page.probationunit.list.district"/></th><th><s:text name="page.probationunit.list.policestation"/></th>
 	  	</tr>
 		<s:iterator value="list" status="rowIndex">
 			<tr>
