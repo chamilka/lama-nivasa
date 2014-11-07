@@ -76,7 +76,7 @@
 					<tr>
 						<td style="padding-left: 25px">
 							<table>
-								<s:label name="childSummary.ageLessThanFive.male" label="Male" />
+								<s:label name="childSummary.ageLessThanFive.male" label="%{getText('page.summary.male')}" />
 							</table>
 						</td>
 						<td>
