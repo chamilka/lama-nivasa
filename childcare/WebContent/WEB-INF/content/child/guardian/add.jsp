@@ -32,7 +32,7 @@
 	  </td>
 	   <td >
 	     <table>
-	  		<sj:submit value="%{getText('page.search.button')}" targets="childGuardianResultDiv" />
+	  		<sj:submit value="%{getText('page.record.submit')}" targets="childGuardianResultDiv" />
 	  	 </table>
 	   </td>
 	   <td>
