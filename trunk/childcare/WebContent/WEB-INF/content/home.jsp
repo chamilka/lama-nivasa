@@ -28,7 +28,7 @@
 	//var count = 0;
 	(function($) {
 		$.subscribe("/confirmDelete",function(event,data) {
-	        if ( confirm('<s:text name="Are you sure deleting record/s?" />') ) {
+	        if ( confirm('<s:text name="home.delete.msg"/>') ) {
 	            return true;
 	         }
 	         else {
@@ -39,7 +39,7 @@
 	
 	(function($) {
 		$.subscribe("/confirmRestore",function(event,data) {
-	        if ( confirm('<s:text name="Are you sure to restore record/s?" />') ) {
+	        if ( confirm('<s:text name="home.restore.msg"/>') ) {
 	            return true;
 	         }
 	         else {

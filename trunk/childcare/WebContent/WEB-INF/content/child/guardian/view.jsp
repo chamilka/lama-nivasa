@@ -47,13 +47,13 @@
 	  					<s:param name="id" value="%{childGuardian.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childGuardianEditUrl}" targets="childGuardianResultDiv">
-	  					<input type="button" value="Edit" /></sj:a>
+	  					<input type="button" value="<s:text name="page.record.edit"/>" /></sj:a>
 
 	  				<s:url var="childGuardianDeleteUrl" action="delete" namespace="/childGuardian" includeParams="none" >
 	  					<s:param name="id" value="%{childGuardian.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childGuardianDeleteUrl}" targets="childGuardianResultDiv"  onClickTopics="/confirmDelete">
-	  					<input type="button" value="Delete" /></sj:a>
+	  					<input type="button" value="<s:text name="page.view.button.delete"/>" /></sj:a>
 	  			</table>
 	  		</td>
 	  	</tr>
