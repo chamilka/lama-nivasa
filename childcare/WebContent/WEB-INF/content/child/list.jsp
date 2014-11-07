@@ -69,7 +69,7 @@
 	</div>
 </s:if>
 <s:else>
-	<div class="error">Items not found to your search input</div>
+	<div class="error"><s:text name="page.list.error.msg"/></div>
 </s:else>
 
 <script type="text/javascript">
