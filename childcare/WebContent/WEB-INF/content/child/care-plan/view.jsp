@@ -62,7 +62,7 @@
 	  					<s:param name="id" value="%{childCareplan.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childCareplanEditUrl}" targets="childCareplanResultDiv">
-	  					<input type="button" value="Edit Care Plan" /></sj:a>
+	  					<input type="button" value="<s:text name="child.care-plan.edit"/>" /></sj:a>
 	  				<s:url var="childCareplanDeleteUrl" action="delete" namespace="/childCareplan" includeParams="none" >
 	  					<s:param name="id" value="%{childCareplan.id}"></s:param>
 	  				</s:url>

@@ -31,7 +31,7 @@
 	  					<s:param name="id" value="%{childRecord.id}"></s:param>
 	  				</s:url>
 	  				<sj:a href="%{#childRecordEditUrl}" targets="childRecordResultDiv">
-	  					<input type="button" value="Edit Record" /></sj:a>
+	  					<input type="button" value="<s:text name="child.record.edit.record"/>" /></sj:a>
 	  				<s:url var="childRecordDeleteUrl" action="delete" namespace="/childRecord" includeParams="none" >
 	  					<s:param name="id" value="%{childRecord.id}"></s:param>
 	  				</s:url>
