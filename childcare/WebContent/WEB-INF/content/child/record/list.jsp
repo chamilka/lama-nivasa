@@ -37,7 +37,7 @@
 		</table>
 	  </s:if>
 	  <s:else>
-	  	No records yet. Click "Add Record"
+	  	<s:text name="page.record.list.msg"/>
 	  </s:else>
 	</div>
 

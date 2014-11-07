@@ -39,7 +39,7 @@
 		</table>
 	  </s:if>
 	  <s:else>
-	  	No care plans yet. Click "Add Record"
+	  	<s:text name="page.care-plan.list.msg"/>
 	  </s:else>
 	</div>
 

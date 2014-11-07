@@ -33,7 +33,7 @@
 		</table>
 	  </s:if>
 	  <s:else>
-	  	No guardian information yet. Click "Add Guardian"
+	  	<s:text name="page.guardian.list.msg"/>
 	  </s:else>
 	</div>
 
