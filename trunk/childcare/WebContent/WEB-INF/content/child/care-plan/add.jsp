@@ -81,7 +81,7 @@
 			cssStyle="width:550px;height:100px"
 			toolbarButtonsRow2="undo,redo,|,forecolor,backcolor" />
 
-		<sj:submit value="SUBMIT" targets="childCareplanResultDiv"
+		<sj:submit value="%{getText('page.record.submit')}" targets="childCareplanResultDiv"
 			cssStyle="margin-left:85px" />
 			
 	</s:form>
