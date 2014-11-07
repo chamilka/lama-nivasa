@@ -50,7 +50,7 @@
 		</table>
 	 </s:if>
 	  <s:else>
-	  	No pictures uploaded. Click "Add New Picture"
+	  	<s:text name="page.picture.list.msg"/>
 	  </s:else>
 	</div>
 
