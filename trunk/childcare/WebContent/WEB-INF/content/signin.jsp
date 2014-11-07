@@ -87,7 +87,7 @@
 							<td>&nbsp;</td>
 							<td><div align="right">
 									<table cellpadding="0" cellspacing="0">
-										<s:submit value="LOGIN" />
+										<s:submit key="user.login.btn" />
 									</table>
 								</div></td>
 						</tr>

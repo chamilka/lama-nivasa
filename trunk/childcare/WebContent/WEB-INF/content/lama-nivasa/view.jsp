@@ -19,34 +19,34 @@
 	<table id="commonTable" class="blueTbl" width="100%">
 
 		<tr>
-			<th style="width: 130px">Name</th>
+			<th style="width: 130px"><s:text name="lamaNivasa.add.name"/></th>
 			<td colspan="3"><s:property value="lamaNivasa.name" /></td>
-			<th>Date Established</th>
+			<th><s:text name="lamaNivasa.add.DOEstablish"/></th>
 			<td><s:date name="lamaNivasa.dateOfEstablishment"
 					format="yyyy/MM/dd" /></td>
 		</tr>
 		<tr>
-			<th>Category</th>
+			<th><s:text name="lamaNivasa.add.category"/></th>
 			<td colspan="3"><s:property value="lamaNivasa.category" /></td>
 			
 			<th>Total Children</th>
 			<td><s:property value="lamaNivasa.childs.size" /></td>
 		</tr>
 		<tr>
-			<th>District</th>
+			<th><s:text name="lamaNivasa.add.district"/></th>
 			<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name" /></td>
 			
-			<th>Div. Secretariat</th>
+			<th><s:text name="lamaNivasa.add.dSecretariat"/></th>
 			<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name" /></td>
 			
 			<th>Grama Niladari</th>
 			<td><s:property value="lamaNivasa.gramaSevakaDivision.name" /></td>
 		</tr>
 		<tr>
-			<th>Probation Unit</th>
+			<th><s:text name="lamaNivasa.add.unit"/></th>
 			<td colspan="3"><s:property
 					value="lamaNivasa.probationUnit.name" /></td>
-			<th>Probation Officer</th>
+			<th><s:text name="lamaNivasa.add.pOfficer"/></th>
 			<td colspan="2">
 				<s:if test="lamaNivasa.probationOfficer == -1">
 					Probation Officer Not Selected
@@ -59,7 +59,7 @@
 		<tr>
 			<th>Address</th>
 			<td colspan="3"><s:property value="lamaNivasa.address" /></td>
-			<th>Religion</th>
+			<th><s:text name="lamaNivasa.add.religion"/></th>
 			<td><s:property value="lamaNivasa.religion" /></td>
 		</tr>
 		<tr>
@@ -71,30 +71,30 @@
 			<td><s:property value="lamaNivasa.email" /></td>
 		</tr>
 		<tr>
-			<th>Max. No of children</th>
+			<th><s:text name="lamaNivasa.add.maxchildren"/></th>
 			<td><s:property value="lamaNivasa.numberOfChildren" /></td>
-			<th>Min Age</th>
+			<th><s:text name="lamaNivasa.add.minAge"/></th>
 			<td><s:property value="lamaNivasa.minAge" /></td>
-			<th>Max Age</th>
+			<th><s:text name="lamaNivasa.add.maxAge"/></th>
 			<td><s:property value="lamaNivasa.maxAge" /></td>
 		</tr>
 
 		<tr>
-			<th>Registration</th>
+			<th><s:text name="lamaNivasa.add.registration"/></th>
 			<td><s:property value="lamaNivasa.registrationStatus" /></td>
-			<th>Registration Number</th>
+			<th><s:text name="lamaNivasa.add.regNumber"/></th>
 			<td><s:property value="lamaNivasa.registrationNumber" /></td>
-			<th>Registered Date</th>
+			<th><s:text name="lamaNivasa.add.regDate"/></th>
 			<td><s:date name="lamaNivasa.registrationDate.time"
 					format="yyyy/MM/dd" /></td>
 		</tr>
 
 		<tr>
-			<th>Funding Method</th>
+			<th><s:text name="lamaNivasa.add.funding"/></th>
 			<td><s:property value="lamaNivasa.fundingMethod" /></td>
-			<th>Department Funding</th>
+			<th><s:text name="lamaNivasa.add.DFunding"/></th>
 			<td><s:property value="lamaNivasa.departmentFunding" /></td>
-			<th>No. of Staffs</th>
+			<th><s:text name="lamaNivasa.add.noStaff"/></th>
 			<td><s:property value="lamaNivasa.numberOfOfficers" /></td>
 		</tr>
 
