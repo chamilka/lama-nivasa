@@ -38,7 +38,7 @@
 
 				/>
 
-	  <sj:submit value="<s:text name="page.record.submit"/>" targets="childRecordResultDiv" cssStyle="margin-left:85px"/>
+	  <sj:submit value="%{getText('page.record.submit')}" targets="childRecordResultDiv" cssStyle="margin-left:85px"/>
 	</s:form>
 
 </div>
