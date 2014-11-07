@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td class="td1" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">Chidren's Home</td>
+			<td class="sub-title"><s:text name="header.childrensHome"></s:text></td>
 		</tr>
 	</table>
 </div>
@@ -29,7 +29,7 @@
 			<th><s:text name="lamaNivasa.add.category"/></th>
 			<td colspan="3"><s:property value="lamaNivasa.category" /></td>
 			
-			<th>Total Children</th>
+			<th><s:text name="lamaNivasa.add.totalChildren"/></th>
 			<td><s:property value="lamaNivasa.childs.size" /></td>
 		</tr>
 		<tr>
@@ -39,7 +39,7 @@
 			<th><s:text name="lamaNivasa.add.dSecretariat"/></th>
 			<td><s:property value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.name" /></td>
 			
-			<th>Grama Niladari</th>
+			<th><s:text name="lamaNivasa.add.gramaNiladari"/></th>
 			<td><s:property value="lamaNivasa.gramaSevakaDivision.name" /></td>
 		</tr>
 		<tr>
@@ -49,7 +49,7 @@
 			<th><s:text name="lamaNivasa.add.pOfficer"/></th>
 			<td colspan="2">
 				<s:if test="lamaNivasa.probationOfficer == -1">
-					Probation Officer Not Selected
+					<s:text name="lamaNivasa.add.PONotSelected"/>
 				</s:if>
 				<s:else>
 					<s:property value="lamaNivasa.probationOfficer" />
@@ -57,17 +57,17 @@
 			</td>
 		</tr>
 		<tr>
-			<th>Address</th>
+			<th><s:text name="lamaNivasa.add.address"/></th>
 			<td colspan="3"><s:property value="lamaNivasa.address" /></td>
 			<th><s:text name="lamaNivasa.add.religion"/></th>
 			<td><s:property value="lamaNivasa.religion" /></td>
 		</tr>
 		<tr>
-			<th>Telephone</th>
+			<th><s:text name="lamaNivasa.add.telephone"/></th>
 			<td><s:property value="lamaNivasa.telephone" /></td>
-			<th>Fax</th>
+			<th><s:text name="lamaNivasa.add.fax"/></th>
 			<td><s:property value="lamaNivasa.fax" /></td>
-			<th>Email</th>
+			<th><s:text name="lamaNivasa.add.email"/></th>
 			<td><s:property value="lamaNivasa.email" /></td>
 		</tr>
 		<tr>
@@ -106,7 +106,8 @@
 						<s:param name="id" value="lamaNivasa.id"></s:param>
 					</s:url>
 					<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">
-						<input type="button" value="Edit" />
+					 <input type="button" value="<s:text name='lamaNivasa.add.edit'/>"/>
+						
 					</sj:a>
 					<s:if test="admin"> |
  						<s:if test="lamaNivasa.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
@@ -116,7 +117,7 @@
 							</s:url>
 							<sj:a href="%{lamaNivasaDeleteUrl}" targets="lamaNivasaResultDiv"
 								onClickTopics="/confirmDelete">
-								<input type="button" value="Delete" />
+								<input type="button" value="<s:text name='lamaNivasa.add.delete'/>" />
 							</sj:a>
 						</s:if>
 						<s:else>
@@ -154,11 +155,11 @@
 		class="blueTbl">
 		<tr>
 			<th style="width: 20px"></th>
-			<th>Name</th>
-			<th style="width: 70px">Sex Type</th>
-			<th>Date Of Birth</th>
-			<th style="width: 50px">Intake Method</th>
-			<th>Race</th>
+			<th><s:text name="lamaNivasa.add.name"/></th>
+			<th style="width: 70px"><s:text name="lamaNivasa.add.sexType"/></th>
+			<th><s:text name="lamaNivasa.add.dob"/></th>
+			<th style="width: 50px"><s:text name="lamaNivasa.add.intakeMethod"/></th>
+			<th><s:text name="lamaNivasa.add.race"/></th>
 		</tr>
 
 		<s:iterator value="lamaNivasa.childs" status="rowIndex">
