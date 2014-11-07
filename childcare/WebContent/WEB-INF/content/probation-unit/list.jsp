@@ -74,5 +74,5 @@
 	</script>
 </s:if>
 <s:else>
-	No records
+	<s:text name="page.probationunit.list.record"/>
 </s:else>

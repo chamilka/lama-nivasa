@@ -12,12 +12,12 @@
 			<tr>
 				<th></th>
 
-				<th>Name</th>
-				<th>Post</th>
-				<th>User Role</th>
-				<th>Sex Type</th>
-				<th>Telephone</th>
-				<th>Mobile</th>
+				<th><s:text name="page.probationunit.officer.name"/></th>
+				<th><s:text name=""/></th>
+				<th><s:text name=""/></th>
+				<th><s:text name=""/></th>
+				<th><s:text name=""/></th>
+				<th><s:text name=""/></th>
 
 			</tr>
 			<s:iterator value="probationOfficers" status="rowIndex">

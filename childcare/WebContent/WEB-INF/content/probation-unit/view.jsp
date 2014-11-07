@@ -5,7 +5,7 @@
 	<div>
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Probation Unit</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.probationunit.view.subtitle"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -15,35 +15,35 @@
 	<div>  
 	  <table id="commonTable" class="orangeTbl" width="100%">
 		  <tr>
-	 		<th style="width:150px">Name</th>
+	 		<th style="width:150px"><s:text name="page.probationunit.view.name"/></th>
 	 		<td  colspan="3">
 		 		 <s:property value="probationUnit.name"/>
 		 	</td>
-		 	<th>Officers</th>
+		 	<th><s:text name="page.probationunit.view.officers"/></th>
 	 		<td><s:property value="probationUnit.numberOfOfficers"/></td>
 		  </tr>
 		  <tr>
-	 		<th>Telephone</th>
+	 		<th><s:text name="page.probationunit.view.telephone"/></th>
 	 		<td><s:property value="probationUnit.telephone"/></td>
 
-		    <th>Fax</th>
+		    <th><s:text name="page.probationunit.view.fax"/></th>
 	 		<td><s:property value="probationUnit.fax"/></td>
 
-		    <th style="width:100px">Email</th>
+		    <th style="width:100px"><s:text name="page.probationunit.view.email"/></th>
 	 		<td><s:property value="probationUnit.email"/></td>
 		  </tr>
 		  <tr>
-	 		<th>Address</th>
+	 		<th><s:text name="page.probationunit.view.address"/></th>
 	 		<td colspan="5"><s:property value="probationUnit.address"/></td>
 		  </tr>
 		  
 		  <tr>
-	 		<th>District</th>
+	 		<th><s:text name="page.probationunit.view.district"/></th>
 	 		<td colspan="5"><s:property value="probationUnit.district.name"/></td>
 		  </tr>
 		  
 		   <tr>
-	 		<th>Comment</th>
+	 		<th><s:text name="page.probationunit.view.comment"/></th>
 	 		<td colspan="5"><s:property value="probationUnit.comment"/></td>
 		  </tr>
 		  <tr>
@@ -84,12 +84,12 @@
 					<tr>
 						<th></th>
 		
-						<th>Name</th>
-						<th>Post</th>
-						<th>Sex Type</th>
-						<th>Telephone</th>
-						<th>Mobile</th>
-						<th>Email</th>
+						<th><s:text name="page.probationunit.view.name"/></th>
+						<th><s:text name="page.probationunit.view.post"/></th>
+						<th><s:text name="page.probationunit.view.sextype"/></th>
+						<th><s:text name="page.probationunit.view.telephone"/></th>
+						<th><s:text name="page.probationunit.view.mobile"/></th>
+						<th><s:text name="page.probationunit.view.email"/></th>
 		
 					</tr>
 					<s:iterator value="probationOfficers" status="rowIndex">
@@ -114,7 +114,7 @@
 	<div style="margin-top: 20px">
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Police Stations</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.probationunit.view.policestations"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -129,12 +129,12 @@
 					<tr>
 						<th></th>
 		
-						<th>Name</th>
-						<th>Telephone</th>
-						<th>Email</th>
-						<th>Fax</th>
-						<th>Address</th>
-						<th>Comment</th>
+						<th><s:text name="page.probationunit.view.name"/></th>
+						<th><s:text name="page.probationunit.view.telephone"/></th>
+						<th><s:text name="page.probationunit.view.email"/></th>
+						<th><s:text name="page.probationunit.view.fax"/></th>
+						<th><s:text name="page.probationunit.view.address"/></th>
+						<th><s:text name="page.probationunit.view.comment"/></th>
 		
 					</tr>
 					<s:iterator value="probationUnit.policeStations" status="rowIndex">
