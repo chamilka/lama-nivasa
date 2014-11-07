@@ -50,7 +50,7 @@
 			
 			<tr>
 				<th valign="top">&nbsp;</th>
-				<td colspan="5"><table><sj:submit targets="policeList" /> </table>
+				<td colspan="5"><table><sj:submit value = "%{getText('settings.user.add.user.submit')}" targets="policeList" /> </table>
 				</td>
 			</tr>
 
