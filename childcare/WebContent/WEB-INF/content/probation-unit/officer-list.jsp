@@ -13,11 +13,11 @@
 				<th></th>
 
 				<th><s:text name="page.probationunit.officer.name"/></th>
-				<th><s:text name=""/></th>
-				<th><s:text name=""/></th>
-				<th><s:text name=""/></th>
-				<th><s:text name=""/></th>
-				<th><s:text name=""/></th>
+				<th><s:text name="page.probationunit.officer.post=Post"/></th>
+				<th><s:text name="page.probationunit.officer.userrole=User Role"/></th>
+				<th><s:text name="page.probationunit.officer.sextype=Sex Type"/></th>
+				<th><s:text name="page.probationunit.officer.telephone=Telephone"/></th>
+				<th><s:text name="page.probationunit.officer.mobile=Mobile"/></th>
 
 			</tr>
 			<s:iterator value="probationOfficers" status="rowIndex">
@@ -40,7 +40,7 @@
 	</div>
 </s:if>
 <s:else>
-  	No user found for your criteria, search again with a different criteria
+  	<s:text name="page.probationunit.officerlist.record"/>
 </s:else>
 
 
