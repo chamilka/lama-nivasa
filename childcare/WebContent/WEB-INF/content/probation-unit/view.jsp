@@ -51,13 +51,13 @@
 		 		<s:url var="probationUnitEditUrl" action="edit" namespace="/probationUnit" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv"><input type="button" value="Edit" /></sj:a>
+			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv"><input type="button" value="<s:text name="page.probationunit.view.editbutton"/>" /></sj:a>
 		 		|
 		 		<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"><s:property value="id"/></s:param>
 			 	</s:url>
 			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">
-			 		<input type="button" value="Delete" /></sj:a>
+			 		<input type="button" value="<s:text name="page.probationunit.view.deletebutton"/>" /></sj:a>
 			 </td>
 		    </tr>
 
@@ -69,7 +69,7 @@
 	<div style="margin-top: 20px">
 	  <table>
 	   <tr>
-	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title">Personnel</td>
+	   		<td class="td2" style="width:5px">&nbsp;</td><td class="sub-title"><s:text name="page.probationunit.view.personnel"/></td>
 	   </tr>
 	  </table>
 	</div>
@@ -107,7 +107,7 @@
 			</div>
 		</s:if>
 		<s:else>
-		  	No user found for your criteria, search again with a different criteria
+		  	<s:text name="page.probationunit.view.record"/>
 		</s:else>
 	</div>
 
