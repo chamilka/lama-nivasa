@@ -39,10 +39,13 @@
 			<result>/WEB-INF/content/common/invalid-url.jsp</result>
 		</action>
 		
-		<action name="localeChange" class="pdn.sci.cs.action.IndexAction">
-			<result>/WEB-INF/content/signin.jsp</result>
+		<action name="localeChange" class="pdn.sci.cs.action.UserAction" method="locale_change" >
+			<result name ="success">/WEB-INF/content/signin.jsp</result>
 		</action>
-
+		
+	<action name="index" class="pdn.sci.cs.action.UserAction" method="logIn">
+			<result name ="success">/WEB-INF/content/signin.jsp</result>
+		</action>
 	</package>
 
 	<!-- authorized package -->

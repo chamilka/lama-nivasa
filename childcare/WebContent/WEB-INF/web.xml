@@ -54,7 +54,7 @@
  	</error-page>
   	
   	<welcome-file-list>
-   		<welcome-file>/WEB-INF/content/signin.jsp</welcome-file>
+   		<welcome-file>/index.action</welcome-file>
   	</welcome-file-list>
   	<session-config>
     	<session-timeout>60</session-timeout>
