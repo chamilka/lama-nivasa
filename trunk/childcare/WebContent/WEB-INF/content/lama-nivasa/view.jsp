@@ -127,7 +127,7 @@
 							</s:url>
 							<sj:a href="%{lamaNivasaRestoreUrl}" targets="lamaNivasaResultDiv"
 								onClickTopics="/confirmRestore">
-								<input type="button" value="Restore" />
+								<input type="button" value="<s:text name = "lamanivasa.restore.button"/>" />
 							</sj:a>
 						</s:else>
 					</s:if>
