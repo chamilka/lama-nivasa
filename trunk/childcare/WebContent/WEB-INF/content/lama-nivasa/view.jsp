@@ -145,7 +145,7 @@
 	<table>
 		<tr>
 			<td class="td1" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">Chidren List</td>
+			<td class="sub-title"><s:text name="lamaNivasa.view.list"/></td>
 		</tr>
 	</table>
 </div>
