@@ -54,6 +54,15 @@ public class UserAction extends BaseAction {
   @Autowired
   private ProvinceService provinceService;
 
+  public String logIn() {
+    return SUCCESS;
+  }
+
+  public String locale_change() {
+    return SUCCESS;
+  }
+
+
   public String signIn() {
 
     validateSignIn();
@@ -222,29 +231,29 @@ public class UserAction extends BaseAction {
   }
 
   private void validateUser() {
-	  if (systemUser.getUsername().isEmpty() || systemUser.getUsername().trim().length() == 0) {
-	      addFieldError("systemUser.username", "Username cannot be empty");
-	    }
+    if (systemUser.getUsername().isEmpty() || systemUser.getUsername().trim().length() == 0) {
+      addFieldError("systemUser.username", "Username cannot be empty");
+    }
 
-	    if (systemUser.getName().isEmpty() || systemUser.getName().trim().length() == 0) {
-	      addFieldError("systemUser.name", "Name cannot be empty");
-	    }
+    if (systemUser.getName().isEmpty() || systemUser.getName().trim().length() == 0) {
+      addFieldError("systemUser.name", "Name cannot be empty");
+    }
 
-	    if (!systemUser.getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
-	      if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty()
-	          || systemUser.getReferenceId().trim().length() == 0) {
-	        addFieldError("systemUser.referenceId", "Please select your work location");
-	      }
-	    }
+    if (!systemUser.getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
+      if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty()
+          || systemUser.getReferenceId().trim().length() == 0) {
+        addFieldError("systemUser.referenceId", "Please select your work location");
+      }
+    }
 
-	    if (operationMode != OPERATION_MODE.EDIT) {
-	      if (systemUserService.searchByUsername(systemUser.getUsername()) != null) {
-	        addFieldError("systemUser.username", "Username not available");
-	      }
-	      if (systemUser.getUserPassword().isEmpty()) {
-	        addFieldError("systemUser.userPassword", "Password cannot be empty");
-	      }
-	    }
+    if (operationMode != OPERATION_MODE.EDIT) {
+      if (systemUserService.searchByUsername(systemUser.getUsername()) != null) {
+        addFieldError("systemUser.username", "Username not available");
+      }
+      if (systemUser.getUserPassword().isEmpty()) {
+        addFieldError("systemUser.userPassword", "Password cannot be empty");
+      }
+    }
   }
 
   public String delete() {
@@ -320,7 +329,8 @@ public class UserAction extends BaseAction {
       try {
         pageSize = SEARCH_PAGE_SIZE;
         pager =
-            systemUserService.search(systemUser.getName(), systemUser.getUserRole(), systemUser.getMobile(), pageStart, pageSize);
+            systemUserService.search(systemUser.getName(), systemUser.getUserRole(),
+                systemUser.getMobile(), pageStart, pageSize);
       } catch (Exception e) {
         e.printStackTrace();
         populateAddList();

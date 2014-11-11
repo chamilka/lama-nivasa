@@ -36,7 +36,7 @@
 						<s:url var="EnglishUrl" action="localeChange" namespace="/"
 							includeParams="">
 							<s:param name="request_locale">en</s:param>
-						</s:url>  
+						</s:url>
 						<s:url var="SinhalaUrl" action="localeChange" namespace="/"
 							includeParams="">
 							<s:param name="request_locale">si</s:param>
@@ -45,7 +45,7 @@
 						<td id="eng" class="locale_btn"><s:a href="%{#EnglishUrl}">
 								<input type="button" value="E">
 							</s:a></td>
-						<td id="sin" class="locale_btn" ><s:a href="%{#SinhalaUrl}">
+						<td id="sin" class="locale_btn"><s:a href="%{#SinhalaUrl}">
 								<input type="button" value="සි">
 							</s:a></td>
 					</tr>
