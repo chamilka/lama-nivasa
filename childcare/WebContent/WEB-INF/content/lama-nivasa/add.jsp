@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td class="td1" style="width: 5px">&nbsp;</td>
-			<td class="sub-title">Add Chidren's Home</td>
+			<td class="sub-title"><s:text name="lamaNivasa.add.childrenMome"/></td>
 		</tr>
 	</table>
 </div>
