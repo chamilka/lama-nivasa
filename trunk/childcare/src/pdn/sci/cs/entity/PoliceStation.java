@@ -15,12 +15,14 @@ import org.hibernate.annotations.GenericGenerator;
 public class PoliceStation extends BaseEntity implements java.io.Serializable {
 
     public static final String NAME = "name";
+    public static final String DISTRICT_ID="district.id";
     private static final long serialVersionUID = 1L;
     private String name;
     private String email;
     private String telephone;
     private String fax;
     private String address;
+    private String districtId;
     private String comment;
 
     public PoliceStation() {
@@ -40,6 +42,23 @@ public class PoliceStation extends BaseEntity implements java.io.Serializable {
         this.email = email;
         this.telephone = telephone;
         this.address = address;
+        this.sortOrder = sortOrder;
+        this.insertUserId = insertUserId;
+        this.updateUserId = updateUserId;
+        this.insertDateTime = insertDatetime;
+        this.updateDateTime = updateDatetime;
+
+    }
+    public PoliceStation(String id, String name, String email,
+            String telephone, String address,String districtId, Integer sortOrder,
+            String insertUserId, String updateUserId, Calendar insertDatetime,
+            Calendar updateDatetime) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.telephone = telephone;
+        this.address = address;
+        this.districtId=districtId;
         this.sortOrder = sortOrder;
         this.insertUserId = insertUserId;
         this.updateUserId = updateUserId;
@@ -111,6 +130,15 @@ public class PoliceStation extends BaseEntity implements java.io.Serializable {
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    @Column(name = "DISTRICT_ID")
+    public String getDistrict() {
+        return districtId;
+    }
+
+    public void setDistrict(String district) {
+        this.districtId = district;
     }
 
 }
