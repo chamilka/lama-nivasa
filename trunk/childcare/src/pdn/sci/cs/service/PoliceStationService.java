@@ -42,4 +42,8 @@ public class PoliceStationService {
     return policeStationDao.merge(systemUser);
   }
 
+public List<PoliceStation> findByDistrictId(String districtId) {
+	return policeStationDao.findByDistrictId(districtId);
+}
+
 }

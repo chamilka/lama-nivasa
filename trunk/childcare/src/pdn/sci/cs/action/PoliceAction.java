@@ -25,6 +25,12 @@ public class PoliceAction extends BaseAction {
   private PoliceStationService policeStationService;
 @Autowired
 private DistrictService districtService;
+private String districtId;
+
+
+
+private List<PoliceStation> policeStationList;
+
   public String save() {
 
     if (policeStation != null) {
@@ -193,6 +199,30 @@ public void setDistrictList(List<District> districtList) {
 	this.districtList = districtList;
 }
   
-  
+  public String policeStationSelectJason() {
+	  if (districtId != null) {
+
+	      setPoliceStationList(policeStationService.findByDistrictId(districtId));
+	      }
+
+	    return SUCCESS;
+	
+}
+
+public List<PoliceStation> getPoliceStationList() {
+	return policeStationList;
+}
+
+public void setPoliceStationList(List<PoliceStation> policeStationList) {
+	this.policeStationList = policeStationList;
+}
+ 
+public String getDistrictId() {
+	return districtId;
+}
+
+public void setDistrictId(String districtId) {
+	this.districtId = districtId;
+}
 
 }
