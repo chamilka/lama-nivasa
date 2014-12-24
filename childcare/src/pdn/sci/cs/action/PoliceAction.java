@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.PoliceStation;
 import pdn.sci.cs.entity.SessionKey;
+import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.PoliceStationService;
 
 @Scope(value = "prototype")
@@ -16,11 +18,13 @@ public class PoliceAction extends BaseAction {
 
   private String search;
   private List<PoliceStation> list;
+  private List<District> districtList; 
   private PoliceStation policeStation;
 
   @Autowired
   private PoliceStationService policeStationService;
-
+@Autowired
+private DistrictService districtService;
   public String save() {
 
     if (policeStation != null) {
@@ -75,6 +79,7 @@ public class PoliceAction extends BaseAction {
   public String add() {
     addMode();
     populateAddList();
+    districtList =districtService.findAll();
     return SUCCESS;
   }
 
@@ -179,6 +184,14 @@ public class PoliceAction extends BaseAction {
   public void setPoliceStation(PoliceStation policeStation) {
     this.policeStation = policeStation;
   }
+
+public List<District> getDistrictList() {
+	return districtList;
+}
+
+public void setDistrictList(List<District> districtList) {
+	this.districtList = districtList;
+}
   
   
 

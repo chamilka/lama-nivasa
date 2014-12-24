@@ -37,6 +37,10 @@
 			<th><s:text name="settings.police-station.view.address"/></th>
 			<td colspan="5"><s:property value="policeStation.address" /></td>
 		</tr>
+		<tr>
+			<th><s:text name="settings.police-station.view.district"/></th>
+			<td colspan="5"><s:property value="policeStation.district_id" /></td>
+		</tr>
 
 		<tr>
 			<th><s:text name="settings.police-station.view.comment"/></th>
