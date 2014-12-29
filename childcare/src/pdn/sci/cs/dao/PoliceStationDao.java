@@ -31,7 +31,7 @@ public class PoliceStationDao extends GenericDao<PoliceStation> {
 public List<PoliceStation> findByDistrictId(String districtId) {
 	DetachedCriteria criteria = createCriteria(getPersistentClass());
 	 criteria.add(Restrictions.eq(PoliceStation.DISTRICT_ID, districtId));
-//	 criteria.addOrder(Order.asc(BaseEntity.SORT_ORDER));
+	 criteria.addOrder(Order.asc(BaseEntity.SORT_ORDER));
 
 	    return findByCriteria(criteria);
 }
