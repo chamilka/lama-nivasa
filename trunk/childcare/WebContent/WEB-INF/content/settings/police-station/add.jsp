@@ -56,8 +56,10 @@
 			<tr>
 				<th><s:text name="settings.police-station.add.district" /></th>
 				<td colspan="5"><table >
-						<s:select name="probationUnit.district.id" list="districtList"
-							listKey="id" listValue="name" />
+						<%-- <s:select name="probationUnit.district.id" list="districtList"
+							listKey="id" listValue="name" /> --%>
+						<s:select name="policeStation.districtId" list="districtList"
+							listKey="id" listValue="name" headerKey="-1" headerValue="Please Select a District"/>
 					</table></td>
 			</tr>
 
@@ -82,5 +84,11 @@
 	</s:form>
 </div>
 
+<script type="text/javascript">
+document.ready(function(){
+	
+	
+});
+</script>
 
 <!-- <div id="childDetailViewDiv" style="margin: 20px 0 0 0px"></div> -->
