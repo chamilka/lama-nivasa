@@ -85,12 +85,12 @@ private List<PoliceStation> policeStationList;
   public String add() {
     addMode();
     populateAddList();
-    districtList =districtService.findAll();
     return SUCCESS;
   }
 
   private void populateAddList() {
-
+	  districtList =districtService.findAll();
+	    
   }
 
   public String edit() {
