@@ -54,19 +54,19 @@
 								onChangeTopics="reloadsecondlist" name="districtId"
 								list="districtList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
-								headerValue="Please Select a District"/>
+								headerValue="Please Select a District to View Police Stations" />
 			</table></td>
 		  </tr>
 		  <tr>
 	 		<th><s:text name="page.probationunit.add.policestations"/></th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
-		  		<%-- <s:select title="Multiple Select" name="selectedPoliceStations" multiple="true" list="policeStationList" listKey="id" listValue="name" value="selectedPoliceStations" cssStyle="height:200px"/> --%>
-		  <sj:select href="%{policeStationSelectJsonUrl}" 
+		  		<sj:select href="%{policeStationSelectJsonUrl}" 
 								formIds="formAddProbationUnit"
 								reloadTopics="reloadsecondlist" name="selectedPoliceStations"
 								list="policeStationList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
-								cssStyle="height:200px" multiple="true" />
+								cssStyle="height:200px" multiple="true" headerValue="-----Police Stations-----"/>
+								
 			</table></td>
 		  </tr>
 		 
@@ -105,3 +105,9 @@
 
 </div>
 
+<%-- <script type="text/javascript">
+$("#districtListDropDown").click(function () {
+		
+        $("#divHideID").toggle();
+        });
+</script> --%>
