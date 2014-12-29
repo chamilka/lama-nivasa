@@ -133,11 +133,11 @@ public class PoliceStation extends BaseEntity implements java.io.Serializable {
     }
 
     @Column(name = "DISTRICT_ID")
-    public String getDistrict() {
+    public String getDistrictId() {
         return districtId;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrictId(String district) {
         this.districtId = district;
     }
 
