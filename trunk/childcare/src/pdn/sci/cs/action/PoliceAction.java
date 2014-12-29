@@ -23,10 +23,12 @@ public class PoliceAction extends BaseAction {
 
   @Autowired
   private PoliceStationService policeStationService;
+  
+ 
 @Autowired
 private DistrictService districtService;
 private String districtId;
-
+private String districtName;
 
 
 private List<PoliceStation> policeStationList;
@@ -42,6 +44,8 @@ private List<PoliceStation> policeStationList;
         if (operationMode == OPERATION_MODE.ADD && policeStation.getId().isEmpty()) {
           setAddSettings(policeStation);
           policeStation = policeStationService.save(policeStation);
+          districtName = districtService.findById(policeStation.getDistrictId()).getName();
+          
         } else if (operationMode == OPERATION_MODE.EDIT && !policeStation.getId().isEmpty()) {
 
           setUpdateSettings(policeStation);
@@ -52,6 +56,7 @@ private List<PoliceStation> policeStationList;
 
             } else {
               policeStationService.update(policeStation);
+              districtName = districtService.findById(policeStation.getDistrictId()).getName();
             }
           } catch (Exception e) {
             e.printStackTrace();
@@ -76,8 +81,11 @@ private List<PoliceStation> policeStationList;
     if(policeStation.getName().isEmpty()) {
       addActionError("Name cannot be empty");
     }
+    else if (policeStation.getDistrictId().equals("-1")) {
+    	addActionError("District cannot be empty");
+	}
+    
   }
-
   public String frame() {
     return SUCCESS;
   }
@@ -131,6 +139,7 @@ private List<PoliceStation> policeStationList;
       return INPUT;
     } else {
       policeStation = policeStationService.findById(id);
+      districtName = districtService.findById(policeStation.getDistrictId()).getName();
       if (policeStation == null) {
         addActionError("Item that your are searching could not be found");
       }
@@ -200,6 +209,7 @@ public void setDistrictList(List<District> districtList) {
 }
   
   public String policeStationSelectJason() {
+	  	System.out.println("aa");
 	  if (districtId != null) {
 
 	      setPoliceStationList(policeStationService.findByDistrictId(districtId));
@@ -223,6 +233,14 @@ public String getDistrictId() {
 
 public void setDistrictId(String districtId) {
 	this.districtId = districtId;
+}
+
+public String getDistrictName() {
+	return districtName;
+}
+
+public void setDistrictName(String districtName) {
+	this.districtName = districtName;
 }
 
 }
