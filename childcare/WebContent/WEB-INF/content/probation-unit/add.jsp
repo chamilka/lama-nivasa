@@ -54,7 +54,7 @@
 								onChangeTopics="reloadsecondlist" name="districtId"
 								list="districtList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
-								headerValue="Please Select a District to View Police Stations" />
+								headerValue="Please Select a District" value="selectedDistrict"/>
 			</table></td>
 		  </tr>
 		  <tr>
@@ -64,7 +64,7 @@
 								formIds="formAddProbationUnit"
 								reloadTopics="reloadsecondlist" name="selectedPoliceStations"
 								list="policeStationList" listKey="id" listValue="name"
-								emptyOption="false" headerKey="-1"
+								emptyOption="false" headerKey="-1" value="selectedPoliceStations" 
 								cssStyle="height:200px" multiple="true" headerValue="-----Police Stations-----"/>
 								
 			</table></td>
