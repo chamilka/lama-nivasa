@@ -1,5 +1,6 @@
 package pdn.sci.cs.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,11 @@ import org.springframework.context.annotation.Scope;
 
 import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.PoliceStation;
+import pdn.sci.cs.entity.ProbationUnit;
 import pdn.sci.cs.entity.SessionKey;
 import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.PoliceStationService;
+import pdn.sci.cs.service.ProbationUnitService;
 
 @Scope(value = "prototype")
 public class PoliceAction extends BaseAction {
@@ -20,14 +23,21 @@ public class PoliceAction extends BaseAction {
   private List<PoliceStation> list;
   private List<District> districtList; 
   private PoliceStation policeStation;
+  private ProbationUnit probationUnit;
 
+  private List<String> selectedPoliceStations;
+  
   @Autowired
   private PoliceStationService policeStationService;
+  
+  @Autowired
+  private ProbationUnitService probationUnitService;
   
  
 @Autowired
 private DistrictService districtService;
 private String districtId;
+private String districtIdSelected;
 private String districtName;
 
 
@@ -215,15 +225,25 @@ public void setDistrictList(List<District> districtList) {
 	this.districtList = districtList;
 }
   
-  public String policeStationSelectJason() {
-	  	System.out.println("aa");
-	  if (districtId != null) {
+public String policeStationSelectJason() {
 
-	      setPoliceStationList(policeStationService.findByDistrictId(districtId));
-	      }
-
-	    return SUCCESS;
+	if(districtIdSelected.isEmpty()){
+		districtIdSelected = districtId;
+	}
+	if (districtIdSelected != null) {
+		setPoliceStationList(policeStationService.findByDistrictId(districtIdSelected));
+		
+		setProbationUnit(probationUnitService.findById(getProbationUnit().getId()));
+		
+		setSelectedPoliceStations(new ArrayList<String>());
+        
+        for (PoliceStation ps : getProbationUnit().getPoliceStations()) {
+          getSelectedPoliceStations().add(ps.getId());
+        }
+		
+	}
 	
+	return SUCCESS; 	
 }
 
 public List<PoliceStation> getPoliceStationList() {
@@ -248,6 +268,30 @@ public String getDistrictName() {
 
 public void setDistrictName(String districtName) {
 	this.districtName = districtName;
+}
+
+public String getDistrictIdSelected() {
+	return districtIdSelected;
+}
+
+public void setDistrictIdSelected(String districtIdSelected) {
+	this.districtIdSelected = districtIdSelected;
+}
+
+public ProbationUnit getProbationUnit() {
+	return probationUnit;
+}
+
+public void setProbationUnit(ProbationUnit probationUnit) {
+	this.probationUnit = probationUnit;
+}
+
+public List<String> getSelectedPoliceStations() {
+	return selectedPoliceStations;
+}
+
+public void setSelectedPoliceStations(List<String> selectedPoliceStations) {
+	this.selectedPoliceStations = selectedPoliceStations;
 }
 
 }

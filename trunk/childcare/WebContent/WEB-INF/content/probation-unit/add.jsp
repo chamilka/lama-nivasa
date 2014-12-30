@@ -25,6 +25,7 @@
 	 <table id="contentTable" class="orangeTbl" width="100%">
 	 	  <s:actionerror />
 		  <s:hidden name="probationUnit.id" />
+		  <s:hidden name="districtId" />
 		  <s:hidden name="probationUnit.sortOrder" />
 		  <s:hidden name="operationMode"/> 
 		  <tr>
@@ -51,10 +52,10 @@
 	 		<th><s:text name="page.probationunit.add.district"/></th>
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 	 			<sj:select href="%{districtDefaultJsonUrl}" id="district"
-								onChangeTopics="reloadsecondlist" name="districtId"
+								onChangeTopics="reloadsecondlist" name="districtIdSelected"
 								list="districtList" listKey="id" listValue="name"
-								emptyOption="false" headerKey="-1"
-								headerValue="Please Select a District" value="selectedDistrict"/>
+								emptyOption="false" headerKey="-1" 
+								headerValue="Please Select a District" value="districtId"/>
 			</table></td>
 		  </tr>
 		  <tr>
