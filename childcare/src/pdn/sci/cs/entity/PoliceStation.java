@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class PoliceStation extends BaseEntity implements java.io.Serializable {
 
     public static final String NAME = "name";
-    public static final String DISTRICT_ID="district.id";
+    public static final String DISTRICT_ID="districtId";
     private static final long serialVersionUID = 1L;
     private String name;
     private String email;
@@ -137,8 +137,8 @@ public class PoliceStation extends BaseEntity implements java.io.Serializable {
         return districtId;
     }
 
-    public void setDistrictId(String district) {
-        this.districtId = district;
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId;
     }
 
 }
