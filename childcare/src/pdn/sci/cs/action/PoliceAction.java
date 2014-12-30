@@ -139,7 +139,14 @@ private List<PoliceStation> policeStationList;
       return INPUT;
     } else {
       policeStation = policeStationService.findById(id);
-      districtName = districtService.findById(policeStation.getDistrictId()).getName();
+      System.out.println(policeStation.getDistrictId());
+      if (policeStation.getDistrictId() != null && !policeStation.getDistrictId().isEmpty()) {
+    	  districtName = districtService.findById(policeStation.getDistrictId()).getName();
+	}
+     else {
+		 districtName = "";
+	}
+      
       if (policeStation == null) {
         addActionError("Item that your are searching could not be found");
       }
