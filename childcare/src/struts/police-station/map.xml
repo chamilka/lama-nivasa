@@ -47,7 +47,7 @@
              	 <param name="includeProperties">
 				    ^policeStationList\[\d+\]\.id,
 				    ^policeStationList\[\d+\]\.name,
-				    
+				    ^selectedPoliceStations\[\d+\],
 				  
 			   	</param>
              </result>

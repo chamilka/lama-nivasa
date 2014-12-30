@@ -39,7 +39,7 @@ public class ProbationUnitAction extends BaseAction {
   private List<SystemUser> probationOfficers;
   private String referenceId;
   private List<String> selectedPoliceStations;
-  private String selectedDistrict;
+  private String districtId;
   private List<District> districtList;
 
   private static final String provincial_officer = "Provincial Officer";
@@ -161,7 +161,7 @@ public class ProbationUnitAction extends BaseAction {
         for (PoliceStation ps : probationUnit.getPoliceStations()) {
           selectedPoliceStations.add(ps.getId());
         }
-        selectedDistrict = probationUnit.getDistrict().getId();
+        districtId = probationUnit.getDistrict().getId();
       }
     }
     return SUCCESS;
@@ -257,12 +257,14 @@ public class ProbationUnitAction extends BaseAction {
     this.districtList = districtList;
   }
 
-public String getSelectedDistrict() {
-	return selectedDistrict;
+public String getDistrictId() {
+	return districtId;
 }
 
-public void setSelectedDistrict(String selectedDistrict) {
-	this.selectedDistrict = selectedDistrict;
+public void setDistrictId(String districtId) {
+	this.districtId = districtId;
 }
+
+
 
 }
