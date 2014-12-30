@@ -39,6 +39,7 @@ public class ProbationUnitAction extends BaseAction {
   private List<SystemUser> probationOfficers;
   private String referenceId;
   private List<String> selectedPoliceStations;
+  private String selectedDistrict;
   private List<District> districtList;
 
   private static final String provincial_officer = "Provincial Officer";
@@ -156,9 +157,11 @@ public class ProbationUnitAction extends BaseAction {
 
       if (operationMode == OPERATION_MODE.EDIT) {
         selectedPoliceStations = new ArrayList<String>();
+        
         for (PoliceStation ps : probationUnit.getPoliceStations()) {
           selectedPoliceStations.add(ps.getId());
         }
+        selectedDistrict = probationUnit.getDistrict().getId();
       }
     }
     return SUCCESS;
@@ -253,5 +256,13 @@ public class ProbationUnitAction extends BaseAction {
   public void setDistrictList(List<District> districtList) {
     this.districtList = districtList;
   }
+
+public String getSelectedDistrict() {
+	return selectedDistrict;
+}
+
+public void setSelectedDistrict(String selectedDistrict) {
+	this.selectedDistrict = selectedDistrict;
+}
 
 }
