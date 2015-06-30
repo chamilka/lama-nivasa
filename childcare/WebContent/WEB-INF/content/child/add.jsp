@@ -20,7 +20,7 @@
 
     <table class="darkBlueTbl" width="100%" >
       <tr>
-        <td class="tdLabel"><s:text name="page.add.title"/></td>
+        <td class="tdLabel"><s:text name="page.add.children.home"/></td>
         <td>
      		<table>
 
