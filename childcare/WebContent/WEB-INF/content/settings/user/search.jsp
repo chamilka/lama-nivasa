@@ -57,7 +57,7 @@
 	  			<sj:submit value="%{getText('settings.user.search.submit')}" targets="userList"/>
 	  		</table>
      	 </td>
-     	 <td style="text-align: right; padding-right: 10px;white-space: nowrap;">
+     	 <td style="text-align: right; padding-right: 10px;">
 	   	 	
 			<s:url var="userListUrl" action="list" 
 			namespace="/user" includeParams="none"></s:url>

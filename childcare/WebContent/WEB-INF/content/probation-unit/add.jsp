@@ -59,15 +59,18 @@
 			</table></td>
 		  </tr>
 		  <tr>
-	 		<th><s:text name="page.probationunit.add.policestations"/></th>
+	 		<th><s:text name="page.probationunit.add.policestations"/>
+	 			<s:property value="selectedPoliceStations"/>
+	 		</th>
+	 	
 	 		<td colspan="5"><table cellpadding="0" cellspacing="0">
 		  		<sj:select href="%{policeStationSelectJsonUrl}" 
 								formIds="formAddProbationUnit"
 								reloadTopics="reloadsecondlist" name="selectedPoliceStations"
 								list="policeStationList" listKey="id" listValue="name"
-								emptyOption="false" headerKey="-1" value="selectedPoliceStations" 
-								cssStyle="height:200px" multiple="true" headerValue="-----Police Stations-----"/>
-								
+								emptyOption="false" headerKey="-1" value="%{4028b88146e62fad0146e68ab2a6000b}" 
+								cssStyle="height:200px" multiple="true" headerValue="-----Police Stations-----" onChange="alert('test')"/>
+						<!-- selectedPoliceStations -->		
 			</table></td>
 		  </tr>
 		 
@@ -112,3 +115,10 @@ $("#districtListDropDown").click(function () {
         $("#divHideID").toggle();
         });
 </script> --%>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var selectedPoliceStations = <s:property value="selectedPoliceStations"/>;
+		alert(selectedPliceStations);
+	});
+</script>
