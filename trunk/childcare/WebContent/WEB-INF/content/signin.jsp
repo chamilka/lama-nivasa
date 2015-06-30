@@ -41,12 +41,19 @@
 							includeParams="">
 							<s:param name="request_locale">si</s:param>
 						</s:url>
+						<s:url var="TamilUrl" action="localeChange" namespace="/"
+							includeParams="">
+							<s:param name="request_locale">ta</s:param>
+						</s:url>
 
 						<td id="eng" class="locale_btn"><s:a href="%{#EnglishUrl}">
 								<input type="button" value="E">
 							</s:a></td>
 						<td id="sin" class="locale_btn"><s:a href="%{#SinhalaUrl}">
 								<input type="button" value="සි">
+							</s:a></td>
+						<td id="tam" class="locale_btn"><s:a href="%{#TamilUrl}">
+								<input type="button" value="த">
 							</s:a></td>
 					</tr>
 				</table>

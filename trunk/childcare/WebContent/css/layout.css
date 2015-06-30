@@ -32,6 +32,10 @@ a img { /* this selector removes the default blue border displayed in some brows
 	color: orange;
 	/* background-color: rgba(0, 183, 255, 1); */
 }
+#tam input{
+	color: #8cc044;
+	/* background-color: rgba(0, 183, 255, 1); */
+}
 
 .locale_btn a input { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
 	text-decoration: none;
