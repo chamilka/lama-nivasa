@@ -72,6 +72,7 @@
 							list="districtList" listKey="id" listValue="name"
 							emptyOption="false" headerKey="-1"
 							headerValue="Please Select a District" value="districtId" />
+							<!-- districtIdSelected -->
 					</table></td>
 			</tr>
 			<tr>
@@ -83,9 +84,9 @@
 							name="selectedPoliceStations" id="selectedPoliceStations"
 							list="policeStationList" listKey="id" listValue="name"
 							emptyOption="false" headerKey="-1" value="selectedPoliceStations"
-							cssStyle="height:200px" multiple="true"
+							cssStyle="height:200px" multiple="true"	
+							onSuccessTopics="loadSuccess"						
 							headerValue="-----Police Stations-----" />
-						<!-- selectedPoliceStations -->
 					</table></td>
 			</tr>
 
@@ -133,23 +134,13 @@
 
 </div>
 
-<%-- <script type="text/javascript">
-$("#districtListDropDown").click(function () {
-		
-        $("#divHideID").toggle();
-        });
-</script> --%>
-
 <script type="text/javascript">
-	$(document).ready(function() {
+	$.subscribe('loadSuccess', function(event,element) {
 		var selectedPoliceStations = '<s:property value="selectedPoliceStations"/>';
 		var arrSelPoliceStations = selectedPoliceStations
 			.substring(1, selectedPoliceStations.length - 1)
-			.split(',');
-		//alert(arrSelPoliceStations);
-		for (var i = 0; i < arrSelPoliceStations.length; i++) {
-			$('#selectedPoliceStations > option[value="'+ arrSelPoliceStations[i] + '"]').attr('selected', true);
-		}
-
-	});
+			.split(', ');
+		$('#selectedPoliceStations').val(arrSelPoliceStations);
+	 });
+	
 </script>
