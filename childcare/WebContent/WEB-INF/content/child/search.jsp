@@ -62,7 +62,7 @@
      		
 			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.view.active"/></sj:a>  |
 			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv"><s:text name="page.search.view.inactive"/></sj:a>
-			<s:if test="!ministry">
+			<s:if test="probationOfficer || user">
 					<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a>
 			</s:if>
 			<s:if test="!user">
