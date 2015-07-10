@@ -7,6 +7,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.ProbationUnit;
 
 @Repository
@@ -40,4 +41,16 @@ private static final Class<ProbationUnit> clazz = ProbationUnit.class;
     List<ProbationUnit> list= query.list();
     return list;
   }
+
+public List<ProbationUnit> search(ProbationUnit unit, String referenceId) {
+	
+	DetachedCriteria criteria = createCriteria(clazz);
+	if(!unit.getName().isEmpty()) {
+		criteria.add(Restrictions.like(ProbationUnit.NAME, "%" + unit.getName() + "%"));
+		criteria.add(Restrictions.eq(ProbationUnit.DISTRICT_ID, District.DISTRICT_ID));
+		criteria.add(Restrictions.eq(District.PROVINCE_ID, referenceId));
+	}
+	
+	return findByCriteria(criteria);
+}
 }

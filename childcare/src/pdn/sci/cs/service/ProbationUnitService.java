@@ -45,4 +45,8 @@ public class ProbationUnitService {
     return probationUnitDao.findByProvince(referenceId);
   }
 
+public List<ProbationUnit> search(ProbationUnit probationUnit, String referenceId) {
+	return probationUnitDao.search(probationUnit, referenceId);
+}
+
 }

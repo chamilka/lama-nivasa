@@ -54,14 +54,13 @@ public class ProbationUnitAction extends BaseAction {
 			return SUCCESS;
 		} else {
 			String referenceId = getSessionUser().getReferenceId();
-			if (getSessionUser().getUserRole().equals(
-					SystemUser.USER_ROLE.OFFICER.name())) {
-				if (getSessionUser().getPost().equals(provincial_officer)) {
+			
+			if (isOfficer()) {
+				if (isProvincialCommissioner()) {
 					list = probationUnitService.findByProvince(referenceId);
 					return SUCCESS;
 				} else {
-					ProbationUnit punit = probationUnitService
-							.findById(referenceId);
+					ProbationUnit punit = probationUnitService.findById(referenceId);
 					list = new ArrayList<ProbationUnit>();
 					list.add(punit);
 					return SUCCESS;
@@ -81,7 +80,15 @@ public class ProbationUnitAction extends BaseAction {
 	}
 
 	public String search() {
-		list = probationUnitService.search(probationUnit);
+		String referenceId = getSessionUser().getReferenceId();
+		
+		if(isAdminOrMinistry()){
+			list = probationUnitService.search(probationUnit);
+		}else if(isProvincialCommissioner()){
+			list = probationUnitService.search(probationUnit, referenceId);
+		}else{
+			//
+		}
 		return SUCCESS;
 	}
 

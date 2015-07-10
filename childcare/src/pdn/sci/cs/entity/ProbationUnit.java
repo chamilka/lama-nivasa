@@ -26,7 +26,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class ProbationUnit extends BaseEntity implements java.io.Serializable {
 
   public static final String NAME = "name";
-  public static final String DISTRICT_ID = "districtId";
+  public static final String DISTRICT_ID = "district.id";
+  
   private static final long serialVersionUID = 1L;
   private String name;
   private String email;
@@ -37,6 +38,7 @@ public class ProbationUnit extends BaseEntity implements java.io.Serializable {
   private String comment;
 
   private District district;
+  
   private Set<PoliceStation> policeStations;
   private Set<LamaNivasa> lamaNivasas = new HashSet<LamaNivasa>(0);
 
