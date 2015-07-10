@@ -60,12 +60,16 @@ public class MonthlyInformationAction extends BaseAction {
   public String detailForm() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
-    districtList = districtService.findAll();
+    if(isProvincialCommissioner()){
+    	 districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
+    }else{
+    	districtList = districtService.findAll();
+    }
     return SUCCESS;
   }
 
   public String detail() {
-    monthlyDataReport = monthlyDataService.report(year, month, searchDistrict);
+    monthlyDataReport = monthlyDataService.report(year, month, searchDistrict,getSessionUser().getReferenceId());
     return SUCCESS;
   }
 

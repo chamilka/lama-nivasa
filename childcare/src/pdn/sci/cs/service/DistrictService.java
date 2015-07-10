@@ -32,6 +32,10 @@ public class DistrictService {
 	public void update(District d) {
 		districtDao.update(d);
 	}
+
+	public List<District> findByProvinceID(String referenceId) {
+		return districtDao.findByProvinceID(referenceId);
+	}
 	
 	
 

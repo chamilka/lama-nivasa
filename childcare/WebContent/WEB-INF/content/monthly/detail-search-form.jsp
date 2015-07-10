@@ -51,9 +51,15 @@
 						</table>
 					</td>
 					<td style="width: 100px">
-					   	 <table>
+						<s:if test="provincialCommissioner">
+						<table>
+							<s:select list="districtList" label="%{getText('page.detail-search.label.district')}" listKey="id" listValue="name" name="searchDistrict" headerKey="-10" headerValue="In Province"/>	   
+				     	 </table>
+						</s:if><s:else>
+						<table>
 							<s:select list="districtList" label="%{getText('page.detail-search.label.district')}" listKey="id" listValue="name" name="searchDistrict" headerKey="-1" headerValue="All districts"/>	   
 				     	 </table>
+						</s:else>
 					</td>
 					<td><table><sj:submit value="%{getText('page.detail-search.button.search')}" targets="monthlyDetailDiv" /></table></td>
 				</tr>

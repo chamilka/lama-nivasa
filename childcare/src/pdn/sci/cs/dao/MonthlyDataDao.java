@@ -55,7 +55,7 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
   }
   
  
-  public List<MonthlyDataReport> report(int year, String month, String searchDistrict) {
+  public List<MonthlyDataReport> report(int year, String month, String searchDistrict, String referenceId) {
     String sql = "SELECT 'ID_0' as ID, "
                 + "0 as MUN_OF_MALE_HAVING_SPECIAL_REQUIREMENTS,"
                 + "0 as NUM_OF_FEMALE_HAVING_SPECIAL_REQUIREMENTS,"
@@ -93,8 +93,10 @@ public class MonthlyDataDao extends GenericDao<MonthlyData> {
                   " WHERE 1<> 0 "+
                   "AND md.LAMA_NIVASA_ID=ln.ID AND ln.PROBATION_UNIT_ID = pu.ID AND pu.DISTRICT_ID  = d.ID"; 
     
-    if(!(searchDistrict.equals("-1"))){
+    if(!((searchDistrict.equals("-1")) || (searchDistrict.equals("-10")))){
       sql += " AND d.ID = \'" + searchDistrict + "\'";
+    }else if(searchDistrict.equals("-10")){
+    	  sql += " AND d.PROVINCE = \'" + referenceId + "\'";
     }
     if(year != 0) {
        sql += " AND YEAR = " + year;

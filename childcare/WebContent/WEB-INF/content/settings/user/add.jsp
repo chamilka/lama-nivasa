@@ -63,12 +63,14 @@
 				</s:if>
 				<s:elseif test="addType.equals('OFFICER')">
 					<td colspan="2" id="unitSelect">
+					
 						<table id="otherOfficer">
 							<sj:autocompleter id="probationUnit"
 								name="systemUser.referenceId" list="%{probationUnitList}"
 								listKey="id" listValue="name" label="%{getText('settings.user.add.user.post.label.unit.name')}"
-								cssStyle="width:600px" />
+								cssStyle="width:600px" />	
 						</table>
+						
 						<table id="provincialOfficer">
 							<s:select id="provincialOfficerSelect"
 								name="systemUser.referenceId" list="provinceList" listKey="id"
@@ -147,7 +149,7 @@
 	});
 
 	$("#postSelect").change(function() {
-		if ($(this).val() == "Provincial Officer") {
+		if (($(this).val() == "Provincial Officer") || ($(this).val() == "Provincial Commissioner ")) {
 			$("#otherOfficer").hide();
 			$("#otherOfficer").prop("disabled", true);
 			$("#provincialOfficer").show();

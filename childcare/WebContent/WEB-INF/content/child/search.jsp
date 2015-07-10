@@ -69,7 +69,7 @@
 				 |
 				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv"><s:text name="page.search.brief"/></sj:a>
 				
-				<s:if test="ministry">
+				<s:if test="ministry || provincialCommissioner">
 					| <sj:a href="%{#childDetailUrl}" targets="childResultDiv"><s:text name="page.search.detail"/></sj:a>
 				</s:if>
 			</s:if>

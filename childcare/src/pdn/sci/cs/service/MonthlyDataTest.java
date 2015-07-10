@@ -12,7 +12,7 @@ public class MonthlyDataTest extends ServiceTest {
 
   @Test
   public void reportTest() {
-    MonthlyDataReport l = monthlyDataService.report(2014, "","-1");
+    MonthlyDataReport l = monthlyDataService.report(2014, "","-1","P01");
     
     System.out.println(l);
     
