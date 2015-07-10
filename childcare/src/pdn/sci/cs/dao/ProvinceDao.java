@@ -32,4 +32,11 @@ public class ProvinceDao extends GenericDao<Province> {
     
   }
 
+public List<Province> findByReferenceIdASaList(String referenceId) {
+	Query query = getSession().createQuery("select p from Province p where p.id = :pid");
+    query.setParameter("pid", referenceId);
+    List<Province> l= query.list();
+    return l;
+}
+
 }

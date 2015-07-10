@@ -327,8 +327,7 @@ public class ChildDao extends GenericDao<Child> {
     return new MaleFemale(male, female);
   }
 
-  private MaleFemale getTypeCount(String key, String value, int age, String district,
-      String province) {
+  private MaleFemale getTypeCount(String key, String value, int age, String district,String province) {
     int male = getCount(maleCriteriaByRestriction(key, value, age, district, province));
     int female = getCount(femaleCriteriaByRestriction(key, value, age, district, province));
 

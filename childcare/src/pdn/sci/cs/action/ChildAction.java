@@ -74,9 +74,8 @@ public class ChildAction extends BaseAction {
     
     if(isOfficer()){
     	String s = getSessionUser().getReferenceId();
-    	Province p = provinceService.findById(s);
-    	provinceList.add(p);
-    	 districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
+    	provinceList = provinceService.findByReferenceIdASaList(s);
+    	districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
    
     }else{
     	districtList = districtService.findAll();
@@ -86,7 +85,12 @@ public class ChildAction extends BaseAction {
   }
 
   public String summarySearch() {
-    childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
+	if(isOfficer()){
+		childSummary = childService.getChildrenSummary(searchAge, searchDistrict, getSessionUser().getReferenceId());
+	}else{
+		childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
+	}
+    
     if (searchAge > 0) {
       setAgeView(false);
     }
@@ -94,7 +98,11 @@ public class ChildAction extends BaseAction {
   }
 
   public String childSummary() {
-    childSummary = childService.getChildrenSummary();
+	  if(isOfficer()){
+		  childSummary = childService.getChildrenSummary(-1, "-1", getSessionUser().getReferenceId());
+	  }else{
+		  childSummary = childService.getChildrenSummary();
+	  }
     return SUCCESS;
   }
 

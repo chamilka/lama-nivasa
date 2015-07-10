@@ -33,4 +33,9 @@ public class ProvinceService {
   public String findByReferenceId(String referenceId) {
     return provinceDao.findByReferenceId(referenceId);
   }
+
+public List<Province> findByReferenceIdASaList(String referenceId) {
+	return provinceDao.findByReferenceIdASaList(referenceId);
+}
+
 }
