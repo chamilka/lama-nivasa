@@ -71,8 +71,17 @@ public class ChildAction extends BaseAction {
 
   public String summarySearchForm() {
     ageLimitList = genericListService.findListByCategoryId("C090");
-    districtList = districtService.findAll();
-    provinceList = provinceService.findAll();
+    
+    if(isOfficer()){
+    	String s = getSessionUser().getReferenceId();
+    	Province p = provinceService.findById(s);
+    	provinceList.add(p);
+    	 districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
+   
+    }else{
+    	districtList = districtService.findAll();
+        provinceList = provinceService.findAll();
+    }
     return SUCCESS;
   }
 
