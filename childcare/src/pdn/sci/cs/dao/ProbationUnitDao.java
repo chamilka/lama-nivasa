@@ -44,13 +44,11 @@ private static final Class<ProbationUnit> clazz = ProbationUnit.class;
 
 public List<ProbationUnit> search(ProbationUnit unit, String referenceId) {
 	
-	DetachedCriteria criteria = createCriteria(clazz);
-	if(!unit.getName().isEmpty()) {
-		criteria.add(Restrictions.like(ProbationUnit.NAME, "%" + unit.getName() + "%"));
-		criteria.add(Restrictions.eq(ProbationUnit.DISTRICT_ID, District.DISTRICT_ID));
-		criteria.add(Restrictions.eq(District.PROVINCE_ID, referenceId));
-	}
-	
-	return findByCriteria(criteria);
+	//Query query = getSession().createQuery("select pu from ProbationUnit as pu , District as d , Province as p where pu.district.id = d.id AND d.province.id = p.id AND pu.name LIKE '%:searchName%' And p.id = :rid");
+	Query query = getSession().createQuery("select pu from ProbationUnit pu, District d, Province p where pu.district.id = d.id AND d.province = p.id AND p.id = :pid");
+//	query.setParameter("searchName", unit.getName());
+    query.setParameter("pid", referenceId);
+    List<ProbationUnit> list= query.list();
+    return list;
 }
 }
