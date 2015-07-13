@@ -44,9 +44,8 @@ private static final Class<ProbationUnit> clazz = ProbationUnit.class;
 
 public List<ProbationUnit> search(ProbationUnit unit, String referenceId) {
 	
-	//Query query = getSession().createQuery("select pu from ProbationUnit as pu , District as d , Province as p where pu.district.id = d.id AND d.province.id = p.id AND pu.name LIKE '%:searchName%' And p.id = :rid");
-	Query query = getSession().createQuery("select pu from ProbationUnit pu, District d, Province p where pu.district.id = d.id AND d.province = p.id AND p.id = :pid");
-//	query.setParameter("searchName", unit.getName());
+	Query query = getSession().createQuery("select pu from ProbationUnit as pu , District as d , Province as p where pu.district.id = d.id AND d.province.id = p.id AND pu.name LIKE :searchName And p.id = :pid");
+	query.setParameter("searchName", "%" + unit.getName() + "%" );
     query.setParameter("pid", referenceId);
     List<ProbationUnit> list= query.list();
     return list;

@@ -87,7 +87,13 @@ public class ProbationUnitAction extends BaseAction {
 		}else if(isProvincialCommissioner()){
 			list = probationUnitService.search(probationUnit, referenceId);
 		}else{
-			//
+			if((probationUnit.getName()).equals("")){
+				ProbationUnit punit = probationUnitService.findById(referenceId);
+				list = new ArrayList<ProbationUnit>();
+				list.add(punit);
+			}else{
+				list = new ArrayList<ProbationUnit>();
+			}
 		}
 		return SUCCESS;
 	}
