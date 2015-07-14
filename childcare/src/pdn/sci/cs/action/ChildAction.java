@@ -73,8 +73,7 @@ public class ChildAction extends BaseAction {
 		if (isOfficer()) {
 			String s = getSessionUser().getReferenceId();
 			provinceList = provinceService.findByReferenceIdASaList(s);
-			districtList = districtService.findByProvinceID(getSessionUser()
-					.getReferenceId());
+			districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
 
 		} else {
 			districtList = districtService.findAll();
@@ -85,11 +84,10 @@ public class ChildAction extends BaseAction {
 
 	public String summarySearch() {
 		if (isOfficer()) {
-			childSummary = childService.getChildrenSummary(searchAge,
-					searchDistrict, getSessionUser().getReferenceId());
+			childSummary = childService.getChildrenSummary(searchAge, searchDistrict,
+					getSessionUser().getReferenceId());
 		} else {
-			childSummary = childService.getChildrenSummary(searchAge,
-					searchDistrict, searchProvince);
+			childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
 		}
 
 		if (searchAge > 0) {
@@ -100,8 +98,7 @@ public class ChildAction extends BaseAction {
 
 	public String childSummary() {
 		if (isOfficer()) {
-			childSummary = childService.getChildrenSummary(-1, "-1",
-					getSessionUser().getReferenceId());
+			childSummary = childService.getChildrenSummary(-1, "-1", getSessionUser().getReferenceId());
 		} else {
 			childSummary = childService.getChildrenSummary();
 		}
@@ -122,8 +119,7 @@ public class ChildAction extends BaseAction {
 			} else {
 				if (isUser()) {
 					try {
-						pager = childService.findAllByLamaNivasaId(referenceId,
-								pageStart, pageSize);
+						pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
 						targetDiv = "childResultDiv";
 						setActionContext(pager);
 						return SUCCESS;
@@ -136,8 +132,7 @@ public class ChildAction extends BaseAction {
 					if (isProvincialCommissioner()) {
 
 						try {
-							pager = childService.findAllByProvinceId(
-									referenceId, pageStart, pageSize);
+							pager = childService.findAllByProvinceId(referenceId, pageStart, pageSize);
 							targetDiv = "childResultDiv";
 							setActionContext(pager);
 							return SUCCESS;
@@ -147,8 +142,7 @@ public class ChildAction extends BaseAction {
 						}
 					} else {
 						try {
-							pager = childService.findAllByProbationUnitId(
-									referenceId, pageStart, pageSize);
+							pager = childService.findAllByProbationUnitId(referenceId, pageStart, pageSize);
 							targetDiv = "childResultDiv";
 							setActionContext(pager);
 							return SUCCESS;
@@ -168,9 +162,8 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String deletedList() {
-		if (!(getSessionUser().getUserRole().equals(
-				SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-				.getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+		if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
+				|| getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
 			String referenceId = getSessionUser().getReferenceId();
 			// pageSize = 4 *SEARCH_PAGE_SIZE;
 
@@ -178,12 +171,10 @@ public class ChildAction extends BaseAction {
 				return INPUT;
 			} else {
 
-				if (getSessionUser().getUserRole().equals(
-						SystemUser.USER_ROLE.USER.name())) {
+				if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
 
 					try {
-						pager = childService.findAllDeletedByLamaNivasaId(
-								referenceId, pageStart, pageSize);
+						pager = childService.findAllDeletedByLamaNivasaId(referenceId, pageStart, pageSize);
 						targetDiv = "childResultDiv";
 						setActionContext(pager);
 						return SUCCESS;
@@ -193,8 +184,7 @@ public class ChildAction extends BaseAction {
 					}
 				} else {
 					try {
-						pager = childService.findAllDeletedByProbationUnitId(
-								referenceId, pageStart, pageSize);
+						pager = childService.findAllDeletedByProbationUnitId(referenceId, pageStart, pageSize);
 						targetDiv = "childResultDiv";
 						setActionContext(pager);
 						return SUCCESS;
@@ -213,9 +203,8 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String unconfirmedList() {
-		if (!(getSessionUser().getUserRole().equals(
-				SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-				.getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+		if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
+				|| getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
 			String referenceId = getSessionUser().getReferenceId();
 			// pageSize = 4 *SEARCH_PAGE_SIZE;
 
@@ -224,8 +213,7 @@ public class ChildAction extends BaseAction {
 			} else {
 
 				try {
-					pager = childService.findAllUnconfirmedByProbationUnitId(
-							referenceId, pageStart, pageSize);
+					pager = childService.findAllUnconfirmedByProbationUnitId(referenceId, pageStart, pageSize);
 					targetDiv = "childResultDiv";
 					setActionContext(pager);
 					return SUCCESS;
@@ -278,8 +266,7 @@ public class ChildAction extends BaseAction {
 			String name = defaultValue, lamaNivasaId = defaultValue;
 			String code = defaultValue;
 
-			if (child.getLamaNivasa() == null
-					|| child.getLamaNivasa().getId().isEmpty()) {
+			if (child.getLamaNivasa() == null || child.getLamaNivasa().getId().isEmpty()) {
 				lamaNivasaId = defaultValue;
 			} else {
 				lamaNivasaId = child.getLamaNivasa().getId();
@@ -297,12 +284,10 @@ public class ChildAction extends BaseAction {
 				code = child.getCode();
 			}
 
-			if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue)
-					&& code.equals(defaultValue)) {
+			if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
 				addActionError("No suitable inputs");
 				return INPUT;
-			} else if (lamaNivasaId.equals(defaultValue)
-					&& code.equals(defaultValue) && name.trim().length() < 4) {
+			} else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
 				addActionError("Name must be at least four (4) characters");
 				return INPUT;
 			}
@@ -310,47 +295,47 @@ public class ChildAction extends BaseAction {
 			targetDiv = "childResultDiv";
 			pageSize = 200;
 			if (isAdminOrMinistry()) {
-				pager = childService.search(name, code, lamaNivasaId,
-						pageStart, pageSize);
+				pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
 			} else if (isOfficer()) {
 				if (isProvincialCommissioner()) {
-					pager = childService.searchByProvince(name, code,
-							lamaNivasaId, referenceId, pageStart, pageSize);
+					pager = childService.searchByProvince(name, code, lamaNivasaId, referenceId, pageStart, pageSize);
 				} else {
 
 				}
 			} else if (isUser()) {
 
-      if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
-      //  addActionError("No suitable inputs");
-        //return INPUT;
-    	  list();
-      } else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
-        addActionError("Name must be at least four (4) characters");
-        return INPUT;
-      }
+				if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
+					// addActionError("No suitable inputs");
+					// return INPUT;
+					list();
+				} else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
+					addActionError("Name must be at least four (4) characters");
+					return INPUT;
+				}
 
-      targetDiv = "childResultDiv";
-      pageSize = 200;
-      
-      if(isAdminOrMinistry()){
-    	  pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
-      }else if(isOfficer()){
-    	  if(isProvincialCommissioner()){
-    		  pager = childService.searchByProvince(name, code, lamaNivasaId,referenceId, pageStart, pageSize);
-    	  }else{
-    		  pager = childService.searchByProbationUnit(name, code, lamaNivasaId,referenceId, pageStart, pageSize);
-    	  }
-      }else if(isUser()){
-    	  pager = childService.searchByLamanivasa(name, referenceId, pageStart, pageSize);
-      }
-      
-      setActionContext(pager);
+				targetDiv = "childResultDiv";
+				pageSize = 200;
+
+				if (isAdminOrMinistry()) {
+					pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
+				} else if (isOfficer()) {
+					if (isProvincialCommissioner()) {
+						pager = childService.searchByProvince(name, code, lamaNivasaId, referenceId, pageStart,
+								pageSize);
+					} else {
+						pager = childService.searchByProbationUnit(name, code, lamaNivasaId, referenceId, pageStart,
+								pageSize);
+					}
+				} else if (isUser()) {
+					pager = childService.searchByLamanivasa(name, referenceId, pageStart, pageSize);
+				}
+
+				setActionContext(pager);
+			}
 
 		} else {
 			addActionError("Please give a criteria");
 		}
-
 		return SUCCESS;
 	}
 
@@ -368,14 +353,12 @@ public class ChildAction extends BaseAction {
 				addPopulate();
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD
-						&& child.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
 					setAddSettings(child);
 					fieldsGenerators();
 					child.setStatus(UNCONFIRMED_STATE);
 					child = childService.save(child);
-				} else if (operationMode == OPERATION_MODE.EDIT
-						&& !child.getId().isEmpty()) {
+				} else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty()) {
 					setUpdateSettings(child);
 					fieldsGenerators();
 					child.setStatus(UNCONFIRMED_STATE);
@@ -394,8 +377,7 @@ public class ChildAction extends BaseAction {
 	}
 
 	private void fieldsGenerators() {
-		child.setLamaNivasa(lamaNivasaService.findById(child.getLamaNivasa()
-				.getId()));
+		child.setLamaNivasa(lamaNivasaService.findById(child.getLamaNivasa().getId()));
 	}
 
 	public String view() {
@@ -445,7 +427,7 @@ public class ChildAction extends BaseAction {
 			return list();
 		}
 	}
-	
+
 	public String confirm() {
 		if (this.id.isEmpty()) {
 			addActionError("Could not delete the entry, id is missing");
@@ -468,18 +450,15 @@ public class ChildAction extends BaseAction {
 			lamaNivasaList = lamaNivasaService.findAll();
 		} else if (isOfficer()) {
 			if (isProvincialCommissioner()) {
-				lamaNivasaList = lamaNivasaService
-						.findByProvinceId(referenceId);
+				lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
 			} else {
-				lamaNivasaList = lamaNivasaService
-						.findByReferenceId(referenceId);
+				lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);
 			}
 		}
 	}
 
 	private void addPopulate() {
-		if (getSessionUser().getUserRole().equals(
-				SystemUser.USER_ROLE.USER.name())) {
+		if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
 			// if user only own children home
 			String referenceId = getSessionUser().getReferenceId();
 			if (referenceId == null) {
@@ -498,10 +477,8 @@ public class ChildAction extends BaseAction {
 		raceList = genericListService.findListByCategoryId("C013");
 		religionList = genericListService.findListByCategoryId("C040");
 		intakeMethodList = genericListService.findListByCategoryId("C014");
-		parentAvailabilityList = genericListService
-				.findListByCategoryId("C017");
-		hasDoNotHaveProcessingList = genericListService
-				.findListByCategoryId("C015");
+		parentAvailabilityList = genericListService.findListByCategoryId("C017");
+		hasDoNotHaveProcessingList = genericListService.findListByCategoryId("C015");
 		childCategoryList = genericListService.findListByCategoryId("C016");
 	}
 
@@ -514,8 +491,7 @@ public class ChildAction extends BaseAction {
 			addFieldError("child.fullName", "Full Name cannot be empty");
 		}
 
-		if (child.getLamaNivasa() == null
-				|| child.getLamaNivasa().getId() == null) {
+		if (child.getLamaNivasa() == null || child.getLamaNivasa().getId() == null) {
 			addFieldError("child.lamaNivasa.id", "Select the lama nivasa");
 		}
 
@@ -593,8 +569,7 @@ public class ChildAction extends BaseAction {
 		return parentAvailabilityList;
 	}
 
-	public void setParentAvailabilityList(
-			List<GenericList> parentAvailabilityList) {
+	public void setParentAvailabilityList(List<GenericList> parentAvailabilityList) {
 		this.parentAvailabilityList = parentAvailabilityList;
 	}
 
@@ -602,8 +577,7 @@ public class ChildAction extends BaseAction {
 		return hasDoNotHaveProcessingList;
 	}
 
-	public void setHasDoNotHaveProcessingList(
-			List<GenericList> hasDoNotHaveProcessingList) {
+	public void setHasDoNotHaveProcessingList(List<GenericList> hasDoNotHaveProcessingList) {
 		this.hasDoNotHaveProcessingList = hasDoNotHaveProcessingList;
 	}
 
