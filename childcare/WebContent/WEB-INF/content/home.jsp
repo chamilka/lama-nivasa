@@ -47,6 +47,17 @@
 	         }
 	    },null);
 	})(jQuery);
+	
+	(function($) {
+		$.subscribe("/confirmConfirmation",function(event,data) {
+	        if ( confirm('<s:text name="home.confirm.msg"/>') ) {
+	            return true;
+	         }
+	         else {
+	            return exit;
+	         }
+	    },null);
+	})(jQuery);
 	</script>
 
 </head>

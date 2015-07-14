@@ -164,7 +164,17 @@
 
 		<s:iterator value="lamaNivasa.childs" status="rowIndex">
 			<tr>
-				<td><s:property value="%{#rowIndex.index + 1}" />
+				<s:if test="status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
+					<td>
+				</s:if>
+				<s:elseif test="status == @pdn.sci.cs.action.BaseAction@UNCONFIRMED_STATE">
+					<td style="background-color: red" title="Unconfirmed">
+				</s:elseif>
+				<s:else>
+					<td style="background-color: orange" title="Inactive">
+				</s:else>
+				 	<s:property value="%{#rowIndex.index + 1}" />
+				 </td>
 				<td><s:property value="fullName" /></td>
 				<td><s:property value="sexType" /></td>
 				<td><s:date name="dateOfBirth.time" format="yyyy/MM/dd" /></td>

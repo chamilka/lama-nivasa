@@ -144,6 +144,30 @@
 								value="<s:text name="page.view.button.delete"/>" />
 						</sj:a>
 					</s:if>
+					<s:elseif
+						test="child.status == @pdn.sci.cs.action.BaseAction@UNCONFIRMED_STATE && probationOfficer">
+						<s:url var="childConfirmUrl" action="confirm" namespace="/child"
+							escapeAmp="false" includeParams="none">
+							<s:param name="id" value="%{child.id}"></s:param>
+						</s:url>
+						<sj:a href="%{childConfirmUrl}" targets="childResultDiv"
+							onClickTopics="/confirmConfirmation">
+							<input type="button"
+								value="<s:text name="page.view.button.confirm"/>" />
+						</sj:a>
+					</s:elseif>
+					<s:elseif
+						test="child.status == @pdn.sci.cs.action.BaseAction@UNCONFIRMED_STATE">
+						<s:url var="childDeleteUrl" action="delete" namespace="/child"
+							escapeAmp="false" includeParams="none">
+							<s:param name="id" value="%{child.id}"></s:param>
+						</s:url>
+						<sj:a href="%{childDeleteUrl}" targets="childResultDiv"
+							onClickTopics="/confirmDelete">
+							<input type="button"
+								value="<s:text name="page.view.button.delete"/>" />
+						</sj:a>
+					</s:elseif>
 					<s:else>
 						<s:url var="childRestoreUrl" action="restore" namespace="/child"
 							escapeAmp="false" includeParams="none">

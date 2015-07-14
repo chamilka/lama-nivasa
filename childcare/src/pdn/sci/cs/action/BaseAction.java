@@ -24,6 +24,7 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	
 	public static final int ACTIVE_STATE = 0;
 	public static final int INACTIVE_STATE = 1;
+	public static final int UNCONFIRMED_STATE = -1;
 
 	protected Map<SessionKey, Object> session;
 	protected boolean loggedIn;

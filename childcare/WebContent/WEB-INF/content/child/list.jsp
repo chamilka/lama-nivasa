@@ -32,6 +32,9 @@
 						 <s:if test="status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
 						 	<td>
 						 </s:if>
+						 <s:elseif test="status == @pdn.sci.cs.action.BaseAction@UNCONFIRMED_STATE">
+						 	<td style="background-color: red" title="Unconfirmed">
+						 </s:elseif>
 						 <s:else>
 						 	<td style="background-color: orange" title="Inactive">
 						 </s:else>

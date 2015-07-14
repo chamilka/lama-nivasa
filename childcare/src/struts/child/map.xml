@@ -12,7 +12,9 @@
 		<action name="deletedlist" class="pdn.sci.cs.action.ChildAction" method="deletedList">
 			<result name="success">/WEB-INF/content/child/list.jsp</result>
 		</action>
-		
+		<action name="unconfirmedlist" class="pdn.sci.cs.action.ChildAction" method="unconfirmedList">
+			<result name="success">/WEB-INF/content/child/list.jsp</result>
+		</action>
 		<action name="frame" class="pdn.sci.cs.action.ChildAction" method="frame">
 			<result name="success">/WEB-INF/content/child/frame.jsp</result>
 		</action>
@@ -69,6 +71,15 @@
 		      </param >
 			</result>
 		</action>
+		
+		<action name="confirm" class="pdn.sci.cs.action.ChildAction" method="confirm">
+			<result name="success" type="redirect">
+		       <param name="location">
+		         /child/list.action
+		      </param >
+			</result>
+		</action>
+		
 
 		<action name="save" class="pdn.sci.cs.action.ChildAction" method="save">
 			<result name="success">/WEB-INF/content/child/view.jsp</result>
