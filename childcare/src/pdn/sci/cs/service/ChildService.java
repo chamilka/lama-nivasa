@@ -83,4 +83,12 @@ public class ChildService {
 	public Pager searchByProvince(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
 		return childDao.searchByProvince(name, code, lamaNivasaId, referenceId, pageStart, pageSize);
 	}
+
+	public Pager searchByProbationUnit(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
+		return childDao.searchByProbationUnit(name, code, lamaNivasaId, referenceId, pageStart, pageSize);
+	}
+
+	public Pager searchByLamanivasa(String name, String referenceId, Integer pageStart, Integer pageSize) {
+		return childDao.searchByLamanivasa(name, referenceId, pageStart, pageSize);
+	}
 }

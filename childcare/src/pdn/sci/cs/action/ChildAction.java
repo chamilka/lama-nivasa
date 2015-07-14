@@ -258,8 +258,9 @@ public class ChildAction extends BaseAction {
       }
 
       if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
-        addActionError("No suitable inputs");
-        return INPUT;
+      //  addActionError("No suitable inputs");
+        //return INPUT;
+    	  list();
       } else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
         addActionError("Name must be at least four (4) characters");
         return INPUT;
@@ -267,16 +268,17 @@ public class ChildAction extends BaseAction {
 
       targetDiv = "childResultDiv";
       pageSize = 200;
+      
       if(isAdminOrMinistry()){
     	  pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
       }else if(isOfficer()){
     	  if(isProvincialCommissioner()){
     		  pager = childService.searchByProvince(name, code, lamaNivasaId,referenceId, pageStart, pageSize);
     	  }else{
-    		  
+    		  pager = childService.searchByProbationUnit(name, code, lamaNivasaId,referenceId, pageStart, pageSize);
     	  }
       }else if(isUser()){
-    	  
+    	  pager = childService.searchByLamanivasa(name, referenceId, pageStart, pageSize);
       }
       
       setActionContext(pager);

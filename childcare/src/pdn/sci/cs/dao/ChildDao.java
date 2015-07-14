@@ -549,25 +549,177 @@ public class ChildDao extends GenericDao<Child> {
     pager.setList(list);
     
     return pager;
-}
+  }
 
-public Pager searchByProvince(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
+	public Pager searchByProvince(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
+		
+		StringBuilder stringQueryCount = new StringBuilder("select count(c) from Child c,LamaNivasa l,ProbationUnit p, District d, Province pr where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.district=d.id and d.province = pr.id and pr.id= :pid and c.status=0 ");
+		StringBuilder stringQuery = new StringBuilder("select c from Child c,LamaNivasa l,ProbationUnit p, District d, Province pr where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.district=d.id and d.province = pr.id and pr.id= :pid and c.status=0 ");
+		boolean lid = false, cname = false, ccode = false;
+		
+		Pager pager = new Pager();
 	
-	//StringBuilder stringQuery = "";
+		pageStart = (pageStart == null) ? 0 : pageStart;
+	    pager.setStart(pageStart);
 	
-	if (lamaNivasaId != null && !lamaNivasaId.isEmpty()) {
-	   //   criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
-	    }
+	    pageSize = (pageSize == null) ? Pager.DEFAULT_PAGE_SIZE : pageSize;
+	    pager.setSize(pageSize);
+		
+			if (lamaNivasaId != null && !lamaNivasaId.isEmpty()) {
+				stringQueryCount.append("and l.id= :lid ");
+				stringQuery.append("and l.id= :lid ");
+				lid = true;
+		    }
+	
+		    if (name != null && !name.isEmpty()) {
+		    	stringQueryCount.append("and c.fullName LIKE :cname");
+		    	stringQuery.append("and c.fullName LIKE :cname");
+		    	cname = true;
+		    }
+	
+		    if (code != null && !code.isEmpty()) {
+		    	stringQueryCount.append("and c.code= :ccode");
+		    	stringQuery.append("and c.code= :ccode");
+		    	ccode = true;
+		    }
+		    
+		    Query queryCount = getSession().createQuery(stringQueryCount.toString());
+		    Query query = getSession().createQuery(stringQuery.toString());
+		    
+		    queryCount.setParameter("pid", referenceId);
+		    query.setParameter("pid", referenceId);
+		    
+		    if(lid){
+		    	queryCount.setParameter("lid", lamaNivasaId);
+		    	query.setParameter("lid", lamaNivasaId);
+		    }
+		    if(ccode){
+		    	queryCount.setParameter("ccode", code);
+		    	query.setParameter("ccode", code);
+		    }
+		    if(cname){
+		    	queryCount.setParameter("cname", "%" + name + "%");
+		    	query.setParameter("cname", "%" + name + "%");
+		    }
+		    
+		    int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		    pager.setTotal(listCount);
+		    
+		    query.setFirstResult(pageStart);
+		    query.setMaxResults(pageSize);
+		    @SuppressWarnings("unchecked")
+		    List<Child> list = query.list();
+	
+		    pager.setList(list);
+		    
+		    return pager;
+	}
 
-	    if (name != null && !name.isEmpty()) {
-	   //   criteria.add(Restrictions.like(Child.FULL_NAME, "%" + name + "%"));
-	    }
+	public Pager searchByProbationUnit(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
+		StringBuilder stringQueryCount = new StringBuilder("select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=0 ");
+		StringBuilder stringQuery = new StringBuilder("select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=0 ");
+		boolean lid = false, cname = false, ccode = false;
+		
+		Pager pager = new Pager();
+	
+		pageStart = (pageStart == null) ? 0 : pageStart;
+	    pager.setStart(pageStart);
+	
+	    pageSize = (pageSize == null) ? Pager.DEFAULT_PAGE_SIZE : pageSize;
+	    pager.setSize(pageSize);
+		
+			if (lamaNivasaId != null && !lamaNivasaId.isEmpty()) {
+				stringQueryCount.append("and l.id= :lid ");
+				stringQuery.append("and l.id= :lid ");
+				lid = true;
+		    }
+	
+		    if (name != null && !name.isEmpty()) {
+		    	stringQueryCount.append("and c.fullName LIKE :cname");
+		    	stringQuery.append("and c.fullName LIKE :cname");
+		    	cname = true;
+		    }
+	
+		    if (code != null && !code.isEmpty()) {
+		    	stringQueryCount.append("and c.code= :ccode");
+		    	stringQuery.append("and c.code= :ccode");
+		    	ccode = true;
+		    }
+		    
+		    Query queryCount = getSession().createQuery(stringQueryCount.toString());
+		    Query query = getSession().createQuery(stringQuery.toString());
+		    
+		    queryCount.setParameter("pid", referenceId);
+		    query.setParameter("pid", referenceId);
+		    
+		    if(lid){
+		    	queryCount.setParameter("lid", lamaNivasaId);
+		    	query.setParameter("lid", lamaNivasaId);
+		    }
+		    if(ccode){
+		    	queryCount.setParameter("ccode", code);
+		    	query.setParameter("ccode", code);
+		    }
+		    if(cname){
+		    	queryCount.setParameter("cname", "%" + name + "%");
+		    	query.setParameter("cname", "%" + name + "%");
+		    }
+		    
+		    int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		    pager.setTotal(listCount);
+		    
+		    query.setFirstResult(pageStart);
+		    query.setMaxResults(pageSize);
+		    @SuppressWarnings("unchecked")
+		    List<Child> list = query.list();
+	
+		    pager.setList(list);
+		    
+		    return pager;
+	}
 
-	    if (code != null && !code.isEmpty()) {
-	    //  criteria.add(Restrictions.eq(Child.CODE, code));
-	    }
-	return null;
-}
+	public Pager searchByLamanivasa(String name, String referenceId, Integer pageStart, Integer pageSize) {
+		StringBuilder stringQueryCount = new StringBuilder("select count(c) from Child c,LamaNivasa l where c.lamaNivasa.id=l.id and l.id= :lid and c.status=0 ");
+		StringBuilder stringQuery = new StringBuilder("select c from Child c,LamaNivasa l where c.lamaNivasa.id=l.id and l.id= :lid and c.status=0 ");
+		boolean cname = false;
+		
+		Pager pager = new Pager();
+	
+		pageStart = (pageStart == null) ? 0 : pageStart;
+	    pager.setStart(pageStart);
+	
+	    pageSize = (pageSize == null) ? Pager.DEFAULT_PAGE_SIZE : pageSize;
+	    pager.setSize(pageSize);
+		
+		    if (name != null && !name.isEmpty()) {
+		    	stringQueryCount.append("and c.fullName LIKE :cname");
+		    	stringQuery.append("and c.fullName LIKE :cname");
+		    	cname = true;
+		    }
+	
+		    Query queryCount = getSession().createQuery(stringQueryCount.toString());
+		    Query query = getSession().createQuery(stringQuery.toString());
+		    
+		    queryCount.setParameter("lid", referenceId);
+		    query.setParameter("lid", referenceId);
+		    
+		    if(cname){
+		    	queryCount.setParameter("cname", "%" + name + "%");
+		    	query.setParameter("cname", "%" + name + "%");
+		    }
+		    
+		    int listCount= ((Long)queryCount.uniqueResult()).intValue();
+		    pager.setTotal(listCount);
+		    
+		    query.setFirstResult(pageStart);
+		    query.setMaxResults(pageSize);
+		    @SuppressWarnings("unchecked")
+		    List<Child> list = query.list();
+	
+		    pager.setList(list);
+		    
+		    return pager;
+	}
 
 
 }
