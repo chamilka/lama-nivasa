@@ -407,6 +407,39 @@ public class ChildDao extends GenericDao<Child> {
 
     return pager;
   }
+  
+  public Pager findAllUnconfirmedByProbationUnitId(String referenceId, Integer start, Integer size) {
+	    Pager pager = new Pager();
+
+	    start = (start == null) ? 0 : start;
+	    pager.setStart(start);
+
+	    size = (size == null) ? Pager.DEFAULT_PAGE_SIZE : size;
+	    pager.setSize(size);
+
+	    Query queryCount =
+	        getSession()
+	            .createQuery(
+	                "select count(c) from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=-1");
+	    queryCount.setParameter("pid", referenceId);
+	    int listCount = ((Long) queryCount.uniqueResult()).intValue();
+	    pager.setTotal(listCount);
+
+	    Query query =
+	        getSession()
+	            .createQuery(
+	                "select c from Child c,LamaNivasa l,ProbationUnit p where c.lamaNivasa.id=l.id and l.probationUnit.id=p.id and p.id= :pid and c.status=-1");
+
+	    query.setParameter("pid", referenceId);
+	    query.setFirstResult(start);
+	    query.setMaxResults(size);
+	    @SuppressWarnings("unchecked")
+	    List<Child> list = query.list();
+
+	    pager.setList(list);
+
+	    return pager;
+	  }
 
   public ChildrenSummary buildChildSummary(int age, String district, String province) {
     ChildrenSummary cs = new ChildrenSummary();
