@@ -551,5 +551,23 @@ public class ChildDao extends GenericDao<Child> {
     return pager;
 }
 
+public Pager searchByProvince(String name, String code, String lamaNivasaId, String referenceId, Integer pageStart, Integer pageSize) {
+	
+	//StringBuilder stringQuery = "";
+	
+	if (lamaNivasaId != null && !lamaNivasaId.isEmpty()) {
+	   //   criteria.add(Restrictions.eq(Child.LAMA_NIVASA_ID, lamaNivasaId));
+	    }
+
+	    if (name != null && !name.isEmpty()) {
+	   //   criteria.add(Restrictions.like(Child.FULL_NAME, "%" + name + "%"));
+	    }
+
+	    if (code != null && !code.isEmpty()) {
+	    //  criteria.add(Restrictions.eq(Child.CODE, code));
+	    }
+	return null;
+}
+
 
 }

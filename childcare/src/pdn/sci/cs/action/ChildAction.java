@@ -112,17 +112,14 @@ public class ChildAction extends BaseAction {
   }
 
   public String list() {
-    if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+    if (!(isAdminOrMinistry())) {
       String referenceId = getSessionUser().getReferenceId();
-      // pageSize = 4 *SEARCH_PAGE_SIZE;
 
       if (referenceId == null) {
         return INPUT;
-      } else {
-
-        if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-
+      } 
+      else {
+        if (isUser()) {
           try {
             pager = childService.findAllByLamaNivasaId(referenceId, pageStart, pageSize);
             targetDiv = "childResultDiv";
@@ -134,7 +131,7 @@ public class ChildAction extends BaseAction {
           }
         } else {
 
-          if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
+          if (isProvincialCommissioner()) {
 
             try {
               pager = childService.findAllByProvinceId(referenceId, pageStart, pageSize);
@@ -235,6 +232,7 @@ public class ChildAction extends BaseAction {
   public String search() {
 
     final String defaultValue = "";
+    String referenceId = getSessionUser().getReferenceId();
 
     if (child != null) {
 
@@ -259,19 +257,28 @@ public class ChildAction extends BaseAction {
         code = child.getCode();
       }
 
-      if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue)
-          && code.equals(defaultValue)) {
+      if (name.equals(defaultValue) && lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)) {
         addActionError("No suitable inputs");
         return INPUT;
-      } else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue)
-          && name.trim().length() < 4) {
+      } else if (lamaNivasaId.equals(defaultValue) && code.equals(defaultValue) && name.trim().length() < 4) {
         addActionError("Name must be at least four (4) characters");
         return INPUT;
       }
 
       targetDiv = "childResultDiv";
       pageSize = 200;
-      pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
+      if(isAdminOrMinistry()){
+    	  pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
+      }else if(isOfficer()){
+    	  if(isProvincialCommissioner()){
+    		  pager = childService.searchByProvince(name, code, lamaNivasaId,referenceId, pageStart, pageSize);
+    	  }else{
+    		  
+    	  }
+      }else if(isUser()){
+    	  
+      }
+      
       setActionContext(pager);
 
     } else {
@@ -369,15 +376,17 @@ public class ChildAction extends BaseAction {
   }
 
   private void searchPopulate() {
-    if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
-      lamaNivasaList = lamaNivasaService.findByReferenceId(getSessionUser().getReferenceId());
-
-    } else if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
-      lamaNivasaList = lamaNivasaService.findByReferenceId(getSessionUser().getReferenceId());
-
-    } else {
-      lamaNivasaList = lamaNivasaService.findAll();
-    }
+	  String referenceId = getSessionUser().getReferenceId();
+	  
+	  if(isAdminOrMinistry()){
+		  lamaNivasaList = lamaNivasaService.findAll();
+	  }else if (isOfficer()){
+		  if(isProvincialCommissioner()){
+			  lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
+		  }else{
+			  lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);
+		  }
+	  }
   }
 
   private void addPopulate() {

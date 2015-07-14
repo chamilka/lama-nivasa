@@ -195,6 +195,10 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	public boolean isProvincialCommissioner() {
 		return getSessionUser().getPost().equals(SystemUser.POST.PROVINCIAL_COMMISSIONER.toString());
 	}
+	
+	public boolean isProbationOfficerOfHeadquarter() {
+		return getSessionUser().getPost().equals(SystemUser.POST.PROBATION_OFFICER_OF_HEADQUARTERS.toString());
+	}
 
 	public Pager getPager() {
 		return pager;
