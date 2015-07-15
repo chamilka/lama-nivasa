@@ -65,8 +65,7 @@
 
 			<s:if test="!user">
 				<tr>
-					<th><s:text name="lamaNivasa.add.district"/><s:property
-							value="lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name" />
+					<th><s:text name="lamaNivasa.add.district"/>
 					</th>
 					<td colspan="5">
 						<table>
@@ -75,7 +74,7 @@
 								list="districtList" listKey="id" listValue="name"
 								emptyOption="false" headerKey="-1"
 								headerValue="Please Select a District"
-								title="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name}" />
+								value="%{lamaNivasa.gramaSevakaDivision.divisionalSecretariat.district.name}" />
 						</table>
 					</td>
 				</tr>
