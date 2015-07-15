@@ -105,12 +105,13 @@
             	<td class="td6">&nbsp;</td>
          	</s:elseif>
          	<s:elseif test="admin">
-         		<td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.childrensHome"/></sj:a> </td>
+         		
          		<td class="td2"><sj:a id="eventLink" href="%{#probationUnitFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.units"/></sj:a></td>
-         		<td class="td3"><sj:a id="childLink" href="%{#childFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.child"/></sj:a></td>
-				<td class="td4"><sj:a id="monthlyInfoLink" href="%{#monthlyViewUrl}" targets="content" cssClass="menu-link"><s:text name="header.monthlyData"/></sj:a></td>
             	<td class="td5"><sj:a id="donationLink" href="%{#accountViewUrl}" targets="content" cssClass="menu-link"><s:text name="header.myAccount"/></sj:a></td>
          		<td class="td6"><sj:a id="districtLink" href="%{#settignsFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.settings"/></sj:a></td>
+         		<td class="td1">&nbsp;</td>
+         		<td class="td3">&nbsp;</td>
+				<td class="td4">&nbsp;</td>
          	</s:elseif>
          	<s:else>
          		<td class="td1"><sj:a id="homeLink" href="%{#lamaNivasaFrameUrl}" targets="content" cssClass="menu-link"><s:text name="header.childrensHome"/></sj:a> </td>
