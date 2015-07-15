@@ -76,23 +76,20 @@ public class MonthlyInformationAction extends BaseAction {
   private void viewInit() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
+    String referenceId = getSessionUser().getReferenceId();
 
-    if ((getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-        .getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+    if (isAdminOrMinistry()) {
       lamaNivasaList = lamaNivasaService.findAllLamaNivasa();
-    } else {
-      String referenceId = getSessionUser().getReferenceId();
-      if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
-        if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
-          lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
-        } else {
-          lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);
-        }
-      } else {
-        LamaNivasa lNiwasa = lamaNivasaService.findById(referenceId);
+    } else if(isOfficer()){
+    	if(isProvincialCommissioner()){
+    		 lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
+    	}else{
+    		lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);
+    	}
+    } else if(isUser()){
+    	LamaNivasa lNiwasa = lamaNivasaService.findById(referenceId);
         lamaNivasaList = new ArrayList<LamaNivasa>();
         lamaNivasaList.add(lNiwasa);
-      }
     }
   }
 

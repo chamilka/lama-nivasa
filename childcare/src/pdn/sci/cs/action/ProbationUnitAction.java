@@ -47,9 +47,7 @@ public class ProbationUnitAction extends BaseAction {
 
 	public String list() {
 
-		if ((getSessionUser().getUserRole().equals(
-				SystemUser.USER_ROLE.ADMIN.name()) || getSessionUser()
-				.getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+		if (isAdminOrMinistry()) {
 			list = probationUnitService.findAll();
 			return SUCCESS;
 		} else {
@@ -215,12 +213,6 @@ public class ProbationUnitAction extends BaseAction {
 			addFieldError("probationUnit.name", "Name cannot be empty");
 		}
 
-		/*
-		 * if (this.probationUnit.getDistrict() == null ||
-		 * this.probationUnit.getDistrict().getId().isEmpty()) {
-		 * addFieldError("probationUnit.district.id",
-		 * "District cannot be empty"); }
-		 */
 		if (this.districtIdSelected==null || this.districtIdSelected.isEmpty()) {
 			addFieldError("probationUnit.district.id",
 					"District cannot be empty");

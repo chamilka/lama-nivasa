@@ -84,8 +84,7 @@ public class ChildAction extends BaseAction {
 
 	public String summarySearch() {
 		if (isOfficer()) {
-			childSummary = childService.getChildrenSummary(searchAge, searchDistrict,
-					getSessionUser().getReferenceId());
+			childSummary = childService.getChildrenSummary(searchAge, searchDistrict, getSessionUser().getReferenceId());
 		} else {
 			childSummary = childService.getChildrenSummary(searchAge, searchDistrict, searchProvince);
 		}
@@ -106,7 +105,6 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String childDetail() {
-		// childSummary = childService.getChildrenSummary();
 		return SUCCESS;
 	}
 
@@ -162,8 +160,7 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String deletedList() {
-		if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
-				|| getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+		if (!(isAdminOrMinistry())) {
 			String referenceId = getSessionUser().getReferenceId();
 			// pageSize = 4 *SEARCH_PAGE_SIZE;
 
@@ -171,7 +168,7 @@ public class ChildAction extends BaseAction {
 				return INPUT;
 			} else {
 
-				if (getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+				if (isUser()) {
 
 					try {
 						pager = childService.findAllDeletedByLamaNivasaId(referenceId, pageStart, pageSize);
@@ -203,8 +200,7 @@ public class ChildAction extends BaseAction {
 	}
 
 	public String unconfirmedList() {
-		if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
-				|| getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name()))) {
+		if (!(isAdminOrMinistry())) {
 			String referenceId = getSessionUser().getReferenceId();
 			// pageSize = 4 *SEARCH_PAGE_SIZE;
 

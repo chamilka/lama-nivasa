@@ -126,20 +126,18 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	public String deletedList() {
-		if (!(getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())
-				|| getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.MINISTRY.name())
-				|| getSessionUser().getPost().equals(UserPost.PROBATION_OFFICER_OF_HEADQUARTERS.getStatusCode()))) {
+		if (!(isAdminOrMinistry() || isProbationOfficerOfHeadquarter())) {
 
 			String referenceId = getSessionUser().getReferenceId();
 			if (referenceId == null) {
 				return INPUT;
 			} else {
 
-				if (!getSessionUser().getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+				if (!isUser()) {
 					// if officer only own lama nivasa
 					try {
 
-						if (getSessionUser().getPost().equals(UserPost.PROVINCIAL_OFFICER.getStatusCode())) {
+						if (isProvincialCommissioner()) {
 
 							list = lamaNivasaService.findDeletedByProvinceId(referenceId);
 							targetDiv = "lamaNivasaResultDiv";
