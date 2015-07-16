@@ -105,10 +105,13 @@
 						namespace="/lamaNivasa" includeParams="none">
 						<s:param name="id" value="lamaNivasa.id"></s:param>
 					</s:url>
-					<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">
-					 <input type="button" value="<s:text name='lamaNivasa.add.edit'/>"/>
-						
-					</sj:a>
+
+					<s:if test="probationOfficer">
+						<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">
+							<input type="button" value="<s:text name='lamaNivasa.add.edit'/>" />
+						</sj:a>
+					</s:if>
+
 					<s:if test="admin"> |
  						<s:if test="lamaNivasa.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
 						 	<s:url var="lamaNivasaDeleteUrl" action="delete"

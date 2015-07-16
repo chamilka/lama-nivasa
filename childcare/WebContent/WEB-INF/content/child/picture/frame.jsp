@@ -13,11 +13,18 @@
 		namespace="/childPicture" includeParams="none">
 			<s:param name="childId" value="childId"></s:param>
 		</s:url>
-  
-    <div style="text-align:center">
-		<sj:a href="%{#childPictureListUrl}" targets="childPictureResultDiv"><s:text name="page.picture.frame.title"/></sj:a> | 
-		<sj:a href="%{#childPictureAddUrl}" targets="childPictureResultDiv"><s:text name="page.picture.frame.new.pic"/></sj:a>
-	</div> 
+
+	<div style="text-align: center">
+		<sj:a href="%{#childPictureListUrl}" targets="childPictureResultDiv">
+			<s:text name="page.picture.frame.title" />
+		</sj:a>
+		<s:if test="probationOfficer">
+		 | 
+		<sj:a href="%{#childPictureAddUrl}" targets="childPictureResultDiv">
+				<s:text name="page.picture.frame.new.pic" />
+			</sj:a>
+		</s:if>
+	</div>
 
 	<div id="childPictureResultDiv">
 		<sj:div href="%{#childPictureListUrl}">

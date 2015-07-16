@@ -13,33 +13,44 @@
 
 	<hr />
 
-	  <table style="padding-left:0px"  width="100%" id="commonTable" class="blueTbl">
+	<table style="padding-left: 0px" width="100%" id="commonTable"
+		class="blueTbl">
 
-	  	<tr>
-	  		<th style="width:100px"><s:text name="page.record.date"/></th>
-	  		<td><s:date name="childRecord.recordDate.time" format="yyyy/MM/dd"/></td>
-	  	</tr>
-	  	<tr>
-	  		<th><s:text name="page.record.comment"/></th>
-	  		<td><s:property value="childRecord.comment" escape="false"/></td>
-	  	</tr>
+		<tr>
+			<th style="width: 100px"><s:text name="page.record.date" /></th>
+			<td><s:date name="childRecord.recordDate.time"
+					format="yyyy/MM/dd" /></td>
+		</tr>
+		<tr>
+			<th><s:text name="page.record.comment" /></th>
+			<td><s:property value="childRecord.comment" escape="false" /></td>
+		</tr>
 
-	  	<tr>
-	  		<td colspan="2">
-	  			<table cellpadding="0" cellspacing="0">
-	  				<s:url var="childRecordEditUrl" action="edit" namespace="/childRecord" includeParams="none" >
-	  					<s:param name="id" value="%{childRecord.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childRecordEditUrl}" targets="childRecordResultDiv">
-	  					<input type="button" value="<s:text name="child.record.edit.record"/>" /></sj:a>
-	  				<s:url var="childRecordDeleteUrl" action="delete" namespace="/childRecord" includeParams="none" >
-	  					<s:param name="id" value="%{childRecord.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childRecordDeleteUrl}" targets="childRecordResultDiv" onClickTopics="/confirmDelete">
-	  					<input type="button" value="<s:text name="page.record.delete"/>" /></sj:a>
-	  			</table>
-	  		</td>
-	  	</tr>
-	  </table>
+		<tr>
+			<td colspan="2">
+				<table cellpadding="0" cellspacing="0">
+					<s:url var="childRecordEditUrl" action="edit"
+						namespace="/childRecord" includeParams="none">
+						<s:param name="id" value="%{childRecord.id}"></s:param>
+					</s:url>
+					<s:url var="childRecordDeleteUrl" action="delete"
+						namespace="/childRecord" includeParams="none">
+						<s:param name="id" value="%{childRecord.id}"></s:param>
+					</s:url>
+					<s:if test="probationOfficer">
+						<sj:a href="%{#childRecordEditUrl}" targets="childRecordResultDiv">
+							<input type="button"
+								value="<s:text name="child.record.edit.record"/>" />
+						</sj:a>
+
+						<sj:a href="%{#childRecordDeleteUrl}"
+							targets="childRecordResultDiv" onClickTopics="/confirmDelete">
+							<input type="button" value="<s:text name="page.record.delete"/>" />
+						</sj:a>
+					</s:if>
+				</table>
+			</td>
+		</tr>
+	</table>
 
 </div>

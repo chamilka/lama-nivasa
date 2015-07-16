@@ -3,27 +3,35 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
 
 <div style="border: 2px dotted #ddd">
-	<sj:datepicker id="initialDatepicker"  showOn="none"/>
-	
+	<sj:datepicker id="initialDatepicker" showOn="none" />
+
 	<script type="text/javascript">
 		$(function() {
-			$( "#initialDatepicker" ).hide();
-			$( "#initialDatepicker" ).datepicker( "destroy" );    		
+			$("#initialDatepicker").hide();
+			$("#initialDatepicker").datepicker("destroy");
 		});
 	</script>
-	
-    <s:label name="child.id"/>
-	<s:url var="childCareplanListUrl" action="list" namespace="/childCareplan" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
-		</s:url>
 
-	<s:url var="childCareplanAddUrl" action="add"	namespace="/childCareplan" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
-		</s:url>
+	<s:label name="child.id" />
+	<s:url var="childCareplanListUrl" action="list"
+		namespace="/childCareplan" includeParams="none">
+		<s:param name="childId" value="%{childId}"></s:param>
+	</s:url>
 
-    <div style="text-align:center">
-		<sj:a href="%{#childCareplanListUrl}" targets="childCareplanResultDiv"><s:text name="page.care-plan"/></sj:a> |
-		<sj:a href="%{#childCareplanAddUrl}" targets="childCareplanResultDiv"><s:text name="page.care-plan.add"/></sj:a>
+	<s:url var="childCareplanAddUrl" action="add"
+		namespace="/childCareplan" includeParams="none">
+		<s:param name="childId" value="%{childId}"></s:param>
+	</s:url>
+
+	<div style="text-align: center">
+		<sj:a href="%{#childCareplanListUrl}" targets="childCareplanResultDiv">
+			<s:text name="page.care-plan" />
+		</sj:a>
+		<s:if test="probationOfficer"> |
+		<sj:a href="%{#childCareplanAddUrl}" targets="childCareplanResultDiv">
+				<s:text name="page.care-plan.add" />
+			</sj:a>
+		</s:if>
 	</div>
 
 	<div id="childCareplanResultDiv">

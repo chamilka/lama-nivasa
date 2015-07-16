@@ -5,25 +5,32 @@
 
 <div style="border: 2px dotted #ddd">
 
-    <s:label name="child.id"/>
-	<s:url var="childGuardianListUrl" action="list" 
+	<s:label name="child.id" />
+	<s:url var="childGuardianListUrl" action="list"
 		namespace="/childGuardian" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
-		</s:url>
-		
-	<s:url var="childGuardianAddUrl" action="add" 
+		<s:param name="childId" value="%{childId}"></s:param>
+	</s:url>
+
+	<s:url var="childGuardianAddUrl" action="add"
 		namespace="/childGuardian" includeParams="none">
-			<s:param name="childId" value="%{childId}"></s:param>
-		</s:url>
-  
-    <div style="text-align:center">
-		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv"><s:text name="page.guardian.frame.title"/></sj:a> | 
-		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv"><s:text name="page.guardian.frame.new.pic"/></sj:a>
-	</div> 
+		<s:param name="childId" value="%{childId}"></s:param>
+	</s:url>
+
+	<div style="text-align: center">
+		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv">
+			<s:text name="page.guardian.frame.title" />
+		</sj:a>
+		<s:if test="probationOfficer">
+		 | 
+		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv">
+				<s:text name="page.guardian.frame.new.pic" />
+			</sj:a>
+		</s:if>
+	</div>
 
 	<div id="childGuardianResultDiv">
 		<sj:div href="%{#childGuardianListUrl}">
-	    
+
 		</sj:div>
-	</div>	  
+	</div>
 </div>

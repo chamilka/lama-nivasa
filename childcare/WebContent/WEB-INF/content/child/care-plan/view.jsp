@@ -57,19 +57,30 @@
 
 	  	<tr>
 	  		<td colspan="2">
-	  			<table cellpadding="0" cellspacing="0">
-	  				<s:url var="childCareplanEditUrl" action="edit" namespace="/childCareplan" includeParams="none" >
-	  					<s:param name="id" value="%{childCareplan.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childCareplanEditUrl}" targets="childCareplanResultDiv">
-	  					<input type="button" value="<s:text name="child.care-plan.edit"/>" /></sj:a>
-	  				<s:url var="childCareplanDeleteUrl" action="delete" namespace="/childCareplan" includeParams="none" >
-	  					<s:param name="id" value="%{childCareplan.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childCareplanDeleteUrl}" targets="childCareplanResultDiv" onClickTopics="/confirmDelete">
-	  					<input type="button" value="<s:text name="page.care-plan.view.delete"/>" /></sj:a>
-	  			</table>
-	  		</td>
+				<table cellpadding="0" cellspacing="0">
+					<s:url var="childCareplanEditUrl" action="edit"
+						namespace="/childCareplan" includeParams="none">
+						<s:param name="id" value="%{childCareplan.id}"></s:param>
+					</s:url>
+					<s:url var="childCareplanDeleteUrl" action="delete"
+						namespace="/childCareplan" includeParams="none">
+						<s:param name="id" value="%{childCareplan.id}"></s:param>
+					</s:url>
+					<s:if test="probationOfficer">
+						<sj:a href="%{#childCareplanEditUrl}"
+							targets="childCareplanResultDiv">
+							<input type="button"
+								value="<s:text name="child.care-plan.edit"/>" />
+						</sj:a>
+
+						<sj:a href="%{#childCareplanDeleteUrl}"
+							targets="childCareplanResultDiv" onClickTopics="/confirmDelete">
+							<input type="button"
+								value="<s:text name="page.care-plan.view.delete"/>" />
+						</sj:a>
+					</s:if>
+				</table>
+			</td>
 	  	</tr>
 	  </table>
 

@@ -43,19 +43,28 @@
 	  	<tr>
 	  		<td colspan="2">
 	  			<table cellpadding="0" cellspacing="0">
-	  				<s:url var="childGuardianEditUrl" action="edit" namespace="/childGuardian" includeParams="none" >
-	  					<s:param name="id" value="%{childGuardian.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childGuardianEditUrl}" targets="childGuardianResultDiv">
-	  					<input type="button" value="<s:text name="page.record.edit"/>" /></sj:a>
+					<s:url var="childGuardianEditUrl" action="edit"
+						namespace="/childGuardian" includeParams="none">
+						<s:param name="id" value="%{childGuardian.id}"></s:param>
+					</s:url>
+					<s:url var="childGuardianDeleteUrl" action="delete"
+						namespace="/childGuardian" includeParams="none">
+						<s:param name="id" value="%{childGuardian.id}"></s:param>
+					</s:url>
+					<s:if test="probationOfficer">
+						<sj:a href="%{#childGuardianEditUrl}"
+							targets="childGuardianResultDiv">
+							<input type="button" value="<s:text name="page.record.edit"/>" />
+						</sj:a>
 
-	  				<s:url var="childGuardianDeleteUrl" action="delete" namespace="/childGuardian" includeParams="none" >
-	  					<s:param name="id" value="%{childGuardian.id}"></s:param>
-	  				</s:url>
-	  				<sj:a href="%{#childGuardianDeleteUrl}" targets="childGuardianResultDiv"  onClickTopics="/confirmDelete">
-	  					<input type="button" value="<s:text name="page.view.button.delete"/>" /></sj:a>
-	  			</table>
-	  		</td>
+						<sj:a href="%{#childGuardianDeleteUrl}"
+							targets="childGuardianResultDiv" onClickTopics="/confirmDelete">
+							<input type="button"
+								value="<s:text name="page.view.button.delete"/>" />
+						</sj:a>
+					</s:if>
+				</table>
+			</td>
 	  	</tr>
 	  </table>
 

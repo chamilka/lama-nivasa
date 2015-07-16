@@ -44,8 +44,9 @@
 				
 			<s:url var="lamaNivasaListDeleteUrl" action="deletedlist"
 				namespace="/lamaNivasa" includeParams="none"></s:url>
-				
-     		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.add"/></sj:a>  |
+			<s:if test="probationOfficer">
+	     		<sj:a href="%{#lamaNivasaAddUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.add"/></sj:a>  |
+     		</s:if>
 			<sj:a href="%{#lamaNivasaListUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.activeHomes"/></sj:a> |
 			<sj:a href="%{#lamaNivasaListDeleteUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.inActiveHomes"/></sj:a>
 		</td>

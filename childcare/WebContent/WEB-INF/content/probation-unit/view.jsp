@@ -51,14 +51,20 @@
 		 		<s:url var="probationUnitEditUrl" action="edit" namespace="/probationUnit" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv"><input type="button" value="<s:text name="page.probationunit.view.editbutton"/>" /></sj:a>
-		 		|
-		 		<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
+			 	<s:url var="probationUnitDeleteUrl" action="delete" namespace="/probationUnit" escapeAmp="false" includeParams="none">
 			 		<s:param name="id" value="%{probationUnit.id}"><s:property value="id"/></s:param>
 			 	</s:url>
-			 	<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">
-			 		<input type="button" value="<s:text name="page.probationunit.view.deletebutton"/>" /></sj:a>
-			 </td>
+
+					<s:if test="probationOfficer">
+						<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv">
+							<input type="button" value="<s:text name="page.probationunit.view.editbutton"/>" />
+						</sj:a>
+		 				|
+			 			<sj:a href="%{probationUnitDeleteUrl}" targets="probationUnitResultDiv" onClickTopics="/confirmDelete">
+							<input type="button" value="<s:text name="page.probationunit.view.deletebutton"/>" />
+						</sj:a>
+					</s:if>
+					</td>
 		    </tr>
 
 	  </table>
