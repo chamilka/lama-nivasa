@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.District;
 import pdn.sci.cs.entity.DivisionalSecretariat;
 import pdn.sci.cs.entity.GenericList;
-import pdn.sci.cs.entity.GramaSevaka;
 import pdn.sci.cs.entity.GramaSevakaDivision;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
@@ -20,7 +19,6 @@ import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.GramaSevakaDivsionService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
-import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
 import pdn.sci.cs.util.Pager;
 
@@ -49,9 +47,6 @@ public class LamaNivasaAction extends BaseAction {
 
 	@Autowired
 	private DistrictService districtService;
-
-	@Autowired
-	private ProvinceService provinceService;
 
 	private List<District> districtList;
 	private List<DivisionalSecretariat> divisionalSecretariatList;
