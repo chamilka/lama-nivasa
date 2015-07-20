@@ -132,7 +132,7 @@
   </div>
   <div class="footer comicsans">
 	<div style="padding-left: 75px; margin-top: -30px;">Copyright <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %>. All Right Reserved. </div>
-	<div style="text-align: right; margin-top: -14px; margin-right: 70px;">Developed & Designed By <a href="http://www.doerit.com">DoerIT</a> </div>
+	<div style="text-align: right; margin-top: -14px; margin-right: 70px;">Developed &amp; Designed By <a href="http://www.doerit.com">DoerIT</a> </div>
  </div>
   <!-- end .container --></div>
 </body>
