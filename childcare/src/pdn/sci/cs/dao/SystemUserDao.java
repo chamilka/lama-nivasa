@@ -88,4 +88,11 @@ public class SystemUserDao extends GenericDao<SystemUser> {
 
   }
 
+	public SystemUser searchByUsernameAndemail(String username, String email) {
+		 DetachedCriteria criteria = createCriteria(clazz);
+		    criteria.add(Restrictions.eq(SystemUser.EMAIL, email));
+		    criteria.add(Restrictions.eq(SystemUser.USERNAME, username));
+	
+		    return findByCriteriaForUniqueResult(criteria);
+	}
 }

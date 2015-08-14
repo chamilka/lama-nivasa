@@ -11,11 +11,17 @@
 			<result name="input">/WEB-INF/content/signin.jsp</result>
 		</action>
 		
+		<action name="passwordReset" class="pdn.sci.cs.action.UserAction" method="passwordReset">
+		    <interceptor-ref name="guest"/>
+			<result name="success">/WEB-INF/content/signin.jsp</result>
+			<result name="input">/WEB-INF/content/forgot-password/view.jsp</result>
+		</action>
+		
 		<action name="signout" class="pdn.sci.cs.action.UserAction" method="signOut">
 		    <interceptor-ref name="guest"/>
 			<result name="success">/WEB-INF/content/signin.jsp</result>
 		</action>
-		
+				
 		<action name="home-view" class="pdn.sci.cs.action.UserAction" method="frame">
 			<result name ="success">/WEB-INF/content/home/view.jsp</result>
 		</action>

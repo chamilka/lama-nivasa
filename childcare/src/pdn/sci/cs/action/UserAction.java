@@ -17,6 +17,9 @@ import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
+import pdn.sci.cs.util.MailMail;
+import pdn.sci.cs.util.PasswordEncryption;
+import pdn.sci.cs.util.PasswordGenerator;
 
 @Scope(value = "prototype")
 public class UserAction extends BaseAction {
@@ -25,6 +28,7 @@ public class UserAction extends BaseAction {
 
   private String username;
   private String password;
+  private String email;
   private String search;
 
   private String oldUserPassword;
@@ -38,6 +42,8 @@ public class UserAction extends BaseAction {
   private List<LamaNivasa> lamaNivasaList;
   private List<GenericList> postCategoryList;
   private List<Province> provinceList;
+  
+  private MailMail mm ;
 
   // private SystemUser user;
   private SystemUser systemUser;
@@ -53,7 +59,7 @@ public class UserAction extends BaseAction {
   private GenericListService genericListService;
   @Autowired
   private ProvinceService provinceService;
-
+  
   public String logIn() {
     return SUCCESS;
   }
@@ -61,7 +67,10 @@ public class UserAction extends BaseAction {
   public String locale_change() {
     return SUCCESS;
   }
-
+  
+  public String forgotpassword(){
+	return SUCCESS;
+  }
 
   public String signIn() {
 
@@ -69,7 +78,11 @@ public class UserAction extends BaseAction {
     if (hasErrors()) {
       return INPUT;
     } else {
-      systemUser = systemUserService.signIn(username, password);
+      try {
+		systemUser = systemUserService.signIn(username, PasswordEncryption.encrypt(password));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
       if (systemUser == null) {
         addActionError("Invalid username and/or password");
         return INPUT;
@@ -85,6 +98,34 @@ public class UserAction extends BaseAction {
       }
     }
   }
+  
+  public String passwordReset() throws Exception {
+
+	  validatePasswordReset();
+	    if (hasErrors()) {
+	      return INPUT;
+	    } else {
+	      try {
+			systemUser = systemUserService.searchByUsernameAndemail(username, email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	      if (systemUser == null) {
+	        addActionError("Invalid username and/or email");
+	        return INPUT;
+	      } else {
+	    	  String tmp_pwd = PasswordGenerator.generateRandomPassword();
+	    	  systemUser.setUserPassword(PasswordEncryption.encrypt(tmp_pwd));
+	    	  
+	          mm.sendMail("axio.callcenter@gmail.com",
+	       		   "vajirakarunathilake@gmail.com",
+	       		   "Testing123", 
+	       		   "Testing only \n\n Hello Spring Email Sender");
+	    	 
+	    	  return SUCCESS;
+	      }
+	    }
+	  }
 
   public String signOut() {
     if (session != null) {
@@ -101,20 +142,25 @@ public class UserAction extends BaseAction {
     return changeProfileForm();
   }
 
-  public String passwordChangeSave() {
+  public String passwordChangeSave() throws Exception {
 
     SystemUser user = super.getSessionUser();
 
     if (!newUserPassword.equals(newUserPasswordConfirm)) {
       addActionError("New passwords are not matched");
       return INPUT;
-    } else if (!user.getUserPassword().equals(oldUserPassword)) {
+    } else if (!user.getUserPassword().equals(PasswordEncryption.encrypt(oldUserPassword))) {
       addActionError("Old password mismatch");
       return INPUT;
     }
 
     user = systemUserService.findById(user.getId());
-    user.setUserPassword(newUserPassword);
+    
+	try {
+		user.setUserPassword(PasswordEncryption.encrypt(newUserPassword));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 
     systemUserService.save(user);
     session.put(SessionKey.SESSION_USER, user);
@@ -122,7 +168,7 @@ public class UserAction extends BaseAction {
     return SUCCESS;
   }
 
-  public String save() {
+  public String save() throws Exception {
 
     if (systemUser != null) {
       validateUser();
@@ -132,12 +178,13 @@ public class UserAction extends BaseAction {
       } else {
         if (operationMode == OPERATION_MODE.ADD && systemUser.getId().isEmpty()) {
           setAddSettings(systemUser);
+          systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
           systemUser = systemUserService.save(systemUser);
         } else if (operationMode == OPERATION_MODE.EDIT && !systemUser.getId().isEmpty()) {
 
           if (systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty()) {
             SystemUser existingUser = systemUserService.findById(systemUser.getId());
-            systemUser.setUserPassword(existingUser.getUserPassword()); // set password
+            systemUser.setUserPassword(PasswordEncryption.encrypt(existingUser.getUserPassword())); // set password
           }
 
           setUpdateSettings(systemUser);
@@ -229,6 +276,16 @@ public class UserAction extends BaseAction {
       addFieldError("password", "Password cannot be empty");
     }
   }
+  
+  private void validatePasswordReset() {
+	    if (username == null || username.isEmpty()) {
+	      addFieldError("username", "Username cannot be empty");
+	    }
+
+	    if (email == null || email.isEmpty()) {
+	      addFieldError("email", "E-mail cannot be empty");
+	    }
+	  }
 
   private void validateUser() {
     if (systemUser.getUsername().isEmpty() || systemUser.getUsername().trim().length() == 0) {
@@ -497,5 +554,11 @@ public class UserAction extends BaseAction {
     this.province = province;
   }
 
-
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

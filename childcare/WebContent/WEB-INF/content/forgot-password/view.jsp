@@ -27,47 +27,16 @@
 
 <body>
 
-	<div id="forgpotpassworddDiv" class="container">
+	<div class="container">
 		<div class="login_header">
-			<!-- end .login_header -->
-			<div class="localeStyle">
-				<table border="0" cellspacing="0" cellpadding="0" align="right">
-					<tr>
-						<s:url var="EnglishUrl" action="localeChange" namespace="/"
-							includeParams="">
-							<s:param name="request_locale">en</s:param>
-						</s:url>
-						<s:url var="SinhalaUrl" action="localeChange" namespace="/"
-							includeParams="">
-							<s:param name="request_locale">si</s:param>
-						</s:url>
-						<s:url var="TamilUrl" action="localeChange" namespace="/"
-							includeParams="">
-							<s:param name="request_locale">ta</s:param>
-						</s:url>
-
-						<td id="eng" class="locale_btn"><s:a href="%{#EnglishUrl}">
-								<input type="button" value="E">
-							</s:a></td>
-						<td id="sin" class="locale_btn"><s:a href="%{#SinhalaUrl}">
-								<input type="button" value="සි">
-							</s:a></td>
-						<td id="tam" class="locale_btn"><s:a href="%{#TamilUrl}">
-								<input type="button" value="த">
-							</s:a></td>
-					</tr>
-				</table>
-
-
-
-			</div>
+			
 		</div>
 
 		<div class="login_content">
 
 			<div align="center" style="padding-top: 220px;">
 
-				<s:form action="signin" namespace="/user" method="post">
+				<s:form action="passwordReset" namespace="/user" method="post">
 					<table border="0" cellspacing="0" cellpadding="5" id="tbl_login"
 						align="center">
 						<tr>
@@ -75,36 +44,26 @@
 						</tr>
 
 						<tr>
-							<td></td>
 							<td style="height: 25px; color: #000"><s:text
 									name="user.login.userName" /></td>
 							<td><table cellpadding="0" cellspacing="0">
-									<s:textfield name="username"
-										cssStyle="width:150px; height:25px" />
+									<s:textfield name="username" cssStyle="width:150px; height:25px" />
 								</table></td>
-								<td></td>
 						</tr>
 						<tr>
-							<td></td>
-							<td style="height: 25px; color: #000"><s:text
-									name="user.login.Password" /></td>
+							<td style="height: 25px; color: #000"><s:text name="user.login.email" /></td>
 							<td><table cellpadding="0" cellspacing="0">
-									<s:password name="password" cssStyle="width:150px; height:25px"
-										showPassword="true" />
-								</table></td>
-								<td>
-								<s:url var="forgotpasswordUrl" action="forgotpassword" namespace="/" includeParams=""></s:url>
-								<sj:a href="%{#forgotpasswordUrl}" targets="forgpotpassworddDiv" cssStyle="font-size: 11px; color: #6E6C64;"><s:text name="user.login.forgotPassword" ></s:text></sj:a></td>
+									<s:textfield name="email" cssStyle="width:150px; height:25px" />
+								</table>
+							</td>
 						</tr>
 						<tr>
-							<td></td>
 							<td>&nbsp;</td>
 							<td><div align="right">
 									<table cellpadding="0" cellspacing="0">
-										<s:submit key="user.login.btn" />
+										<s:submit key="user.password.reset" />
 									</table>
 								</div></td>
-								<td></td>
 						</tr>
 					</table>
 				</s:form>

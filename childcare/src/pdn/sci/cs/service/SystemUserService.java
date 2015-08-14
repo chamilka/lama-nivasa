@@ -25,6 +25,10 @@ public class SystemUserService {
 	public SystemUser searchByUsername(String username) {
 		return systemUserDao.searchByUsername(username);
 	}
+	
+	public SystemUser searchByUsernameAndemail(String username, String email) {
+		return systemUserDao.searchByUsernameAndemail(username, email);
+	}
 
 	public SystemUser save(SystemUser systemUser) {
 		return systemUserDao.save(systemUser);

@@ -43,8 +43,12 @@
 			<result name ="success">/WEB-INF/content/signin.jsp</result>
 		</action>
 		
-	<action name="index" class="pdn.sci.cs.action.UserAction" method="logIn">
+		<action name="index" class="pdn.sci.cs.action.UserAction" method="logIn">
 			<result name ="success">/WEB-INF/content/signin.jsp</result>
+		</action>
+		
+		<action name="forgotpassword" class="pdn.sci.cs.action.UserAction" method="forgotpassword">
+			<result name="success">/WEB-INF/content/forgot-password/view.jsp</result>
 		</action>
 	</package>
 
