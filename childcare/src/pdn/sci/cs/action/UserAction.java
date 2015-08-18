@@ -176,19 +176,20 @@ public class UserAction extends BaseAction {
         populateAddList();
         return INPUT;
       } else {
+    	systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
+    	
         if (operationMode == OPERATION_MODE.ADD && systemUser.getId().isEmpty()) {
           setAddSettings(systemUser);
-          systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
           systemUser = systemUserService.save(systemUser);
         } else if (operationMode == OPERATION_MODE.EDIT && !systemUser.getId().isEmpty()) {
-
+        	
           if (systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty()) {
             SystemUser existingUser = systemUserService.findById(systemUser.getId());
             systemUser.setUserPassword(PasswordEncryption.encrypt(existingUser.getUserPassword())); // set password
           }
 
           setUpdateSettings(systemUser);
-          try {
+          try {  
             if (getSessionUser().getId().equals(systemUser.getId())) {
               systemUserService.merge(systemUser);
               session.put(SessionKey.SESSION_USER, systemUser);
