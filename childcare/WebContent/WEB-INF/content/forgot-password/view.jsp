@@ -50,13 +50,13 @@
 									<s:textfield name="username" cssStyle="width:150px; height:25px" />
 								</table></td>
 						</tr>
-						<tr>
+	<%-- 					<tr>
 							<td style="height: 25px; color: #000"><s:text name="user.login.email" /></td>
 							<td><table cellpadding="0" cellspacing="0">
 									<s:textfield name="email" cssStyle="width:150px; height:25px" />
 								</table>
 							</td>
-						</tr>
+						</tr> --%>
 						<tr>
 							<td>&nbsp;</td>
 							<td><div align="right">

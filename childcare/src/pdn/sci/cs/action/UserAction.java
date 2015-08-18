@@ -106,12 +106,12 @@ public class UserAction extends BaseAction {
 	      return INPUT;
 	    } else {
 	      try {
-			systemUser = systemUserService.searchByUsernameAndemail(username, email);
+			systemUser = systemUserService.searchByUsername(username);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	      if (systemUser == null) {
-	        addActionError("Invalid username and/or email");
+	        addActionError("Invalid username");
 	        return INPUT;
 	      } else {
 	    	  String tmp_pwd = PasswordGenerator.generateRandomPassword();
@@ -281,10 +281,6 @@ public class UserAction extends BaseAction {
   private void validatePasswordReset() {
 	    if (username == null || username.isEmpty()) {
 	      addFieldError("username", "Username cannot be empty");
-	    }
-
-	    if (email == null || email.isEmpty()) {
-	      addFieldError("email", "E-mail cannot be empty");
 	    }
 	  }
 
