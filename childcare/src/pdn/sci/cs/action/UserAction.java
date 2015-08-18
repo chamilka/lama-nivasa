@@ -5,6 +5,8 @@ import java.util.regex.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
@@ -20,6 +22,7 @@ import pdn.sci.cs.service.SystemUserService;
 import pdn.sci.cs.util.MailMail;
 import pdn.sci.cs.util.PasswordEncryption;
 import pdn.sci.cs.util.PasswordGenerator;
+
 
 @Scope(value = "prototype")
 public class UserAction extends BaseAction {
@@ -43,7 +46,7 @@ public class UserAction extends BaseAction {
   private List<GenericList> postCategoryList;
   private List<Province> provinceList;
   
-  private MailMail mm ;
+  private MailMail mm;
 
   // private SystemUser user;
   private SystemUser systemUser;
@@ -117,6 +120,10 @@ public class UserAction extends BaseAction {
 	    	  String tmp_pwd = PasswordGenerator.generateRandomPassword();
 	    	  systemUser.setUserPassword(PasswordEncryption.encrypt(tmp_pwd));
 	    	  
+	    	  
+	    	  ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	    	  MailMail mm = (MailMail) context.getBean("mailMail");
+	    	    	
 	          mm.sendMail("axio.callcenter@gmail.com",
 	       		   "vajirakarunathilake@gmail.com",
 	       		   "Testing123", 
