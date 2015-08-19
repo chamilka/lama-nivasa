@@ -6,9 +6,6 @@ import java.util.regex.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
@@ -20,7 +17,7 @@ import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
 import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
-import pdn.sci.cs.util.MailMail;
+import pdn.sci.cs.util.MailService;
 import pdn.sci.cs.util.PasswordEncryption;
 import pdn.sci.cs.util.PasswordGenerator;
 
@@ -46,8 +43,6 @@ public class UserAction extends BaseAction {
   private List<LamaNivasa> lamaNivasaList;
   private List<GenericList> postCategoryList;
   private List<Province> provinceList;
-  
-  private MailMail mm;
 
   // private SystemUser user;
   private SystemUser systemUser;
@@ -63,6 +58,8 @@ public class UserAction extends BaseAction {
   private GenericListService genericListService;
   @Autowired
   private ProvinceService provinceService;
+  @Autowired 
+  private MailService mailService;
   
   public String logIn() {
     return SUCCESS;
@@ -118,18 +115,26 @@ public class UserAction extends BaseAction {
 	        addActionError("Invalid username");
 	        return INPUT;
 	      } else {
-	    	  String tmp_pwd = PasswordGenerator.generateRandomPassword();
-	    	  systemUser.setUserPassword(PasswordEncryption.encrypt(tmp_pwd));
 	    	  
+	    	  if(!isValidEmail(systemUser.getEmail()))
+	    	  {
+	    		  addActionError("Invalied Email, Please Contact Your Administrator");
+	    		  return INPUT;
+	    	  }
+	    	  else{
+	    		  String tmp_pwd = PasswordGenerator.generateRandomPassword();
+		    	  systemUser.setUserPassword(PasswordEncryption.encrypt(tmp_pwd));	
+		    	  
+		    	  try {
+		    		  mailService.sendPasswordResetMail("axio.callcenter@gmail.com", "Use this Temporary Password for Login, after login Please Reset the Password. Temporary Password => " + tmp_pwd);
+		    		  	    		 
+		    	  } catch (Exception e) {				
+		    		  e.printStackTrace();
+		    		  addActionError("Error In Mail Sending, Please Contact Your Administrator");
+		    		  return INPUT;
+		    	  }
+	    	  }	    	  
 	    	  
-	    	  ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-	    	  MailMail mm = (MailMail) context.getBean("mailMail");
-	    	    	
-	          mm.sendMail("axio.callcenter@gmail.com",
-	       		   "vajirakarunathilake@gmail.com",
-	       		   "Testing123", 
-	       		   "Testing only \n\n Hello Spring Email Sender");
-	    	 
 	    	  return SUCCESS;
 	      }
 	    }
@@ -340,21 +345,18 @@ public class UserAction extends BaseAction {
     }
   }
 
-  public void validateEmail(String email) {
+  public boolean isValidEmail(String email) {
 
-    Pattern pattern;
-    Matcher matcher;
-    boolean check;
-    final String emailPattern =
-        "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-    pattern = Pattern.compile(emailPattern);
-    matcher = pattern.matcher(email);
-    check = matcher.matches();
-
-    if (check == false) {
+	  	final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+		Pattern p = Pattern.compile(EMAIL_PATTERN);
+		Matcher m = p.matcher(email);
+		boolean matchFound = m.matches();
+		
+    if (matchFound == false) {
       addFieldError("systemUser.email", "Invalid email adress");
     }
+    
+    return matchFound;
   }
 
   public void validateMobile(String mobile) {
