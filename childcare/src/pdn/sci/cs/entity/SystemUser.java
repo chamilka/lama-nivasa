@@ -24,7 +24,7 @@ public class SystemUser extends BaseEntity implements java.io.Serializable {
 		SYSTEM_ADMIN("System Admin"), 
 		COMMISSIONER("Commissioner"), 
 		PROVINCIAL_COMMISSIONER ("Provincial Commissioner"),
-		PROBATION_OFFICER_OF_HEADQUARTERS("Probation Officer of Headquarters"),
+		PROBATION_OFFICER_OF_HEADQUARTERS("Headquarters Probation Officer"),
 		PROBATION_OFFICER_IN_CHARGE("Probation Officer In Charge"), 
 		PROBATION_OFFICER("Probation Officer"), 
 		DIRECTOR("Director");
