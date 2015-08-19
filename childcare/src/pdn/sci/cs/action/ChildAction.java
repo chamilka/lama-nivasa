@@ -127,7 +127,7 @@ public class ChildAction extends BaseAction {
 					}
 				} else {
 
-					if (isProvincialCommissioner()) {
+					if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 
 						try {
 							pager = childService.findAllByProvinceId(referenceId, pageStart, pageSize);
@@ -293,7 +293,7 @@ public class ChildAction extends BaseAction {
 			if (isAdminOrMinistry()) {
 				pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
 			} else if (isOfficer()) {
-				if (isProvincialCommissioner()) {
+				if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 					pager = childService.searchByProvince(name, code, lamaNivasaId, referenceId, pageStart, pageSize);
 				} else {
 
@@ -315,7 +315,7 @@ public class ChildAction extends BaseAction {
 				if (isAdminOrMinistry()) {
 					pager = childService.search(name, code, lamaNivasaId, pageStart, pageSize);
 				} else if (isOfficer()) {
-					if (isProvincialCommissioner()) {
+					if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 						pager = childService.searchByProvince(name, code, lamaNivasaId, referenceId, pageStart,
 								pageSize);
 					} else {
@@ -445,7 +445,7 @@ public class ChildAction extends BaseAction {
 		if (isAdminOrMinistry()) {
 			lamaNivasaList = lamaNivasaService.findAll();
 		} else if (isOfficer()) {
-			if (isProvincialCommissioner()) {
+			if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 				lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
 			} else {
 				lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);

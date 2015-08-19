@@ -78,7 +78,7 @@ public class LamaNivasaAction extends BaseAction {
 				return INPUT;
 			} else {
 				if (isOfficer()) {
-					if (isProvincialCommissioner()) {
+					if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 						try {
 							list = lamaNivasaService.findByProvinceId(referenceId);
 							targetDiv = "lamaNivasaResultDiv";
@@ -121,7 +121,7 @@ public class LamaNivasaAction extends BaseAction {
 	}
 
 	public String deletedList() {
-		if (!(isAdminOrMinistry() || isProbationOfficerOfHeadquarter())) {
+		if (!(isAdminOrMinistry())) {
 
 			String referenceId = getSessionUser().getReferenceId();
 			if (referenceId == null) {
@@ -132,7 +132,7 @@ public class LamaNivasaAction extends BaseAction {
 					// if officer only own lama nivasa
 					try {
 
-						if (isProvincialCommissioner()) {
+						if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 
 							list = lamaNivasaService.findDeletedByProvinceId(referenceId);
 							targetDiv = "lamaNivasaResultDiv";
@@ -174,7 +174,7 @@ public class LamaNivasaAction extends BaseAction {
 			probationUnitList = probationUnitService.findAll();
 		}else if(isOfficer()){
 			String referenceId = getSessionUser().getReferenceId();
-			if(isProvincialCommissioner()){
+			if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
 				probationUnitList = probationUnitService.findByProvince(referenceId);
 			}else{
 				ProbationUnit probationUnit  = probationUnitService.findById(referenceId);
@@ -208,7 +208,7 @@ public class LamaNivasaAction extends BaseAction {
 		if(isAdminOrMinistry()){
 			list = lamaNivasaService.search(lamaNivasa);
 		}else if(isOfficer()){
-			if(isProvincialCommissioner()){
+			if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
 				list = lamaNivasaService.findByProvinceId(referenceId);
 			}else{
 				list = lamaNivasaService.findByReferenceId(referenceId);

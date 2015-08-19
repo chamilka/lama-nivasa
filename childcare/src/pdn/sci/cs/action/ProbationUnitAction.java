@@ -54,7 +54,7 @@ public class ProbationUnitAction extends BaseAction {
 			String referenceId = getSessionUser().getReferenceId();
 			
 			if (isOfficer()) {
-				if (isProvincialCommissioner()) {
+				if (isProvincialCommissionerORisProbationOfficerOfHeadquarter()) {
 					list = probationUnitService.findByProvince(referenceId);
 					return SUCCESS;
 				} else {
@@ -82,7 +82,7 @@ public class ProbationUnitAction extends BaseAction {
 		
 		if(isAdminOrMinistry()){
 			list = probationUnitService.search(probationUnit);
-		}else if(isProvincialCommissioner()){
+		}else if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
 			list = probationUnitService.search(probationUnit, referenceId);
 		}else{
 			if((probationUnit.getName()).equals("")){

@@ -60,7 +60,7 @@ public class MonthlyInformationAction extends BaseAction {
   public String detailForm() {
     yearList = gerGenericListService.findListByCategoryId("C050");
     monthList = gerGenericListService.findListByCategoryId("C060");
-    if(isProvincialCommissioner()){
+    if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
     	 districtList = districtService.findByProvinceID(getSessionUser().getReferenceId());
     }else{
     	districtList = districtService.findAll();
@@ -81,7 +81,7 @@ public class MonthlyInformationAction extends BaseAction {
     if (isAdminOrMinistry()) {
       lamaNivasaList = lamaNivasaService.findAllLamaNivasa();
     } else if(isOfficer()){
-    	if(isProvincialCommissioner()){
+    	if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
     		 lamaNivasaList = lamaNivasaService.findByProvinceId(referenceId);
     	}else{
     		lamaNivasaList = lamaNivasaService.findByReferenceId(referenceId);

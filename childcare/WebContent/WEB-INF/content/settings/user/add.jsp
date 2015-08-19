@@ -149,7 +149,7 @@
 	});
 
 	$("#postSelect").change(function() {
-		if (($(this).val() == "Provincial Officer") || ($(this).val() == "Provincial Commissioner")) {
+		if (($(this).val() == "Headquarters Probation Officer") || ($(this).val() == "Provincial Commissioner")) {
 			$("#otherOfficer").hide();
 			$("#otherOfficer").prop("disabled", true);
 			$("#provincialOfficer").show();

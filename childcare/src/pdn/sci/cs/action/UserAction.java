@@ -1,5 +1,6 @@
 package pdn.sci.cs.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.*;
 
@@ -243,7 +244,10 @@ public class UserAction extends BaseAction {
 
     probationUnitList = probationUnitService.findAll();
     // provinceList = genericListService.findListByCategoryId("C022");
-    provinceList = provinceService.findAll();
+    Province selectProvince = new Province("-101","Please select a province");
+    provinceList = new ArrayList<Province>();
+    provinceList.add(selectProvince);
+    provinceList.addAll(provinceService.findAll());
     if (addType.equalsIgnoreCase("User")) {
       postCategoryList = genericListService.findListByCategoryId("C018");
     } else if (addType.equalsIgnoreCase("Officer")) {
@@ -300,13 +304,18 @@ public class UserAction extends BaseAction {
       addFieldError("systemUser.name", "Name cannot be empty");
     }
 
-    if (!systemUser.getUserRole().equals(SystemUser.USER_ROLE.ADMIN.name())) {
-      if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty()
-          || systemUser.getReferenceId().trim().length() == 0) {
+    if (systemUser.getUserRole().equals(SystemUser.USER_ROLE.OFFICER.name())) {
+        if (systemUser.getReferenceId().equals("-101") || systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty() || systemUser.getReferenceId().trim().length() == 0) {
+          addFieldError("systemUser.referenceId", "Please select your work location");
+        }
+      }
+    
+    if (systemUser.getUserRole().equals(SystemUser.USER_ROLE.USER.name())) {
+      if (systemUser.getReferenceId() == null || systemUser.getReferenceId().isEmpty() || systemUser.getReferenceId().trim().length() == 0) {
         addFieldError("systemUser.referenceId", "Please select your work location");
       }
     }
-
+    
     if (operationMode != OPERATION_MODE.EDIT) {
       if (systemUserService.searchByUsername(systemUser.getUsername()) != null) {
         addFieldError("systemUser.username", "Username not available");
