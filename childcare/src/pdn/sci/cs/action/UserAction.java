@@ -126,7 +126,7 @@ public class UserAction extends BaseAction {
 		    	  systemUser.setUserPassword(PasswordEncryption.encrypt(tmp_pwd));	
 		    	  
 		    	  try {
-		    		  mailService.sendPasswordResetMail("axio.callcenter@gmail.com", "Use this Temporary Password for Login, after login Please Reset the Password. Temporary Password => " + tmp_pwd);
+		    		  mailService.sendPasswordResetMail(systemUser.getEmail(), "Use this Temporary Password for Login, after login Please Reset the Password. Temporary Password => " + tmp_pwd);
 		    		  	    		 
 		    	  } catch (Exception e) {				
 		    		  e.printStackTrace();
