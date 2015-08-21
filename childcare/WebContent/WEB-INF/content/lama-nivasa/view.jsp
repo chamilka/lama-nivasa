@@ -106,7 +106,7 @@
 						<s:param name="id" value="lamaNivasa.id"></s:param>
 					</s:url>
 
-					<s:if test="probationOfficer">
+					<s:if test="probationOfficer||user">
 						<sj:a href="%{lamaNivasaEditUrl}" targets="lamaNivasaResultDiv">
 							<input type="button" value="<s:text name='lamaNivasa.add.edit'/>" />
 						</sj:a>

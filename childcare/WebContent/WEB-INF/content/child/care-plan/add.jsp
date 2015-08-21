@@ -22,7 +22,7 @@
       showOn: "button",
       buttonImage: "/childcare/struts/js/calendar.gif",
       buttonText: "Select End date",
-      maxDate:"today",
+
       onClose: function( selectedDate ) {
         $( "#dateStart" ).datepicker( "option", "maxDate", selectedDate );
       }

@@ -21,7 +21,7 @@
 						name="page.picture.list.thumbnail" /></th>
 				<th><s:text name="page.picture.list.comment" /></th>
 				<th><s:text name="page.picture.list.file" /></th>
-				<s:if test="probationOfficer">
+				<s:if test="probationOfficer||user">
 					<th>&nbsp;</th>
 				</s:if>
 			</tr>
@@ -39,7 +39,7 @@
 						</sj:a></td>
 					<td><s:property value="comment" /></td>
 					<td><s:property value="fileName" /></td>
-					<s:if test="probationOfficer">
+					<s:if test="probationOfficer||user">
 						<td><s:url var="childPictureDeleteUrl" action="delete"
 								namespace="/childPicture" escapeAmp="false" includeParams="none">
 								<s:param name="id" value="id"></s:param>

@@ -349,17 +349,29 @@ public class ChildAction extends BaseAction {
 				addPopulate();
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty()) {
+				if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty() && !isProbationOfficer()) {
 					setAddSettings(child);
 					fieldsGenerators();
 					child.setStatus(UNCONFIRMED_STATE);
 					child = childService.save(child);
-				} else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty()) {
+				} 
+				else if (operationMode == OPERATION_MODE.ADD && child.getId().isEmpty() && isProbationOfficer()) {
+					setAddSettings(child);
+					fieldsGenerators();
+					child = childService.save(child);
+				} 
+				else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty() && !isProbationOfficer()) {
 					setUpdateSettings(child);
 					fieldsGenerators();
 					child.setStatus(UNCONFIRMED_STATE);
 					childService.update(child);
-				} else {
+				} 
+				else if (operationMode == OPERATION_MODE.EDIT && !child.getId().isEmpty() && isProbationOfficer()) {
+					setUpdateSettings(child);
+					fieldsGenerators();
+					childService.update(child);
+				} 
+				else {
 					addActionError("Error");
 					return INPUT;
 				}

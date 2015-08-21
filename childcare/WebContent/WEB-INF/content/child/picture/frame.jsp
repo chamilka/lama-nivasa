@@ -18,7 +18,7 @@
 		<sj:a href="%{#childPictureListUrl}" targets="childPictureResultDiv">
 			<s:text name="page.picture.frame.title" />
 		</sj:a>
-		<s:if test="probationOfficer">
+		<s:if test="probationOfficer||user">
 		 | 
 		<sj:a href="%{#childPictureAddUrl}" targets="childPictureResultDiv">
 				<s:text name="page.picture.frame.new.pic" />
