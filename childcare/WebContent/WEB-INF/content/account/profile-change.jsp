@@ -19,7 +19,7 @@
 	 <s:hidden name="systemUser.userRole" />
 	 <s:hidden name="systemUser.referenceId" />
 	 <s:hidden name="operationMode"/>
-	 <s:textfield name="systemUser.username"  label="%{getText('page.myaccount.profile-view.login.name')}" cssStyle="width:300px" readonly="true"></s:textfield>
+	 <s:textfield name="systemUser.username"  label="%{getText('page.myaccount.profile-view.login.name')}" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="systemUser.name"  label="%{getText('page.myaccount.profile-view.name')}" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="systemUser.email"  label="%{getText('page.myaccount.profile-view.email')}" cssStyle="width:300px" ></s:textfield>
 	 <s:textfield name="systemUser.mobile"  label="%{getText('page.myaccount.profile-view.mobile')}" cssStyle="width:200px" ></s:textfield>

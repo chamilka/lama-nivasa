@@ -117,21 +117,30 @@
 	<bean id="servletContext" class="org.springframework.web.context.support.ServletContextFactoryBean" />
 	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
-		<property name="username" value="axio.callcenter@gmail.com" />
-		<property name="password" value="axiocallcenter" />
-			
-		<property name="javaMailProperties">
-		   <props>
-	   	      <prop key="mail.smtp.auth">true</prop>
-		      <prop key="mail.smtp.starttls.enable">true</prop>
-	   		</props>
-		</property>
-	</bean>
-		
-	<bean id="mailMail" class="pdn.sci.cs.util.MailMail">
-		<property name="mailSender" ref="mailSender" />
-	</bean>
-
+        <property name="host" value="com.lankahost.net"/>
+        <property name="port" value="465"/>
+        <property name="username" value="childcare@doerit.com"/>
+        <property name="password" value="1qaz2wsx@"/>
+        <property name="javaMailProperties">
+            <props>
+                <!-- Use SMTP transport protocol -->
+                <prop key="mail.transport.protocol">smtp</prop>
+                <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.socketFactory.fallback">false</prop>
+                <!-- Use TLS to encrypt communication with SMTP server -->
+                <!--  prop key="mail.smtp.starttls.enable">true</prop -->
+                <!--  prop key="mail.debug">true</prop -->
+            </props>
+        </property>
+    </bean>
+    
+	<bean id="mailService" class="pdn.sci.cs.util.MailService">
+      <property name="mailSender" ref="mailSender"/>
+      <property name="senderEmail"><value>childcare@doerit.com</value></property>
+      <property name="emailSubject"><value>ChildCare Password Request</value></property>      
+   </bean>
+   
 </beans>
