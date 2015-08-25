@@ -195,12 +195,11 @@ public class UserAction extends BaseAction {
           systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
           systemUser = systemUserService.save(systemUser);
         } else if (operationMode == OPERATION_MODE.EDIT && !systemUser.getId().isEmpty()) {
-        	
-          if (systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty()) {
-            SystemUser existingUser = systemUserService.findById(systemUser.getId());
-            systemUser.setUserPassword(PasswordEncryption.encrypt(existingUser.getUserPassword())); // set password
+        	SystemUser existingUser = systemUserService.findById(systemUser.getId());
+          if (systemUser.getUserPassword() == null || systemUser.getUserPassword().isEmpty() || (existingUser.getUserPassword()).equals(systemUser.getUserPassword())) {
+            systemUser.setUserPassword(existingUser.getUserPassword()); // set password
           }else{
-        	  systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
+        	 systemUser.setUserPassword(PasswordEncryption.encrypt(systemUser.getUserPassword()));
           }
 
           setUpdateSettings(systemUser);

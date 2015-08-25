@@ -126,9 +126,12 @@
   </div>
 
   <div id="content" class="content">
-	  <sj:div href="%{#lamaNivasaFrameUrl}">
-	    
-	  </sj:div>
+  	<s:if test = "admin">
+  		<sj:div href="%{#settignsFrameUrl}"></sj:div>
+  	</s:if><s:else>
+  		<sj:div href="%{#lamaNivasaFrameUrl}"></sj:div>
+  	</s:else>
+	 
   </div>
   <div class="footer comicsans">
 	<div style="padding-left: 75px; margin-top: -30px;">Copyright <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %>. All Right Reserved. </div>
