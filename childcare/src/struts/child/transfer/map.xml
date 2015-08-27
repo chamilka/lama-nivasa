@@ -1,0 +1,46 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="childTransfer" namespace="/childTransfer" extends="web-default">
+	
+		<action name="list" class="pdn.sci.cs.action.ChildTransferAction" method="list">
+			<result name="success">/WEB-INF/content/child/transfer/list.jsp</result>
+		</action>
+		
+		<action name="frame" class="pdn.sci.cs.action.ChildTransferAction" method="frame">
+			<result name="success">/WEB-INF/content/child/transfer/frame.jsp</result>
+		</action>
+		
+		<action name="search-form" class="pdn.sci.cs.action.ChildGuardianAction" method="searchForm">
+			<result name="success">/WEB-INF/content/child/guardian/search.jsp</result>
+		</action>
+		
+		<action name="search" class="pdn.sci.cs.action.ChildGuardianAction" method="search">
+			<result name="success">/WEB-INF/content/child/guardian/list.jsp</result>
+		</action>
+		
+		<action name="add" class="pdn.sci.cs.action.ChildGuardianAction" method="add">
+			<result name="success">/WEB-INF/content/child/guardian/add.jsp</result>
+		</action>
+		
+		<action name="edit" class="pdn.sci.cs.action.ChildGuardianAction" method="edit">
+			<result name="success">/WEB-INF/content/child/guardian/add.jsp</result>
+		</action>
+		
+		<action name="view" class="pdn.sci.cs.action.ChildGuardianAction" method="view">
+			<result name="success">/WEB-INF/content/child/guardian/view.jsp</result>
+		</action>
+		
+		<action name="delete" class="pdn.sci.cs.action.ChildGuardianAction" method="delete">
+			<result name="success">/WEB-INF/content/child/list.jsp</result>
+		</action>
+		
+		<action name="save" class="pdn.sci.cs.action.ChildGuardianAction" method="save">
+			<result name="success">/WEB-INF/content/child/guardian/view.jsp</result>
+			<result name="input">/WEB-INF/content/child/guardian/add.jsp</result>
+		</action>
+
+	</package>
+</struts>

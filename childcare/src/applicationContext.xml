@@ -44,6 +44,7 @@
 				<value>pdn.sci.cs.entity.ChildGuardian</value>
 				<value>pdn.sci.cs.entity.ChildRecord</value>
 				<value>pdn.sci.cs.entity.ChildCareplan</value>
+				<value>pdn.sci.cs.entity.ChildTransfer</value>
 				<value>pdn.sci.cs.entity.Province</value>
 				<value>pdn.sci.cs.entity.District</value>
 				<value>pdn.sci.cs.entity.DivisionalSecretariat</value>

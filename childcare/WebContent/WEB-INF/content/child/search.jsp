@@ -63,20 +63,19 @@
 				namespace="/report" includeParams="none"></s:url>			
 				
      		
-			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.view.active"/></sj:a>  |
-			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv"><s:text name="page.search.view.inactive"/></sj:a>
+			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.view.active"/></sj:a> |
+			<sj:a href="%{#childDeletedListUrl}" targets="childResultDiv"><s:text name="page.search.view.inactive"/></sj:a> |
 			<s:if test="probationOfficer || user">
-					<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a>
+					<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a> |
 			</s:if>
 			<s:if test="!user">
-				 |
-				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv"><s:text name="page.search.brief"/></sj:a>
+				<sj:a href="%{#childSummaryUrl}" targets="childResultDiv"><s:text name="page.search.brief"/></sj:a> |
 				
 				<s:if test="ministry || provincialCommissioner">
-					| <sj:a href="%{#childDetailUrl}" targets="childResultDiv"><s:text name="page.search.detail"/></sj:a>
+					<sj:a href="%{#childDetailUrl}" targets="childResultDiv"><s:text name="page.search.detail"/></sj:a> |
 				</s:if>
 				<s:if test="probationOfficer">
-					| <sj:a href="%{#childUnconfirmedListUrl}" targets="childResultDiv"><s:text name="page.search.unconfirmed"/></sj:a>
+					<sj:a href="%{#childUnconfirmedListUrl}" targets="childResultDiv"><s:text name="page.search.unconfirmed"/></sj:a> |
 				</s:if>
 			</s:if>
 		</td>
@@ -110,7 +109,7 @@
 			<s:url var="childListUrl" action="list"
 				namespace="/child" includeParams="none"></s:url>
 
-     		<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a>  |
+     		<sj:a href="%{#childAddUrl}" targets="childResultDiv"><s:text name="page.search.add"/></sj:a> |
 			<sj:a href="%{#childListUrl}" targets="childResultDiv"><s:text name="page.search.all"/></sj:a> |
 
 		</td>

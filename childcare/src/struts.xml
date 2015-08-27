@@ -89,6 +89,7 @@
     <include file="./struts/child/map.xml"/>
     <include file="./struts/child/picture/map.xml"/>
     <include file="./struts/child/guardian/map.xml"/>
+    <include file="./struts/child/transfer/map.xml"/>
     <include file="./struts/child/record/map.xml"/>
     <include file="./struts/child/care-plan/map.xml"/>
     <include file="./struts/police-station/map.xml"/>

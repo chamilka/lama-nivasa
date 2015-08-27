@@ -18,6 +18,15 @@
 			<th><s:text name="page.add.full.name" /></th>
 			<td colspan="5"><s:property value="child.fullName" /></td>
 		</tr>
+		
+		<tr>
+			<th><s:text name="page.add.category" /></th>
+			<td colspan="3"><s:property value="child.category" /></td>
+			<th><s:text name="page.add.availabitity.parents" /></th>
+			<td colspan="3"><s:property value="child.parentsAvailability" />
+			</td>
+		</tr>
+		
 		<tr>
 			<th><s:text name="page.search.code" /></th>
 			<td>
@@ -121,17 +130,30 @@
 				</s:url> <sj:a href="%{#childCareplanFrameUrl}" targets="childDetailViewDiv">
 					<input type="button" value="<s:text name="page.view.button.plan"/>" />
 				</sj:a></td>
-			<td colspan="3">&nbsp;</td>
+			<td colspan="3">
+				<s:if test="probationOfficer">
+					
+					<s:url var="childTrasferFrameUrl" action="frame" namespace="/childTransfer" includeParams="none">
+						<s:param name="id" value="%{child.id}"></s:param>
+					</s:url>
+					<sj:a href="%{childTrasferFrameUrl}" targets="childDetailViewDiv">
+						<input type="button"
+							value="<s:text name="page.view.button.transfer"/>" />
+					</sj:a>
+				</s:if>
+			
+			
+			</td>
 			<td><s:if test="probationOfficer || user">
-					<s:url var="childEditUrl" action="edit" namespace="/child"
+					 <s:url var="childEditUrl" action="edit" namespace="/child"
 						includeParams="none">
 						<s:param name="id" value="%{child.id}"></s:param>
 					</s:url>
 					<sj:a href="%{childEditUrl}" targets="childResultDiv">
 						<input type="button"
 							value="<s:text name="page.view.button.edit"/>" />
-					</sj:a>
-				 |
+					</sj:a> |
+			
 				 <s:if
 						test="child.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
 						<s:url var="childDeleteUrl" action="delete" namespace="/child"
