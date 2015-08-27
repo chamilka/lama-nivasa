@@ -5,19 +5,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.ChildTransfer;
+import pdn.sci.cs.entity.LamaNivasa;
+import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.ChildTransferService;
+import pdn.sci.cs.service.LamaNivasaService;
 
 @Scope(value = "prototype")
 public class ChildTransferAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Autowired private ChildTransferService childTransferService;
+	@Autowired 
+	private ChildTransferService childTransferService;
+	
+	@Autowired
+	private LamaNivasaService lamaNivasaService;
+	
+	@Autowired
+	private ChildService childService;
 
 	private String childId;
+	private Child child;
 	private ChildTransfer childTransfer;
 	private List<ChildTransfer> list;
+	private List<LamaNivasa> lamaNivasaList;
+	
 
 	
 	public String list() {
@@ -35,6 +49,7 @@ public class ChildTransferAction extends BaseAction {
 	}
 	
 	public String add() {
+		child = childService.findById(childId);
 		addMode();
 		addPopulate();
 		return SUCCESS;
@@ -58,7 +73,7 @@ public class ChildTransferAction extends BaseAction {
 	public String save() {
 		
 		if(childTransfer != null) {
-			validateChild();
+			validateChildTransfer();
 			if(hasErrors()) {
 				return INPUT;
 			} else {
@@ -112,13 +127,13 @@ public class ChildTransferAction extends BaseAction {
 	}
 	
 	private void addPopulate() {
-		
+		lamaNivasaList = lamaNivasaService.findAll();
 	}
 	
-	private void validateChild() {
-		//if(childTransfer.getName().isEmpty()) {
-		//	addFieldError("childGuardian.name", "Name cannot be empty");
-		//}
+	private void validateChildTransfer() {
+	/*	if(childTransfer.getToLamaNivasaId().getName().isEmpty()) {
+			addFieldError("childGuardian.name", "Name cannot be empty");
+		}*/
 	}
 
 	public String getChildId() {
@@ -145,5 +160,19 @@ public class ChildTransferAction extends BaseAction {
 		this.list = list;
 	}
 
-	
+	public List<LamaNivasa> getLamaNivasaList() {
+		return lamaNivasaList;
+	}
+
+	public void setLamaNivasaList(List<LamaNivasa> lamaNivasaList) {
+		this.lamaNivasaList = lamaNivasaList;
+	}
+
+	public Child getChild() {
+		return child;
+	}
+
+	public void setChild(Child child) {
+		this.child = child;
+	}
 }

@@ -134,7 +134,7 @@
 				<s:if test="probationOfficer">
 					
 					<s:url var="childTrasferFrameUrl" action="frame" namespace="/childTransfer" includeParams="none">
-						<s:param name="id" value="%{child.id}"></s:param>
+						<s:param name="childId" value="%{child.id}"></s:param>
 					</s:url>
 					<sj:a href="%{childTrasferFrameUrl}" targets="childDetailViewDiv">
 						<input type="button"

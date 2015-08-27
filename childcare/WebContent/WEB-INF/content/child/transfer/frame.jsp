@@ -10,19 +10,18 @@
 		<s:param name="childId" value="%{childId}"></s:param>
 	</s:url>
 
-	<s:url var="childGuardianAddUrl" action="add" namespace="/childGuardian" includeParams="none">
+	<s:url var="childTransferAddUrl" action="add" namespace="/childTransfer" includeParams="none">
 		<s:param name="childId" value="%{childId}"></s:param>
 	</s:url>
 
 	<div style="text-align: center">
-			<%-- <sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv">
-				<s:text name="page.guardian.frame.new.pic" />
-			</sj:a> --%>
+			<sj:a href="%{#childTransferAddUrl}" targets="childTransferResultDiv">
+				<s:text name="page.transfer.frame.new.transfer" />
+			</sj:a>
 	</div>
 
 	<div id="childTransferResultDiv">
 		<sj:div href="%{#childTransferListUrl}">
-
 		</sj:div>
 	</div>
 </div>

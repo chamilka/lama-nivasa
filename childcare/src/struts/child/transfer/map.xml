@@ -21,8 +21,8 @@
 			<result name="success">/WEB-INF/content/child/guardian/list.jsp</result>
 		</action>
 		
-		<action name="add" class="pdn.sci.cs.action.ChildGuardianAction" method="add">
-			<result name="success">/WEB-INF/content/child/guardian/add.jsp</result>
+		<action name="add" class="pdn.sci.cs.action.ChildTransferAction" method="add">
+			<result name="success">/WEB-INF/content/child/transfer/add.jsp</result>
 		</action>
 		
 		<action name="edit" class="pdn.sci.cs.action.ChildGuardianAction" method="edit">
@@ -33,13 +33,9 @@
 			<result name="success">/WEB-INF/content/child/guardian/view.jsp</result>
 		</action>
 		
-		<action name="delete" class="pdn.sci.cs.action.ChildGuardianAction" method="delete">
-			<result name="success">/WEB-INF/content/child/list.jsp</result>
-		</action>
-		
-		<action name="save" class="pdn.sci.cs.action.ChildGuardianAction" method="save">
-			<result name="success">/WEB-INF/content/child/guardian/view.jsp</result>
-			<result name="input">/WEB-INF/content/child/guardian/add.jsp</result>
+		<action name="save" class="pdn.sci.cs.action.ChildTransferAction" method="save">
+			<result name="success">/WEB-INF/content/child/transfer/frame.jsp</result>
+			<result name="input">/WEB-INF/content/child/transfer/add.jsp</result>
 		</action>
 
 	</package>

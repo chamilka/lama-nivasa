@@ -98,7 +98,7 @@ public class ChildTransfer extends BaseEntity implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_DATETIME")
+	@Column(name = "TRANSFER_DATE")
 	public Calendar getTransferDate() {
 		return transferDate;
 	}

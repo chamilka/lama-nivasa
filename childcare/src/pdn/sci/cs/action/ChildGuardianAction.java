@@ -21,6 +21,7 @@ public class ChildGuardianAction extends BaseAction {
 
 	
 	public String list() {
+		System.out.println(childId);
 		search();
 		return SUCCESS;
 	}
@@ -31,10 +32,12 @@ public class ChildGuardianAction extends BaseAction {
 	}
 	
 	public String frame() {
+		System.out.println(childId);
 		return SUCCESS;
 	}
 	
 	public String add() {
+		System.out.println(childId);
 		addMode();
 		addPopulate();
 		return SUCCESS;
