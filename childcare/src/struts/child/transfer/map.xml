@@ -13,28 +13,26 @@
 			<result name="success">/WEB-INF/content/child/transfer/frame.jsp</result>
 		</action>
 		
-		<action name="search-form" class="pdn.sci.cs.action.ChildGuardianAction" method="searchForm">
-			<result name="success">/WEB-INF/content/child/guardian/search.jsp</result>
+		<action name="unconfirmedlist" class="pdn.sci.cs.action.ChildTransferAction" method="unconfirmedList">
+			<result name="success">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
 		</action>
 		
-		<action name="search" class="pdn.sci.cs.action.ChildGuardianAction" method="search">
-			<result name="success">/WEB-INF/content/child/guardian/list.jsp</result>
+		<action name="confirm" class="pdn.sci.cs.action.ChildTransferAction" method="confirm">
+			<result name="success">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
+			<result name="input">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
+		</action>
+		
+		<action name="notConfirm" class="pdn.sci.cs.action.ChildTransferAction" method="notConfirm">
+			<result name="success">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
+			<result name="input">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
 		</action>
 		
 		<action name="add" class="pdn.sci.cs.action.ChildTransferAction" method="add">
 			<result name="success">/WEB-INF/content/child/transfer/add.jsp</result>
 		</action>
 		
-		<action name="edit" class="pdn.sci.cs.action.ChildGuardianAction" method="edit">
-			<result name="success">/WEB-INF/content/child/guardian/add.jsp</result>
-		</action>
-		
-		<action name="view" class="pdn.sci.cs.action.ChildGuardianAction" method="view">
-			<result name="success">/WEB-INF/content/child/guardian/view.jsp</result>
-		</action>
-		
 		<action name="save" class="pdn.sci.cs.action.ChildTransferAction" method="save">
-			<result name="success">/WEB-INF/content/child/transfer/frame.jsp</result>
+			<result name="success">/WEB-INF/content/child/transfer/list.jsp</result>
 			<result name="input">/WEB-INF/content/child/transfer/add.jsp</result>
 		</action>
 

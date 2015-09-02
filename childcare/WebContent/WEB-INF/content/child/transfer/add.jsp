@@ -21,7 +21,7 @@
 	<s:hidden name="childTransfer.child.id" value="%{childId}"/>
 	<s:hidden name="operationMode"/>
 	
-	  <s:textfield name="childTransfer.fromLamaNivasaId" label="%{getText('page.transfer.add.fromLamaNivasaId')}" value="%{child.lamaNivasa.Name}" readonly="true" cssStyle="width:350px" required="true" />
+	  <s:textfield name="childTransfer.fromLamaNivasaId.name" key="%{child.lamaNivasa.Name}" label="%{getText('page.transfer.add.fromLamaNivasaId')}" value="%{child.lamaNivasa.Name}" disabled="true" cssStyle="width:350px" required="true" />
 	  <sj:autocompleter
 			  		id="childTransfer.toLamaNivasaId.id"
 		     		name="childTransfer.toLamaNivasaId.id"
@@ -31,13 +31,9 @@
 		     		required="true"
 		     		cssStyle="width:350px"
      	/>
-     	<sjr:tinymce
-					name="childTransfer.reason"
-					label="%{getText('page.transfer.add.reason')}"
-					cssStyle="width:550px;height:100px"
-					toolbarButtonsRow2="undo,redo,|,forecolor,backcolor"
-
-				/>
+  			
+		<s:textarea name="childTransfer.reason" label="%{getText('page.transfer.add.reason')}" cssStyle="width:350px;height:80px"></s:textarea>
+	 
 	  <tr>
 	  <td>&nbsp;
 	  </td>

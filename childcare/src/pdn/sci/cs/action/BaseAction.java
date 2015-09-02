@@ -25,6 +25,10 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	public static final int ACTIVE_STATE = 0;
 	public static final int INACTIVE_STATE = 1;
 	public static final int UNCONFIRMED_STATE = -1;
+	
+	public static final int TRANSFER_CONFIRMED_STATE = 1;
+	public static final int TRANSFER_UNCONFIRMED_STATE = 0;
+	public static final int TRANSFER_NOT_ACCEPTED = -1;
 
 	protected Map<SessionKey, Object> session;
 	protected boolean loggedIn;
@@ -153,6 +157,7 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 
 	protected void setAddSettings(BaseEntity entity) {
 		setInserDatetTime(entity);
+		entity.setInsertUserId(getSessionUser().getId());
 	}
 
 	protected void setUpdateSettings(BaseEntity entity) {
@@ -191,6 +196,10 @@ public abstract class BaseAction extends ActionSupport implements SessionAware {
 	
 	public boolean isProbationOfficer() {
 		return getSessionUser().getPost().equals(SystemUser.POST.PROBATION_OFFICER.toString());
+	}
+	
+	public boolean isProbationOfficerInCharge() {
+		return getSessionUser().getPost().equals(SystemUser.POST.PROBATION_OFFICER_IN_CHARGE.toString());
 	}
 	
 	public boolean isProvincialCommissioner() {

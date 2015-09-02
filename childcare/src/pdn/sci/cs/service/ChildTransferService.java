@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pdn.sci.cs.dao.ChildTransferDao;
 import pdn.sci.cs.entity.ChildTransfer;
+import pdn.sci.cs.util.Pager;
 
 @Service
 public class ChildTransferService {
@@ -35,6 +36,14 @@ public class ChildTransferService {
 	
 	public List<ChildTransfer>  findByChildId(String childId) {
 		return childTransferDao.findByChildId(childId);
+	}
+
+	public Pager findAllUnconfirmedByProbationUnitId(String referenceId, Integer pageStart, Integer pageSize) {
+		return childTransferDao.findAllUnconfirmedByProbationUnitId(referenceId,pageStart,pageSize);
+	}
+
+	public int findActiveTransferByChildId(String id) {
+		 return childTransferDao.findActiveTransferByChildId(id);
 	}
 
 }

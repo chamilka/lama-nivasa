@@ -133,4 +133,5 @@ public class ChildTransfer extends BaseEntity implements java.io.Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
 }

@@ -5,7 +5,7 @@
 
 <div style="border: 2px dotted #ddd">
 
-	<s:label name="child.id" />
+	<s:hidden name="child.id" />
 	<s:url var="childTransferListUrl" action="list" namespace="/childTransfer" includeParams="none">
 		<s:param name="childId" value="%{childId}"></s:param>
 	</s:url>

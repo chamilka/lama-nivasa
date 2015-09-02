@@ -55,6 +55,9 @@
 			
 			<s:url var="childUnconfirmedListUrl" action="unconfirmedlist"
 				namespace="/child" includeParams="none"></s:url>
+				
+			<s:url var="childTransferUnconfirmedListUrl" action="unconfirmedlist"
+				namespace="/childTransfer" includeParams="none"></s:url>
 
 			<s:url var="childSummaryUrl" action="summary-frame"
 				namespace="/child" includeParams="none"></s:url>
@@ -77,6 +80,12 @@
 				<s:if test="probationOfficer">
 					<sj:a href="%{#childUnconfirmedListUrl}" targets="childResultDiv"><s:text name="page.search.unconfirmed"/></sj:a> |
 				</s:if>
+				
+				<s:if test="probationOfficerInCharge">
+					<sj:a href="%{#childTransferUnconfirmedListUrl}" targets="childResultDiv"><s:text name="page.search.transfer.unconfirmed"/></sj:a> |
+				</s:if>
+				
+				
 			</s:if>
 		</td>
 	  </table>
