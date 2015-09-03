@@ -46,4 +46,8 @@ public class ChildTransferService {
 		 return childTransferDao.findActiveTransferByChildId(id);
 	}
 
+	public ChildTransfer findByIdChildID(String childId) {
+		 return childTransferDao.findByIdChildID(childId);
+	}
+
 }

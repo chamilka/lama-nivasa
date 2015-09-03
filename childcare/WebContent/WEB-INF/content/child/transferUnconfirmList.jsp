@@ -24,7 +24,6 @@
 				<th><s:text name="page.transfer.list.from"/></th>
 				<th><s:text name="page.transfer.list.to"/></th>
 				<th><s:text name="page.transfer.list.reason"/></th>
-				<th></th>
 			</tr>
 			<s:iterator value="pager.list" status="rowIndex">
 				<tr>
@@ -41,20 +40,6 @@
 					<td style="text-wrap:normal;"><s:property value="fromLamaNivasaId.name" /></td>
 					<td style="text-wrap:normal;"><s:property value="toLamaNivasaId.name" /></td>
 					<td style="text-wrap:normal;"><s:property value="reason" /></td>
-					<td>
-						<s:url var="childTransferConfirmUrl" action="confirm" namespace="/childTransfer" escapeAmp="false" includeParams="none">
-							<s:param name="id" value="id"></s:param>
-						</s:url>
-						<sj:a href="%{childTransferConfirmUrl}" targets="childResultDiv" onClickTopics="/confirmConfirmation">
-							<input type="button" value="<s:text name="page.view.button.transfer.confirm"/>" />
-						</sj:a>
-						<s:url var="childTransferNotConfirmUrl" action="notConfirm" namespace="/childTransfer" escapeAmp="false" includeParams="none">
-							<s:param name="id" value="id"></s:param>
-						</s:url>
-						<sj:a href="%{childTransferNotConfirmUrl}" targets="childResultDiv" onClickTopics="/confirmConfirmation">
-							<input type="button" value="<s:text name="page.view.button.transfer.not.confirm"/>" />
-						</sj:a>
-					</td>
 				</tr>
 			</s:iterator>
 		</table>

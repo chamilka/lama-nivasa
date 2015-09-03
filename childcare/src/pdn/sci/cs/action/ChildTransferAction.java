@@ -3,6 +3,7 @@ package pdn.sci.cs.action;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.swing.text.AsyncBoxView.ChildState;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -10,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.ChildTransfer;
 import pdn.sci.cs.entity.LamaNivasa;
-import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.ChildService;
 import pdn.sci.cs.service.ChildTransferService;
 import pdn.sci.cs.service.LamaNivasaService;
@@ -35,7 +35,6 @@ public class ChildTransferAction extends BaseAction {
 	private LamaNivasa lamaNivasa;
 	private List<ChildTransfer> list;
 	private List<LamaNivasa> lamaNivasaList;
-	private SystemUser transferOfficer;
 	
 	public String list() {
 		search();
@@ -70,7 +69,10 @@ public class ChildTransferAction extends BaseAction {
 	
 	public String edit() {
 		editMode();
-		return view();
+		view();
+		child = childService.findById(childId);
+		addPopulate();
+		return SUCCESS;
 	}
 	
 	public String save() {
@@ -91,11 +93,17 @@ public class ChildTransferAction extends BaseAction {
 					childTransfer.setFromLamaNivasaId(child.getLamaNivasa());
 					setAddSettings(childTransfer);
 					childTransfer = childTransferService.save(childTransfer);
+					childId = child.getId();
+					list();
 					}
 					
 				} else if (operationMode == OPERATION_MODE.EDIT && !childTransfer.getId().isEmpty() ) {
+					child = childService.findById(childTransfer.getChild().getId());
+					childTransfer.setFromLamaNivasaId(child.getLamaNivasa());
 					setUpdateSettings(childTransfer);
 					childTransferService.update(childTransfer);
+					childId = child.getId();
+					list();
 				} else {
 					addActionError("Error");
 					return INPUT;
@@ -138,6 +146,38 @@ public class ChildTransferAction extends BaseAction {
 	}
 	
 	public String confirm(){
+		if (childId == null || childId.isEmpty()) {
+			addActionError("Invalid Access");
+			return INPUT;
+		} else {
+			editMode();
+			childTransfer = childTransferService.findByIdChildID(childId);
+			if (childTransfer != null && childTransfer.getStatus() == TRANSFER_UNCONFIRMED_STATE) {
+				 if (operationMode == OPERATION_MODE.EDIT) {
+					 	setChild(childTransfer.getChild());
+						child.setLamaNivasa(childTransfer.getToLamaNivasaId());
+						childTransfer.setStatus(TRANSFER_CONFIRMED_STATE);
+						childTransfer.setTransferDate(Calendar.getInstance());
+						
+						setUpdateSettings(child);
+						setUpdateSettings(childTransfer);
+						childService.update(child);
+						childTransferService.update(childTransfer);
+						
+						unconfirmedList();
+						return SUCCESS;
+				 }else{
+					 return INPUT;
+				 }
+			}
+			else{
+				addActionError("That Transfer is confirmed or rejected by another.");
+				return INPUT;
+			}
+		}
+		
+	}
+	/*public String confirm(){
 		if (id == null || id.isEmpty()) {
 			addActionError("Invalid Access");
 			return INPUT;
@@ -168,7 +208,7 @@ public class ChildTransferAction extends BaseAction {
 			}
 		}
 		
-	}
+	}*/
 	
 	public String notConfirm(){
 		if (id == null || id.isEmpty()) {
@@ -176,7 +216,7 @@ public class ChildTransferAction extends BaseAction {
 			return INPUT;
 		} else {
 			editMode();
-			childTransfer = childTransferService.findById(id);
+			childTransfer = childTransferService.findByIdChildID(childId);
 			if (childTransfer != null && childTransfer.getStatus() == TRANSFER_UNCONFIRMED_STATE) {
 				 if (operationMode == OPERATION_MODE.EDIT) {
 						childTransfer.setStatus(TRANSFER_NOT_ACCEPTED);
@@ -219,8 +259,11 @@ public class ChildTransferAction extends BaseAction {
 			addActionError("Could not delete the entry, id is missing");
 			return INPUT;
 		} else {
+			childTransfer = childTransferService.findById(id);
+			childId = childTransfer.getChild().getId();
 			childTransferService.delete(id);
-			return list();
+			list();
+			return SUCCESS;
 		}
 		
 	}

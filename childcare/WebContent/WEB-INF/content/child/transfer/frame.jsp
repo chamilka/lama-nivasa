@@ -15,9 +15,17 @@
 	</s:url>
 
 	<div style="text-align: center">
+	
+	
+	<sj:a href="%{#childTransferListUrl}" targets="childTransferResultDiv">
+			<s:text name="page.transfer.frame.list.transfer" />
+		</sj:a>
+		<s:if test="probationOfficer">
+		 | 
 			<sj:a href="%{#childTransferAddUrl}" targets="childTransferResultDiv">
 				<s:text name="page.transfer.frame.new.transfer" />
 			</sj:a>
+		</s:if>
 	</div>
 
 	<div id="childTransferResultDiv">

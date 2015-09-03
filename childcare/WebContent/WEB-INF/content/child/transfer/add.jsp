@@ -42,17 +42,6 @@
 	  		<sj:submit value="%{getText('page.transfer.request.submit')}" targets="childTransferResultDiv" />
 	  	 </table>
 	   </td>
-	   <td>
-	    <%--
-	  	 <table>
-		  <s:if test="operationMode.name != ADD">
-				<s:url var="childGuardianViewUrl" action="view" namespace="/childGuardian" includeParams="none" >
-		  					<s:param name="id" value="%{childGuardian.id}"></s:param>
-		  			</s:url>
-				 	<sj:a href="%{#childGuardianViewUrl}" targets="childGuardianResultDiv"><input type="button" value="Cancel" /></sj:a>
-		   </s:if>
-	    </table> --%>
-	   </td>
 	</s:form>
 
 </div>

@@ -13,6 +13,14 @@
 			<result name="success">/WEB-INF/content/child/transfer/frame.jsp</result>
 		</action>
 		
+		<action name="view" class="pdn.sci.cs.action.ChildTransferAction" method="view">
+			<result name="success">/WEB-INF/content/child/transfer/view.jsp</result>
+		</action>
+		
+		<action name="edit" class="pdn.sci.cs.action.ChildTransferAction" method="edit">
+			<result name="success">/WEB-INF/content/child/transfer/add.jsp</result>
+		</action>
+		
 		<action name="unconfirmedlist" class="pdn.sci.cs.action.ChildTransferAction" method="unconfirmedList">
 			<result name="success">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
 		</action>
@@ -25,6 +33,11 @@
 		<action name="notConfirm" class="pdn.sci.cs.action.ChildTransferAction" method="notConfirm">
 			<result name="success">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
 			<result name="input">/WEB-INF/content/child/transferUnconfirmList.jsp</result>
+		</action>
+		
+		<action name="delete" class="pdn.sci.cs.action.ChildTransferAction" method="delete">
+			<result name="success">/WEB-INF/content/child/transfer/list.jsp</result>
+			<result name="success">/WEB-INF/content/child/transfer/list.jsp</result>
 		</action>
 		
 		<action name="add" class="pdn.sci.cs.action.ChildTransferAction" method="add">

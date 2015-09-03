@@ -8,8 +8,6 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import pdn.sci.cs.entity.Child;
-import pdn.sci.cs.entity.ChildGuardian;
 import pdn.sci.cs.entity.ChildPicture;
 import pdn.sci.cs.entity.ChildTransfer;
 import pdn.sci.cs.util.Pager;
@@ -76,6 +74,15 @@ public class ChildTransferDao extends GenericDao<ChildTransfer> {
 		 
 		 int listCount = ((Long) queryCount.uniqueResult()).intValue();
 		return listCount;
+	}
+
+	public ChildTransfer findByIdChildID(String childId) {
+		Query query =
+		        getSession()
+		            .createQuery(
+		                "select ct from ChildTransfer ct where ct.child.id = :pid and ct.status=0");
+		query.setParameter("pid", childId);
+		return (ChildTransfer) query.uniqueResult();
 	}
 
 }

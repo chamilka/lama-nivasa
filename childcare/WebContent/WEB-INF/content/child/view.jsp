@@ -131,7 +131,7 @@
 					<input type="button" value="<s:text name="page.view.button.plan"/>" />
 				</sj:a></td>
 			<td colspan="3">
-				<s:if test="probationOfficer">
+				<s:if test="probationOfficer || probationOfficerInCharge">
 					
 					<s:url var="childTrasferFrameUrl" action="frame" namespace="/childTransfer" includeParams="none">
 						<s:param name="childId" value="%{child.id}"></s:param>
@@ -140,6 +140,20 @@
 						<input type="button"
 							value="<s:text name="page.view.button.transfer"/>" />
 					</sj:a>
+				</s:if>
+				<s:if test="probationOfficerInCharge">
+						<s:url var="childTransferConfirmUrl" action="confirm" namespace="/childTransfer" escapeAmp="false" includeParams="none">
+							<s:param name="childId" value="%{child.id}"></s:param>
+						</s:url>
+						<sj:a href="%{childTransferConfirmUrl}" targets="childResultDiv" onClickTopics="/confirmConfirmation">
+							<input type="button" value="<s:text name="page.view.button.transfer.confirm"/>" />
+						</sj:a>
+						<s:url var="childTransferNotConfirmUrl" action="notConfirm" namespace="/childTransfer" escapeAmp="false" includeParams="none">
+							<s:param name="childId" value="%{child.id}"></s:param>
+						</s:url>
+						<sj:a href="%{childTransferNotConfirmUrl}" targets="childResultDiv" onClickTopics="/confirmConfirmation">
+							<input type="button" value="<s:text name="page.view.button.transfer.not.confirm"/>" />
+						</sj:a>
 				</s:if>
 			
 			
