@@ -460,7 +460,7 @@
 	    </tr> 			
 	    <tr>
 	     <td>
-	       <b><s:text name=""/>page.view.visits</b>
+	       <b><s:text name="page.view.visits"/></b>
 	     </td>
 	    </tr>
 	    

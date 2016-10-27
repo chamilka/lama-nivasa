@@ -20,7 +20,7 @@
 		<sj:a href="%{#childRecordListUrl}" targets="childRecordResultDiv">
 			<s:text name="page.record" />
 		</sj:a>
-		<s:if test="probationOfficer"> |
+		<s:if test="probationOfficer||user"> |
 		<sj:a href="%{#childRecordAddUrl}" targets="childRecordResultDiv">
 				<s:text name="page.record.add" />
 			</sj:a>
