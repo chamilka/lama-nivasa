@@ -20,7 +20,7 @@
 	<sj:a href="%{#childTransferListUrl}" targets="childTransferResultDiv">
 			<s:text name="page.transfer.frame.list.transfer" />
 		</sj:a>
-		<s:if test="probationOfficer">
+		<s:if test="probationOfficer||user">
 		 | 
 			<sj:a href="%{#childTransferAddUrl}" targets="childTransferResultDiv">
 				<s:text name="page.transfer.frame.new.transfer" />

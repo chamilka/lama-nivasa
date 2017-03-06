@@ -20,7 +20,7 @@
 		<sj:a href="%{#childGuardianListUrl}" targets="childGuardianResultDiv">
 			<s:text name="page.guardian.frame.title" />
 		</sj:a>
-		<s:if test="probationOfficer">
+		<s:if test="probationOfficer||user">
 		 | 
 		<sj:a href="%{#childGuardianAddUrl}" targets="childGuardianResultDiv">
 				<s:text name="page.guardian.frame.new.pic" />
