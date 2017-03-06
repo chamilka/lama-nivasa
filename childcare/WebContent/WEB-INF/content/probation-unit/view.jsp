@@ -55,7 +55,7 @@
 			 		<s:param name="id" value="%{probationUnit.id}"><s:property value="id"/></s:param>
 			 	</s:url>
 
-					<s:if test="probationOfficer">
+					<s:if test="probationOfficer || Admin">
 						<sj:a href="%{probationUnitEditUrl}" targets="probationUnitResultDiv">
 							<input type="button" value="<s:text name="page.probationunit.view.editbutton"/>" />
 						</sj:a>

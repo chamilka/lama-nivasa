@@ -106,22 +106,21 @@ public class ProbationUnitAction extends BaseAction {
 		return view();
 	}
 
-	public String save() {
+	public String save() throws Exception {
 
 		if (probationUnit != null) {
 			validateProbationUnit();
 			if (hasErrors()) {
 				return INPUT;
 			} else {
-				if (operationMode == OPERATION_MODE.ADD
-						&& probationUnit.getId().isEmpty()) {
+				try{
+				if (operationMode == OPERATION_MODE.ADD && probationUnit.getId().isEmpty()) {
 					setAddSettings(probationUnit);
 					addPoliceStations();
 					fieldsGenerators();
 					probationUnit = probationUnitService.save(probationUnit);
-				} else if (operationMode == OPERATION_MODE.EDIT
-						&& !probationUnit.getId().isEmpty()) {
-					setUpdateSettings(probationUnit);
+				} else if (operationMode == OPERATION_MODE.EDIT && !probationUnit.getId().isEmpty()) {
+					//setUpdateSettings(probationUnit);
 					addPoliceStations();
 					fieldsGenerators();
 					probationUnitService.update(probationUnit);
@@ -129,17 +128,23 @@ public class ProbationUnitAction extends BaseAction {
 					addActionError("Error");
 					return INPUT;
 				}
-
+			
+		} catch (NullPointerException e) {
+            e.printStackTrace();
+            addActionError("Profile was not updated, pleace try again");
+            return INPUT;}
 			}
-		} else {
+		}
+			else {
+		
 			addActionError("Invalid Access");
 			return INPUT;
 		}
-
+			
 		this.id = probationUnit.getId();
 		return view();
 	}
-
+			
 	private void fieldsGenerators() {
 		/*probationUnit.setDistrict(districtService.findById(probationUnit
 				.getDistrict().getId()));*/
@@ -173,14 +178,17 @@ public class ProbationUnitAction extends BaseAction {
 
 			referenceId = id;
 			probationOfficerList();
-
+			try{
 			if (operationMode == OPERATION_MODE.EDIT) {
 				selectedPoliceStations = new ArrayList<String>();
-
-				for (PoliceStation ps : probationUnit.getPoliceStations()) {
-					selectedPoliceStations.add(ps.getId());
+				if(probationUnit.getPoliceStations() != null){
+					for (PoliceStation ps : probationUnit.getPoliceStations()) {
+						selectedPoliceStations.add(ps.getId());
+					}
 				}
 				districtId = probationUnit.getDistrict().getId();
+			}	}catch (NullPointerException e) {
+				e.printStackTrace();
 			}
 		}
 		return SUCCESS;
@@ -191,7 +199,11 @@ public class ProbationUnitAction extends BaseAction {
 			addActionError("Could not delete the entry, id is missing");
 			return INPUT;
 		} else {
+			try{
 			probationUnitService.delete(id);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			return list();
 		}
 
