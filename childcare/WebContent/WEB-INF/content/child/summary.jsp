@@ -172,7 +172,7 @@
 						</table>
 					</td>
 				</tr>
-
+				 
 				<tr>
 					<td colspan="2"><b><s:text name="page.summary.christian"/> (<s:property
 								value="childSummary.christianity.male + childSummary.christianity.female" />
@@ -190,7 +190,7 @@
 							<s:label name="childSummary.christianity.female" label="%{getText('page.summary.female')}" />
 						</table>
 					</td>
-				</tr>
+				</tr> 
 
 				<tr>
 					<td colspan="2"><b><s:text name="page.summary.hindu"/> (<s:property
