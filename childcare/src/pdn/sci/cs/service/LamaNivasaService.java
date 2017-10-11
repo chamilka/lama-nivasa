@@ -12,7 +12,8 @@ import pdn.sci.cs.util.Pager;
 @Service
 public class LamaNivasaService {
 
-	@Autowired private LamaNivasaDao lamaNivasaDao;
+	@Autowired
+	private LamaNivasaDao lamaNivasaDao;
 
 	public List<LamaNivasa> findAll() {
 		return lamaNivasaDao.findAll();
@@ -46,25 +47,25 @@ public class LamaNivasaService {
 		return lamaNivasaDao.findByReferenceId(referenceId);
 	}
 
-	   public Pager findAllDeleted(Integer pageStart, Integer pageSize) {      
-	        return lamaNivasaDao.findAllDeleted(pageStart, pageSize);
-	    }
+	public Pager findAllDeleted(Integer pageStart, Integer pageSize) {
+		return lamaNivasaDao.findAllDeleted(pageStart, pageSize);
+	}
 
-  public List<LamaNivasa> findByProvinceId(String province) {
-    return lamaNivasaDao.findByProvinceId(province);
-  }
+	public List<LamaNivasa> findByProvinceId(String province) {
+		return lamaNivasaDao.findByProvinceId(province);
+	}
 
-  	public List<LamaNivasa> findDeletedByProvinceId(String province) {
-	
+	public List<LamaNivasa> findDeletedByProvinceId(String province) {
+
 		return lamaNivasaDao.findDeletedByProvinceId(province);
 	}
 
-    public List<LamaNivasa> findDeletedByProbationUnitID(String probationUnitID) {
-      return lamaNivasaDao.findDeletedByProbationUnitID(probationUnitID);
-    }
+	public List<LamaNivasa> findDeletedByProbationUnitID(String probationUnitID) {
+		return lamaNivasaDao.findDeletedByProbationUnitID(probationUnitID);
+	}
 
-    public List<LamaNivasa> findAllLamaNivasa() {
-      return lamaNivasaDao.findAllLamaNivasa();
-    }
+	public List<LamaNivasa> findAllLamaNivasa() {
+		return lamaNivasaDao.findAllLamaNivasa();
+	}
 
 }

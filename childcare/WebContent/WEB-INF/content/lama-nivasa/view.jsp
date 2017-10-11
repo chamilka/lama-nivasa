@@ -132,6 +132,15 @@
 								onClickTopics="/confirmRestore">
 								<input type="button" value="<s:text name = "lamanivasa.restore.button"/>" />
 							</sj:a>
+							|
+							<s:url var="lamaNivasaPermonentDeleteUrl" action="dbdelete"
+								namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
+								<s:param name="id" value="lamaNivasa.id"></s:param>
+							</s:url>
+							<sj:a href="%{lamaNivasaPermonentDeleteUrl}" targets="lamaNivasaResultDiv"
+								onClickTopics="/confirmDelete">
+								Delete Forever
+							</sj:a>
 						</s:else>
 					</s:if>
 				</table>

@@ -288,6 +288,21 @@ public class LamaNivasaAction extends BaseAction {
 			return list();
 		}
 	}
+	
+	public String deletePermonent() {
+		if (this.id.isEmpty()) {
+			addActionError("Could not delete the entry, id is missing");
+			return INPUT;
+		} else {
+			lamaNivasa = lamaNivasaService.findById(this.id);
+			System.out.println(lamaNivasa.getId());
+			if (lamaNivasa != null) {
+				lamaNivasaService.delete(this.id);
+				System.out.println("deleted");
+			}
+			return list();
+		}
+	}
 
 	public String restore() {
 		if (this.id.isEmpty()) {
