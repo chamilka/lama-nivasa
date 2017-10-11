@@ -112,7 +112,7 @@
 						</sj:a>
 					</s:if>
 
-					<s:if test="admin"> |
+					<s:if test="admin || probationOfficer || provincialCommissionerORisProbationOfficerOfHeadquarter"> |
  						<s:if test="lamaNivasa.status == @pdn.sci.cs.action.BaseAction@ACTIVE_STATE">
 						 	<s:url var="lamaNivasaDeleteUrl" action="delete"
 								namespace="/lamaNivasa" escapeAmp="false" includeParams="none">
