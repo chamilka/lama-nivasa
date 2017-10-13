@@ -109,7 +109,8 @@ public class UserAction extends BaseAction {
 	      try {
 			systemUser = systemUserService.searchByUsername(username);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
+			//e.printStackTrace();
 		}
 	      if (systemUser == null) {
 	        addActionError("Invalid username");
@@ -127,9 +128,11 @@ public class UserAction extends BaseAction {
 		    	  
 		    	  try {
 		    		  mailService.sendPasswordResetMail(systemUser.getEmail(), "Use this Temporary Password for Login, after login Please Reset the Password. Temporary Password => " + tmp_pwd);
-		    		  	    		 
+		    		  systemUserService.update(systemUser);
+		    		  addActionMessage("New password has been sent to your email address: "+systemUser.getEmail());
+		    		  
 		    	  } catch (Exception e) {				
-		    		  e.printStackTrace();
+		    		  System.err.println(e.getMessage());
 		    		  addActionError("Error In Mail Sending, Please Contact Your Administrator");
 		    		  return INPUT;
 		    	  }

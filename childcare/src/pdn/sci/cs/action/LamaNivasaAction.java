@@ -297,7 +297,13 @@ public class LamaNivasaAction extends BaseAction {
 		} else {
 			lamaNivasa = lamaNivasaService.findById(this.id);
 			if (lamaNivasa != null) {
+				try{
 				lamaNivasaService.delete(this.id);
+				}
+				catch (Exception e) {
+					addActionError("Could not delete the entry, please delete the associated child records before deleting this record");
+					return ERROR;
+				}
 			}
 			return list();
 		}

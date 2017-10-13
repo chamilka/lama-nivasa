@@ -15,7 +15,7 @@
 
 <hr />
 <div>
-
+	<s:actionerror/>
 	<table id="commonTable" class="blueTbl" width="100%">
 
 		<tr>

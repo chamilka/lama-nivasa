@@ -66,7 +66,7 @@
 		<div class="login_content">
 
 			<div align="center" style="padding-top: 220px;">
-
+				<div style="color:green"><s:actionmessage/></div>
 				<s:form action="signin" namespace="/user" method="post">
 					<table border="0" cellspacing="0" cellpadding="5" id="tbl_login"
 						align="center">
