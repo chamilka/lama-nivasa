@@ -185,7 +185,7 @@ public class UserAction extends BaseAction {
   }
 
   public String save() throws Exception {
-
+	  try {
     if (systemUser != null) {
       validateUser();
       if (hasErrors()) {
@@ -230,6 +230,9 @@ public class UserAction extends BaseAction {
       addActionError("Invalid Access");
       return INPUT;
     }
+	  }catch(Exception e) {
+		  e.printStackTrace();
+	  }
     return SUCCESS;
   }
 
