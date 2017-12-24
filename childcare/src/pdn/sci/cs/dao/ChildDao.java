@@ -133,6 +133,7 @@ public class ChildDao extends GenericDao<Child> {
 
     criteria = createCriteria(getPersistentClass());
     criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
 
     return criteria;
   }
@@ -153,6 +154,8 @@ public class ChildDao extends GenericDao<Child> {
     if (!province.equals("-1") && district != null) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
 
     return criteria;
   }
@@ -173,7 +176,8 @@ public class ChildDao extends GenericDao<Child> {
     if (!province.equals("-1") && district != null) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
     return criteria;
   }
 
@@ -209,6 +213,7 @@ public class ChildDao extends GenericDao<Child> {
 
     criteria = createCriteria(getPersistentClass());
     criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.FEMALE));
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
 
     return criteria;
   }
@@ -243,6 +248,8 @@ public class ChildDao extends GenericDao<Child> {
     if (province != null && !province.equals("-1")) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
 
     return criteria;
 
@@ -277,7 +284,8 @@ public class ChildDao extends GenericDao<Child> {
     if (district != null && !province.equals("-1")) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
     return criteria;
   }
 
@@ -288,7 +296,7 @@ public class ChildDao extends GenericDao<Child> {
     criteria = createCriteria(getPersistentClass());
     criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.FEMALE));
     criteria.add(Restrictions.between(key, startDate, endDate));
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
     return criteria;
   }
 
@@ -299,7 +307,7 @@ public class ChildDao extends GenericDao<Child> {
     criteria = createCriteria(getPersistentClass());
     criteria.add(Restrictions.eq(Child.SEX_TYPE, Child.MALE));
     criteria.add(Restrictions.between(key, startDate, endDate));
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
     return criteria;
   }
 
@@ -530,7 +538,8 @@ public class ChildDao extends GenericDao<Child> {
     if (province != null && !province.equals("-1")) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
     return criteria;
   }
 
@@ -553,7 +562,8 @@ public class ChildDao extends GenericDao<Child> {
     if (province != null && !province.equals("-1")) {
       criteria.add(Restrictions.eq("pr.id", province));
     }
-
+    criteria.add(Restrictions.eq(Child.STATUS, 0)); 
+    criteria.add(Restrictions.eq("l.status", 0));
     return criteria;
   }
 

@@ -68,4 +68,8 @@ public class LamaNivasaService {
 		return lamaNivasaDao.findAllLamaNivasa();
 	}
 
+	public List<LamaNivasa> search(LamaNivasa lamaNivasa, String provinceId, String districtId) {
+		return lamaNivasaDao.SearchWithProviceDistrict(lamaNivasa,provinceId,districtId);
+	}
+
 }

@@ -184,12 +184,13 @@ public class UserAction extends BaseAction {
     return SUCCESS;
   }
 
-  public String save() throws Exception {
+	public String save() throws Exception {
 	  try {
     if (systemUser != null) {
       validateUser();
       if (hasErrors()) {
         populateAddList();
+        addActionError("Failed to save user record");
         return INPUT;
       } else {
     	

@@ -1,5 +1,7 @@
 package pdn.sci.cs.dao;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,6 +10,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import pdn.sci.cs.entity.Child;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.util.Pager;
 
@@ -96,6 +99,35 @@ public class LamaNivasaDao extends GenericDao<LamaNivasa> {
                 "select ln from LamaNivasa ln where ln.status=0");
     List<LamaNivasa> list = query.list();
     return list;
+  }
+
+public List<LamaNivasa> SearchWithProviceDistrict(LamaNivasa lamaNivasa, String provinceId, String districtId) {
+
+	DetachedCriteria criteria = createCriteria(clazz);
+	criteria.createAlias("probationUnit", "p");
+    criteria.createAlias("p.district", "d");
+    criteria.createAlias("d.province", "pr");
+	
+    if (!lamaNivasa.getName().isEmpty()) {
+      criteria.add(Restrictions.like(LamaNivasa.NAME, "%" + lamaNivasa.getName() + "%"));
+    }
+
+    if (lamaNivasa.getProbationUnit() != null
+        && lamaNivasa.getProbationUnit().getId().trim().length() != 0) {
+      criteria.add(Restrictions.eq(LamaNivasa.PROBATION_UNIT_ID, lamaNivasa.getProbationUnit()
+          .getId()));
+    }
+    
+    if (districtId != null && !districtId.equals("-1")) {
+        criteria.add(Restrictions.eq("d.id", districtId));
+	  }
+	  if (provinceId != null && !provinceId.equals("-1")) {
+	    criteria.add(Restrictions.eq("pr.id", provinceId));
+	  }
+      
+    return findByCriteria(criteria);
+    
+    
   }
 
 

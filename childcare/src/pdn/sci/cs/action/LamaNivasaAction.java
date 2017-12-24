@@ -12,6 +12,7 @@ import pdn.sci.cs.entity.GenericList;
 import pdn.sci.cs.entity.GramaSevakaDivision;
 import pdn.sci.cs.entity.LamaNivasa;
 import pdn.sci.cs.entity.ProbationUnit;
+import pdn.sci.cs.entity.Province;
 import pdn.sci.cs.entity.SystemUser;
 import pdn.sci.cs.service.DistrictService;
 import pdn.sci.cs.service.DivisionalSecretariatService;
@@ -19,6 +20,7 @@ import pdn.sci.cs.service.GenericListService;
 import pdn.sci.cs.service.GramaSevakaDivsionService;
 import pdn.sci.cs.service.LamaNivasaService;
 import pdn.sci.cs.service.ProbationUnitService;
+import pdn.sci.cs.service.ProvinceService;
 import pdn.sci.cs.service.SystemUserService;
 import pdn.sci.cs.util.Pager;
 
@@ -47,8 +49,12 @@ public class LamaNivasaAction extends BaseAction {
 
 	@Autowired
 	private DistrictService districtService;
+	
+	@Autowired
+	private ProvinceService provinceService;
 
 	private List<District> districtList;
+	private List<Province> provinceList;
 	private List<DivisionalSecretariat> divisionalSecretariatList;
 	private List<GramaSevakaDivision> gramaSevakaDivisionList;
 	private List<GenericList> lamaNivasaTypeList;
@@ -66,6 +72,8 @@ public class LamaNivasaAction extends BaseAction {
 
 	private String districtId;
 	private String divisionalSecretariatId;
+	
+	private String provinceId;
 
 	public String list() {
 
@@ -172,10 +180,16 @@ public class LamaNivasaAction extends BaseAction {
 	public String searchForm() {
 		if(isAdminOrMinistry()){
 			probationUnitList = probationUnitService.findAll();
+			provinceId="-1";
+			provinceList = provinceService.findAll();
+			districtList = districtService.findAll();
 		}else if(isOfficer()){
 			String referenceId = getSessionUser().getReferenceId();
 			if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
 				probationUnitList = probationUnitService.findByProvince(referenceId);
+				provinceId=referenceId;
+				provinceList = provinceService.findByReferenceIdASaList(provinceId);
+				districtList = districtService.findByProvinceID(provinceId);
 			}else{
 				ProbationUnit probationUnit  = probationUnitService.findById(referenceId);
 				probationUnitList = new ArrayList<ProbationUnit>();
@@ -204,16 +218,7 @@ public class LamaNivasaAction extends BaseAction {
 	public String search() {
 		
 		String referenceId = getSessionUser().getReferenceId();
-		
-		if(isAdminOrMinistry()){
-			list = lamaNivasaService.search(lamaNivasa);
-		}else if(isOfficer()){
-			if(isProvincialCommissionerORisProbationOfficerOfHeadquarter()){
-				list = lamaNivasaService.findByProvinceId(referenceId);
-			}else{
-				list = lamaNivasaService.findByReferenceId(referenceId);
-			}
-		}
+		list = lamaNivasaService.search(lamaNivasa,provinceId,districtId);
 		targetDiv = "lamaNivasaResultDiv";
 		pager = new Pager(0, list.size(), list.size(), list);
 		setActionContext(pager);
@@ -518,5 +523,23 @@ public class LamaNivasaAction extends BaseAction {
 	public void setDivisionalSecretariatId(String divisionalSecretariatId) {
 		this.divisionalSecretariatId = divisionalSecretariatId;
 	}
+
+	public List<Province> getProvinceList() {
+		return provinceList;
+	}
+
+	public void setProvinceList(List<Province> provinceList) {
+		this.provinceList = provinceList;
+	}
+
+	public String getProvinceId() {
+		return provinceId;
+	}
+
+	public void setProvinceId(String provinceId) {
+		this.provinceId = provinceId;
+	}
+	
+	
 
 }

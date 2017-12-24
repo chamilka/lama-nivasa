@@ -7,7 +7,6 @@
 
 	<div class="sub-title"><s:text name="settings.user.add.user.title"/></div>
 	<br />
-
 	<s:form action="save" namespace="/user" method="post">
 		<table id="commonTable" class="greenTbl" width="100%">
 			<s:actionerror />

@@ -28,7 +28,6 @@
 		     	/>
 			</table>
      	</td>
-
      	<td style="width: 75px; text-align: left" >
 	   	  <table>
 	  		<sj:submit key="lamaNivasa.form.search.btn" targets="lamaNivasaResultDiv"/>
@@ -51,5 +50,28 @@
 			<sj:a href="%{#lamaNivasaListDeleteUrl}" targets="lamaNivasaResultDiv"><s:text name="lamaNivasa.form.inActiveHomes"/></sj:a>
 		</td>
      	</tr>
+     	<s:if test="!probationOfficer && !user">
+	     	<tr>
+	     	<td>
+		   	 	<table>
+		   	 		<s:if test="provincialCommissioner">
+		   	 			<s:hidden name="provinceId"/>
+		   	 			<s:select list="provinceList" key="lamaNivasa.form.search.province" listKey="id" listValue="name" name="provinceId" headerKey="-1" headerValue="All Provinces" disabled="true"/>
+		   	 		</s:if>
+		   	 		<s:else>
+		   	 			<s:select list="provinceList" key="lamaNivasa.form.search.province" listKey="id" listValue="name" name="provinceId" headerKey="-1" headerValue="All Provinces"/>
+		   	 		</s:else>
+		   	 	</table>	   
+	     	</td>
+	     	<td>
+		   	 	<table>
+		   	 		<s:select list="districtList" key="lamaNivasa.form.search.district" listKey="id" listValue="name" name="districtId" headerKey="-1" headerValue="All districts"/>
+		   	 	</table>	   
+	     	</td>
+	     	<td colspan="2">
+		   	 	&nbsp;	   
+	     	</td>
+	     	</tr>
+	     </s:if>
 	  </table>
 	</s:form>

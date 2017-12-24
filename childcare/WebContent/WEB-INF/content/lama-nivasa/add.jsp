@@ -45,7 +45,7 @@
 				<td colspan="5"><table>
 						<sj:datepicker id="dateOfEstablished"
 							name="lamaNivasa.dateOfEstablishment" changeMonth="true"
-							changeYear="true" yearRange="1972:"
+							changeYear="true" yearRange="1950:"
 							value="%{lamaNivasa.dateOfEstablishment.time}" />
 
 					</table></td>
@@ -225,7 +225,7 @@
 				<td><table>
 						<sj:datepicker id="registrationDate"
 							name="lamaNivasa.registrationDate" changeMonth="true"
-							changeYear="true" yearRange="1972:"
+							changeYear="true" yearRange="1950:"
 							value="%{lamaNivasa.registrationDate.time}" />
 					</table></td>
 			</tr>
