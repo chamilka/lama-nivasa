@@ -39,7 +39,8 @@ public class SystemUserService {
 	}
 
 	public void update(SystemUser systemUser) {
-		systemUserDao.update(systemUser);
+		//systemUserDao.update(systemUser);
+		systemUserDao.merge(systemUser);
 	}
 
 	public List<SystemUser> findAll() {
